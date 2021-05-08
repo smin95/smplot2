@@ -59,38 +59,20 @@
 #'
 #' @examples
 #'
-ses_corrline <- function(df1, df2, line_color = '#1262b3', line_size = 0.6, line_linetype = 'dashed',
-                         unity = TRUE, unity_slope = 'positive', unity_color = 'black', unity_size = 0.4,
-                         unity_type = 'dashed') {
+ses_corrline <- function(data, df1, df2, line_color = 'black',
+                         line_size = 0.6, line_linetype = 'dashed') {
 
-  res_lm <- lm(df2 ~ df1)
-  coefs <- coef(res_lm)
-
-  if (unity_slope == 'positive') {
-    unity_slope = 1
-  } else if (unity_slope == 'negative') {
-    unity_slope = -1
-  } else {
-    error('unity_slope argument has an error')
+  if (missing(data)) {
+    res_lm <- lm(df2 ~ df1)
+    coefs <- coef(res_lm)
+  } else if (!missing(data)) {
+    res_lm <- lm(df2 ~ df1, data = data)
+    coefs <- coef(res_lm)
   }
 
-  if (unity == TRUE) {
-    list(ggplot2::geom_abline(intercept = 0, slope = unity_slope,
-                              linetype = unity_type,
-                              size = unity_size,
-                              color = unity_color),
-         ggplot2::geom_abline(aes(slope = coefs[[2]],
-                                  intercept = coefs[[1]]),
-                              size = line_size,
-                              linetype = line_linetype,
-                              colour = line_color))
-
-  } else if (unity == FALSE) {
-
-    ggplot2::geom_abline(aes(slope = coefs[[2]],
-                             intercept = coefs[[1]]),
-                         size = line_size,
-                         linetype = line_linetype,
-                         colour = line_color)
-  }
+  ggplot2::geom_abline(aes(slope = coefs[[2]],
+                           intercept = coefs[[1]]),
+                       size = line_size,
+                       linetype = line_linetype,
+                       colour = line_color)
 }

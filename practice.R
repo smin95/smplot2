@@ -21,4 +21,7 @@ df <- data.frame(
   weight=round(c(rnorm(200, mean=55, sd=5), rnorm(200, mean=65, sd=5)))
 )
 ggplot(df, aes(x=weight)) + geom_histogram() +
-  ses_hist(borders = F)
+  ses_hist(borders = T)
+
+ggplot(mtcars, aes(x = drat, y = mpg)) +
+  geom_point() + ses_corr() + ses_corrtext()
