@@ -12,7 +12,7 @@
 
 ses_hist <- function(borders = TRUE) {
 
-  if (borders == TRUE) {
+  if (borders == FALSE) {
 
   ggplot2::theme_bw(base_size = 10, base_family = '') +
     cowplot::theme_minimal_hgrid() +
@@ -26,7 +26,7 @@ ses_hist <- function(borders = TRUE) {
       panel.grid.major =  ggplot2::element_line(size = 0.4),
     )
 
-  } else if (borders == FALSE) {
+  } else if (borders == TRUE) {
     ggplot2::theme_bw(base_size = 10, base_family = '') +
       ggplot2::theme(
 

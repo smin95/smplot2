@@ -1,8 +1,8 @@
-ggplot(data = mpg) +
+p1 <- ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
   ses_corr(legends = F, borders = F) + scale_color_manual(values=ses_color()) +
   ses_corrtext(mpg$displ, mpg$hwy, x = 6, y = 35) +
-  ses_corrline(mpg$displ,mpg$hwy)
+  ses_corrline(mpg$displ, mpg$hwy)
 
 save_plot("p1.jpg", p1,  base_asp = 1)
 
@@ -20,4 +20,5 @@ df <- data.frame(
   sex=factor(rep(c("F", "M"), each=200)),
   weight=round(c(rnorm(200, mean=55, sd=5), rnorm(200, mean=65, sd=5)))
 )
-ggplot(df, aes(x=weight)) + geom_histogram() + ses_hist()
+ggplot(df, aes(x=weight)) + geom_histogram() +
+  ses_hist(borders = F)
