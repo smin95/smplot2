@@ -2,7 +2,8 @@
 #'
 #' @description
 #'
-#' A graph with a horizontal grid and no border is plotted. This is useful for plotting a bar graph
+#' A graph with a horizontal grid and no border is plotted.
+#' This is useful for plotting a bar graph.
 #' For more information, please visit \url{https://www.ses21.com}.
 #'
 #' This is slightly different from ses_hist().
