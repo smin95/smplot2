@@ -24,6 +24,7 @@ ses_bar <- function() {
       axis.title.x =  ggplot2::element_text(size = rel(1), color = "black"),
       axis.text.x=element_text(vjust= 0)
     )
+
 }
 
 
