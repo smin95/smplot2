@@ -4,12 +4,14 @@
 \alias{ses_hist}
 \title{SES plot with a horizontal grid and without a border (useful for histogram)}
 \usage{
-ses_hist()
+ses_hist(borders = TRUE)
 }
 \arguments{
-\item{...}{No input is required.}
+\item{borders}{If the border needs to be displayed, the input should be TRUE.
+If the border is not needed, the input should be FALSE.}
 }
 \description{
-A graph with a horizontal grid and no border is plotted. This is useful for plotting a histogram.
+A graph with a horizontal grid is plotted. This is useful for plotting a histogram.
 For more information, please visit \url{https://www.ses21.com}.
+This function is slightly different from ses_bar().
 }

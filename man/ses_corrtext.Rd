@@ -2,7 +2,7 @@
 % Please edit documentation in R/ses_corrtext.R
 \name{ses_corrtext}
 \alias{ses_corrtext}
-\title{Annotation of results from a correlation test on ggplot2}
+\title{Annotation of results from a paired correlation test on ggplot2}
 \usage{
 ses_corrtext(
   df1,
@@ -20,7 +20,7 @@ ses_corrtext(
 \item{df1}{Numeric vectors of the first set of data (ex. group 1).}
 
 \item{df2}{Numeric vectors of the second set of data (ex. group 2).
-df1 and df2 must have the same length.}
+df1 and df2 must have the same length and paired.}
 
 \item{x}{Location of the text in the x-axis of the plot.}
 
@@ -49,7 +49,7 @@ r-value is the correlation coefficient. It does not depend on}
 }
 \description{
 This function pastes the texts of the results from a correlation test
-on ggplot2.
+on ggplot2. For more information, please visit \url{https://www.ses21.com}.
 }
 \examples{
 
