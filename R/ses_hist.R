@@ -1,4 +1,4 @@
-#' SES plot with a horizontal grid and without a border (useful for histogram)
+#' SES plot with a horizontal grid (useful for histogram)
 #'
 #' @description
 #'
