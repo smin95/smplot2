@@ -4,9 +4,9 @@ The goal of sesplot is to provide custom SES themes/colors for plotting data. He
 
 * 'ses_bar()': a SES custom theme that is useful for plotting bar graphs. It has no border.
 * 'ses_bar_border()': a SES custom theme that is useful for plotting bar graphs. It has a border and a horizontal grid.
-* 'ses_corr': a SES custom theme that is useful for plotting correlations.
-* 'ses_hist': a SES custom theme that is useful for plotting histograms. 
-* 'ses_color': a SES color palette with 16 different colors.
+* 'ses_corr()': a SES custom theme that is useful for plotting correlations.
+* 'ses_hist()': a SES custom theme that is useful for plotting histograms. 
+* 'ses_color()': a SES color palette with 16 different colors.
 
 ### Install
 ``` r
