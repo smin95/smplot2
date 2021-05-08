@@ -4,10 +4,11 @@
 \alias{ses_bar_border}
 \title{SES plot with a border (useful for bar plots)}
 \usage{
-ses_bar_border()
+ses_bar_border(legends = TRUE)
 }
 \arguments{
-\item{...}{No input is required.}
+\item{legends}{If the legend needs to be displayed, the input should be TRUE.
+If the legend is not needed, the input should be FALSE.}
 }
 \description{
 A graph with a border is plotted. It is aesthetically appropriate for bar graphs.

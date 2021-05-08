@@ -4,10 +4,11 @@
 \alias{ses_corr}
 \title{SES plot without a border (useful for correlation plots)}
 \usage{
-ses_corr()
+ses_corr(legends = TRUE)
 }
 \arguments{
-\item{...}{No input is required.}
+\item{legends}{If the legend needs to be displayed, the input should be TRUE.
+If the legend is not needed, the input should be FALSE.}
 }
 \description{
 A graph with no border is plotted. It has major vertical and horizontal grids. This is useful for plotting correlation.

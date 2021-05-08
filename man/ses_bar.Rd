@@ -4,13 +4,15 @@
 \alias{ses_bar}
 \title{SES plot with a horizontal grid and without a border (useful for bar graphs)}
 \usage{
-ses_bar()
+ses_bar(legends = TRUE)
 }
 \arguments{
-\item{...}{No input is required.}
+\item{legends}{If the legend needs to be displayed, the input should be TRUE.
+If the legend is not needed, the input should be FALSE.}
 }
 \description{
-A graph with a horizontal grid and no border is plotted. This is useful for plotting a bar graph
+A graph with a horizontal grid and no border is plotted.
+This is useful for plotting a bar graph.
 For more information, please visit \url{https://www.ses21.com}.
 
 This is slightly different from ses_hist().
