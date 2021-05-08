@@ -18,9 +18,9 @@ ses_hist <- function(borders = TRUE) {
     cowplot::theme_minimal_hgrid() +
     ggplot2::theme(
 
-      axis.text = ggplot2::element_text(size = rel(1.1), color = "black"),
-      axis.title.y =  ggplot2::element_text(size = rel(1.1), color = "black"),
-      axis.title.x =  ggplot2::element_text(size = rel(1.1), color = "black", vjust = -1),
+      axis.text = ggplot2::element_text(size = rel(0.85), color = "black"),
+      axis.title.y =  ggplot2::element_text(size = rel(0.85), color = "black"),
+      axis.title.x =  ggplot2::element_text(size = rel(0.85), color = "black", vjust = -1),
       axis.ticks =  ggplot2::element_blank(),
       axis.text.x=  ggplot2::element_text(vjust= 0),
       panel.grid.major =  ggplot2::element_line(size = 0.4),
