@@ -59,16 +59,8 @@
 #'
 #' @examples
 #'
-ses_corrline <- function(data, df1, df2, line_color = 'black',
+ses_corrline <- function(df1, df2, line_color = 'black',
                          line_size = 0.6, line_linetype = 'dashed') {
-
-  if (missing(data)) {
-    res_lm <- lm(df2 ~ df1)
-    coefs <- coef(res_lm)
-  } else if (!missing(data)) {
-    res_lm <- lm(df2 ~ df1, data = data)
-    coefs <- coef(res_lm)
-  }
 
   ggplot2::geom_abline(aes(slope = coefs[[2]],
                            intercept = coefs[[1]]),
