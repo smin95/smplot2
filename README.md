@@ -1,6 +1,6 @@
 # sesplot
 
-The goal of sesplot is to provide custom SES themes/colors for plotting data. Here are the SES functions:
+sesplot provides themes/colors for plotting. Here are the SES functions:
 
 * 'ses_bar()': a SES custom theme that is useful for plotting bar graphs. It has no border.
 * 'ses_bar_border()': a SES custom theme that is useful for plotting bar graphs. It has a border and a horizontal grid.
