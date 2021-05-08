@@ -2,13 +2,16 @@
 % Please edit documentation in R/ses_bar.R
 \name{ses_bar}
 \alias{ses_bar}
-\title{SES plot with a horizontal grid and without a border (useful for bar graphs)}
+\title{SES plot with a horizontal grid (a theme for bar graphs).}
 \usage{
-ses_bar(legends = TRUE)
+ses_bar(legends = TRUE, borders = TRUE)
 }
 \arguments{
 \item{legends}{If the legend needs to be displayed, the input should be TRUE.
 If the legend is not needed, the input should be FALSE.}
+
+\item{borders}{If the border needs to be displayed, the input should be TRUE.
+If the border is not needed, the input should be FALSE.}
 }
 \description{
 A graph with a horizontal grid and no border is plotted.

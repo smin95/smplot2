@@ -32,7 +32,7 @@ ses_color <- function(colorNum = 10) {
   if (colorNum == 2) {
     color <- c("#cc1489","#1262b3")
   } else if (colorNum == 3) {
-    color <- c("#cc1489","#1262b3","#0f993d")
+    color <- c("#cc1489","#0f993d","#1262b3")
   } else if (colorNum == 4) {
     color <- c("#cc1489", "#1262b3", "#5b4080", "#e57717")
   } else if (colorNum == 5) {

@@ -2,13 +2,16 @@
 % Please edit documentation in R/ses_corr.R
 \name{ses_corr}
 \alias{ses_corr}
-\title{SES plot without a border (useful for correlation plots)}
+\title{SES theme for correlation plots}
 \usage{
-ses_corr(legends = TRUE)
+ses_corr(legends = TRUE, borders = TRUE)
 }
 \arguments{
 \item{legends}{If the legend needs to be displayed, the input should be TRUE.
 If the legend is not needed, the input should be FALSE.}
+
+\item{borders}{If the border needs to be displayed, the input should be TRUE.
+If the border is not needed, the input should be FALSE.}
 }
 \description{
 A graph with no border is plotted. It has major vertical and horizontal grids. This is useful for plotting correlation.
