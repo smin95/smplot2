@@ -2,7 +2,7 @@
 % Please edit documentation in R/ses_hist.R
 \name{ses_hist}
 \alias{ses_hist}
-\title{SES plot with a horizontal grid and without a border (useful for histogram)}
+\title{SES plot with a horizontal grid (useful for histogram)}
 \usage{
 ses_hist(borders = TRUE)
 }

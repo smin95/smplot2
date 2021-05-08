@@ -5,9 +5,9 @@
 #' on ggplot2. For more information, please visit \url{https://www.ses21.com}.
 #'
 #' @param df1
-#' Numeric vectors of the first set of data (ex. group 1).
+#' Numeric vectors of data (ex. group 1).
 #' @param df2
-#' Numeric vectors of the second set of data (ex. group 2).
+#' Numeric vectors of data (ex. group 2).
 #' df1 and df2 must have the same length and paired.
 #' @param x
 #' Location of the text in the x-axis of the plot.

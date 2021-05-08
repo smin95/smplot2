@@ -17,9 +17,9 @@ ses_corrtext(
 )
 }
 \arguments{
-\item{df1}{Numeric vectors of the first set of data (ex. group 1).}
+\item{df1}{Numeric vectors of data (ex. group 1).}
 
-\item{df2}{Numeric vectors of the second set of data (ex. group 2).
+\item{df2}{Numeric vectors of data (ex. group 2).
 df1 and df2 must have the same length and paired.}
 
 \item{x}{Location of the text in the x-axis of the plot.}
