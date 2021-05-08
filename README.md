@@ -1,16 +1,3 @@
----
-output: github_document
----
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
-)
-```
-
 # sesplot
 
 The goal of sesplot is to provide custom SES themes/colors for plotting data. Here are the SES functions:
