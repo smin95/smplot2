@@ -30,6 +30,9 @@ ses_corr <- function(legends = TRUE, borders = TRUE) {
         plot.title =  ggplot2::element_text(hjust = 0.5),
         panel.grid.minor.x =  ggplot2::element_blank(),
         panel.grid.minor.y = ggplot2::element_blank(),
+        strip.background = element_rect(fill = NA, colour = NA),
+        strip.text.x = element_text(colour = "black", size = rel(.85)),
+        strip.text.y = element_text(colour = "black", size = rel(.85))
       )
     } else if (borders == TRUE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
@@ -42,6 +45,9 @@ ses_corr <- function(legends = TRUE, borders = TRUE) {
           plot.title =  ggplot2::element_text(hjust = 0.5),
           panel.grid.minor.x =  ggplot2::element_blank(),
           panel.grid.minor.y = ggplot2::element_blank(),
+          strip.background = element_rect(fill = NA, colour = NA),
+          strip.text.x = element_text(colour = "black", size = rel(1.2)),
+          strip.text.y = element_text(colour = "black", size = rel(1.2))
         )
     }
   } else if (legends == FALSE) {
@@ -57,6 +63,9 @@ ses_corr <- function(legends = TRUE, borders = TRUE) {
         plot.title =  ggplot2::element_text(hjust = 0.5),
         panel.grid.minor.x =  ggplot2::element_blank(),
         panel.grid.minor.y = ggplot2::element_blank(),
+        strip.background = element_rect(fill = NA, colour = NA),
+        strip.text.x = element_text(colour = "black", size = rel(.85)),
+        strip.text.y = element_text(colour = "black", size = rel(.85)),
         legend.position = 'none'
       )
     } else if (borders == TRUE) {
@@ -70,6 +79,9 @@ ses_corr <- function(legends = TRUE, borders = TRUE) {
           plot.title =  ggplot2::element_text(hjust = 0.5),
           panel.grid.minor.x =  ggplot2::element_blank(),
           panel.grid.minor.y = ggplot2::element_blank(),
+          strip.background = element_rect(fill = NA, colour = NA),
+          strip.text.x = element_text(colour = "black", size = rel(1.2)),
+          strip.text.y = element_text(colour = "black", size = rel(1.2)),
           legend.position = 'none'
         )
     }

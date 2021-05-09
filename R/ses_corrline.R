@@ -9,13 +9,19 @@
 #' It is recommended that the unity slope is plotted only when both
 #' axes are scaled to each other (ex. z-scores).
 #'
-#' @param df1
+#' @param x
 #' Numeric vectors of data (ex. group 1). This corresponds to data in the
 #' x-axis of the correlation plot.
 #'
-#' @param df2
+#' If the argument 'data' is also included, then x can be the column name
+#' of 'data'.
+#'
+#' @param y
 #' Numeric vectors of data (ex. group 2). This corresponds to data in the
 #' y-axis of the correlation plot.
+#'
+#' If the argument 'data' is also included, then y can be the column name
+#' of 'data'.
 #'
 #' @param line_color
 #' Color of the linear regression from the correlation.
@@ -30,37 +36,21 @@
 #' Line type of the linear regression from the correlation.
 #' The input should be a character string: 'solid', 'dashed', 'dotted',
 #' 'blank', 'dotdash', 'longdash', and 'twodash'.
-#'
-#' @param unity
-#'
-#' A reference line with a slope of 1 (unity line).
-#' If the unity line should be displayed, the input should be 'TRUE'.
-#' If it is not wanted, then the input should be 'FALSE'.
-#'
-#' @param unity_color
-#' Color of the unity line.
-#' The input should be a character string.
-#'
-#' @param unity_size
-#' Size of the unity line.
-#' It should be a number.
-#' @param unity_type
-#'
-#' Line type of the unity line.
-#' The input should be a character string: 'solid', 'dashed', 'dotted',
-#' 'blank', 'dotdash', 'longdash', and 'twodash'.
-#'
-#' @param unity_slope
-#' 'Positive' if the unity line has a slope of 1.
-#' 'Negative' if the unity line has a slope of -1.
-#'
 #' @return
 #' @export
 #'
 #' @examples
 #'
-ses_corrline <- function(df1, df2, line_color = 'black',
+ses_corrline <- function(x, y, data = data, line_color = 'black',
                          line_size = 0.6, line_linetype = 'dashed') {
+
+  if (!missing(data)) {
+    df1 <- data[[deparse(substitute(x))]]
+    df2 <- data[[deparse(substitute(y))]]
+  } else {
+    df1 <- x
+    df2 <- y
+  }
 
   res_lm <- lm(df2 ~ df1)
   coefs <- coef(res_lm)

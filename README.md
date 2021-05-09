@@ -53,7 +53,6 @@ p3 <- ggplot(data = mtcars, aes(x = drat, y = mpg)) +
              size = 3) 
 
 p4 <- p3 + ses_corr() 
-
 ```
 
 <img src="scatter.png" width="85%">
@@ -66,7 +65,6 @@ Now let's add the linear regression slope and report the p- and r- values from a
 p4.1 <- p4 + ses_corrtext(mtcars$drat, mtcars$mpg, 
 x=3.2, y=30, method = 'pearson') +
   ses_corrline(mtcars$drat, mtcars$mpg, line_color = '#0f993d', line_size = 1)
-
 ```
 
 <img src="scatter_annotated.png" width="45%">

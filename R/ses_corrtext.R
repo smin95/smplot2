@@ -4,15 +4,25 @@
 #' This function pastes the texts of the results from a correlation test
 #' on ggplot2. For more information, please visit \url{https://www.ses21.com}.
 #'
-#' @param df1
-#' Numeric vectors of data (ex. group 1).
-#' @param df2
-#' Numeric vectors of data (ex. group 2).
-#' df1 and df2 must have the same length and paired.
 #' @param x
-#' Location of the text in the x-axis of the plot.
+#' Data set of the x-axis in the correlation plot.
+#' If the argument 'data' is filled, then x can be the column name.
+#' Otherwise, it has to take a form of numerical vector.
+#'
 #' @param y
+#' Data set of the y-axis in the correlation plot.
+#' If the argument 'data' is filled, then y can be the column name.
+#' Otherwise, it has to take a form of numerical vector.
+#' x and y must have the same length.
+#'
+#' @param text_x
+#' Location of the text in the x-axis of the plot.
+#' @param text_y
 #' Location of the text in the y-axis of the plot.
+#'
+#' @param data
+#' Dataframe that contains x and y. This argument is optional.
+#'
 #' @param method
 #' Method of computing the correlation coefficient: 'pearson', 'kendall',
 #' or 'spearman'.
@@ -30,19 +40,30 @@
 #' @param text_color
 #' Color of the text in character string (ex. 'black').
 #' @param font
-#' Font size of the text
-#' @param size
 #' Font of the text in character string.
+#'
+#' @param size
+#'Font size of the text
+#'
 #' @return
 #' @export
 #'
 #' @examples
 #'
-ses_corrtext <- function(df1, df2, x, y, method = 'pearson', p = TRUE,
+ses_corrtext <- function(x, y, text_x, text_y, data = data, method = 'pearson', p = TRUE,
                          r = TRUE, text_color = 'black',
-                         font = '', size = 5) {
+                         font = '', size = 4) {
+
+  if (!missing(data)) {
+    df1 <- data[[deparse(substitute(x))]]
+    df2 <- data[[deparse(substitute(y))]]
+  } else {
+    df1 <- x
+    df2 <- y
+  }
 
   res <- cor.test(df1, df2, method = method)
+
   p_val <- res$p.value
   r_val <- res$estimate[[1]]
 
@@ -55,18 +76,20 @@ ses_corrtext <- function(df1, df2, x, y, method = 'pearson', p = TRUE,
   if (p == TRUE) {
     if (r == TRUE) {
       ggplot2::annotate("text",label = paste('r =', signif(res$estimate,2),
-                                    '\n',p_str),
-               x=x, y=y, color = text_color, family = font, size = size)
+                                             '\n',p_str),
+                        x=text_x, y=text_y, color = text_color, family = font, size = size)
     } else if(r == FALSE) {
       ggplot2::annotate("text",label = p_str,
-               x=x, y=y, color = text_color, family = font, size = size)
+                        x=text_x, y=text_y, color = text_color, family = font, size = size)
     }
   } else if (p == FALSE) {
     if (r == TRUE) {
       ggplot2::annotate("text",label = paste('r =', signif(res$estimate,2)),
-               x=x, y=y, color = text_color, family = font, size = size)
+                        x=text_x, y=text_y, color = text_color, family = font, size = size)
     } else if (r == FALSE) {
-
+      error('Two FALSEs were used as input')
     }
   }
 }
+
+
