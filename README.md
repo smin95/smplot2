@@ -1,20 +1,6 @@
----
-output:
-  md_document:
-    variant: markdown_github
----
-```{r, echo = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "tools/README-",
-  warning = FALSE
-)
-```
-
 # sesplot
 
-sesplot provides simple themes and a color palette for **data visualization**. It has been developed to invite people without a coding background to pick up R. Here are the SES functions:
+sesplot provides simple themes and a color palette for data visualization. It has been developed to invite people without a coding background to pick up R. Here are the SES functions:
 
 * `ses_bar()`: a SES theme appropriate for plotting bar graphs. 
 * `ses_corr()`: a SES theme appropriate for plotting correlations.
@@ -29,7 +15,7 @@ These two specific functions are for correlation plots:
 
 ### Installation
 
-```{r, eval = FALSE}
+``` r
 install.packages("devtools")
 devtools::install_github('smin95/sesplot')
 ```
