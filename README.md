@@ -52,7 +52,7 @@ p3 <- ggplot(data = mtcars, aes(x = drat, y = mpg)) +
   geom_point() 
   
 p4 <- p3 + ses_corr() + 
-ses_corrtext(mtcars$drat, mtcars$mpg, x=3, y=30, method = 'pearson') +
+ses_corrtext(mtcars$drat, mtcars$mpg, x=3.2, y=30, method = 'pearson') +
 ses_corrline(mtcars$drat, mtcars$mpg)
 ```
 
