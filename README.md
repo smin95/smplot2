@@ -41,7 +41,7 @@ p1 <- ggplot(data=df, aes(x=group, y=score, fill = group)) +
 p2 <-  p1 + ses_bar_border(legends = F) + scale_fill_manual(values = ses_color(3))
   
 ```
-<img src="bar.png" width="70%">
+<img src="bar.png" width="85%">
 
 Notice that the text sizes, colors and the background have all changed using the SES functions. The texts are larger, the colors more different, and the background less distracting.
 
@@ -55,6 +55,6 @@ p3 <- ggplot(data = mtcars, aes(x = drat, y = mpg)) +
 p4 <- p3 + ses_corr() + ses_corrtext(mtcars$drat, mtcars$mpg, x= 3,y=30) + ses_corrline(mtcars$drat, mtcars$mpg)
 ```
 
-<img src="scatter.png" width="70%">
+<img src="scatter.png" width="85%">
 
 Notice that the text size and the background have changed using the SES functions, along with the addition of the linear regression and the statistical values. The texts are larger,  the background less distracting, and the scatterplot more informative about the data.
