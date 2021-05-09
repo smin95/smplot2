@@ -9,8 +9,9 @@ ses_violin(
   violin_fill_color = "gray90",
   violin_width_color = "transparent",
   points = TRUE,
-  point_size = 1,
-  point_width_color = "transparent"
+  point_size = 1.5,
+  point_shape = 21,
+  point_width_color = "white"
 )
 }
 \arguments{

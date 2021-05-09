@@ -27,8 +27,9 @@
 ses_violin <- function(point_fill, violin_fill_color = 'gray90',
                        violin_width_color = 'transparent',
                        points = TRUE,
-                       point_size = 1,
-                       point_width_color = 'transparent') {
+                       point_size = 1.5,
+                       point_shape = 21,
+                       point_width_color = 'white') {
 
   if (missing(point_fill)) {
 
@@ -37,7 +38,10 @@ ses_violin <- function(point_fill, violin_fill_color = 'gray90',
                                 fill = violin_fill_color),
            ggplot2::geom_point(position = position_jitter(width = .12,
                                                           height = 0,
-                                                          seed = 10)))
+                                                          seed = 10),
+                               size = point_size,
+                               shape = point_shape,
+                               color = point_width_color))
     } else if (points == FALSE) {
       ggplot2::geom_violin()
     }
@@ -49,7 +53,11 @@ ses_violin <- function(point_fill, violin_fill_color = 'gray90',
            ggplot2::geom_point(position = position_jitter(width = .12,
                                                           height = 0,
                                                           seed = 10),
-                               color = point_fill))
+                               seed = 10),
+           fill = point_fill,
+           shape = point_shape,
+           color = point_width_color,
+           size = point_size)
     } else if (points == FALSE) {
       ggplot2::geom_violin()
     }
@@ -59,7 +67,10 @@ ses_violin <- function(point_fill, violin_fill_color = 'gray90',
            ggplot2::geom_point(position = position_jitter(width = .12,
                                                           height = 0,
                                                           seed = 10),
-                               color = point_fill))
+                               fill = point_fill,
+                               shape = point_shape,
+                               color = point_width_color,
+                               size = point_size))
     } else if(points == FALSE) {
       ggplot2::geom_violin()
     }

@@ -10,9 +10,10 @@ ses_boxplot(
   boxplot_width_color = "black",
   points = TRUE,
   notch = F,
-  notchwidth = 0.4,
-  point_size = 1,
-  point_width_color = "white"
+  width = 0.4,
+  point_size = 1.5,
+  point_width_color = "white",
+  point_shape = 21
 )
 }
 \arguments{
