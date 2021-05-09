@@ -38,7 +38,8 @@ df <- data.frame(group=c("One", "Two", "Three"),
 p1 <- ggplot(data=df, aes(x=group, y=score, fill = group)) +
   geom_bar(stat="identity") 
   
-p2 <-  p1 + ses_bar_border(legends = F) + scale_fill_manual(values = ses_color(3))
+p2 <-  p1 + ses_bar_border(legends = F) + 
+scale_fill_manual(values = ses_color(3))
 ```
 <img src="bar.png" width="85%">
 
@@ -50,7 +51,9 @@ Notice that the text sizes, colors and the background have all changed using the
 p3 <- ggplot(data = mtcars, aes(x = drat, y = mpg)) +
   geom_point() 
   
-p4 <- p3 + ses_corr() + ses_corrtext(mtcars$drat, mtcars$mpg, x= 3,y=30) + ses_corrline(mtcars$drat, mtcars$mpg)
+p4 <- p3 + ses_corr() + 
+ses_corrtext(mtcars$drat, mtcars$mpg, x= 3,y=30) +
+ses_corrline(mtcars$drat, mtcars$mpg)
 ```
 
 <img src="scatter.png" width="85%">
