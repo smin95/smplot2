@@ -1,11 +1,9 @@
-#' Linear regression and unity slopes from correlation
+#' Linear regression slope from correlation
 #'
 #' @description
 #' This function plots the linear regression of a correlation.
 #' This does so by obtain coefficients from the lm() function using
-#' two datasets (df1 and df2).
-#' Unity slope, which has a slope of 1, is also plotted if called
-#' (unity = 'TRUE).
+#' two datasets (x and y).
 #' It is recommended that the unity slope is plotted only when both
 #' axes are scaled to each other (ex. z-scores).
 #'
