@@ -49,11 +49,13 @@ Notice that the text sizes, colors and the background have all changed using the
 
 ```{r cars}
 p3 <- ggplot(data = mtcars, aes(x = drat, y = mpg)) +
-  geom_point() 
-  
+  geom_point(shape = 21, fill = '#0f993d', color = 'white',
+             size = 3) 
+
 p4 <- p3 + ses_corr() + 
-ses_corrtext(mtcars$drat, mtcars$mpg, x=3.2, y=30, method = 'pearson') +
-ses_corrline(mtcars$drat, mtcars$mpg)
+  ses_corrtext(mtcars$drat, mtcars$mpg, x=3.2, y=30, method = 'pearson') +
+  ses_corrline(mtcars$drat, mtcars$mpg, line_color = '#0f993d', line_size = 1)
+
 ```
 
 <img src="scatter.png" width="85%">
@@ -66,12 +68,12 @@ Let's generate data using random numbers. There are 20 subjects tested at two ti
 
 ```r
 set.seed(1)
-before = rnorm(20,0,1)
-after = rnorm(20,5,1)
+day1 = rnorm(20,0,1)
+day2 = rnorm(20,5,1)
 
 Subject <- rep(paste0('S',seq(1:20)), 2)
-Data <- data.frame(Value = matrix(c(before,after),ncol=1))
-Time <- rep(c('Before', 'After'), each = length(before))
+Data <- data.frame(Value = matrix(c(day2,day2),ncol=1))
+Time <- rep(c('Day 1', 'Day 2'), each = length(day1))
 
 DataFrame <- cbind(Subject, Data, Time)
 ```
@@ -79,13 +81,15 @@ DataFrame <- cbind(Subject, Data, Time)
 Now, let's make a slope chart.
 
 ```r
-p5 <- ggplot(data = data1, aes(x = Time, 
-y = Value, group = Subject, Fill = Time))  +
+p5 <- ggplot(data = data1, 
+aes(x = Time, y = Value, 
+group = Subject,Fill = Time))  +
   geom_line(color = "gray53", size = .4) +
   geom_point(size = 3, shape= 21, 
   fill = '#0f993d', color = 'white') +
-  scale_x_discrete(position = 'top')
-  
+  scale_x_discrete(position = 'top',
+  expand = c(0.15, .1), drop=FALSE,)
+
 p6 <- p5 + ses_slope()  
 ```
 
