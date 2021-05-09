@@ -51,6 +51,7 @@ ses_corr <- function(legends = TRUE, borders = TRUE) {
         axis.text.x=  ggplot2::element_text(vjust= 0),
         panel.grid.major =  ggplot2::element_line(size = 0.4),
         plot.title =  ggplot2::element_text(hjust = 0.5),
+        panel.grid.minor=  ggplot2::element_blank(),
         legend.position = 'none'
       )
     } else if (borders == TRUE) {
@@ -62,6 +63,7 @@ ses_corr <- function(legends = TRUE, borders = TRUE) {
           axis.text.x=  ggplot2::element_text(vjust= 0),
           panel.grid.major =  ggplot2::element_line(size = 0.4),
           plot.title =  ggplot2::element_text(hjust = 0.5),
+          panel.grid.minor=  ggplot2::element_blank(),
           legend.position = 'none'
         )
     }

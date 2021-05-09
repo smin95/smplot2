@@ -13,7 +13,8 @@ ses_corrtext(
   p = TRUE,
   r = TRUE,
   text_color = "black",
-  font = ""
+  font = "",
+  size = 5
 )
 }
 \arguments{
@@ -42,7 +43,9 @@ r-value is the correlation coefficient. It does not depend on}
 
 \item{text_color}{Color of the text in character string (ex. 'black').}
 
-\item{font}{Font of the text in character string.}
+\item{font}{Font size of the text}
+
+\item{size}{Font of the text in character string.}
 }
 \value{
 
