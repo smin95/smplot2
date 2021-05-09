@@ -1,12 +1,11 @@
-#' SES plot with a horizontal grid (a theme for bar graphs).
+#' SES minimal theme (no grid).
 #'
 #' @description
 #'
-#' A graph with a horizontal grid is plotted. Border can be added or removed.
-#' This is useful for plotting a bar graph.
+#' A graph with no grid is plotted.
+#' This is useful for plotting a boxplot and violin plots.
 #' For more information, please visit \url{https://www.ses21.com}.
 #'
-#' This is slightly different from ses_hist().
 #'
 #' @param legends
 #' If the legend needs to be displayed, the input should be TRUE.
@@ -24,7 +23,7 @@ ses_bar <- function(legends = TRUE, borders = TRUE) {
         ggplot2::theme(
           panel.grid.minor.x=  ggplot2::element_blank(),
           panel.grid.major.x=  ggplot2::element_blank(), panel.grid.minor.y = element_blank(),
-          panel.grid.major.y =  ggplot2::element_line(size = 0.5),
+          panel.grid.major.y =  ggplot::element_blank(),
           axis.text =  ggplot2::element_text(size = rel(.85), color = "black"),
           axis.title.y =  ggplot2::element_text(size = rel(.85), color = "black"),
           axis.title.x =  ggplot2::element_text(size = rel(.85), color = "black"),
@@ -36,7 +35,7 @@ ses_bar <- function(legends = TRUE, borders = TRUE) {
         ggplot2::theme(
           panel.grid.minor.x=  ggplot2::element_blank(),
           panel.grid.major.x=  ggplot2::element_blank(), panel.grid.minor.y = element_blank(),
-          panel.grid.major.y =  ggplot2::element_line(size = 0.5),
+          panel.grid.major.y =   ggplot::element_blank(),
           axis.text =  ggplot2::element_text(size = rel(1.2), color = "black"),
           axis.title.y =  ggplot2::element_text(size = rel(1.2), color = "black"),
           axis.title.x =  ggplot2::element_text(size = rel(1.2), color = "black"),
@@ -50,7 +49,7 @@ ses_bar <- function(legends = TRUE, borders = TRUE) {
         ggplot2::theme(
           panel.grid.minor.x=  ggplot2::element_blank(),
           panel.grid.major.x=  ggplot2::element_blank(), panel.grid.minor.y = element_blank(),
-          panel.grid.major.y =  ggplot2::element_line(size = 0.5),
+          panel.grid.major.y = ggplot::element_blank(),
           axis.text =  ggplot2::element_text(size = rel(.85), color = "black"),
           axis.title.y =  ggplot2::element_text(size = rel(.85), color = "black"),
           axis.title.x =  ggplot2::element_text(size = rel(.85), color = "black"),
@@ -63,7 +62,7 @@ ses_bar <- function(legends = TRUE, borders = TRUE) {
         ggplot2::theme(
           panel.grid.minor.x=  ggplot2::element_blank(),
           panel.grid.major.x=  ggplot2::element_blank(), panel.grid.minor.y = element_blank(),
-          panel.grid.major.y =  ggplot2::element_line(size = 0.5),
+          panel.grid.major.y = ggplot::element_blank(),
           axis.text =  ggplot2::element_text(size = rel(1.2), color = "black"),
           axis.title.y =  ggplot2::element_text(size = rel(1.2), color = "black"),
           axis.title.x =  ggplot2::element_text(size = rel(1.2), color = "black"),
