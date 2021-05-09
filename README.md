@@ -38,7 +38,7 @@ df <- data.frame(group=c("One", "Two", "Three"),
 p1 <- ggplot(data=df, aes(x=group, y=score, fill = group)) +
   geom_bar(stat="identity") 
   
-p2 <-  p1 + ses_bar_border(legends = F) + 
+p2 <- p1 + ses_bar_border(legends = F) + 
 scale_fill_manual(values = ses_color(3))
 ```
 <img src="bar.png" width="85%">
