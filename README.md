@@ -74,7 +74,7 @@ x=3.2, y=30, method = 'pearson') +
   ses_corrline(mtcars$drat, mtcars$mpg, line_color = '#0f993d', line_size = 1)
 ```
 
-<img src="scatter_annotated.png" width="35%">
+<img src="scatter_annotated.png" width="40%">
 
 Normally to do these 2 things, it can take more codes. But with the SES functions, your codes can be quite minimal and yet produce an elegant graph.
 
