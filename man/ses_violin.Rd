@@ -10,7 +10,7 @@ ses_violin(
   points = TRUE,
   point_color = "black",
   point_size = 1,
-  point_width_color = "black",
+  point_width_color = "transparent",
   point_fill = "black",
   point_shape = 21
 )
