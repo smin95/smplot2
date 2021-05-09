@@ -2,22 +2,29 @@
 % Please edit documentation in R/ses_corrline.R
 \name{ses_corrline}
 \alias{ses_corrline}
-\title{Linear regression and unity slopes from correlation}
+\title{Linear regression slope from correlation}
 \usage{
 ses_corrline(
-  df1,
-  df2,
+  x,
+  y,
+  data = data,
   line_color = "black",
   line_size = 0.6,
   line_linetype = "dashed"
 )
 }
 \arguments{
-\item{df1}{Numeric vectors of data (ex. group 1). This corresponds to data in the
-x-axis of the correlation plot.}
+\item{x}{Numeric vectors of data (ex. group 1). This corresponds to data in the
+x-axis of the correlation plot.
 
-\item{df2}{Numeric vectors of data (ex. group 2). This corresponds to data in the
-y-axis of the correlation plot.}
+If the argument 'data' is also included, then x can be the column name
+of 'data'.}
+
+\item{y}{Numeric vectors of data (ex. group 2). This corresponds to data in the
+y-axis of the correlation plot.
+
+If the argument 'data' is also included, then y can be the column name
+of 'data'.}
 
 \item{line_color}{Color of the linear regression from the correlation.
 The input should be a character string.}
@@ -28,23 +35,6 @@ It should be a number.}
 \item{line_linetype}{Line type of the linear regression from the correlation.
 The input should be a character string: 'solid', 'dashed', 'dotted',
 'blank', 'dotdash', 'longdash', and 'twodash'.}
-
-\item{unity}{A reference line with a slope of 1 (unity line).
-If the unity line should be displayed, the input should be 'TRUE'.
-If it is not wanted, then the input should be 'FALSE'.}
-
-\item{unity_color}{Color of the unity line.
-The input should be a character string.}
-
-\item{unity_size}{Size of the unity line.
-It should be a number.}
-
-\item{unity_type}{Line type of the unity line.
-The input should be a character string: 'solid', 'dashed', 'dotted',
-'blank', 'dotdash', 'longdash', and 'twodash'.}
-
-\item{unity_slope}{'Positive' if the unity line has a slope of 1.
-'Negative' if the unity line has a slope of -1.}
 }
 \value{
 
@@ -52,9 +42,7 @@ The input should be a character string: 'solid', 'dashed', 'dotted',
 \description{
 This function plots the linear regression of a correlation.
 This does so by obtain coefficients from the lm() function using
-two datasets (df1 and df2).
-Unity slope, which has a slope of 1, is also plotted if called
-(unity = 'TRUE).
+two datasets (x and y).
 It is recommended that the unity slope is plotted only when both
 axes are scaled to each other (ex. z-scores).
 }

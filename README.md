@@ -6,7 +6,7 @@ sesplot provides simple themes and a color palette for data visualization. It ha
 * `ses_corr()`: a SES theme appropriate for plotting correlations.
 * `ses_hist()`: a SES theme appropriate for a histogram.
 * `ses_slope()`: a SES theme for a slope chart.
-* `ses_color()`: a SES color palette with up to 16 different colors.
+* `ses_palette()`: a SES color palette with up to 16 different colors.
 
 These two specific functions are for correlation plots:
 
@@ -46,11 +46,11 @@ p1 <- ggplot(data=df, aes(x=group, y=score, fill = group)) +
   geom_bar(stat="identity") 
   
 p2 <- p1 + ses_bar(legends = F) + 
-scale_fill_manual(values = ses_color(3))
+scale_fill_manual(values = ses_palette(3))
 ```
 <img src="bar.png" width="85%">
 
-In this example, `ses_bar` is used to remove the legends and apply a minimalistic theme. Then `ses_color` is used for changing the colors of each group. In short, the texts are larger, the colors more different, and the background less distracting.
+In this example, `ses_bar` is used to remove the legends and apply a minimalistic theme. Then `ses_palette` is used for changing the colors of each group. In short, the texts are larger, the colors more different, and the background less distracting.
 
 ### Example 2: Correlation plot
 
@@ -102,7 +102,7 @@ aes(x = Time, y = Value,
 group = Subject,Fill = Time))  +
   geom_line(color = "gray53", size = .4) +
   geom_point(size = 3, shape= 21, 
-  fill = '#0f993d', color = 'white') +
+  fill = ses_palette(1, color = 'green'), color = 'white') +
   scale_x_discrete(position = 'top',
   expand = c(0.15, .1), drop=FALSE)
 

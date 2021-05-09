@@ -5,27 +5,34 @@
 \title{Annotation of results from a paired correlation test on ggplot2}
 \usage{
 ses_corrtext(
-  df1,
-  df2,
   x,
   y,
+  text_x,
+  text_y,
+  data = data,
   method = "pearson",
   p = TRUE,
   r = TRUE,
   text_color = "black",
   font = "",
-  size = 5
+  size = 4
 )
 }
 \arguments{
-\item{df1}{Numeric vectors of data (ex. group 1).}
+\item{x}{Data set of the x-axis in the correlation plot.
+If the argument 'data' is filled, then x can be the column name.
+Otherwise, it has to take a form of numerical vector.}
 
-\item{df2}{Numeric vectors of data (ex. group 2).
-df1 and df2 must have the same length and paired.}
+\item{y}{Data set of the y-axis in the correlation plot.
+If the argument 'data' is filled, then y can be the column name.
+Otherwise, it has to take a form of numerical vector.
+x and y must have the same length.}
 
-\item{x}{Location of the text in the x-axis of the plot.}
+\item{text_x}{Location of the text in the x-axis of the plot.}
 
-\item{y}{Location of the text in the y-axis of the plot.}
+\item{text_y}{Location of the text in the y-axis of the plot.}
+
+\item{data}{Dataframe that contains x and y. This argument is optional.}
 
 \item{method}{Method of computing the correlation coefficient: 'pearson', 'kendall',
 or 'spearman'.
@@ -43,9 +50,9 @@ r-value is the correlation coefficient. It does not depend on}
 
 \item{text_color}{Color of the text in character string (ex. 'black').}
 
-\item{font}{Font size of the text}
+\item{font}{Font of the text in character string.}
 
-\item{size}{Font of the text in character string.}
+\item{size}{Font size of the text}
 }
 \value{
 
