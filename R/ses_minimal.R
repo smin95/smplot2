@@ -14,7 +14,7 @@
 #' If the border needs to be displayed, the input should be TRUE.
 #' If the border is not needed, the input should be FALSE.
 
-ses_bar <- function(legends = TRUE, borders = TRUE) {
+ses_minimal <- function(legends = TRUE, borders = TRUE) {
 
   if (legends == TRUE) {
     if (borders == FALSE) {
@@ -23,11 +23,13 @@ ses_bar <- function(legends = TRUE, borders = TRUE) {
         ggplot2::theme(
           panel.grid.minor.x=  ggplot2::element_blank(),
           panel.grid.major.x=  ggplot2::element_blank(), panel.grid.minor.y = element_blank(),
-          panel.grid.major.y =  ggplot::element_blank(),
+          panel.grid.major.y =  ggplot2::element_blank(),
           axis.text =  ggplot2::element_text(size = rel(.85), color = "black"),
           axis.title.y =  ggplot2::element_text(size = rel(.85), color = "black"),
           axis.title.x =  ggplot2::element_text(size = rel(.85), color = "black"),
-          axis.text.x=element_text(vjust= 0)
+          axis.text.x=element_text(vjust= 0),
+          axis.line.x = element_blank(),
+          axis.ticks = element_blank()
         )
     } else if (borders == TRUE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
@@ -35,7 +37,7 @@ ses_bar <- function(legends = TRUE, borders = TRUE) {
         ggplot2::theme(
           panel.grid.minor.x=  ggplot2::element_blank(),
           panel.grid.major.x=  ggplot2::element_blank(), panel.grid.minor.y = element_blank(),
-          panel.grid.major.y =   ggplot::element_blank(),
+          panel.grid.major.y =   ggplot2::element_blank(),
           axis.text =  ggplot2::element_text(size = rel(1.2), color = "black"),
           axis.title.y =  ggplot2::element_text(size = rel(1.2), color = "black"),
           axis.title.x =  ggplot2::element_text(size = rel(1.2), color = "black"),
@@ -49,11 +51,13 @@ ses_bar <- function(legends = TRUE, borders = TRUE) {
         ggplot2::theme(
           panel.grid.minor.x=  ggplot2::element_blank(),
           panel.grid.major.x=  ggplot2::element_blank(), panel.grid.minor.y = element_blank(),
-          panel.grid.major.y = ggplot::element_blank(),
+          panel.grid.major.y = ggplot2::element_blank(),
           axis.text =  ggplot2::element_text(size = rel(.85), color = "black"),
           axis.title.y =  ggplot2::element_text(size = rel(.85), color = "black"),
           axis.title.x =  ggplot2::element_text(size = rel(.85), color = "black"),
           axis.text.x=element_text(vjust= 0),
+          axis.line.x = element_blank(),
+          axis.ticks = element_blank(),
           legend.position = 'none'
         )
     } else if (borders == TRUE) {
@@ -62,7 +66,7 @@ ses_bar <- function(legends = TRUE, borders = TRUE) {
         ggplot2::theme(
           panel.grid.minor.x=  ggplot2::element_blank(),
           panel.grid.major.x=  ggplot2::element_blank(), panel.grid.minor.y = element_blank(),
-          panel.grid.major.y = ggplot::element_blank(),
+          panel.grid.major.y = ggplot2::element_blank(),
           axis.text =  ggplot2::element_text(size = rel(1.2), color = "black"),
           axis.title.y =  ggplot2::element_text(size = rel(1.2), color = "black"),
           axis.title.x =  ggplot2::element_text(size = rel(1.2), color = "black"),
