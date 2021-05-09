@@ -1,6 +1,6 @@
 # sesplot
 
-sesplot provides simple themes and a color palette for data visualization. It has been developed to invite people without a coding background to pick up R. Here are the SES functions:
+sesplot provides simple themes and a color palette for data visualization. It has been developed to invite people without a coding background to pick up R. Here are the SES (Sam's Editing Studio) functions:
 
 * `ses_bar()`: a SES theme appropriate for plotting bar graphs. 
 * `ses_corr()`: a SES theme appropriate for plotting correlations.
@@ -12,6 +12,13 @@ These two specific functions are for correlation plots:
 
 * `ses_corrline()`: plots the linear slope of a correlation using the function `lm()`.
 * `ses_corrtext()`: prints out p- and r-values from a paired correlation test.
+
+sesplot is an ongoing project. WORK IN PROGRESS.
+
+## TODO
+- [] Finish documentation
+- [] R tutorial with sesplot on the website (3 parts)
+- [] Boxplot theme
 
 ### Installation
 
