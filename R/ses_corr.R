@@ -27,7 +27,9 @@ ses_corr <- function(legends = TRUE, borders = TRUE) {
         axis.title.x =  ggplot2::element_text(size = rel(.85), color = "black", vjust = -1),
         axis.text.x=  ggplot2::element_text(vjust= 0, size = rel(1.)),
         panel.grid.major =  ggplot2::element_line(size = 0.4),
-        plot.title =  ggplot2::element_text(hjust = 0.5)
+        plot.title =  ggplot2::element_text(hjust = 0.5),
+        panel.grid.minor.x =  ggplot2::element_blank(),
+        panel.grid.minor.y = ggplot2::element_blank(),
       )
     } else if (borders == TRUE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
@@ -37,7 +39,9 @@ ses_corr <- function(legends = TRUE, borders = TRUE) {
           axis.title.x =  ggplot2::element_text(size = rel(1.2), color = "black", vjust = -1),
           axis.text.x=  ggplot2::element_text(vjust= 0),
           panel.grid.major =  ggplot2::element_line(size = 0.4),
-          plot.title =  ggplot2::element_text(hjust = 0.5)
+          plot.title =  ggplot2::element_text(hjust = 0.5),
+          panel.grid.minor.x =  ggplot2::element_blank(),
+          panel.grid.minor.y = ggplot2::element_blank(),
         )
     }
   } else if (legends == FALSE) {
@@ -51,7 +55,8 @@ ses_corr <- function(legends = TRUE, borders = TRUE) {
         axis.text.x=  ggplot2::element_text(vjust= 0),
         panel.grid.major =  ggplot2::element_line(size = 0.4),
         plot.title =  ggplot2::element_text(hjust = 0.5),
-        panel.grid.minor=  ggplot2::element_blank(),
+        panel.grid.minor.x =  ggplot2::element_blank(),
+        panel.grid.minor.y = ggplot2::element_blank(),
         legend.position = 'none'
       )
     } else if (borders == TRUE) {
@@ -63,7 +68,8 @@ ses_corr <- function(legends = TRUE, borders = TRUE) {
           axis.text.x=  ggplot2::element_text(vjust= 0),
           panel.grid.major =  ggplot2::element_line(size = 0.4),
           plot.title =  ggplot2::element_text(hjust = 0.5),
-          panel.grid.minor=  ggplot2::element_blank(),
+          panel.grid.minor.x =  ggplot2::element_blank(),
+          panel.grid.minor.y = ggplot2::element_blank(),
           legend.position = 'none'
         )
     }

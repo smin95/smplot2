@@ -63,12 +63,13 @@ Notice that the text size and the background have changed using `ses_corr()`. Th
 Now let's add the linear regression slope and report the p- and r- values from a Pearson correlation test.
 
 ```r
-p4.1 <- p4 + ses_corrtext(mtcars$drat, mtcars$mpg, x=3.2, y=30, method = 'pearson') +
+p4.1 <- p4 + ses_corrtext(mtcars$drat, mtcars$mpg, 
+x=3.2, y=30, method = 'pearson') +
   ses_corrline(mtcars$drat, mtcars$mpg, line_color = '#0f993d', line_size = 1)
 
 ```
 
-<img src="scatter_annotated.png" width="85%">
+<img src="scatter_annotated.png" width="45%">
 
 Normally to do these 2 things, it can take more codes. But with the SES functions, your codes can be quite minimal and yet produce an elegant graph.
 
@@ -105,4 +106,4 @@ p6 <- p5 + ses_slope()
 
 <img src="slope.png" width="85%">
 
-Notice that the text size and the background have changed using the SES functions, along with the ticks of the x-axis. The texts are larger,  the background less distracting, and the graph more minimalistic.
+The theme has changed with `ses_slope()`. The font sizes are larger, the axes have been removed, and the background is less distracting.
