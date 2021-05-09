@@ -58,4 +58,37 @@ ses_corrline(mtcars$drat, mtcars$mpg)
 
 <img src="scatter.png" width="85%">
 
-Notice that the text size and the background have changed using the SES functions, along with the addition of the linear regression and the statistical values. The texts are larger,  the background less distracting, and the scatterplot more informative about the data.
+Notice that the text size and the background have changed using the SES functions, along with the addition of the linear regression and the statistical values. The texts are larger, the background less distracting, and the scatterplot more informative about the data.
+
+### Example 3: Slope chart
+
+Let's generate data using random numbers. There are 20 subjects tested at two timepoints (before and after treatment). 
+
+```r
+set.seed(1)
+before = rnorm(20,0,1)
+after = rnorm(20,5,1)
+
+Subject <- rep(paste0('S',seq(1:20)), 2)
+Data <- data.frame(Value = matrix(c(before,after),ncol=1))
+Time <- rep(c('Before', 'After'), each = length(before))
+
+DataFrame <- cbind(Subject, Data, Time)
+```
+
+Now, let's make a slope chart.
+
+```r
+p5 <- ggplot(data = data1, aes(x = Time, 
+y = Value, group = Subject, Fill = Time))  +
+  geom_line(color = "gray53", size = .4) +
+  geom_point(size = 3, shape= 21, 
+  fill = '#0f993d', color = 'white') +
+  scale_x_discrete(position = 'top')
+  
+p6 <- p5 + ses_slope()  
+```
+
+<img src="slope.png" width="85%">
+
+Notice that the text size and the background have changed using the SES functions, along with the ticks of the x-axis. The texts are larger,  the background less distracting, and the graph more minimalistic.
