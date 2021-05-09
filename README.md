@@ -20,25 +20,41 @@ install.packages("devtools")
 devtools::install_github('smin95/sesplot')
 ```
 
-### Examples
+### Set-up after installation
+
+```r
+library(sesplot) # SES
+library(tidyverse) # sample data
+```
+
+### Example 1: Bar graph
 
 ```{r example}
-library(sesplot)
-## basic example code
-```
+# sample data: three groups with three different scores
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+df <- data.frame(group=c("One", "Two", "Three"),
+                 score=c(5.2, 9.3, 12))
+
+p1 <- ggplot(data=df, aes(x=group, y=score, fill = group)) +
+  geom_bar(stat="identity") 
+  
+p2 <-  p1 + ses_bar_border(legends = F) + scale_fill_manual(values = ses_color(3))
+  
+```
+<img src="bar.png" width="70%">
+
+Notice that the text sizes, colors and the background have all changed using the SES functions. The texts are larger, the colors more different, and the background less distracting.
+
+### Example 2: Correlation plot
 
 ```{r cars}
-summary(cars)
+
+p3 <- ggplot(data = mtcars, aes(x = drat, y = mpg)) +
+  geom_point() 
+  
+p4 <- p3 + ses_corr() + ses_corrtext(mtcars$drat, mtcars$mpg, x= 3,y=30) + ses_corrline(mtcars$drat, mtcars$mpg)
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/master/examples>.
+<img src="scatter.png" width="70%">
 
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+Notice that the text size and the background have changed using the SES functions, along with the addition of the linear regression and the statistical values. The texts are larger,  the background less distracting, and the scatterplot more informative about the data.
