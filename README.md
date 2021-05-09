@@ -10,7 +10,7 @@ sesplot provides simple themes and a color palette for data visualization. It ha
 
 These two specific functions are for correlation plots:
 
-* `ses_corrline()`: plots the linear slope of a correlation based on the function `lm()`.
+* `ses_corrline()`: plots the linear slope of a correlation using the function `lm()`.
 * `ses_corrtext()`: prints out p- and r-values from a paired correlation test.
 
 ### Installation
