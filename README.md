@@ -16,9 +16,9 @@ These two specific functions are for correlation plots:
 sesplot is an ongoing project. WORK IN PROGRESS.
 
 ## TODO
-- [] Finish documentation
-- [] R tutorial with sesplot on the website (3 parts)
-- [] Boxplot theme
+- [ ] Finish documentation
+- [ ] R tutorial with sesplot on the website (3 parts)
+- [ ] Boxplot theme
 
 ### Installation
 
