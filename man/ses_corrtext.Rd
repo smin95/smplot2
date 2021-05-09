@@ -5,7 +5,6 @@
 \title{Annotation of results from a paired correlation test on ggplot2}
 \usage{
 ses_corrtext(
-  data,
   df1,
   df2,
   x,

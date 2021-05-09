@@ -23,5 +23,7 @@ df <- data.frame(
 ggplot(df, aes(x=weight)) + geom_histogram() +
   ses_hist(borders = T)
 
-ggplot(mtcars, aes(x = drat, y = mpg)) +
-  geom_point() + ses_corr() + ses_corrtext()
+mtcars %>% ggplot(aes(x = drat, y = mpg)) +
+  geom_point() + ses_corr() +
+  ses_corrtext(mtcars$drat, mtcars$mpg, x= 3,y=30) +
+  ses_corrline(mtcars$drat, mtcars$mpg)

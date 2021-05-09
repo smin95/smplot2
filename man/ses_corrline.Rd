@@ -7,14 +7,9 @@
 ses_corrline(
   df1,
   df2,
-  line_color = "#1262b3",
+  line_color = "black",
   line_size = 0.6,
-  line_linetype = "dashed",
-  unity = TRUE,
-  unity_slope = "positive",
-  unity_color = "black",
-  unity_size = 0.4,
-  unity_type = "dashed"
+  line_linetype = "dashed"
 )
 }
 \arguments{
@@ -38,9 +33,6 @@ The input should be a character string: 'solid', 'dashed', 'dotted',
 If the unity line should be displayed, the input should be 'TRUE'.
 If it is not wanted, then the input should be 'FALSE'.}
 
-\item{unity_slope}{'Positive' if the unity line has a slope of 1.
-'Negative' if the unity line has a slope of -1.}
-
 \item{unity_color}{Color of the unity line.
 The input should be a character string.}
 
@@ -50,6 +42,9 @@ It should be a number.}
 \item{unity_type}{Line type of the unity line.
 The input should be a character string: 'solid', 'dashed', 'dotted',
 'blank', 'dotdash', 'longdash', and 'twodash'.}
+
+\item{unity_slope}{'Positive' if the unity line has a slope of 1.
+'Negative' if the unity line has a slope of -1.}
 }
 \value{
 
