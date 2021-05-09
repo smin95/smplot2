@@ -88,7 +88,7 @@ group = Subject,Fill = Time))  +
   geom_point(size = 3, shape= 21, 
   fill = '#0f993d', color = 'white') +
   scale_x_discrete(position = 'top',
-  expand = c(0.15, .1), drop=FALSE,)
+  expand = c(0.15, .1), drop=FALSE)
 
 p6 <- p5 + ses_slope()  
 ```
