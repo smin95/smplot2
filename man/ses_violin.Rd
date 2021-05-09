@@ -6,12 +6,11 @@
 \usage{
 ses_violin(
   point_fill,
-  violin_fill_color,
+  violin_fill_color = "gray90",
   violin_width_color = "transparent",
   points = TRUE,
   point_size = 1,
-  point_width_color = "transparent",
-  point_shape = 21
+  point_width_color = "transparent"
 )
 }
 \arguments{
@@ -27,6 +26,8 @@ FALSE if points need to be not shown.}
 \item{point_size}{Size of the points.}
 
 \item{point_width_color}{Color of the point's width when shapes of the points are 21-25.}
+
+\item{point_color}{Color of the points.}
 
 \item{point_shape}{Shape of the points: 1-25.}
 }
