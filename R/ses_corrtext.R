@@ -30,6 +30,8 @@
 #' @param text_color
 #' Color of the text in character string (ex. 'black').
 #' @param font
+#' Font size of the text
+#' @param size
 #' Font of the text in character string.
 #' @return
 #' @export
@@ -38,7 +40,7 @@
 #'
 ses_corrtext <- function(df1, df2, x, y, method = 'pearson', p = TRUE,
                          r = TRUE, text_color = 'black',
-                         font = '') {
+                         font = '', size = 5) {
 
   res <- cor.test(df1, df2, method = method)
   p_val <- res$p.value
@@ -54,15 +56,15 @@ ses_corrtext <- function(df1, df2, x, y, method = 'pearson', p = TRUE,
     if (r == TRUE) {
       ggplot2::annotate("text",label = paste('r =', signif(res$estimate,2),
                                     '\n',p_str),
-               x=x, y=y, color = text_color, family = font)
+               x=x, y=y, color = text_color, family = font, size = size)
     } else if(r == FALSE) {
       ggplot2::annotate("text",label = p_str,
-               x=x, y=y, color = text_color, family = font)
+               x=x, y=y, color = text_color, family = font, size = size)
     }
   } else if (p == FALSE) {
     if (r == TRUE) {
       ggplot2::annotate("text",label = paste('r =', signif(res$estimate,2)),
-               x=x, y=y, color = text_color, family = font)
+               x=x, y=y, color = text_color, family = font, size = size)
     } else if (r == FALSE) {
 
     }
