@@ -2,10 +2,10 @@
 
 sesplot provides simple themes and a color palette for data visualization. It has been developed to invite people without a coding background to pick up R. Here are the SES (Sam's Editing Studio) functions:
 
-* `ses_bar()`: a SES theme appropriate for plotting bar graphs. 
+* `ses_bar()`: a SES theme for a bar graph. 
 * `ses_corr()`: a SES theme appropriate for plotting correlations.
-* `ses_hist()`: a SES theme appropriate for histograms.
-* `ses_slope()`: a SES theme useful for plotting a slope chart.
+* `ses_hist()`: a SES theme appropriate for a histogram.
+* `ses_slope()`: a SES theme for a slope chart.
 * `ses_color()`: a SES color palette with up to 16 different colors.
 
 These two specific functions are for correlation plots:
@@ -74,7 +74,7 @@ x=3.2, y=30, method = 'pearson') +
   ses_corrline(mtcars$drat, mtcars$mpg, line_color = '#0f993d', line_size = 1)
 ```
 
-<img src="scatter_annotated.png" width="45%">
+<img src="scatter_annotated.png" width="35%">
 
 Normally to do these 2 things, it can take more codes. But with the SES functions, your codes can be quite minimal and yet produce an elegant graph.
 
