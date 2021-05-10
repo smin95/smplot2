@@ -1,5 +1,5 @@
-#' SES theme with a horizontal grid (a theme for bar graphs).
-#'
+#' SES theme with a horizontal grid
+
 #' @description
 #'
 #' A graph with a horizontal grid is plotted. Border can be added or removed.
@@ -15,7 +15,8 @@
 #' If the border needs to be displayed, the input should be TRUE.
 #' If the border is not needed, the input should be FALSE.
 
-ses_bar_theme <- function(legends = FALSE, borders = TRUE) {
+#'
+ses_hgrid <- function(legends = FALSE, borders = TRUE) {
 
   if (legends == TRUE) {
     if (borders == FALSE) {
@@ -73,4 +74,3 @@ ses_bar_theme <- function(legends = FALSE, borders = TRUE) {
     }
   }
 }
-
