@@ -32,14 +32,15 @@
 ses_boxplot <- function(point_fill, boxplot_fill_color = 'gray95',
                         boxplot_width_color = 'black',
                        points = TRUE, notch = F, width = 0.4,
-                       point_size = 2,
+                       point_size = 3,
                        point_width_color = 'white',
                        point_shape = 21) {
 
   if (missing(point_fill)) {
 
     if (points == TRUE) {
-      list(ggplot2::geom_boxplot(fill = boxplot_fill_color,
+      list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+            ggplot2::geom_boxplot(fill = boxplot_fill_color,
                                 notch = notch, width = width),
            ggplot2::geom_point(position = position_jitter(width = .12,
                                                           height = 0,
@@ -48,12 +49,14 @@ ses_boxplot <- function(point_fill, boxplot_fill_color = 'gray95',
                                color = point_width_color,
                                size = point_size))
     } else if (points == FALSE) {
-      ggplot2::geom_boxplot(notch = notch, width = width)
+      list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+            ggplot2::geom_boxplot(notch = notch, width = width))
     }
 
   } else {
     if (points == TRUE) {
-      list(ggplot2::geom_boxplot(fill = boxplot_fill_color,
+      list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+            ggplot2::geom_boxplot(fill = boxplot_fill_color,
                                 width = width),
            ggplot2::geom_point(position = position_jitter(width = .12,
                                                           height = 0,
@@ -63,10 +66,12 @@ ses_boxplot <- function(point_fill, boxplot_fill_color = 'gray95',
                                color = point_width_color,
                                size = point_size))
     } else if (points == FALSE) {
-      ggplot2::geom_boxplot(notch = notch, width = width)
+      list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+            ggplot2::geom_boxplot(notch = notch, width = width))
     }
     if (points == TRUE) {
-      list(ggplot2::geom_boxplot(fill = boxplot_fill_color,
+      list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+            ggplot2::geom_boxplot(fill = boxplot_fill_color,
                                 width = width),
            ggplot2::geom_point(position = position_jitter(width = .12,
                                                           height = 0,
@@ -76,7 +81,8 @@ ses_boxplot <- function(point_fill, boxplot_fill_color = 'gray95',
                                color = point_width_color,
                                size = point_size))
     } else if(points == FALSE) {
-      ggplot2::geom_boxplot(notch = notch, width = width)
+      list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+            ggplot2::geom_boxplot(notch = notch, width = width))
     }
     else {
       stop('Such a shape does not exist in geom_point().')

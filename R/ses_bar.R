@@ -46,7 +46,8 @@ ses_bar <- function(point_fill, data=.data, aes_x, aes_y,
   }
 
   if (missing(point_fill)) {
-    list(ggplot2::geom_bar(stat="identity",
+    list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+          ggplot2::geom_bar(stat="identity",
                            fill = bar_fill_color,
                            width = width),
          ggplot2::geom_point(data = data,
@@ -59,7 +60,8 @@ ses_bar <- function(point_fill, data=.data, aes_x, aes_y,
                              size = point_size))
   } else {
 
-    list(ggplot2::geom_bar(stat="identity",
+    list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+          ggplot2::geom_bar(stat="identity",
                            fill = bar_fill_color,
                                width = width),
          ggplot2::geom_point(data = data,

@@ -18,5 +18,5 @@ A graph with a horizontal grid is plotted. Border can be added or removed.
 This is useful for plotting a bar graph.
 For more information, please visit \url{https://www.ses21.com}.
 
-This is slightly different from ses_hist().
+ses_bar_theme() is exactly the same as ses_hgrid().
 }

@@ -27,16 +27,17 @@
 ses_violin <- function(point_fill, violin_fill_color = 'gray90',
                        violin_width_color = 'transparent',
                        points = TRUE,
-                       point_size = 2,
+                       point_size = 3,
                        point_shape = 21,
                        point_width_color = 'white') {
 
   if (missing(point_fill)) {
 
     if (points == TRUE) {
-      list(ggplot2::geom_violin(color = violin_width_color,
+      list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+            ggplot2::geom_violin(color = violin_width_color,
                                 fill = violin_fill_color),
-           ggplot2::geom_point(position = position_jitter(width = .12,
+           ggplot2::geom_point(position = position_jitter(width = .15,
                                                           height = 0,
                                                           seed = 10),
                                size = point_size,
@@ -48,7 +49,8 @@ ses_violin <- function(point_fill, violin_fill_color = 'gray90',
 
   } else {
     if (points == TRUE) {
-      list(ggplot2::geom_violin(color = violin_width_color,
+      list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+            ggplot2::geom_violin(color = violin_width_color,
                                 fill = violin_fill_color),
            ggplot2::geom_point(position = position_jitter(width = .12,
                                                           height = 0,
@@ -62,7 +64,8 @@ ses_violin <- function(point_fill, violin_fill_color = 'gray90',
       ggplot2::geom_violin()
     }
     if (points == TRUE) {
-      list(ggplot2::geom_violin(color = violin_width_color,
+      list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+            ggplot2::geom_violin(color = violin_width_color,
                                 fill = violin_fill_color),
            ggplot2::geom_point(position = position_jitter(width = .12,
                                                           height = 0,

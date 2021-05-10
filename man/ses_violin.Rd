@@ -9,7 +9,7 @@ ses_violin(
   violin_fill_color = "gray90",
   violin_width_color = "transparent",
   points = TRUE,
-  point_size = 2,
+  point_size = 3,
   point_shape = 21,
   point_width_color = "white"
 )

@@ -11,7 +11,7 @@ ses_boxplot(
   points = TRUE,
   notch = F,
   width = 0.4,
-  point_size = 2,
+  point_size = 3,
   point_width_color = "white",
   point_shape = 21
 )
