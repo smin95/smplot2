@@ -1,7 +1,7 @@
 #' A boxplot with individual points (jittered)
 #'
 #' @description
-#' A boxplot plot superimposed with jittered individual points.
+#' A boxplot superimposed with jittered individual points.
 
 #' @param point_fill
 #' Color of the individual jittered points.

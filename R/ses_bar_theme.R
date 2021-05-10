@@ -15,7 +15,7 @@
 #' If the border needs to be displayed, the input should be TRUE.
 #' If the border is not needed, the input should be FALSE.
 
-ses_bar_theme <- function(legends = TRUE, borders = TRUE) {
+ses_bar_theme <- function(legends = FALSE, borders = TRUE) {
 
   if (legends == TRUE) {
     if (borders == FALSE) {

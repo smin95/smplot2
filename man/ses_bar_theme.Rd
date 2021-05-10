@@ -4,7 +4,7 @@
 \alias{ses_bar_theme}
 \title{SES plot with a horizontal grid (a theme for bar graphs).}
 \usage{
-ses_bar_theme(legends = TRUE, borders = TRUE)
+ses_bar_theme(legends = FALSE, borders = TRUE)
 }
 \arguments{
 \item{legends}{If the legend needs to be displayed, the input should be TRUE.

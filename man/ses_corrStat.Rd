@@ -56,7 +56,16 @@ r-value is the correlation coefficient. It does not depend on}
 
 \item{font}{Font of the text in character string.}
 
-\item{size}{Font size of the text}
+\item{text_size}{Font size of the text}
+
+\item{lin_reg}{'TRUE' if linear regression should be plotted.
+'FALSE' if it should not be plotted.}
+
+\item{line_size}{Width of the linear regression line}
+
+\item{line_type}{Line type of the linear regression slope}
+
+\item{line_color}{Color of the linear regression line}
 }
 \value{
 

@@ -41,7 +41,7 @@ ses_boxplot(
 
 }
 \description{
-A boxplot plot superimposed with jittered individual points.
+A boxplot superimposed with jittered individual points.
 }
 \examples{
 
