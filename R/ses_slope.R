@@ -11,7 +11,7 @@
 #' @export
 #'
 #' @examples
-ses_slope <- function(legends = TRUE) {
+ses_slope_theme <- function(legends = TRUE) {
   if (legends == T) {
     ggplot2::theme_bw(base_size = 10, base_family = '') +
       ggplot2::theme(

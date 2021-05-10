@@ -39,7 +39,7 @@
 #'
 #' @examples
 #'
-ses_corrline <- function(x, y, data = data, line_color = 'black',
+ses_corrline <- function(x, y, data = .data, line_color = 'black',
                          line_size = 0.6, line_linetype = 'dashed') {
 
   if (!missing(data)) {

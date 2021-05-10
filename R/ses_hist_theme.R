@@ -10,7 +10,7 @@
 #' If the border needs to be displayed, the input should be TRUE.
 #' If the border is not needed, the input should be FALSE.
 
-ses_hist <- function(borders = TRUE) {
+ses_hist_theme <- function(borders = TRUE) {
 
   if (borders == FALSE) {
 

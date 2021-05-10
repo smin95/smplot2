@@ -2,7 +2,7 @@
 % Please edit documentation in R/ses_boxplot.R
 \name{ses_boxplot}
 \alias{ses_boxplot}
-\title{violin plot with individual points (jittered)}
+\title{A boxplot with individual points (jittered)}
 \usage{
 ses_boxplot(
   point_fill,
@@ -11,32 +11,37 @@ ses_boxplot(
   points = TRUE,
   notch = F,
   width = 0.4,
-  point_size = 1.5,
+  point_size = 2,
   point_width_color = "white",
   point_shape = 21
 )
 }
 \arguments{
-\item{point_fill}{Color of the points.}
+\item{point_fill}{Color of the individual jittered points.}
 
 \item{boxplot_fill_color}{Color of the boxplot.}
 
 \item{boxplot_width_color}{Color of the boxplot's width.}
 
-\item{points}{Logical argument is required. TRUE if points need to be displayed.
-FALSE if points need to be not shown.}
+\item{points}{'TRUE' if points need to be shown.
+'FALSE' if points need to be hidden.}
 
-\item{point_size}{Size of the points.}
+\item{notch}{'TRUE' to notch the shape of the boxplot.
+'FALSE' to keep the boxplot's shape.}
 
-\item{point_width_color}{Color of the point's width when shapes of the points are 21-25.}
+\item{width}{Width of the boxplot.}
 
-\item{point_color}{Color of the points.}
+\item{point_size}{Size of the individual jittered points.}
+
+\item{point_width_color}{Color of the points' width.}
+
+\item{point_shape}{Shape of the jittered points.}
 }
 \value{
 
 }
 \description{
-A violin plot superimposed with jittered individual points.
+A boxplot plot superimposed with jittered individual points.
 }
 \examples{
 

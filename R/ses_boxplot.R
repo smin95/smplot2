@@ -1,24 +1,29 @@
-#' violin plot with individual points (jittered)
+#' A boxplot with individual points (jittered)
 #'
 #' @description
-#' A violin plot superimposed with jittered individual points.
-#'
+#' A boxplot plot superimposed with jittered individual points.
+
+#' @param point_fill
+#' Color of the individual jittered points.
 #' @param boxplot_fill_color
 #' Color of the boxplot.
 #' @param boxplot_width_color
 #' Color of the boxplot's width.
 #' @param points
-#' Logical argument is required. TRUE if points need to be displayed.
-#' FALSE if points need to be not shown.
-#' @param point_color
-#' Color of the points.
+#' 'TRUE' if points need to be shown.
+#' 'FALSE' if points need to be hidden.
+#' @param notch
+#' 'TRUE' to notch the shape of the boxplot.
+#' 'FALSE' to keep the boxplot's shape.
+#' @param width
+#' Width of the boxplot.
 #' @param point_size
-#' Size of the points.
-
+#' Size of the individual jittered points.
 #' @param point_width_color
-#' Color of the point's width when shapes of the points are 21-25.
-#' @param point_fill
-#' Color of the points.
+#' Color of the points' width.
+#' @param point_shape
+#' Shape of the jittered points.
+#'
 #' @return
 #' @export
 #'
@@ -27,7 +32,7 @@
 ses_boxplot <- function(point_fill, boxplot_fill_color = 'gray95',
                         boxplot_width_color = 'black',
                        points = TRUE, notch = F, width = 0.4,
-                       point_size = 1.5,
+                       point_size = 2,
                        point_width_color = 'white',
                        point_shape = 21) {
 

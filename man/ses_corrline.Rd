@@ -7,7 +7,7 @@
 ses_corrline(
   x,
   y,
-  data = data,
+  data = .data,
   line_color = "black",
   line_size = 0.6,
   line_linetype = "dashed"

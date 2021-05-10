@@ -22,15 +22,15 @@ save_plot('p5.jpg', p5, base_asp = 1)
 p6 <- p5 + ses_slope()
 save_plot('p6.jpg', p6, base_asp = 1)
 
-p3 <- ggplot(data = mtcars, aes(x = drat, y = mpg)) +
+p1 <-  ggplot(data = mtcars, aes(x = drat, y = mpg)) +
   geom_point(shape = 21, fill = '#0f993d', color = 'white',
-             size = 3)
+             size = 3) + ses_corrStat(drat,mpg, data = mtcars,
+                                      text_x = 3.2, text_y = 30,
+                                      line_color = ses_palette(1,'green'))
 
-p4 <- p3 + ses_corr()
 
-p4.1 <- p4 + ses_corrtext(mtcars$drat, mtcars$mpg, x=3.2, y=30, method = 'pearson') +
-  ses_corrline(mtcars$drat, mtcars$mpg, line_color = '#0f993d', line_size = 1)
+p4 <- p1 + ses_corr()
 
 save_plot('p3.jpg', p3, base_asp = 1)
-save_plot('p4.jpg', p4, base_asp = 1)
+save_plot('p4a.jpg', p4, base_asp = 1)
 save_plot('p4.1.jpg', p4.1, base_asp = 1)
