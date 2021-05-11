@@ -30,8 +30,8 @@ ses_minimal <- function(legends = TRUE, borders = TRUE) {
           axis.text.x=element_text(vjust= 0),
           axis.line.x = element_blank(),
           axis.ticks = element_blank(),
-          legend.text=element_text(size= rel(.85)),
-          legend.title=element_text(size=rel(.85))
+          legend.text=element_text(size= rel(.78)),
+          legend.title=element_text(size=rel(.78))
         )
     } else if (borders == TRUE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
@@ -44,8 +44,8 @@ ses_minimal <- function(legends = TRUE, borders = TRUE) {
           axis.title.y =  ggplot2::element_text(size = rel(1.2), color = "black"),
           axis.title.x =  ggplot2::element_text(size = rel(1.2), color = "black"),
           axis.text.x=element_text(vjust= 0),
-          legend.text=element_text(size= rel(1.2)),
-          legend.title=element_text(size=rel(1.2))
+          legend.text=element_text(size= rel(1.1)),
+          legend.title=element_text(size=rel(1.1))
         )
     }
   } else if (legends == FALSE) {
