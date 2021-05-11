@@ -1,9 +1,8 @@
-#' SES theme with horizontal and vertical grids
+#' SES theme with vertical grid
 #'
 #' @description
 #'
-#' This theme has major vertical and horizontal grids. This is useful for plotting correlation.
-#' ses_corr_theme() is exactly the same as ses_hvgrid().
+#' This theme has major vertical grids.
 #' For more information, please visit \url{https://www.ses21.com}.
 #'
 #'
@@ -17,7 +16,7 @@
 #' If the border needs to be displayed, the input should be TRUE.
 #' If the border is not needed, the input should be FALSE.
 #'
-ses_hvgrid <- function(legends = TRUE, borders = TRUE) {
+ses_vgrid <- function(legends = TRUE, borders = TRUE) {
 
   if (legends == TRUE) {
     if (borders == FALSE) {
@@ -32,6 +31,7 @@ ses_hvgrid <- function(legends = TRUE, borders = TRUE) {
           plot.title =  ggplot2::element_text(hjust = 0.5),
           panel.grid.minor.x =  ggplot2::element_blank(),
           panel.grid.minor.y = ggplot2::element_blank(),
+          panel.grid.major.x = ggplot2::element_blank(),
           strip.background = element_rect(fill = NA, colour = NA),
           strip.text.x = element_text(colour = "black", size = rel(.85)),
           strip.text.y = element_text(colour = "black", size = rel(.85)),
@@ -49,6 +49,7 @@ ses_hvgrid <- function(legends = TRUE, borders = TRUE) {
           plot.title =  ggplot2::element_text(hjust = 0.5),
           panel.grid.minor.x =  ggplot2::element_blank(),
           panel.grid.minor.y = ggplot2::element_blank(),
+          panel.grid.major.x = ggplot2::element_blank(),
           strip.background = element_rect(fill = NA, colour = NA),
           strip.text.x = element_text(colour = "black", size = rel(1.2)),
           strip.text.y = element_text(colour = "black", size = rel(1.2)),
@@ -69,6 +70,7 @@ ses_hvgrid <- function(legends = TRUE, borders = TRUE) {
           plot.title =  ggplot2::element_text(hjust = 0.5),
           panel.grid.minor.x =  ggplot2::element_blank(),
           panel.grid.minor.y = ggplot2::element_blank(),
+          panel.grid.major.x = ggplot2::element_blank(),
           strip.background = element_rect(fill = NA, colour = NA),
           strip.text.x = element_text(colour = "black", size = rel(.85)),
           strip.text.y = element_text(colour = "black", size = rel(.85)),
@@ -85,6 +87,7 @@ ses_hvgrid <- function(legends = TRUE, borders = TRUE) {
           plot.title =  ggplot2::element_text(hjust = 0.5),
           panel.grid.minor.x =  ggplot2::element_blank(),
           panel.grid.minor.y = ggplot2::element_blank(),
+          panel.grid.major.x = ggplot2::element_blank(),
           strip.background = element_rect(fill = NA, colour = NA),
           strip.text.x = element_text(colour = "black", size = rel(1.2)),
           strip.text.y = element_text(colour = "black", size = rel(1.2)),

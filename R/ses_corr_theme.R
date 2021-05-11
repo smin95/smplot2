@@ -34,7 +34,9 @@ ses_corr_theme <- function(legends = TRUE, borders = TRUE) {
         panel.grid.minor.y = ggplot2::element_blank(),
         strip.background = element_rect(fill = NA, colour = NA),
         strip.text.x = element_text(colour = "black", size = rel(.85)),
-        strip.text.y = element_text(colour = "black", size = rel(.85))
+        strip.text.y = element_text(colour = "black", size = rel(.85)),
+        legend.text=element_text(size= rel(.85)),
+        legend.title=element_text(size=rel(.85))
       )
     } else if (borders == TRUE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
@@ -49,7 +51,9 @@ ses_corr_theme <- function(legends = TRUE, borders = TRUE) {
           panel.grid.minor.y = ggplot2::element_blank(),
           strip.background = element_rect(fill = NA, colour = NA),
           strip.text.x = element_text(colour = "black", size = rel(1.2)),
-          strip.text.y = element_text(colour = "black", size = rel(1.2))
+          strip.text.y = element_text(colour = "black", size = rel(1.2)),
+          legend.text=element_text(size= rel(1.2)),
+          legend.title=element_text(size=rel(1.2))
         )
     }
   } else if (legends == FALSE) {

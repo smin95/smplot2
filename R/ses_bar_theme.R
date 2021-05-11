@@ -28,7 +28,9 @@ ses_bar_theme <- function(legends = FALSE, borders = TRUE) {
           axis.text =  ggplot2::element_text(size = rel(.85), color = "black"),
           axis.title.y =  ggplot2::element_text(size = rel(.85), color = "black"),
           axis.title.x =  ggplot2::element_text(size = rel(.85), color = "black"),
-          axis.text.x=element_text(vjust= 0)
+          axis.text.x=element_text(vjust= 0),
+          legend.text=element_text(size= rel(.85)),
+          legend.title=element_text(size=rel(.85))
         )
     } else if (borders == TRUE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
@@ -40,7 +42,9 @@ ses_bar_theme <- function(legends = FALSE, borders = TRUE) {
           axis.text =  ggplot2::element_text(size = rel(1.2), color = "black"),
           axis.title.y =  ggplot2::element_text(size = rel(1.2), color = "black"),
           axis.title.x =  ggplot2::element_text(size = rel(1.2), color = "black"),
-          axis.text.x=element_text(vjust= 0)
+          axis.text.x=element_text(vjust= 0),
+          legend.text=element_text(size= rel(1.2)),
+          legend.title=element_text(size=rel(1.2))
         )
     }
   } else if (legends == FALSE) {
