@@ -2,10 +2,7 @@
 % Please edit documentation in R/ses_palette.R
 \name{ses_palette}
 \alias{ses_palette}
-\title{SES custom palette of colors
-This is a custom color palette that SES recommends for data visualization.
-For more information, please visit \url{https://www.ses21.com}. It returns
-up to 16 different colors with a high contrast.}
+\title{SES custom palette of colors}
 \usage{
 ses_palette(colorNum = 10)
 }
@@ -16,7 +13,6 @@ ses_palette(colorNum = 10)
 
 }
 \description{
-SES custom palette of colors
 This is a custom color palette that SES recommends for data visualization.
 For more information, please visit \url{https://www.ses21.com}. It returns
 up to 16 different colors with a high contrast.

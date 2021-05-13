@@ -1,4 +1,6 @@
 #' SES custom palette of colors
+#'
+#' @description
 #' This is a custom color palette that SES recommends for data visualization.
 #' For more information, please visit \url{https://www.ses21.com}. It returns
 #' up to 16 different colors with a high contrast.
