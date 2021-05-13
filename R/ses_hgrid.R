@@ -28,10 +28,12 @@ ses_hgrid <- function(legends = FALSE, borders = TRUE) {
           panel.grid.major.y =  ggplot2::element_line(size = 0.5),
           axis.text =  ggplot2::element_text(size = rel(.85), color = "black"),
           axis.title.y =  ggplot2::element_text(size = rel(.85), color = "black"),
-          axis.title.x =  ggplot2::element_text(size = rel(.85), color = "black"),
+          axis.title.x =  ggplot2::element_text(size = rel(.85), color = "black",
+                                                vjust=-1),
           axis.text.x=element_text(vjust= 0),
           legend.text=element_text(size= rel(.78)),
-          legend.title=element_text(size=rel(.78))
+          legend.title=element_text(size=rel(.78)),
+          plot.title = element_text(hjust = 0.5)
         )
     } else if (borders == TRUE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
@@ -42,10 +44,12 @@ ses_hgrid <- function(legends = FALSE, borders = TRUE) {
           panel.grid.major.y =  ggplot2::element_line(size = 0.5),
           axis.text =  ggplot2::element_text(size = rel(1.2), color = "black"),
           axis.title.y =  ggplot2::element_text(size = rel(1.2), color = "black"),
-          axis.title.x =  ggplot2::element_text(size = rel(1.2), color = "black"),
+          axis.title.x =  ggplot2::element_text(size = rel(1.2), color = "black",
+                                                vjust=-1),
           axis.text.x=element_text(vjust= 0),
           legend.text=element_text(size= rel(1.1)),
-          legend.title=element_text(size=rel(1.1))
+          legend.title=element_text(size=rel(1.1)),
+          plot.title = element_text(hjust = 0.5)
         )
     }
   } else if (legends == FALSE) {
@@ -58,9 +62,11 @@ ses_hgrid <- function(legends = FALSE, borders = TRUE) {
           panel.grid.major.y =  ggplot2::element_line(size = 0.5),
           axis.text =  ggplot2::element_text(size = rel(.85), color = "black"),
           axis.title.y =  ggplot2::element_text(size = rel(.85), color = "black"),
-          axis.title.x =  ggplot2::element_text(size = rel(.85), color = "black"),
+          axis.title.x =  ggplot2::element_text(size = rel(.85), color = "black",
+                                                vjust=-1),
           axis.text.x=element_text(vjust= 0),
-          legend.position = 'none'
+          legend.position = 'none',
+          plot.title = element_text(hjust = 0.5)
         )
     } else if (borders == TRUE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
@@ -71,9 +77,11 @@ ses_hgrid <- function(legends = FALSE, borders = TRUE) {
           panel.grid.major.y =  ggplot2::element_line(size = 0.5),
           axis.text =  ggplot2::element_text(size = rel(1.2), color = "black"),
           axis.title.y =  ggplot2::element_text(size = rel(1.2), color = "black"),
-          axis.title.x =  ggplot2::element_text(size = rel(1.2), color = "black"),
+          axis.title.x =  ggplot2::element_text(size = rel(1.2), color = "black",
+                                                vjust=-1),
           axis.text.x=element_text(vjust= 0),
-          legend.position = 'none'
+          legend.position = 'none',
+          plot.title = element_text(hjust = 0.5)
         )
     }
   }

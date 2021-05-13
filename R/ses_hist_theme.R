@@ -24,6 +24,7 @@ ses_hist_theme <- function(borders = TRUE) {
       axis.ticks =  ggplot2::element_blank(),
       axis.text.x=  ggplot2::element_text(vjust= 0),
       panel.grid.major =  ggplot2::element_line(size = 0.4),
+      plot.title = element_text(hjust = 0.5)
     )
 
   } else if (borders == TRUE) {
@@ -36,6 +37,7 @@ ses_hist_theme <- function(borders = TRUE) {
         axis.ticks =  ggplot2::element_blank(),
         axis.text.x=  ggplot2::element_text(vjust= 0),
         panel.grid.major =  ggplot2::element_line(size = 0.4),
+        plot.title = element_text(hjust = 0.5)
       )
   }
 }

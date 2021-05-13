@@ -21,7 +21,7 @@ ses_vgrid <- function(legends = TRUE, borders = TRUE) {
   if (legends == TRUE) {
     if (borders == FALSE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
-        cowplot::theme_minimal_grid() +
+        #cowplot::theme_minimal_grid() +
         ggplot2::theme(
           axis.text =  ggplot2::element_text(size = rel(.85), color = "black"),
           axis.title.y =  ggplot2::element_text(size = rel(.85), color = "black"),
@@ -36,7 +36,8 @@ ses_vgrid <- function(legends = TRUE, borders = TRUE) {
           strip.text.x = element_text(colour = "black", size = rel(.85)),
           strip.text.y = element_text(colour = "black", size = rel(.85)),
           legend.text=element_text(size= rel(.78)),
-          legend.title=element_text(size=rel(.78))
+          legend.title=element_text(size=rel(.78)),
+          plot.title = element_text(hjust = 0.5)
         )
     } else if (borders == TRUE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
@@ -54,13 +55,14 @@ ses_vgrid <- function(legends = TRUE, borders = TRUE) {
           strip.text.x = element_text(colour = "black", size = rel(1.2)),
           strip.text.y = element_text(colour = "black", size = rel(1.2)),
           legend.text=element_text(size= rel(1.1)),
-          legend.title=element_text(size=rel(1.1))
+          legend.title=element_text(size=rel(1.1)),
+          plot.title = element_text(hjust = 0.5)
         )
     }
   } else if (legends == FALSE) {
     if (borders == FALSE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
-        cowplot::theme_minimal_grid() +
+       # cowplot::theme_minimal_grid() +
         ggplot2::theme(
           axis.text =  ggplot2::element_text(size = rel(.85), color = "black"),
           axis.title.y =  ggplot2::element_text(size = rel(.85), color = "black"),
@@ -74,7 +76,8 @@ ses_vgrid <- function(legends = TRUE, borders = TRUE) {
           strip.background = element_rect(fill = NA, colour = NA),
           strip.text.x = element_text(colour = "black", size = rel(.85)),
           strip.text.y = element_text(colour = "black", size = rel(.85)),
-          legend.position = 'none'
+          legend.position = 'none',
+          plot.title = element_text(hjust = 0.5)
         )
     } else if (borders == TRUE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
@@ -91,7 +94,8 @@ ses_vgrid <- function(legends = TRUE, borders = TRUE) {
           strip.background = element_rect(fill = NA, colour = NA),
           strip.text.x = element_text(colour = "black", size = rel(1.2)),
           strip.text.y = element_text(colour = "black", size = rel(1.2)),
-          legend.position = 'none'
+          legend.position = 'none',
+          plot.title = element_text(hjust = 0.5)
         )
     }
   }

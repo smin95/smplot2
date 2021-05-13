@@ -10,8 +10,8 @@ ses_boxplot(
   boxplot_width_color = "black",
   points = TRUE,
   notch = F,
-  width = 0.4,
-  point_size = 3,
+  width = 0.5,
+  point_size = 2.2,
   point_width_color = "white",
   point_shape = 21
 )
