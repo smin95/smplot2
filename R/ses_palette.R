@@ -38,6 +38,5 @@ ses_palette <- function(colorNum = 10) {
                 '#45e0e6', '#63e617', '#e57717')
   }
 
-
   return(output)
 }
