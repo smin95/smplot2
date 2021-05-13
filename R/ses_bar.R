@@ -2,7 +2,7 @@
 #'
 #' @description
 #' A bar plot superimposed by jittered individual points.
-#' `ggplot()` should contain the summarised data with
+#' ggplot() should contain the summarised data with
 #' the mean for each group/condition.
 #'
 #' @param point_fill
@@ -16,8 +16,8 @@
 #' @param barplot_fill_color
 #' Color of the bar
 #' @param points
-#' `TRUE` if points need to be shown.
-#' `FALSE` if points need to be hidden.
+#' TRUE if points need to be shown.
+#' FALSE if points need to be hidden.
 #' @param width
 #' Width of the bar
 #' @param point_size

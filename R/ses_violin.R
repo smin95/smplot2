@@ -10,8 +10,8 @@
 #' @param violin_border_color
 #' Color of the violin's width (Border)
 #' @param points
-#' 'TRUE' if points need to be shown.
-#' 'FALSE' if points need to be hidden.
+#' TRUE if points need to be shown.
+#' FALSE if points need to be hidden.
 #' @param point_size
 #' Size of the individual jittered points.
 #' @param point_shape

@@ -23,11 +23,11 @@ ses_boxplot(
 
 \item{boxplot_border_color}{Color of the boxplot's border.}
 
-\item{points}{`TRUE` if points need to be shown.
-`FALSE` if points need to be hidden.}
+\item{points}{TRUE if points need to be shown.
+FALSE if points need to be hidden.}
 
-\item{notch}{`TRUE` to notch the shape of the boxplot.
-`FALSE` to keep the boxplot's shape.}
+\item{notch}{TRUE to notch the shape of the boxplot.
+FALSE to keep the boxplot's shape.}
 
 \item{width}{Width of the boxplot.}
 

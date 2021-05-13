@@ -10,11 +10,11 @@
 #' @param boxplot_border_color
 #' Color of the boxplot's border.
 #' @param points
-#' `TRUE` if points need to be shown.
-#' `FALSE` if points need to be hidden.
+#' TRUE if points need to be shown.
+#' FALSE if points need to be hidden.
 #' @param notch
-#' `TRUE` to notch the shape of the boxplot.
-#' `FALSE` to keep the boxplot's shape.
+#' TRUE to notch the shape of the boxplot.
+#' FALSE to keep the boxplot's shape.
 #' @param width
 #' Width of the boxplot.
 #' @param point_size

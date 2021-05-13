@@ -11,11 +11,11 @@
 #' @param line_color
 #' Color of the linear regression line
 #' @param line_type
-#' Options include:  `“blank”`, `“solid”`, `“dashed”`, `“dotted”`,
-#' `“dotdash”`, `“longdash”`, `“twodash”`.
+#' Options include:  'blank', 'solid', 'dashed', 'dotted',
+#' 'dotdash', 'longdash', 'twodash'.
 #' @param corr_method
 #' Method of the correlation test.
-#' Options include: `"pearson"`, `"kendall"`, or `"spearman"`.
+#' Options include: 'pearson', 'kendall', or 'spearman'.
 #' @param ln_method
 #' This is the method of producing the best-fit line.
 #' 'lm' for linear regression, 'glm' for generalized linear fit, 'loess' for local smooths.

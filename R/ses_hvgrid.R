@@ -9,8 +9,8 @@
 #' @export
 #'
 #' @param legends
-#' If the legend needs to be displayed, the input should be `TRUE`.
-#' If the legend is not needed, the input should be `FALSE`.
+#' If the legend needs to be displayed, the input should be TRUE.
+#' If the legend is not needed, the input should be FALSE.
 #'
 #' @param borders
 #' If the border needs to be displayed, the input should be `TRUE`.
