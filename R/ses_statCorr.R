@@ -40,10 +40,14 @@
 #' @return
 #' @export
 #'
-#' @example
-#' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
-#' geom_point(shape = 21, fill = '#0f993d', color = 'white',
-#' size = 3) + ses_corr_theme() + ses_statCorr()
+#' @examples
+#' ggplot(data = mtcars,
+#' mapping = aes(x = drat, y = mpg)) +
+#' geom_point(shape = 21,
+#' fill = '#0f993d', color = 'white',
+#' size = 3) +
+#' ses_corr_theme() +
+#' ses_statCorr()
 #'
 #'
 ses_statCorr <- function(line_color = 'black',

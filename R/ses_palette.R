@@ -8,8 +8,6 @@
 #' @param colorNum
 #' Number of colors (1-16).
 #'
-#' @return
-#' @export
 #'
 #' @examples
 #' ses_palette(3) # returns 3 colors

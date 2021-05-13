@@ -28,10 +28,8 @@
 #' Shape of the jittered points.
 #' Only shapes (21-25) with borders are allowed.
 #'
-#' @return
-#' @export
 #'
-#' @example
+#' @examples
 #' set.seed(2) # generate random data
 #' day1 = rnorm(20,0,2)
 #' day2 = rnorm(20,6,2)

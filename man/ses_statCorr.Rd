@@ -57,3 +57,10 @@ This combines two different functions:
 `geom_smooth()` is used to fit the best-fit model, whereas
 `stat_cor()` is used to print correlation results at an optimized location.
 }
+\examples{
+ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+geom_point(shape = 21, fill = '#0f993d', color = 'white',
+size = 3) + ses_corr_theme() + ses_statCorr()
+
+
+}

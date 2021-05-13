@@ -9,9 +9,6 @@ ses_palette(colorNum = 10)
 \arguments{
 \item{colorNum}{Number of colors (1-16).}
 }
-\value{
-
-}
 \description{
 This is a custom color palette that SES recommends for data visualization.
 For more information, please visit \url{https://www.ses21.com}. It returns

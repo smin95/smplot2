@@ -18,3 +18,11 @@ This theme has major vertical and horizontal grids. This is useful for plotting 
 ses_corr_theme() is exactly the same as ses_hvgrid().
 For more information, please visit \url{https://www.ses21.com}.
 }
+\examples{
+p1 <- ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+geom_point(shape = 21, fill = '#0f993d', color = 'white',
+size = 3)
+p1 + ses_corr_theme()
+
+
+}

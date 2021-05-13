@@ -37,11 +37,31 @@ Only shapes (21-25) with borders are allowed.}
 \item{points}{`TRUE` if points need to be shown.
 `FALSE` if points need to be hidden.}
 }
-\value{
-
-}
 \description{
 A bar plot superimposed by jittered individual points.
 `ggplot()` should contain the summarised data with
 the mean for each group/condition.
+}
+\examples{
+set.seed(2) # generate random data
+day1 = rnorm(20,0,2)
+day2 = rnorm(20,6,2)
+Subject <- rep(paste0('S',seq(1:20)), 2)
+Data <- data.frame(Value = matrix(c(day1,day2),ncol=1))
+Time <- rep(c('Day 1', 'Day 2'), each = length(day1))
+DataFrame <- cbind(Subject, Data, Time)
+
+# summarise the data with dplyr
+summary_df <- DataFrame \%>\% group_by(Time) \%>\%
+summarise(mean_value = mean(Value), se = se(Value))
+
+# plot the data with ses_bar()
+ggplot(data = summary_df, aes(x = Time, y = mean_value,
+                             fill = Time)) +
+ses_bar(data = DataFrame, aes_x =
+Time, aes_y = Value) + ses_bar_theme() +
+geom_linerange(aes(ymin = mean_value-se,
+ymax = mean_value+se)) # errorbar
+
+
 }
