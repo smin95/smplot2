@@ -1,24 +1,8 @@
 # sesplot
 
-sesplot provides simple themes and a color palette for data visualization. It has been developed to invite people without a coding background to pick up R. Here are the SES (Sam's Editing Studio) functions:
+sesplot provides simple themes and a color palette for data visualization. It has been developed by SES (Sam's Editing Studio, www.ses21.com) to invite people without a coding background to pick up R. So far, there are 13 SES functions with a full documentation.
 
-* `ses_bar()`: a SES theme for a bar graph. 
-* `ses_corr()`: a SES theme appropriate for plotting correlations.
-* `ses_hist()`: a SES theme appropriate for a histogram.
-* `ses_slope()`: a SES theme for a slope chart.
-* `ses_palette()`: a SES color palette with up to 16 different colors.
-
-These two specific functions are for correlation plots:
-
-* `ses_corrline()`: plots the linear slope of a correlation using the function `lm()`.
-* `ses_corrtext()`: prints out p- and r-values from a paired correlation test.
-
-sesplot is an ongoing project. WORK IN PROGRESS.
-
-## TODO
-- [ ] Finish documentation
-- [ ] R tutorial with sesplot on the website (3 parts)
-- [ ] Boxplot theme
+sesplot will be continuously updated.
 
 ### Installation
 
@@ -45,12 +29,12 @@ df <- data.frame(group=c("One", "Two", "Three"),
 p1 <- ggplot(data=df, aes(x=group, y=score, fill = group)) +
   geom_bar(stat="identity") 
   
-p2 <- p1 + ses_bar(legends = F) + 
+p2 <- p1 + ses_bar_theme(legends = F) + 
 scale_fill_manual(values = ses_palette(3))
 ```
 <img src="bar.png" width="85%">
 
-In this example, `ses_bar` is used to remove the legends and apply a minimalistic theme. Then `ses_palette` is used for changing the colors of each group. In short, the texts are larger, the colors more different, and the background less distracting.
+In this example, `ses_bar_theme()` is used to remove the legends and apply a minimalistic theme. Then `ses_palette` is used for changing the colors of each group. In short, the texts are larger, the colors more different, and the background less distracting.
 
 ### Example 2: Correlation plot
 
@@ -59,12 +43,12 @@ p3 <- ggplot(data = mtcars, aes(x = drat, y = mpg)) +
   geom_point(shape = 21, fill = '#0f993d', color = 'white',
              size = 3) 
 
-p4 <- p3 + ses_corr() 
+p4 <- p3 + ses_corr_theme() 
 ```
 
 <img src="scatter.png" width="85%">
 
-Notice that the text size and the background have changed using `ses_corr()`. The texts are larger and the background less distracting. 
+Notice that the text size and the background have changed using `ses_corr_theme()`. The texts are larger and the background less distracting. 
 
 Now let's add the linear regression slope and report the p- and r- values from a Pearson correlation test.
 
@@ -88,7 +72,7 @@ day1 = rnorm(20,0,1)
 day2 = rnorm(20,5,1)
 
 Subject <- rep(paste0('S',seq(1:20)), 2)
-Data <- data.frame(Value = matrix(c(day2,day2),ncol=1))
+Data <- data.frame(Value = matrix(c(day1,day2),ncol=1))
 Time <- rep(c('Day 1', 'Day 2'), each = length(day1))
 
 DataFrame <- cbind(Subject, Data, Time)
@@ -97,18 +81,18 @@ DataFrame <- cbind(Subject, Data, Time)
 Now, let's make a slope chart.
 
 ```r
-p5 <- ggplot(data = data1, 
+p5 <- ggplot(data = DataFrame, 
 aes(x = Time, y = Value, 
-group = Subject,Fill = Time))  +
+group = Subject, Fill = Time))  +
   geom_line(color = "gray53", size = .4) +
   geom_point(size = 3, shape= 21, 
-  fill = ses_palette(1, color = 'green'), color = 'white') +
+  fill = ses_color('green'), color = 'white') +
   scale_x_discrete(position = 'top',
   expand = c(0.15, .1), drop=FALSE)
 
-p6 <- p5 + ses_slope()  
+p6 <- p5 + ses_slope_theme()  
 ```
 
 <img src="slope.png" width="85%">
 
-The theme has changed with `ses_slope()`. The font sizes are larger, the axes have been removed, and the background is less distracting.
+The theme has changed with `ses_slope_theme()`. The font sizes are larger, the axes have been removed, and the background is less distracting.

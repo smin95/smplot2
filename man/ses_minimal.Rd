@@ -7,14 +7,13 @@
 ses_minimal(legends = TRUE, borders = TRUE)
 }
 \arguments{
-\item{legends}{If the legend needs to be displayed, the input should be TRUE.
-If the legend is not needed, the input should be FALSE.}
+\item{legends}{If the legend needs to be displayed, the input should be `TRUE`.
+If the legend is not needed, the input should be `FALSE`.}
 
-\item{borders}{If the border needs to be displayed, the input should be TRUE.
-If the border is not needed, the input should be FALSE.}
+\item{borders}{If the border needs to be displayed, the input should be `TRUE`.
+If the border is not needed, the input should be `FALSE`}
 }
 \description{
-A graph with no grid is plotted.
-This is useful for plotting a boxplot and violin plots.
+This theme has no major grid.
 For more information, please visit \url{https://www.ses21.com}.
 }

@@ -7,11 +7,11 @@
 ses_bar_theme(legends = FALSE, borders = TRUE)
 }
 \arguments{
-\item{legends}{If the legend needs to be displayed, the input should be TRUE.
-If the legend is not needed, the input should be FALSE.}
+\item{legends}{If the legend needs to be displayed, the input should be `TRUE`.
+If the legend is not needed, the input should be `FALSE`.}
 
-\item{borders}{If the border needs to be displayed, the input should be TRUE.
-If the border is not needed, the input should be FALSE.}
+\item{borders}{If the border needs to be displayed, the input should be `TRUE`.
+If the border is not needed, the input should be `FALSE`.}
 }
 \description{
 A graph with a horizontal grid is plotted. Border can be added or removed.
@@ -19,4 +19,11 @@ This is useful for plotting a bar graph.
 For more information, please visit \url{https://www.ses21.com}.
 
 ses_bar_theme() is exactly the same as ses_hgrid().
+}
+\examples{
+df <- data.frame(group=c("One", "Two", "Three"),
+score=c(5.2, 9.3, 12))
+p1 <- ggplot(data=df, aes(x=group, y=score, fill = group)) +
+geom_bar(stat="identity")
+p1 + ses_bar_theme()
 }

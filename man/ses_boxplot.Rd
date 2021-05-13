@@ -5,44 +5,61 @@
 \title{A boxplot with individual points (jittered)}
 \usage{
 ses_boxplot(
-  point_fill,
+  point_fill_color,
   boxplot_fill_color = "gray95",
-  boxplot_width_color = "black",
+  boxplot_border_color = "black",
   points = TRUE,
   notch = F,
   width = 0.5,
   point_size = 2.2,
-  point_width_color = "white",
+  point_border_color = "white",
   point_shape = 21
 )
 }
 \arguments{
-\item{point_fill}{Color of the individual jittered points.}
+\item{point_fill_color}{Color of the individual jittered points.}
 
 \item{boxplot_fill_color}{Color of the boxplot.}
 
-\item{boxplot_width_color}{Color of the boxplot's width.}
+\item{boxplot_border_color}{Color of the boxplot's border.}
 
-\item{points}{'TRUE' if points need to be shown.
-'FALSE' if points need to be hidden.}
+\item{points}{`TRUE` if points need to be shown.
+`FALSE` if points need to be hidden.}
 
-\item{notch}{'TRUE' to notch the shape of the boxplot.
-'FALSE' to keep the boxplot's shape.}
+\item{notch}{`TRUE` to notch the shape of the boxplot.
+`FALSE` to keep the boxplot's shape.}
 
 \item{width}{Width of the boxplot.}
 
 \item{point_size}{Size of the individual jittered points.}
 
-\item{point_width_color}{Color of the points' width.}
+\item{point_border_color}{Color of the points' border.}
 
-\item{point_shape}{Shape of the jittered points.}
+\item{point_shape}{Shape of the jittered points.
+Only shapes (21-25) with borders are allowed.}
 }
 \value{
 
 }
 \description{
-A boxplot superimposed with jittered individual points.
+A boxplot superimposed by jittered individual points.
 }
 \examples{
+
+set.seed(1) # generate random data
+day1 = rnorm(20,0,1)
+day2 = rnorm(20,5,1)
+Subject <- rep(paste0('S',seq(1:20)), 2)
+Data <- data.frame(Value = matrix(c(day1,day2),ncol=1))
+Day <- rep(c('Day 1', 'Day 2'), each = length(day1))
+df <- cbind(Subject, Data, Day)
+
+# a boxplot with the random data, all black points
+ggplot(data = df, mapping = aes(x = Day, y = Value)) +
+ses_boxplot(point_fill_color = 'black' )
+
+# a boxplot with different colored points
+ggplot(data = df, mapping = aes(x = Day, y = Value, fill = Day)) +
+ses_boxplot()
 
 }

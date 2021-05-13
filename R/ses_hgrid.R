@@ -9,12 +9,16 @@
 #' ses_bar_theme() is exactly the same as ses_hgrid().
 #'
 #' @param legends
-#' If the legend needs to be displayed, the input should be TRUE.
-#' If the legend is not needed, the input should be FALSE.
+#' If the legend needs to be displayed, the input should be `TRUE`.
+#' If the legend is not needed, the input should be `FALSE`.
 #' @param borders
 #' If the border needs to be displayed, the input should be TRUE.
-#' If the border is not needed, the input should be FALSE.
-
+#' If the border is not needed, the input should be `FALSE`.
+#'
+#' @example
+#' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+#' geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
+#' ses_hgrid()
 #'
 ses_hgrid <- function(legends = FALSE, borders = TRUE) {
 

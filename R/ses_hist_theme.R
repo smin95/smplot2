@@ -1,15 +1,3 @@
-#' SES plot with a horizontal grid (useful for histogram)
-#'
-#' @description
-#'
-#' A graph with a horizontal grid is plotted. This is useful for plotting a histogram.
-#' For more information, please visit \url{https://www.ses21.com}.
-#' This function is slightly different from ses_bar().
-#'
-#' @param borders
-#' If the border needs to be displayed, the input should be TRUE.
-#' If the border is not needed, the input should be FALSE.
-
 ses_hist_theme <- function(borders = TRUE) {
 
   if (borders == FALSE) {

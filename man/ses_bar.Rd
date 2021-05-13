@@ -12,7 +12,7 @@ ses_bar(
   bar_fill_color = "gray85",
   width = 0.4,
   point_size = 2.2,
-  point_width_color = "white",
+  point_border_color = "white",
   point_shape = 21
 )
 }
@@ -27,21 +27,21 @@ Column has to be group/variable/condition.}
 
 \item{point_size}{Size of the individual jittered points.}
 
-\item{point_width_color}{Color of the points' width.}
+\item{point_border_color}{Color of the points' width.}
 
-\item{point_shape}{Shape of the jittered points.}
+\item{point_shape}{Shape of the jittered points.
+Only shapes (21-25) with borders are allowed.}
 
 \item{barplot_fill_color}{Color of the bar}
 
-\item{points}{'TRUE' if points need to be shown.
-'FALSE' if points need to be hidden.}
+\item{points}{`TRUE` if points need to be shown.
+`FALSE` if points need to be hidden.}
 }
 \value{
 
 }
 \description{
-A bar plot superimposed with jittered individual points.
-}
-\examples{
-
+A bar plot superimposed by jittered individual points.
+`ggplot()` should contain the summarised data with
+the mean for each group/condition.
 }

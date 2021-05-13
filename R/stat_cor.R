@@ -1,4 +1,5 @@
-# from ggpubr
+# from ggpubr::stat_cor.
+
 stat_cor <- function(mapping = NULL, data = NULL,
                      method = "pearson", alternative = "two.sided",
                      cor.coef.name = c("R", "rho", "tau"), label.sep = ", ",

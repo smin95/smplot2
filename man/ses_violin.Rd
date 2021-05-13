@@ -5,37 +5,52 @@
 \title{violin plot with individual points (jittered)}
 \usage{
 ses_violin(
-  point_fill,
+  point_fill_color,
   violin_fill_color = "gray90",
-  violin_width_color = "transparent",
+  violin_border_color = "transparent",
   points = TRUE,
   point_size = 2.2,
   point_shape = 21,
-  point_width_color = "white"
+  point_border_color = "white"
 )
 }
 \arguments{
-\item{point_fill}{Color of the points.}
+\item{point_fill_color}{Color of the individual jittered points.}
 
-\item{violin_fill_color}{Color of the violin.}
+\item{violin_fill_color}{Color of the violin plot}
 
-\item{violin_width_color}{Color of the violin's width.}
+\item{violin_border_color}{Color of the violin's width (Border)}
 
-\item{points}{Logical argument is required. TRUE if points need to be displayed.
-FALSE if points need to be not shown.}
+\item{points}{'TRUE' if points need to be shown.
+'FALSE' if points need to be hidden.}
 
-\item{point_size}{Size of the points.}
+\item{point_size}{Size of the individual jittered points.}
 
-\item{point_width_color}{Color of the point's width when shapes of the points are 21-25.}
+\item{point_shape}{Shape of the jittered points.
+Only shapes (21-25) with borders are allowed.}
 
-\item{point_color}{Color of the points.}
-}
-\value{
-
+\item{point_border_color}{Color of the points' border.}
 }
 \description{
-A violin plot superimposed with jittered individual points.
+#' @description
+A violin plot superimposed by jittered individual points.
 }
 \examples{
 
+# generate random data first
+set.seed(1)
+day1 = rnorm(20,0,1)
+day2 = rnorm(20,5,1)
+Subject <- rep(paste0('S',seq(1:20)), 2)
+Data <- data.frame(Value = matrix(c(day1,day2),ncol=1))
+Time <- rep(c('Day 1', 'Day 2'), each = length(day1))
+df <- cbind(Subject, Data, Time)
+
+# boxplot with all black points
+ggplot(data = df, mapping = aes(x = Time, y = Value)) +
+ses_violin(point_fill_color = 'black')
+
+# boxplot with different colors of points across Time
+ggplot(data = df, mapping = aes(x = Time, y = Value,
+fill = Time)) + ses_violin()
 }

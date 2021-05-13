@@ -3,34 +3,23 @@
 #' @description
 #' This is a custom color palette that SES recommends for data visualization.
 #' For more information, please visit \url{https://www.ses21.com}. It returns
-#' up to 16 different colors with a high contrast.
+#' up to 16 different colors with a high visibility.
 #'
 #' @param color
-#' If the input is a character string, it has to be the name of a specific color: 'blue', 'red', 'purple',
-#' 'green', 'orange'. These colors are from the SES palette.
-#'
-#' If the input is a number, then it should mean the number of colors.
-#' Numbers less than 17 are accepted.
-#' This function returns up to 16 different functions.
+#' The input has to be a character string.
+#' There are 16 colors available from the SES palette:
+#' `'blue'`,`'red'`, `'green'`, `'purple'`, `'orange'`,
+#' `'lightblue'`, `'pink'`, `'limegreen'`, `'lightpurple'`,
+#' `'brown'`, `'lightred'`, `'lightorange'`,
+#' `'asparagus'`, `'viridian'`, `'darkred'`
 #'
 #' @return
 #' @export
 #'
 #' @examples
-#' ses_color(2) # returns two colors
+#' ses_color('red')
 #'
-#' # plot a bar graph with a different color for each group
-#'
-#' df <- data.frame(group=c("One", "Two", "Three"),
-#' score=c(4.8, 9, 8.2))
-#'
-#' p <- df %>%
-#' ggplot(aes(x=group, y=score, fill = group)) +
-#' geom_bar(stat='identity')
-#'
-#' p +
-#' ses_bar_border() +
-#' ses_color(nrow(df)) # number of colors = number of groups
+#' ses_color('red', 'green', 'blue')
 
 ses_color <- function(...) {
   colors <- list(...)
