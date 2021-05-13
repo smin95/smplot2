@@ -23,23 +23,23 @@ ses_bar(
 Row has to be subject.
 Column has to be group/variable/condition.}
 
-\item{width}{Width of the bar}
+\item{width}{Width of the bar.}
 
 \item{point_size}{Size of the individual jittered points.}
 
-\item{point_border_color}{Color of the points' width.}
+\item{point_border_color}{Color of the points' border.}
 
 \item{point_shape}{Shape of the jittered points.
 Only shapes (21-25) with borders are allowed.}
 
-\item{barplot_fill_color}{Color of the bar}
+\item{barplot_fill_color}{Color of the bar.}
 
-\item{points}{`TRUE` if points need to be shown.
-`FALSE` if points need to be hidden.}
+\item{points}{TRUE if points need to be shown.
+FALSE if points need to be hidden.}
 }
 \description{
 A bar plot superimposed by jittered individual points.
-`ggplot()` should contain the summarised data with
+ggplot() should contain the summarised data with
 the mean for each group/condition.
 }
 \examples{

@@ -21,8 +21,8 @@ ses_violin(
 
 \item{violin_border_color}{Color of the violin's width (Border)}
 
-\item{points}{'TRUE' if points need to be shown.
-'FALSE' if points need to be hidden.}
+\item{points}{TRUE if points need to be shown.
+FALSE if points need to be hidden.}
 
 \item{point_size}{Size of the individual jittered points.}
 

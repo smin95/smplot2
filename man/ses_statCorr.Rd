@@ -22,11 +22,11 @@ ses_statCorr(
 \arguments{
 \item{line_color}{Color of the linear regression line}
 
-\item{line_type}{Options include:  `“blank”`, `“solid”`, `“dashed”`, `“dotted”`,
-`“dotdash”`, `“longdash”`, `“twodash”`.}
+\item{line_type}{Options include:  'blank', 'solid', 'dashed', 'dotted',
+'dotdash', 'longdash', 'twodash'.}
 
 \item{corr_method}{Method of the correlation test.
-Options include: `"pearson"`, `"kendall"`, or `"spearman"`.}
+Options include: 'pearson', 'kendall', or 'spearman'.}
 
 \item{ln_method}{This is the method of producing the best-fit line.
 'lm' for linear regression, 'glm' for generalized linear fit, 'loess' for local smooths.}

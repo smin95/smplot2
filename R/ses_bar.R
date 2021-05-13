@@ -14,16 +14,16 @@
 #' Column has to be group/variable/condition.
 #'
 #' @param barplot_fill_color
-#' Color of the bar
+#' Color of the bar.
 #' @param points
 #' TRUE if points need to be shown.
 #' FALSE if points need to be hidden.
 #' @param width
-#' Width of the bar
+#' Width of the bar.
 #' @param point_size
 #' Size of the individual jittered points.
 #' @param point_border_color
-#' Color of the points' width.
+#' Color of the points' border.
 #' @param point_shape
 #' Shape of the jittered points.
 #' Only shapes (21-25) with borders are allowed.

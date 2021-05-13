@@ -8,10 +8,10 @@ ses_bar_theme(legends = FALSE, borders = TRUE)
 }
 \arguments{
 \item{legends}{If the legend needs to be displayed, the input should be TRUE.
-If the legend is not needed, the input should be `legends = FALSE`.}
+If the legend is not needed, the input should be FALSE.}
 
-\item{borders}{If the border needs to be displayed, the input should be 'TRUE'.
-If the border is not needed, the input should be FALSE`.}
+\item{borders}{If the border needs to be displayed, the input should be TRUE.
+If the border is not needed, the input should be FALSE.}
 }
 \description{
 A graph with a horizontal grid is plotted. Border can be added or removed.
