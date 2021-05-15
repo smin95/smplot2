@@ -7,7 +7,7 @@ Linear regression slope and statistical values
 from a paired correlation test}
 \usage{
 ses_statCorr(
-  line_color = "black",
+  ...,
   line_type = "dashed",
   corr_method = "pearson",
   ln_method = "lm",
@@ -20,8 +20,6 @@ ses_statCorr(
 )
 }
 \arguments{
-\item{line_color}{Color of the linear regression line}
-
 \item{line_type}{Options include:  'blank', 'solid', 'dashed', 'dotted',
 'dotdash', 'longdash', 'twodash'.}
 
@@ -47,6 +45,8 @@ It asks for a number within the x-axis limit.}
 It requires a number within the y-axis limit.}
 
 \item{text_size}{Size (numerical value) of the texts from correlation.}
+
+\item{line_color}{Color of the linear regression line}
 }
 \value{
 

@@ -50,7 +50,7 @@
 #' ses_statCorr()
 #'
 #'
-ses_statCorr <- function(line_color = 'black',
+ses_statCorr <- function(...,
                        line_type = 'dashed',
                        corr_method = 'pearson',
                        ln_method = 'lm',
@@ -60,7 +60,7 @@ ses_statCorr <- function(line_color = 'black',
                        label_x = NULL,
                        label_y = NULL,
                        text_size = 4) {
-  list(ggplot2::geom_smooth(color = line_color,
+  list(ggplot2::geom_smooth(...,
                linetype = line_type,
                size = line_size, method = ln_method,
                alpha = 0.2, se = se, weight = 0.8),
