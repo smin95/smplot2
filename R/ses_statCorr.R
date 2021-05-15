@@ -8,8 +8,6 @@
 #' `geom_smooth()` is used to fit the best-fit model, whereas
 #' `stat_cor()` is used to print correlation results at an optimized location.
 #'
-#' @param line_color
-#' Color of the linear regression line
 #' @param line_type
 #' Options include:  'blank', 'solid', 'dashed', 'dotted',
 #' 'dotdash', 'longdash', 'twodash'.

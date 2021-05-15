@@ -45,8 +45,6 @@ It asks for a number within the x-axis limit.}
 It requires a number within the y-axis limit.}
 
 \item{text_size}{Size (numerical value) of the texts from correlation.}
-
-\item{line_color}{Color of the linear regression line}
 }
 \value{
 
