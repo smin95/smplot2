@@ -8,25 +8,25 @@
 #' @param color
 #' The input has to be a character string.
 #' There are 16 colors available from the SES palette:
-#' `'blue'`,`'red'`, `'green'`, `'purple'`, `'orange'`,
+#' `'blue'`,`'cyan'`, `'green'`, `'purple'`, `'orange'`,
 #' `'lightblue'`, `'pink'`, `'limegreen'`, `'lightpurple'`,
-#' `'brown'`, `'lightred'`, `'lightorange'`,
+#' `'brown'`, `'red'`, `'lightorange'`,
 #' `'asparagus'`, `'viridian'`, `'darkred'`
 #'
 #' @return
 #' @export
 #'
 #' @examples
-#' ses_color('red')
+#' ses_color('cyan')
 #'
-#' ses_color('red', 'green', 'blue')
+#' ses_color('cyan', 'green', 'blue')
 
 ses_color <- function(...) {
   colors <- list(...)
 
   string_to_hex <- function(color) {
     if (color == 'blue') return("#1262b3")
-    if (color == 'red') return("#cc1489")
+    if (color == 'cyan') return("#cc1489")
     if (color == 'green') return("#0f993d")
     if (color == 'purple') return("#5b4080")
     if (color == 'orange') return("#e57717")
@@ -35,7 +35,7 @@ ses_color <- function(...) {
     if (color == 'limegreen') return('#63e617')
     if (color == 'lightpurple') return('#7b3dcc')
     if (color == 'brown') return('#7f5d0d')
-    if (color == 'lightred') return('#cc3d3d')
+    if (color == 'red') return('#cc3d3d')
     if (color == 'lightorange') return('#cc9666')
     if (color == 'asparagus') return('#8c994d')
     if (color == 'viridian') return('#408073')

@@ -9,9 +9,9 @@ ses_color(...)
 \arguments{
 \item{color}{The input has to be a character string.
 There are 16 colors available from the SES palette:
-`'blue'`,`'red'`, `'green'`, `'purple'`, `'orange'`,
+`'blue'`,`'cyan'`, `'green'`, `'purple'`, `'orange'`,
 `'lightblue'`, `'pink'`, `'limegreen'`, `'lightpurple'`,
-`'brown'`, `'lightred'`, `'lightorange'`,
+`'brown'`, `'red'`, `'lightorange'`,
 `'asparagus'`, `'viridian'`, `'darkred'`}
 }
 \value{
