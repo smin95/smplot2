@@ -50,7 +50,7 @@
 ses_boxplot <- function(point_fill_color, boxplot_fill_color = 'gray95',
                         boxplot_border_color = 'black',
                        points = TRUE, notch = F, width = 0.5,
-                       point_size = 2.2,
+                       point_size = 2.5,
                        point_border_color = 'white',
                        point_shape = 21,...) {
 
