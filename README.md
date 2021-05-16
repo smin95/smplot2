@@ -2,7 +2,7 @@
 
 sesplot provides simple themes and a color palette for data visualization. It has been developed by SES (Sam's Editing Studio, www.ses21.com) to invite people without a coding background to pick up R.
 
-sesplot will be continuously updated.
+sesplot was first created on May 2021, and it will be continuously updated.
 
 ### Installation
 
