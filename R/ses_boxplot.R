@@ -73,8 +73,7 @@ ses_boxplot <- function(boxplot_fill_color = 'gray95',
                              shape = point_shape,
                              color = point_border_color,
                              size = point_size, ...),
-         sesplot::ses_hgrid(),
-         scale_fill_manual(values = ses_palette()))
+         sesplot::ses_hgrid())
   } else if (points == FALSE) {
     list(ggplot2::theme_bw(base_size = 10, base_family = ''),
          ggplot2::geom_boxplot(notch = notch, width = width),
