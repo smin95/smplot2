@@ -21,7 +21,7 @@ ses_boxplot(
 
 \item{boxplot_border_color}{Color of the boxplot's border.}
 
-\item{points}{TRUE if points need to be shown.
+\item{points}{#' TRUE if points need to be shown.
 FALSE if points need to be hidden.}
 
 \item{notch}{TRUE to notch the shape of the boxplot.
@@ -36,10 +36,8 @@ FALSE to keep the boxplot's shape.}
 \item{point_shape}{Shape of the jittered points.
 Only shapes (21-25) with borders are allowed.}
 
-\item{...}{Other parameters for geom_point(). For more information
-check out ?geom_point.}
-
-\item{fill}{Color of the individual jittered points.}
+\item{...}{Other parameters for geom_point(), such as "fill".
+For more information check out ?geom_point.}
 }
 \value{
 

@@ -2,15 +2,15 @@
 #'
 #' @description
 #' A boxplot superimposed by jittered individual points.
-
-#' @param fill
-#' Color of the individual jittered points.
+#'
 #' @param boxplot_fill_color
 #' Color of the boxplot.
+#'
 #' @param boxplot_border_color
 #' Color of the boxplot's border.
+#'
 #' @param points
-#' TRUE if points need to be shown.
+#' #' TRUE if points need to be shown.
 #' FALSE if points need to be hidden.
 #' @param notch
 #' TRUE to notch the shape of the boxplot.
@@ -19,17 +19,15 @@
 #' Width of the boxplot.
 #' @param point_size
 #' Size of the individual jittered points.
+#'
+#' @param point_border_color
+#' Color of the points' border.
 #' @param point_shape
 #' Shape of the jittered points.
 #' Only shapes (21-25) with borders are allowed.
-#' @param point_border_color
-#' Color of the points' border.
-#'
 #' @param ...
-#'
-#' Other parameters for geom_point(). For more information
-#' check out ?geom_point.
-#'
+#' Other parameters for geom_point(), such as "fill".
+#' For more information check out ?geom_point.
 #' @return
 #' @export
 #'

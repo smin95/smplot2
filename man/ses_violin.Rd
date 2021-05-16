@@ -17,7 +17,7 @@ ses_violin(
 \arguments{
 \item{violin_fill_color}{Color of the violin plot}
 
-\item{violin_border_color}{Color of the violin's width (Border)}
+\item{violin_border_color}{Color of the violin's border.}
 
 \item{points}{TRUE if points need to be shown.
 FALSE if points need to be hidden.}
@@ -29,7 +29,8 @@ Only shapes (21-25) with borders are allowed.}
 
 \item{point_border_color}{Color of the points' border.}
 
-\item{fill}{Color of the individual jittered points.}
+\item{...}{Other parameters for geom_point(), such as "fill".
+For more information check out ?geom_point.}
 }
 \description{
 #' @description

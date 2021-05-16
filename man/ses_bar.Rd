@@ -6,8 +6,8 @@
 \usage{
 ses_bar(
   data = .data,
-  aes_x,
-  aes_y,
+  x,
+  y,
   bar_fill_color = "gray85",
   width = 0.4,
   point_size = 2.5,
@@ -18,8 +18,16 @@ ses_bar(
 }
 \arguments{
 \item{data}{Entire dataset for plotting the jittered points.
-Row has to be subject.
+Each row has to be each subject.
 Column has to be group/variable/condition.}
+
+\item{x}{Variable that defines x-axis. It should be independent variable.
+Ideally, it should be identical to the x-axis mapped in aes() from ggplot().}
+
+\item{y}{Variable that defines y-axis. It should be dependent variable.
+Ideally, it should be identical to the y-axis mapped in aes() from ggplot().}
+
+\item{bar_fill_color}{Color of the bar.}
 
 \item{width}{Width of the bar.}
 
@@ -30,12 +38,7 @@ Column has to be group/variable/condition.}
 \item{point_shape}{Shape of the jittered points.
 Only shapes (21-25) with borders are allowed.}
 
-\item{fill}{Color of the individual jittered points.}
-
-\item{barplot_fill_color}{Color of the bar.}
-
-\item{points}{TRUE if points need to be shown.
-FALSE if points need to be hidden.}
+\item{...}{}
 }
 \description{
 A bar plot superimposed by jittered individual points.
@@ -60,8 +63,8 @@ summarise(mean_value = mean(Value), se = se(Value))
 # plot the data with ses_bar()
 ggplot(data = summary_df, aes(x = Time, y = mean_value,
                              fill = Time)) +
-ses_bar(data = DataFrame, aes_x =
-Time, aes_y = Value) + ses_bar_theme() +
+ses_bar(data = DataFrame, x =
+Time, y = Value) + ses_bar_theme() +
 geom_linerange(aes(ymin = mean_value-se,
 ymax = mean_value+se)) # errorbar
 

@@ -3,12 +3,11 @@
 #'#' @description
 #' A violin plot superimposed by jittered individual points.
 #'
-#' @param fill
-#' Color of the individual jittered points.
 #' @param violin_fill_color
 #' Color of the violin plot
+#'
 #' @param violin_border_color
-#' Color of the violin's width (Border)
+#' Color of the violin's border.
 #' @param points
 #' TRUE if points need to be shown.
 #' FALSE if points need to be hidden.
@@ -19,10 +18,9 @@
 #' Only shapes (21-25) with borders are allowed.
 #' @param point_border_color
 #' Color of the points' border.
-#'
-#' @params ...
-#' Other parameters for geom_point(). For more information
-#' check out ?geom_point.
+#' @param ...
+#' Other parameters for geom_point(), such as "fill".
+#' For more information check out ?geom_point.
 #'
 #' @examples
 #' library(tidyverse)

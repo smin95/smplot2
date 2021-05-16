@@ -5,19 +5,20 @@
 #' ggplot() should contain the summarised data with
 #' the mean for each group/condition.
 #'
-#' @param fill
-#' Color of the individual jittered points.
-#'
 #' @param data
 #' Entire dataset for plotting the jittered points.
-#' Row has to be subject.
+#' Each row has to be each subject.
 #' Column has to be group/variable/condition.
 #'
-#' @param barplot_fill_color
+#' @param x
+#' Variable that defines x-axis. It should be independent variable.
+#' Ideally, it should be identical to the x-axis mapped in aes() from ggplot().
+#'
+#' @param y
+#' Variable that defines y-axis. It should be dependent variable.
+#' Ideally, it should be identical to the y-axis mapped in aes() from ggplot().
+#' @param bar_fill_color
 #' Color of the bar.
-#' @param points
-#' TRUE if points need to be shown.
-#' FALSE if points need to be hidden.
 #' @param width
 #' Width of the bar.
 #' @param point_size
@@ -27,6 +28,8 @@
 #' @param point_shape
 #' Shape of the jittered points.
 #' Only shapes (21-25) with borders are allowed.
+#'
+#' @param ...
 #'
 #' @params ...
 #' Other parameters for geom_point(). For more information
@@ -50,13 +53,13 @@
 #' # plot the data with ses_bar()
 #' ggplot(data = summary_df, aes(x = Time, y = mean_value,
 #'                              fill = Time)) +
-#' ses_bar(data = DataFrame, aes_x =
-#' Time, aes_y = Value) + ses_bar_theme() +
+#' ses_bar(data = DataFrame, x =
+#' Time, y = Value) + ses_bar_theme() +
 #' geom_linerange(aes(ymin = mean_value-se,
 #' ymax = mean_value+se)) # errorbar
 #'
 #'
-ses_bar <- function(data=.data, aes_x, aes_y,
+ses_bar <- function(data=.data, x, y,
                     bar_fill_color = 'gray85',
                     width = 0.4,
                     point_size = 2.5,
@@ -68,11 +71,11 @@ ses_bar <- function(data=.data, aes_x, aes_y,
   }
 
   if (!missing(data)) {
-    aes_x <- data[[deparse(substitute(aes_x))]]
-    aes_y <- data[[deparse(substitute(aes_y))]]
+    x <- data[[deparse(substitute(x))]]
+    y <- data[[deparse(substitute(y))]]
   } else {
-    aes_x <- aes_x
-    aes_y <- aes_y
+    x <- x
+    y <- y
   }
 
   list(ggplot2::theme_bw(base_size = 10, base_family = ''),
@@ -80,7 +83,7 @@ ses_bar <- function(data=.data, aes_x, aes_y,
                          fill = bar_fill_color,
                          width = width),
        ggplot2::geom_point(data = data,
-                           aes(x=aes_x,y=aes_y),
+                           aes(x=x,y=y),
                            position = position_jitter(width = .12,
                                                       height = 0,
                                                       seed = 10),
