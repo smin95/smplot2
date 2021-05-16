@@ -13,7 +13,8 @@ ses_boxplot(
   width = 0.5,
   point_size = 2.2,
   point_border_color = "white",
-  point_shape = 21
+  point_shape = 21,
+  ...
 )
 }
 \arguments{

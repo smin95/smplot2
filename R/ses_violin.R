@@ -45,7 +45,7 @@ ses_violin <- function(point_fill_color, violin_fill_color = 'gray90',
                        points = TRUE,
                        point_size = 2.2,
                        point_shape = 21,
-                       point_border_color = 'white') {
+                       point_border_color = 'white', ...) {
 
   if (!(point_shape %in% c(21,22,23,24,25))){
     stop('only shapes (21-25) with borders can be used.')
@@ -62,7 +62,7 @@ ses_violin <- function(point_fill_color, violin_fill_color = 'gray90',
                                                           seed = 10),
                                size = point_size,
                                shape = point_shape,
-                               color = point_border_color))
+                               color = point_border_color, ...))
     } else if (points == FALSE) {
       ggplot2::geom_violin()
     }
@@ -79,7 +79,7 @@ ses_violin <- function(point_fill_color, violin_fill_color = 'gray90',
            fill = point_fill_color,
            shape = point_shape,
            color = point_border_color,
-           size = point_size)
+           size = point_size, ...)
     } else if (points == FALSE) {
       ggplot2::geom_violin()
     }
@@ -93,7 +93,7 @@ ses_violin <- function(point_fill_color, violin_fill_color = 'gray90',
                                fill = point_fill_color,
                                shape = point_shape,
                                color = point_border_color,
-                               size = point_size))
+                               size = point_size, ...))
     } else if(points == FALSE) {
       ggplot2::geom_violin()
     }

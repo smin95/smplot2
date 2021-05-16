@@ -52,7 +52,7 @@ ses_boxplot <- function(point_fill_color, boxplot_fill_color = 'gray95',
                        points = TRUE, notch = F, width = 0.5,
                        point_size = 2.2,
                        point_border_color = 'white',
-                       point_shape = 21) {
+                       point_shape = 21,...) {
 
   if (!(point_shape %in% c(21,22,23,24,25))){
     stop('only shapes (21-25) with borders can be used.')
@@ -69,7 +69,7 @@ ses_boxplot <- function(point_fill_color, boxplot_fill_color = 'gray95',
                                                           seed = 10),
                                shape = point_shape,
                                color = point_border_color,
-                               size = point_size))
+                               size = point_size, ...))
     } else if (points == FALSE) {
       list(ggplot2::theme_bw(base_size = 10, base_family = ''),
             ggplot2::geom_boxplot(notch = notch, width = width))
@@ -86,7 +86,7 @@ ses_boxplot <- function(point_fill_color, boxplot_fill_color = 'gray95',
                                fill = point_fill_color,
                                shape = point_shape,
                                color = point_border_color,
-                               size = point_size))
+                               size = point_size, ...))
     } else if (points == FALSE) {
       list(ggplot2::theme_bw(base_size = 10, base_family = ''),
             ggplot2::geom_boxplot(notch = notch, width = width))
@@ -101,7 +101,7 @@ ses_boxplot <- function(point_fill_color, boxplot_fill_color = 'gray95',
                                fill = point_fill_color,
                                shape = point_shape,
                                color = point_border_color,
-                               size = point_size))
+                               size = point_size, ...))
     } else if(points == FALSE) {
       list(ggplot2::theme_bw(base_size = 10, base_family = ''),
             ggplot2::geom_boxplot(notch = notch, width = width))
