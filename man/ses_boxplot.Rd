@@ -5,21 +5,18 @@
 \title{A boxplot with individual points (jittered)}
 \usage{
 ses_boxplot(
-  point_fill_color,
   boxplot_fill_color = "gray95",
   boxplot_border_color = "black",
   points = TRUE,
   notch = F,
   width = 0.5,
-  point_size = 2.2,
+  point_size = 2.5,
   point_border_color = "white",
   point_shape = 21,
   ...
 )
 }
 \arguments{
-\item{point_fill_color}{Color of the individual jittered points.}
-
 \item{boxplot_fill_color}{Color of the boxplot.}
 
 \item{boxplot_border_color}{Color of the boxplot's border.}
@@ -38,6 +35,11 @@ FALSE to keep the boxplot's shape.}
 
 \item{point_shape}{Shape of the jittered points.
 Only shapes (21-25) with borders are allowed.}
+
+\item{...}{Other parameters for geom_point(). For more information
+check out ?geom_point.}
+
+\item{fill}{Color of the individual jittered points.}
 }
 \value{
 

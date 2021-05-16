@@ -5,20 +5,18 @@
 \title{A SES bar plot with individual points (jittered)}
 \usage{
 ses_bar(
-  point_fill,
   data = .data,
   aes_x,
   aes_y,
   bar_fill_color = "gray85",
   width = 0.4,
-  point_size = 2.2,
+  point_size = 2.5,
   point_border_color = "white",
-  point_shape = 21
+  point_shape = 21,
+  ...
 )
 }
 \arguments{
-\item{point_fill}{Color of the individual jittered points.}
-
 \item{data}{Entire dataset for plotting the jittered points.
 Row has to be subject.
 Column has to be group/variable/condition.}
@@ -31,6 +29,8 @@ Column has to be group/variable/condition.}
 
 \item{point_shape}{Shape of the jittered points.
 Only shapes (21-25) with borders are allowed.}
+
+\item{fill}{Color of the individual jittered points.}
 
 \item{barplot_fill_color}{Color of the bar.}
 

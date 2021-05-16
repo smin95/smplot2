@@ -5,7 +5,7 @@
 #' ggplot() should contain the summarised data with
 #' the mean for each group/condition.
 #'
-#' @param point_fill
+#' @param fill
 #' Color of the individual jittered points.
 #'
 #' @param data
@@ -28,6 +28,9 @@
 #' Shape of the jittered points.
 #' Only shapes (21-25) with borders are allowed.
 #'
+#' @params ...
+#' Other parameters for geom_point(). For more information
+#' check out ?geom_point.
 #'
 #' @examples
 #' library(tidyverse)
@@ -53,12 +56,12 @@
 #' ymax = mean_value+se)) # errorbar
 #'
 #'
-ses_bar <- function(point_fill, data=.data, aes_x, aes_y,
+ses_bar <- function(data=.data, aes_x, aes_y,
                     bar_fill_color = 'gray85',
-                           width = 0.4,
-                           point_size = 2.5,
-                           point_border_color = 'white',
-                           point_shape = 21) {
+                    width = 0.4,
+                    point_size = 2.5,
+                    point_border_color = 'white',
+                    point_shape = 21, ...) {
 
   if (!(point_shape %in% c(21,22,23,24,25))){
     stop('only shapes (21-25) with borders can be used.')
@@ -72,34 +75,18 @@ ses_bar <- function(point_fill, data=.data, aes_x, aes_y,
     aes_y <- aes_y
   }
 
-  if (missing(point_fill)) {
-    list(ggplot2::theme_bw(base_size = 10, base_family = ''),
-          ggplot2::geom_bar(stat="identity",
-                           fill = bar_fill_color,
-                           width = width),
-         ggplot2::geom_point(data = data,
-                             aes(x=aes_x,y=aes_y),
-                             position = position_jitter(width = .12,
-                                                        height = 0,
-                                                        seed = 10),
-                             shape = point_shape,
-                             color = point_border_color,
-                             size = point_size))
-  } else {
-
-    list(ggplot2::theme_bw(base_size = 10, base_family = ''),
-          ggplot2::geom_bar(stat="identity",
-                           fill = bar_fill_color,
-                               width = width),
-         ggplot2::geom_point(data = data,
-                             aes(x=aes_x,y=aes_y),
-                             position = position_jitter(width = .12,
-                                                        height = 0,
-                                                        seed = 10),
-                             fill = point_fill,
-                             shape = point_shape,
-                             color = point_border_color,
-                             size = point_size))
-  }
+  list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+       ggplot2::geom_bar(stat="identity",
+                         fill = bar_fill_color,
+                         width = width),
+       ggplot2::geom_point(data = data,
+                           aes(x=aes_x,y=aes_y),
+                           position = position_jitter(width = .12,
+                                                      height = 0,
+                                                      seed = 10),
+                           shape = point_shape,
+                           color = point_border_color,
+                           size = point_size, ...),
+       sesplot::ses_hgrid())
 }
 

@@ -5,18 +5,16 @@
 \title{violin plot with individual points (jittered)}
 \usage{
 ses_violin(
-  point_fill_color,
   violin_fill_color = "gray90",
   violin_border_color = "transparent",
   points = TRUE,
-  point_size = 2.2,
+  point_size = 2.5,
   point_shape = 21,
-  point_border_color = "white"
+  point_border_color = "white",
+  ...
 )
 }
 \arguments{
-\item{point_fill_color}{Color of the individual jittered points.}
-
 \item{violin_fill_color}{Color of the violin plot}
 
 \item{violin_border_color}{Color of the violin's width (Border)}
@@ -30,6 +28,8 @@ FALSE if points need to be hidden.}
 Only shapes (21-25) with borders are allowed.}
 
 \item{point_border_color}{Color of the points' border.}
+
+\item{fill}{Color of the individual jittered points.}
 }
 \description{
 #' @description
