@@ -9,9 +9,9 @@
 #' The input has to be a character string.
 #' There are 16 colors available from the SES palette:
 #' `'blue'`,`'cyan'`, `'green'`, `'purple'`, `'orange'`,
-#' `'lightblue'`, `'pink'`, `'limegreen'`, `'lightpurple'`,
+#' `'skyblue'`, `'pink'`, `'limegreen'`, `'lightpurple'`,
 #' `'brown'`, `'red'`, `'lightorange'`,
-#' `'asparagus'`, `'viridian'`, `'darkred'`
+#' `'asparagus'`, `'viridian'`, `'darkred'`, `'lightblue'`
 #'
 #' @return
 #' @export
@@ -30,7 +30,7 @@ ses_color <- function(...) {
     if (color == 'green') return("#0f993d")
     if (color == 'purple') return("#5b4080")
     if (color == 'orange') return("#e57717")
-    if (color == 'lightblue') return('#66b1cc')
+    if (color == 'skyblue') return('#66b1cc')
     if (color == 'pink') return('#da73e6')
     if (color == 'limegreen') return('#63e617')
     if (color == 'lightpurple') return('#7b3dcc')
@@ -40,6 +40,7 @@ ses_color <- function(...) {
     if (color == 'asparagus') return('#8c994d')
     if (color == 'viridian') return('#408073')
     if (color == 'darkred') return('#7f404a')
+    if (color == 'lightblue') return('#45e0e6')
   }
   return(unlist(lapply(colors,string_to_hex)))
 }

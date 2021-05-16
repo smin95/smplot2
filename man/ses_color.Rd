@@ -10,9 +10,9 @@ ses_color(...)
 \item{color}{The input has to be a character string.
 There are 16 colors available from the SES palette:
 `'blue'`,`'cyan'`, `'green'`, `'purple'`, `'orange'`,
-`'lightblue'`, `'pink'`, `'limegreen'`, `'lightpurple'`,
+`'skyblue'`, `'pink'`, `'limegreen'`, `'lightpurple'`,
 `'brown'`, `'red'`, `'lightorange'`,
-`'asparagus'`, `'viridian'`, `'darkred'`}
+`'asparagus'`, `'viridian'`, `'darkred'`, `'lightblue'`}
 }
 \value{
 
@@ -23,7 +23,7 @@ For more information, please visit \url{https://www.ses21.com}. It returns
 up to 16 different colors with a high visibility.
 }
 \examples{
-ses_color('red')
+ses_color('cyan')
 
-ses_color('red', 'green', 'blue')
+ses_color('cyan', 'green', 'blue')
 }
