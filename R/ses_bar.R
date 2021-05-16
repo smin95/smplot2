@@ -56,7 +56,7 @@
 ses_bar <- function(point_fill, data=.data, aes_x, aes_y,
                     bar_fill_color = 'gray85',
                            width = 0.4,
-                           point_size = 2.2,
+                           point_size = 2.5,
                            point_border_color = 'white',
                            point_shape = 21) {
 
