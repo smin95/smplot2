@@ -47,6 +47,7 @@ ses_slope_theme <- function(legends = TRUE) {
                                    colour = "black"),
         axis.ticks.x = element_blank(),
         axis.text.y = element_text(color = "black", size = 12),
+        axis.title.y =  ggplot2::element_text(size = rel(1.2), color = "black"),
         axis.text.x = element_text(vjust = -1, size = 12),
         panel.background = element_blank(),
         axis.title.x = element_blank()
@@ -64,6 +65,7 @@ ses_slope_theme <- function(legends = TRUE) {
                                     colour = "black"),
          axis.ticks.x = element_blank(),
          axis.text.y = element_text(color = "black"),
+         axis.title.y =  ggplot2::element_text(size = rel(1.2), color = "black"),
          axis.text.x = element_text(vjust = -1),
          panel.background = element_blank(),
          axis.title.x = element_blank(),

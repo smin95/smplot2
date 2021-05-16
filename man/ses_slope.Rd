@@ -52,7 +52,6 @@ ggplot(data = df,
   ses_slope() +
   scale_fill_manual(values = ses_color('blue','blue'))
 
-
 ggplot(data = df,
       aes(x = Day, y = Value,
       group = Subject, fill = Day)) +
