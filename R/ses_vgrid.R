@@ -15,6 +15,8 @@
 #' If the border is not needed, the input should be FALSE.
 #'
 #' @examples
+#' library(tidyverse)
+#' library(sesplot)
 #' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
 #' geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
 #' ses_vgrid()
