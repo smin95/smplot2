@@ -50,7 +50,8 @@ ses_slope_theme <- function(legends = TRUE) {
         axis.title.y =  ggplot2::element_text(size = rel(1.2), color = "black"),
         axis.text.x = element_text(vjust = -1, size = 12),
         panel.background = element_blank(),
-        axis.title.x = element_blank()
+        axis.title.x = element_blank(),
+        plot.title = element_text(hjust = 0.5)
       )
 
   } else if (legends == F) {
@@ -70,7 +71,8 @@ ses_slope_theme <- function(legends = TRUE) {
          panel.background = element_blank(),
          axis.title.x = element_blank(),
          axis.text = element_text(color = "black", size = 12),
-         legend.position = 'none'
+         legend.position = 'none',
+         plot.title = element_text(hjust = 0.5)
       )
   }
 }
