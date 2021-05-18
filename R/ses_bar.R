@@ -30,34 +30,13 @@
 #' Only shapes (21-25) with borders are allowed.
 #'
 #' @param ...
+#' Other parameters  to specify the properties of the points.
+#' For more information, type ?geom_point
 #'
-#' @params ...
-#' Other parameters for geom_point(). For more information
-#' check out ?geom_point.
 #'
 #' @import ggplot2 cowplot
 #'
 #' @importFrom stats sd
-#' @examples
-#' set.seed(2) # generate random data
-#' day1 = rnorm(20,0,2)
-#' day2 = rnorm(20,6,2)
-#' Subject <- rep(paste0('S',seq(1:20)), 2)
-#' Data <- data.frame(Value = matrix(c(day1,day2),ncol=1))
-#' Time <- rep(c('Day 1', 'Day 2'), each = length(day1))
-#' DataFrame <- cbind(Subject, Data, Time)
-#'
-#' # summarise the data with dplyr
-#' summary_df <- DataFrame %>% group_by(Time) %>%
-#' summarise(mean_value = mean(Value), se = se(Value))
-#'
-#' # plot the data with ses_bar()
-#' ggplot(data = summary_df, aes(x = Time, y = mean_value,
-#'                              fill = Time)) +
-#' ses_bar(data = DataFrame, x =
-#' Time, y = Value) + ses_bar_theme() +
-#' geom_linerange(aes(ymin = mean_value-se,
-#' ymax = mean_value+se)) # errorbar
 #' @export
 #'
 ses_bar <- function(data=data, x, y,

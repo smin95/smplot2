@@ -15,10 +15,6 @@
 #' If the border is not needed, the input should be FALSE.
 #' @import ggplot2 cowplot
 #'
-#' @examples
-#' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
-#' geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
-#' ses_vgrid()
 #' @export
 
 ses_vgrid <- function(legends = TRUE, borders = TRUE) {

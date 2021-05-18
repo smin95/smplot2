@@ -14,12 +14,7 @@
 #' @param borders
 #' If the border needs to be displayed, the input should be TRUE.
 #' If the border is not needed, the input should be FALSE.
-#' @examples
-#' df <- data.frame(group=c("One", "Two", "Three"),
-#' score=c(5.2, 9.3, 12))
-#' p1 <- ggplot(data=df, aes(x=group, y=score, fill = group)) +
-#' geom_bar(stat="identity")
-#' p1 + ses_bar_theme()
+
 #' @export
 
 ses_bar_theme <- function(legends = FALSE, borders = TRUE) {

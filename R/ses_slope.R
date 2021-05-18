@@ -19,33 +19,12 @@
 #' @param point_size
 #' Size of the point
 #' @param point_shape
-#'
+#' Shape of the point (21-25)
 #' @param ...
 #' Other parameters of scale_x_discrete. For more information,
 #' please type ?scale_x_discrete.
 #' @import ggplot2 cowplot
 #'
-#' @examples
-#'
-#' set.seed(1) # generate random data
-#' day1 = rnorm(20,0,1)
-#' day2 = rnorm(20,5,1)
-#' Subject <- rep(paste0('S',seq(1:20)), 2)
-#' Data <- data.frame(Value = matrix(c(day1,day2),ncol=1))
-#' Day <- rep(c('Day 1', 'Day 2'), each = length(day1))
-#' df <- cbind(Subject, Data, Day)
-#'
-#' ggplot(data = df,
-#'       aes(x = Day, y = Value,
-#'       group = Subject, fill = Day)) +
-#'   ses_slope() +
-#'   scale_fill_manual(values = ses_color('blue','blue'))
-#'
-#' ggplot(data = df,
-#'       aes(x = Day, y = Value,
-#'       group = Subject, fill = Day)) +
-#'   ses_slope() +
-#'   scale_fill_manual(values = ses_palette(2))
 #'
 #' @export
 ses_slope <- function(line_color = 'gray53',

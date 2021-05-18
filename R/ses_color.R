@@ -5,15 +5,16 @@
 #' For more information, please visit \url{https://www.ses21.com}. It returns
 #' up to 16 different colors with a high visibility.
 #'
-#' @param color
-#' The input has to be a character string.
+#' @return A character/string of hex codes
+#'
+#' @param ...
+#' The input has to be a character string.of a color name.
 #' There are 16 colors available from the SES palette:
 #' `'blue'`,`'cyan'`, `'green'`, `'purple'`, `'orange'`,
 #' `'skyblue'`, `'pink'`, `'limegreen'`, `'lightpurple'`,
 #' `'brown'`, `'red'`, `'lightorange'`,
 #' `'asparagus'`, `'viridian'`, `'darkred'`, `'lightblue'`
 #'
-#' @return
 #' @export
 #'
 #' @examples

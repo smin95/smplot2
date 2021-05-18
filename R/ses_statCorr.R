@@ -8,6 +8,9 @@
 #' `geom_smooth()` is used to fit the best-fit model, whereas
 #' `stat_cor()` is used to print correlation results at an optimized location.
 #'
+#' @param ...
+#' Arguments for the properties of regression line.
+#' For more information, type ?geom_smooth
 #' @param line_type
 #' Options include:  'blank', 'solid', 'dashed', 'dotted',
 #' 'dotdash', 'longdash', 'twodash'.
@@ -25,7 +28,8 @@
 #' The thickness of the line. It can be set by giving a number.
 #' @param separate_by
 #' This marks how the p- and r- values should be separated.
-#' Some options are: `','` or `'\n'`
+#' The default option is: ','
+#' For more information, check out stat_cor() from the ggpubr package.
 #' @param label_x
 #' Location of the statistical value prints along the figure's x-axis.
 #' It asks for a number within the x-axis limit.
@@ -35,17 +39,8 @@
 #' @param text_size
 #' Size (numerical value) of the texts from correlation.
 #'
-#' @return
 #' @import ggplot2 cowplot
 #' @importFrom ggpubr stat_cor
-#' @examples
-#' ggplot(data = mtcars,
-#' mapping = aes(x = drat, y = mpg)) +
-#' geom_point(shape = 21,
-#' fill = '#0f993d', color = 'white',
-#' text_size = 3) +
-#' ses_corr_theme() +
-#' ses_statCorr()
 #'
 #' @export
 ses_statCorr <- function(...,

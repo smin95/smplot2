@@ -7,7 +7,7 @@
 ses_color(...)
 }
 \arguments{
-\item{color}{The input has to be a character string.
+\item{...}{The input has to be a character string.of a color name.
 There are 16 colors available from the SES palette:
 `'blue'`,`'cyan'`, `'green'`, `'purple'`, `'orange'`,
 `'skyblue'`, `'pink'`, `'limegreen'`, `'lightpurple'`,
@@ -15,7 +15,7 @@ There are 16 colors available from the SES palette:
 `'asparagus'`, `'viridian'`, `'darkred'`, `'lightblue'`}
 }
 \value{
-
+A character/string of hex codes
 }
 \description{
 This is a custom color palette that SES recommends for data visualization.

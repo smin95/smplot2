@@ -39,27 +39,6 @@ Only shapes (21-25) with borders are allowed.}
 \item{...}{Other parameters for geom_point(), such as "fill".
 For more information check out ?geom_point.}
 }
-\value{
-
-}
 \description{
 A boxplot superimposed by jittered individual points.
-}
-\examples{
-set.seed(1) # generate random data
-day1 = rnorm(20,0,1)
-day2 = rnorm(20,5,1)
-Subject <- rep(paste0('S',seq(1:20)), 2)
-Data <- data.frame(Value = matrix(c(day1,day2),ncol=1))
-Day <- rep(c('Day 1', 'Day 2'), each = length(day1))
-df <- cbind(Subject, Data, Day)
-
-# a boxplot with the random data, all black points
-ggplot(data = df, mapping = aes(x = Day, y = Value)) +
-ses_boxplot(point_fill_color = 'black' )
-
-# a boxplot with different colored points
-ggplot(data = df, mapping = aes(x = Day, y = Value, fill = Day)) +
-ses_boxplot()
-
 }

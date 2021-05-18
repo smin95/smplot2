@@ -17,10 +17,6 @@
 #'
 #' @import ggplot2 cowplot
 #'
-#' @examples
-#' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
-#' geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
-#' ses_hgrid()
 #'
 #' @export
 ses_hgrid <- function(legends = FALSE, borders = TRUE) {

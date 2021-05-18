@@ -10,27 +10,6 @@
 
 #' @import ggplot2 cowplot
 #'
-#' @examples
-#' # Generate random data first
-#' set.seed(1)
-#' day1 = rnorm(20,0,1)
-#' day2 = rnorm(20,5,1)
-#' Subject <- rep(paste0('S',seq(1:20)), 2)
-#' Data <- data.frame(Value = matrix(c(day1,day2),ncol=1))
-#' Time <- rep(c('Day 1', 'Day 2'), each = length(day1))
-#' DataFrame <- cbind(Subject, Data, Time)
-#'
-#' p5 <- ggplot(data = DataFrame,
-#' aes(x = Time, y = Value,
-#'    group = Subject,Fill = Time))  +
-#'   geom_line(color = "gray53", size = .4) +
-#'  geom_point(size = 3, shape= 21,
-#'  fill = ses_palette(1, color = 'green'),
-#'  color = 'white') +
-#'   scale_x_discrete(position = 'top',
-#'   expand = c(0.15, .1), drop=FALSE)
-#'
-#' p5 + ses_slope_theme()
 #'
 #' @export
 

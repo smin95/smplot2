@@ -17,11 +17,6 @@
 #' If the border needs to be displayed, the input should be TRUE.
 #' If the border is not needed, the input should be FALSE.
 #'
-#' @examples
-#' p1 <- ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
-#' geom_point(shape = 21, fill = '#0f993d', color = 'white',
-#' size = 3)
-#' p1 + ses_corr_theme()
 #'
 #' @export
 ses_corr_theme <- function(legends = TRUE, borders = TRUE) {

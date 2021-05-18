@@ -36,22 +36,3 @@ For more information check out ?geom_point.}
 #' @description
 A violin plot superimposed by jittered individual points.
 }
-\examples{
-# generate random data first
-set.seed(1)
-day1 = rnorm(20,0,1)
-day2 = rnorm(20,5,1)
-Subject <- rep(paste0('S',seq(1:20)), 2)
-Data <- data.frame(Value = matrix(c(day1,day2),ncol=1))
-Time <- rep(c('Day 1', 'Day 2'), each = length(day1))
-df <- cbind(Subject, Data, Time)
-
-# boxplot with all black points
-ggplot(data = df, mapping = aes(x = Time, y = Value)) +
-ses_violin(point_fill_color = 'black')
-
-# boxplot with different colors of points across Time
-ggplot(data = df, mapping = aes(x = Time, y = Value,
-fill = Time)) + ses_violin()
-
-}
