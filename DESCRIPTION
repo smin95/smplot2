@@ -13,3 +13,5 @@ Imports:
   ggplot2,
   ggpubr,
   cowplot
+URL: https://www.ses21.com 
+BugReports: https://github.com/smin95/sesplot/issues 
