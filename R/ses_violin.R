@@ -21,6 +21,7 @@
 #' @param ...
 #' Other parameters for geom_point(), such as "fill".
 #' For more information check out ?geom_point.
+#'@import ggplot2 cowplot
 #'
 #' @examples
 #' library(tidyverse)
@@ -41,6 +42,8 @@
 #' # boxplot with different colors of points across Time
 #' ggplot(data = df, mapping = aes(x = Time, y = Value,
 #' fill = Time)) + ses_violin()
+#'
+#' @export
 
 ses_violin <- function(violin_fill_color = 'gray90',
                        violin_border_color = 'transparent',
@@ -57,7 +60,7 @@ ses_violin <- function(violin_fill_color = 'gray90',
     list(ggplot2::theme_bw(base_size = 10, base_family = ''),
          ggplot2::geom_violin(color = violin_border_color,
                               fill = violin_fill_color),
-         ggplot2::geom_point(position = position_jitter(width = .15,
+         ggplot2::geom_point(position = ggplot2::position_jitter(width = .15,
                                                         height = 0,
                                                         seed = 10),
                              size = point_size,

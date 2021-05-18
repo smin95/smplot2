@@ -55,4 +55,5 @@ ses_violin(point_fill_color = 'black')
 # boxplot with different colors of points across Time
 ggplot(data = df, mapping = aes(x = Time, y = Value,
 fill = Time)) + ses_violin()
+
 }

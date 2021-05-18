@@ -36,7 +36,7 @@
 #' Size (numerical value) of the texts from correlation.
 #'
 #' @return
-#' @export
+#' @import ggplot2 cowplot ggpubr
 #'
 #' @examples
 #' library(tidyverse)
@@ -49,7 +49,7 @@
 #' ses_corr_theme() +
 #' ses_statCorr()
 #'
-#'
+#' @export
 ses_statCorr <- function(...,
                        line_type = 'dashed',
                        corr_method = 'pearson',
@@ -64,7 +64,7 @@ ses_statCorr <- function(...,
                linetype = line_type,
                size = line_size, method = ln_method,
                alpha = 0.2, se = se, weight = 0.8),
-       stat_cor(p.accuracy = 0.01, method = corr_method,
+       ggpubr::stat_cor(p.accuracy = 0.01, method = corr_method,
                         label.sep = separate_by,
                         label.x = label_x,
                         label.y = label_y,

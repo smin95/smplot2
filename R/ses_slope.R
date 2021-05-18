@@ -23,6 +23,7 @@
 #' @param ...
 #' Other parameters of scale_x_discrete. For more information,
 #' please type ?scale_x_discrete.
+#' @import ggplot2 cowplot
 #'
 #' @examples
 #'
@@ -46,7 +47,7 @@
 #'   ses_slope() +
 #'   scale_fill_manual(values = ses_palette(2))
 #'
-#'
+#' @export
 ses_slope <- function(line_color = 'gray53',
                       line_size = 0.4, point_border_color = 'white',
                       point_size = 3, point_shape = 21, ...) {
@@ -55,10 +56,10 @@ ses_slope <- function(line_color = 'gray53',
     stop('only shapes (21-25) with borders can be used.')
   }
 
-  list(geom_line(color = line_color, size = line_size),
-       geom_point(size = point_size, shape = point_shape,
+  list(ggplot2::geom_line(color = line_color, size = line_size),
+       ggplot2::geom_point(size = point_size, shape = point_shape,
                   color = point_border_color),
-       scale_x_discrete(position = 'top', expand = c(0.15, .1),
+       ggplot2::scale_x_discrete(position = 'top', expand = c(0.15, .1),
                         drop = FALSE,  ...),
        sesplot::ses_slope_theme(legends = F))
 }

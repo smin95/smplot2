@@ -19,6 +19,7 @@
 #' scale_color_manual(values = ses_palette(7)) +
 #' ses_corr_theme()
 #'
+#' @export
 ses_palette <- function(colorNum = 10) {
 
   if (colorNum == 1) {

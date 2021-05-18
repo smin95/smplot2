@@ -8,3 +8,8 @@ Description: sesplot provides custom themes and colors for data visualization.
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
+License: MIT + file LICENSE
+Imports:
+  ggplot2,
+  ggpubr,
+  cowplot

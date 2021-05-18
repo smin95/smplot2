@@ -35,6 +35,8 @@
 #' Other parameters for geom_point(). For more information
 #' check out ?geom_point.
 #'
+#' @import ggplot2 cowplot
+#'
 #' @examples
 #' library(tidyverse)
 #' library(sesplot)
@@ -57,9 +59,9 @@
 #' Time, y = Value) + ses_bar_theme() +
 #' geom_linerange(aes(ymin = mean_value-se,
 #' ymax = mean_value+se)) # errorbar
+#' @export
 #'
-#'
-ses_bar <- function(data=.data, x, y,
+ses_bar <- function(data=data, x, y,
                     bar_fill_color = 'gray85',
                     width = 0.4,
                     point_size = 2.5,
@@ -83,8 +85,8 @@ ses_bar <- function(data=.data, x, y,
                          fill = bar_fill_color,
                          width = width),
        ggplot2::geom_point(data = data,
-                           aes(x=x,y=y),
-                           position = position_jitter(width = .12,
+                           ggplot2::aes(x=x,y=y),
+                           position = ggplot2::position_jitter(width = .12,
                                                       height = 0,
                                                       seed = 10),
                            shape = point_shape,

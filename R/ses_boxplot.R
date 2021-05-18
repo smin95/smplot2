@@ -29,7 +29,8 @@
 #' Other parameters for geom_point(), such as "fill".
 #' For more information check out ?geom_point.
 #' @return
-#' @export
+#'
+#' @import ggplot2 cowplot
 #'
 #' @examples
 #' library(tidyverse)
@@ -50,6 +51,8 @@
 #' ggplot(data = df, mapping = aes(x = Day, y = Value, fill = Day)) +
 #' ses_boxplot()
 #'
+#' @export
+#'
 ses_boxplot <- function(boxplot_fill_color = 'gray95',
                         boxplot_border_color = 'black',
                         points = TRUE, notch = F, width = 0.5,
@@ -65,7 +68,7 @@ ses_boxplot <- function(boxplot_fill_color = 'gray95',
     list(ggplot2::theme_bw(base_size = 10, base_family = ''),
          ggplot2::geom_boxplot(fill = boxplot_fill_color,
                                notch = notch, width = width),
-         ggplot2::geom_point(position = position_jitter(width = .12,
+         ggplot2::geom_point(position = ggplot2::position_jitter(width = .12,
                                                         height = 0,
                                                         seed = 10),
                              shape = point_shape,

@@ -58,5 +58,4 @@ ggplot(data = df,
   ses_slope() +
   scale_fill_manual(values = ses_palette(2))
 
-
 }

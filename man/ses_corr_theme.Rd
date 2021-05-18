@@ -26,5 +26,4 @@ geom_point(shape = 21, fill = '#0f993d', color = 'white',
 size = 3)
 p1 + ses_corr_theme()
 
-
 }

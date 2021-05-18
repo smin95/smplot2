@@ -66,5 +66,4 @@ text_size = 3) +
 ses_corr_theme() +
 ses_statCorr()
 
-
 }

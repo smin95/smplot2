@@ -5,7 +5,7 @@
 \title{A SES bar plot with individual points (jittered)}
 \usage{
 ses_bar(
-  data = .data,
+  data = data,
   x,
   y,
   bar_fill_color = "gray85",
@@ -67,6 +67,4 @@ ses_bar(data = DataFrame, x =
 Time, y = Value) + ses_bar_theme() +
 geom_linerange(aes(ymin = mean_value-se,
 ymax = mean_value+se)) # errorbar
-
-
 }

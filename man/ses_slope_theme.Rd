@@ -38,4 +38,5 @@ aes(x = Time, y = Value,
   expand = c(0.15, .1), drop=FALSE)
 
 p5 + ses_slope_theme()
+
 }
