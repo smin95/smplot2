@@ -33,8 +33,6 @@
 #' @import ggplot2 cowplot
 #'
 #' @examples
-#' library(tidyverse)
-#' library(sesplot)
 #' set.seed(1) # generate random data
 #' day1 = rnorm(20,0,1)
 #' day2 = rnorm(20,5,1)

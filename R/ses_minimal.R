@@ -15,8 +15,6 @@
 #' @import ggplot2 cowplot
 #'
 #' @examples
-#' library(tidyverse)
-#' library(sesplot)
 #' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
 #' geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
 #' ses_minimal()

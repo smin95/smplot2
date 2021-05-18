@@ -12,8 +12,6 @@
 #' @examples
 #' ses_palette(3) # returns 3 colors
 #'
-#' library(tidyverse)
-#' library(sesplot)
 #' ggplot(data = mpg, mapping = aes(x = displ, y = hwy, color = class)) +
 #' geom_point(size = 2) +
 #' scale_color_manual(values = ses_palette(7)) +

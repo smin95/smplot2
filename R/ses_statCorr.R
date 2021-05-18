@@ -36,11 +36,9 @@
 #' Size (numerical value) of the texts from correlation.
 #'
 #' @return
-#' @import ggplot2 cowplot ggpubr
-#'
+#' @import ggplot2 cowplot
+#' @importFrom ggpubr stat_cor
 #' @examples
-#' library(tidyverse)
-#' library(sesplot)
 #' ggplot(data = mtcars,
 #' mapping = aes(x = drat, y = mpg)) +
 #' geom_point(shape = 21,

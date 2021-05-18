@@ -56,8 +56,6 @@ This combines two different functions:
 `stat_cor()` is used to print correlation results at an optimized location.
 }
 \examples{
-library(tidyverse)
-library(sesplot)
 ggplot(data = mtcars,
 mapping = aes(x = drat, y = mpg)) +
 geom_point(shape = 21,

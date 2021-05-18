@@ -37,9 +37,8 @@
 #'
 #' @import ggplot2 cowplot
 #'
+#' @importFrom stats sd
 #' @examples
-#' library(tidyverse)
-#' library(sesplot)
 #' set.seed(2) # generate random data
 #' day1 = rnorm(20,0,2)
 #' day2 = rnorm(20,6,2)

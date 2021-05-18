@@ -37,8 +37,6 @@ For more information check out ?geom_point.}
 A violin plot superimposed by jittered individual points.
 }
 \examples{
-library(tidyverse)
-library(sesplot)
 # generate random data first
 set.seed(1)
 day1 = rnorm(20,0,1)

@@ -21,8 +21,6 @@ For more information, please visit \url{https://www.ses21.com}.
 ses_bar_theme() is exactly the same as ses_hgrid().
 }
 \examples{
-library(tidyverse)
-library(sesplot)
 ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
 geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
 ses_hgrid()

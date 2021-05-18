@@ -16,8 +16,6 @@ This format is appropriate for the slope chart. For more information,
 please visit \url{https://www.ses21.com}.
 }
 \examples{
-library(tidyverse)
-library(sesplot)
 # Generate random data first
 set.seed(1)
 day1 = rnorm(20,0,1)

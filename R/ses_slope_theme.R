@@ -11,8 +11,6 @@
 #' @import ggplot2 cowplot
 #'
 #' @examples
-#' library(tidyverse)
-#' library(sesplot)
 #' # Generate random data first
 #' set.seed(1)
 #' day1 = rnorm(20,0,1)

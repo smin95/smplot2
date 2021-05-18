@@ -21,8 +21,6 @@ For more information, please visit \url{https://www.ses21.com}.
 ses_bar_theme() is exactly the same as ses_hgrid().
 }
 \examples{
-library(tidyverse)
-library(sesplot)
 df <- data.frame(group=c("One", "Two", "Three"),
 score=c(5.2, 9.3, 12))
 p1 <- ggplot(data=df, aes(x=group, y=score, fill = group)) +
