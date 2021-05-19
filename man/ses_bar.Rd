@@ -10,7 +10,7 @@ ses_bar(
   errSize = 1,
   point_size = 2.5,
   point_alpha = 0.65,
-  point_border_color = "white",
+  point_border_color = "transparent",
   point_shape = 21,
   se = T,
   ...
