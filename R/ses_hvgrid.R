@@ -38,8 +38,7 @@ ses_hvgrid <- function(legends = TRUE, borders = TRUE) {
           strip.text.x = ggplot2::element_text(colour = "black", size = ggplot2::rel(.85)),
           strip.text.y = ggplot2::element_text(colour = "black", size = ggplot2::rel(.85)),
           legend.text=ggplot2::element_text(size = ggplot2::rel(.78)),
-          legend.title=ggplot2::element_text(size = ggplot2::rel(.78)),
-          plot.title = ggplot2::element_text(hjust = 0.5)
+          legend.title=ggplot2::element_text(size = ggplot2::rel(.78))
         )
     } else if (borders == TRUE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
@@ -56,8 +55,7 @@ ses_hvgrid <- function(legends = TRUE, borders = TRUE) {
           strip.text.x = ggplot2::element_text(colour = "black", size = ggplot2::rel(1.2)),
           strip.text.y = ggplot2::element_text(colour = "black", size = ggplot2::rel(1.2)),
           legend.text=ggplot2::element_text(size = ggplot2::rel(1.1)),
-          legend.title=ggplot2::element_text(size = ggplot2::rel(1.1)),
-          plot.title = ggplot2::element_text(hjust = 0.5)
+          legend.title=ggplot2::element_text(size = ggplot2::rel(1.1))
         )
     }
   } else if (legends == FALSE) {
@@ -76,8 +74,7 @@ ses_hvgrid <- function(legends = TRUE, borders = TRUE) {
           strip.background = ggplot2::element_rect(fill = NA, colour = NA),
           strip.text.x = ggplot2::element_text(colour = "black", size = ggplot2::rel(.85)),
           strip.text.y = ggplot2::element_text(colour = "black", size = ggplot2::rel(.85)),
-          legend.position = 'none',
-          plot.title = ggplot2::element_text(hjust = 0.5)
+          legend.position = 'none'
         )
     } else if (borders == TRUE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
@@ -93,8 +90,7 @@ ses_hvgrid <- function(legends = TRUE, borders = TRUE) {
           strip.background = element_rect(fill = NA, colour = NA),
           strip.text.x = ggplot2::element_text(colour = "black", size = ggplot2::rel(1.2)),
           strip.text.y = ggplot2::element_text(colour = "black", size = ggplot2::rel(1.2)),
-          legend.position = 'none',
-          plot.title = ggplot2::element_text(hjust = 0.5)
+          legend.position = 'none'
         )
     }
   }
