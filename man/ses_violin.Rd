@@ -8,7 +8,9 @@ ses_violin(
   violin_fill_color = "gray90",
   violin_border_color = "transparent",
   points = TRUE,
+  sd_length = 1,
   point_size = 2.5,
+  point_alpha = 0.3,
   point_shape = 21,
   point_border_color = "white",
   ...
@@ -22,7 +24,13 @@ ses_violin(
 \item{points}{TRUE if points need to be shown.
 FALSE if points need to be hidden.}
 
+\item{sd_length}{length of the +/- standard deviation.
+The default is set to +/- 1 SD.}
+
 \item{point_size}{Size of the individual jittered points.}
+
+\item{point_alpha}{Transparency of the jittered points.
+This argument is ignored when points = FALSE.}
 
 \item{point_shape}{Shape of the jittered points.
 Only shapes (21-25) with borders are allowed.}
@@ -35,4 +43,5 @@ For more information check out ?geom_point.}
 \description{
 #' @description
 A violin plot superimposed by jittered individual points.
+The dot represents the mean, and the sprouting lines indicate +/- 1 standard deviation.
 }
