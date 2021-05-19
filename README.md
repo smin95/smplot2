@@ -11,4 +11,4 @@ install.packages("devtools")
 devtools::install_github('smin95/sesplot')
 ```
 
-For more examples and a tutorial, please visit www.ses21.com/sesplot.html.
+For more examples and a tutorial, please visit https://www.ses21.com/rsesplot.
