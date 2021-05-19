@@ -5,44 +5,41 @@
 \title{A SES bar plot with individual points (jittered)}
 \usage{
 ses_bar(
-  data = data,
-  x,
-  y,
   bar_fill_color = "gray85",
   width = 0.4,
+  errSize = 1,
   point_size = 2.5,
+  point_alpha = 0.65,
   point_border_color = "white",
   point_shape = 21,
+  se = T,
   ...
 )
 }
 \arguments{
-\item{data}{Entire dataset for plotting the jittered points.
-Each row has to be each subject.
-Column has to be group/variable/condition.}
-
-\item{x}{Variable that defines x-axis. It should be independent variable.
-Ideally, it should be identical to the x-axis mapped in aes() from ggplot().}
-
-\item{y}{Variable that defines y-axis. It should be dependent variable.
-Ideally, it should be identical to the y-axis mapped in aes() from ggplot().}
-
 \item{bar_fill_color}{Color of the bar.}
 
 \item{width}{Width of the bar.}
 
+\item{errSize}{The line width of the error bar.}
+
 \item{point_size}{Size of the individual jittered points.}
+
+\item{point_alpha}{Transparency of the jittered points.}
 
 \item{point_border_color}{Color of the points' border.}
 
 \item{point_shape}{Shape of the jittered points.
 Only shapes (21-25) with borders are allowed.}
 
+\item{se}{When the error bar should represent standard error,
+it should be set to TRUE. If the error bar should
+represent standard deviation, it should be set to FALSE.}
+
 \item{...}{Other parameters  to specify the properties of the points.
 For more information, type ?geom_point}
 }
 \description{
-A bar plot superimposed by jittered individual points.
-ggplot() should contain the summarised data with
-the mean for each group/condition.
+A bar plot superimposed by jittered individual points
+and the error bar for standard error or standard deviation.
 }
