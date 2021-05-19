@@ -39,7 +39,7 @@ ses_violin <- function(violin_fill_color = 'gray90',
                        points = TRUE,
                        sd_length = 1,
                        point_size = 2.5,
-                       point_alpha = 0.2,
+                       point_alpha = 0.18,
                        point_shape = 21,
                        point_border_color = 'white', ...) {
 
