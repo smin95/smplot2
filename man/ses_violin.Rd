@@ -12,6 +12,7 @@ ses_violin(
   point_size = 2.5,
   point_alpha = 0.2,
   point_shape = 21,
+  stroke_width = 1.2,
   point_border_color = "white",
   ...
 )
@@ -34,6 +35,8 @@ This argument is ignored when points = FALSE.}
 
 \item{point_shape}{Shape of the jittered points.
 Only shapes (21-25) with borders are allowed.}
+
+\item{stroke_width}{The width of the lines that show standard deviation.}
 
 \item{point_border_color}{Color of the points' border.}
 

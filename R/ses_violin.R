@@ -24,6 +24,10 @@
 #' @param point_shape
 #' Shape of the jittered points.
 #' Only shapes (21-25) with borders are allowed.
+#'
+#' @param stroke_width
+#' The width of the lines that show standard deviation.
+#'
 #' @param point_border_color
 #' Color of the points' border.
 #' @param ...
@@ -41,6 +45,7 @@ ses_violin <- function(violin_fill_color = 'gray90',
                        point_size = 2.5,
                        point_alpha = 0.2,
                        point_shape = 21,
+                       stroke_width = 1.2,
                        point_border_color = 'white', ...) {
 
   if (!(point_shape %in% c(21,22,23,24,25))){
@@ -59,14 +64,15 @@ ses_violin <- function(violin_fill_color = 'gray90',
                              color = point_border_color,
                              alpha = point_alpha, ...),
          stat_summary(fun.data = mean_sdl, fun.args = list(mult = sd_length),
-                      geom = 'pointrange', fatten = point_size*1.2, size = 1.2),
+                      geom = 'pointrange', fatten = point_size*1.2, size = stroke_width),
          sesplot::ses_hgrid())
   } else if (points == FALSE) {
     list(ggplot2::theme_bw(base_size = 10, base_family = ''),
          ggplot2::geom_violin(color = violin_border_color,
                               fill = violin_fill_color),
          stat_summary(fun.data = mean_sdl, fun.args = list(mult = sd_length),
-                                             geom = 'pointrange'),
+                                             geom = 'pointrange',
+                      fatten = point_size*1.2, size = stroke_width),
          sesplot::ses_hgrid())
   }
 
