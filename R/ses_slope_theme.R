@@ -41,7 +41,7 @@ ses_slope_theme <- function(legends = TRUE) {
          panel.grid.minor.y = ggplot2::element_blank(),
          panel.grid.major.y = ggplot2::element_blank(),
          panel.border = ggplot2::element_blank(),
-         axis.line.y = ggplot2::element_line(size = 0.5, linetype = "solid",
+         axis.line.y = ggplot2::element_line(size = 0.6, linetype = "solid",
                                     colour = "black"),
          axis.ticks.x = ggplot2::element_blank(),
          axis.text.y = ggplot2::element_text(color = "black"),

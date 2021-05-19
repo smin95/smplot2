@@ -8,21 +8,24 @@ ses_slope(
   line_color = "gray53",
   line_size = 0.4,
   point_border_color = "white",
-  point_size = 3,
+  point_size = 2.5,
   point_shape = 21,
+  point_stroke = 0.5,
   ...
 )
 }
 \arguments{
-\item{line_color}{Color of the line}
+\item{line_color}{Color of the lines}
 
-\item{line_size}{Size of the line}
+\item{line_size}{Size of the lines}
 
 \item{point_border_color}{Color of the point's border}
 
-\item{point_size}{Size of the point}
+\item{point_size}{Size of the points}
 
-\item{point_shape}{Shape of the point (21-25)}
+\item{point_shape}{Shape of the points (21-25)}
+
+\item{point_stroke}{Border width of the points}
 
 \item{...}{Other parameters of scale_x_discrete. For more information,
 please type ?scale_x_discrete.}
