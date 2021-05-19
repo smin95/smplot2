@@ -35,7 +35,7 @@
 #' @export
 #'
 ses_bar <- function(bar_fill_color = 'gray85',
-                    width = 0.4,
+                    width = 0.7,
                     errSize = 1,
                     point_size = 2.5,
                     point_alpha = 0.65,
