@@ -39,7 +39,7 @@ ses_violin <- function(violin_fill_color = 'gray90',
                        points = TRUE,
                        sd_length = 1,
                        point_size = 2.5,
-                       point_alpha = 0.18,
+                       point_alpha = 0.2,
                        point_shape = 21,
                        point_border_color = 'white', ...) {
 
@@ -59,7 +59,7 @@ ses_violin <- function(violin_fill_color = 'gray90',
                              color = point_border_color,
                              alpha = point_alpha, ...),
          stat_summary(fun.data = mean_sdl, fun.args = list(mult = sd_length),
-                      geom = 'pointrange'),
+                      geom = 'pointrange', fatten = point_size*1.2, size = 1.2),
          sesplot::ses_hgrid())
   } else if (points == FALSE) {
     list(ggplot2::theme_bw(base_size = 10, base_family = ''),
