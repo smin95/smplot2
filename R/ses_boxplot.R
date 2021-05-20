@@ -20,6 +20,10 @@
 #' @param point_size
 #' Size of the individual jittered points.
 #'
+#' @param point_alpha
+#' Transparency of the jittered points.
+#' This argument is ignored when points = FALSE.
+#'
 #' @param point_border_color
 #' Color of the points' border.
 #' @param point_shape
@@ -38,6 +42,7 @@ ses_boxplot <- function(boxplot_fill_color = 'gray95',
                         boxplot_border_color = 'black',
                         points = TRUE, notch = F, width = 0.5,
                         point_size = 2.5,
+                        point_alpha = 0.35,
                         point_border_color = 'white',
                         point_shape = 21,...) {
 
@@ -54,7 +59,8 @@ ses_boxplot <- function(boxplot_fill_color = 'gray95',
                                                         seed = 10),
                              shape = point_shape,
                              color = point_border_color,
-                             size = point_size, ...),
+                             size = point_size,
+                             alpha = point_alpha,...),
          sesplot::ses_hgrid())
   } else if (points == FALSE) {
     list(ggplot2::theme_bw(base_size = 10, base_family = ''),
