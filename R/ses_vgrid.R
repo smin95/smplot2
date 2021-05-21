@@ -3,7 +3,7 @@
 #' @description
 #'
 #' This theme has major vertical grids.
-#' For more information, please visit \url{https://www.ses21.com}.
+#' For more information, please visit \url{https://www.ses21.com/}.
 #'
 #'
 #' @param legends

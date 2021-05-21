@@ -15,17 +15,13 @@
 #' @param point_alpha
 #' Transparency of the jittered points.
 #'
-#' @param point_border_color
-#' Color of the points' border.
-#' @param point_shape
-#' Shape of the jittered points.
-#' Only shapes (21-25) with borders are allowed.
 #' @param se
 #' When the error bar should represent standard error,
 #' it should be set to TRUE. If the error bar should
 #' represent standard deviation, it should be set to FALSE.
 #' @param ...
-#' Other parameters  to specify the properties of the points.
+#' Other parameters, such as 'color', 'shape', 'fill',
+#' to specify the properties of the points.
 #' For more information, type ?geom_point
 #'
 #'
@@ -39,12 +35,7 @@ ses_bar <- function(bar_fill_color = 'gray85',
                     errSize = 1,
                     point_size = 2.5,
                     point_alpha = 0.65,
-                    point_border_color = 'transparent',
-                    point_shape = 21, se = T, ...) {
-
-  if (!(point_shape %in% c(21,22,23,24,25))){
-    stop('only shapes (21-25) with borders can be used.')
-  }
+                    se = T, ...) {
 
   if (se == T) {
     list(ggplot2::theme_bw(base_size = 10, base_family = ''),
@@ -53,8 +44,6 @@ ses_bar <- function(bar_fill_color = 'gray85',
          ggplot2::geom_point(position = ggplot2::position_jitter(width = .12,
                                                                  height = 0,
                                                                  seed = 10),
-                             shape = point_shape,
-                             color = point_border_color,
                              size = point_size,
                              alpha = point_alpha, ...),
          stat_summary(fun.data = mean_se, geom = "linerange",
@@ -67,8 +56,6 @@ ses_bar <- function(bar_fill_color = 'gray85',
          ggplot2::geom_point(position = ggplot2::position_jitter(width = .12,
                                                                  height = 0,
                                                                  seed = 10),
-                             shape = point_shape,
-                             color = point_border_color,
                              size = point_size,
                              alpha = point_alpha, ...),
          stat_summary(fun = mean, geom = "linerange",

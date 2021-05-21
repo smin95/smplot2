@@ -11,9 +11,6 @@ ses_boxplot(
   notch = F,
   width = 0.5,
   point_size = 2.5,
-  point_alpha = 0.35,
-  point_border_color = "white",
-  point_shape = 21,
   ...
 )
 }
@@ -32,15 +29,7 @@ FALSE to keep the boxplot's shape.}
 
 \item{point_size}{Size of the individual jittered points.}
 
-\item{point_alpha}{Transparency of the jittered points.
-This argument is ignored when points = FALSE.}
-
-\item{point_border_color}{Color of the points' border.}
-
-\item{point_shape}{Shape of the jittered points.
-Only shapes (21-25) with borders are allowed.}
-
-\item{...}{Other parameters for geom_point(), such as "fill".
+\item{...}{Other parameters for geom_point(), such as "fill", "color" and "shape".
 For more information check out ?geom_point.}
 }
 \description{

@@ -21,15 +21,9 @@
 #' @param point_alpha
 #' Transparency of the jittered points.
 #' This argument is ignored when points = FALSE.
-#' @param point_shape
-#' Shape of the jittered points.
-#' Only shapes (21-25) with borders are allowed.
-#'
 #' @param stroke_width
 #' The width of the lines that show standard deviation.
 #'
-#' @param point_border_color
-#' Color of the points' border.
 #' @param ...
 #' Other parameters for geom_point(), such as "fill".
 #' For more information check out ?geom_point.
@@ -44,13 +38,7 @@ ses_violin <- function(violin_fill_color = 'gray90',
                        sd_length = 1,
                        point_size = 2.5,
                        point_alpha = 0.25,
-                       point_shape = 21,
-                       stroke_width = 1.2,
-                       point_border_color = 'white', ...) {
-
-  if (!(point_shape %in% c(21,22,23,24,25))){
-    stop('only shapes (21-25) with borders can be used.')
-  }
+                       stroke_width = 1.2, ...) {
 
   if (points == TRUE) {
     list(ggplot2::theme_bw(base_size = 10, base_family = ''),
@@ -60,8 +48,6 @@ ses_violin <- function(violin_fill_color = 'gray90',
                                                         height = 0,
                                                         seed = 10),
                              size = point_size,
-                             shape = point_shape,
-                             color = point_border_color,
                              alpha = point_alpha, ...),
          stat_summary(fun.data = mean_sdl, fun.args = list(mult = sd_length),
                       geom = 'pointrange', fatten = point_size*1.2, size = stroke_width),

@@ -15,5 +15,5 @@ If the border is not needed, the input should be FALSE.}
 }
 \description{
 This theme has major vertical grids.
-For more information, please visit \url{https://www.ses21.com}.
+For more information, please visit \url{https://www.ses21.com/}.
 }

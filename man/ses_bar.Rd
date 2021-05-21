@@ -10,8 +10,6 @@ ses_bar(
   errSize = 1,
   point_size = 2.5,
   point_alpha = 0.65,
-  point_border_color = "transparent",
-  point_shape = 21,
   se = T,
   ...
 )
@@ -27,16 +25,12 @@ ses_bar(
 
 \item{point_alpha}{Transparency of the jittered points.}
 
-\item{point_border_color}{Color of the points' border.}
-
-\item{point_shape}{Shape of the jittered points.
-Only shapes (21-25) with borders are allowed.}
-
 \item{se}{When the error bar should represent standard error,
 it should be set to TRUE. If the error bar should
 represent standard deviation, it should be set to FALSE.}
 
-\item{...}{Other parameters  to specify the properties of the points.
+\item{...}{Other parameters, such as 'color', 'shape', 'fill',
+to specify the properties of the points.
 For more information, type ?geom_point}
 }
 \description{

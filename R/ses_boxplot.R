@@ -20,35 +20,18 @@
 #' @param point_size
 #' Size of the individual jittered points.
 #'
-#' @param point_alpha
-#' Transparency of the jittered points.
-#' This argument is ignored when points = FALSE.
-#'
-#' @param point_border_color
-#' Color of the points' border.
-#' @param point_shape
-#' Shape of the jittered points.
-#' Only shapes (21-25) with borders are allowed.
 #' @param ...
-#' Other parameters for geom_point(), such as "fill".
+#' Other parameters for geom_point(), such as "fill", "color" and "shape".
 #' For more information check out ?geom_point.
 #'
 #' @import ggplot2 cowplot
-#'
 #'
 #' @export
 #'
 ses_boxplot <- function(boxplot_fill_color = 'gray95',
                         boxplot_border_color = 'black',
                         points = TRUE, notch = F, width = 0.5,
-                        point_size = 2.5,
-                        point_alpha = 0.35,
-                        point_border_color = 'white',
-                        point_shape = 21,...) {
-
-  if (!(point_shape %in% c(21,22,23,24,25))){
-    stop('only shapes (21-25) with borders can be used.')
-  }
+                        point_size = 2.5,...) {
 
   if (points == TRUE) {
     list(ggplot2::theme_bw(base_size = 10, base_family = ''),
@@ -57,10 +40,7 @@ ses_boxplot <- function(boxplot_fill_color = 'gray95',
          ggplot2::geom_point(position = ggplot2::position_jitter(width = .12,
                                                         height = 0,
                                                         seed = 10),
-                             shape = point_shape,
-                             color = point_border_color,
-                             size = point_size,
-                             alpha = point_alpha,...),
+                             size = point_size, ...),
          sesplot::ses_hgrid())
   } else if (points == FALSE) {
     list(ggplot2::theme_bw(base_size = 10, base_family = ''),
