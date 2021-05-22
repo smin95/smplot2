@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/smin95/sesplot/blob/master/LICENSE)
+
 # sesplot
 
 sesplot provides simple themes and a color palette for data visualization. It has been developed by SES (Sam's Editing Studio, www.ses21.com) to invite people without a coding background to pick up R.
