@@ -8,6 +8,7 @@ ses_bar(
   bar_fill_color = "gray85",
   width = 0.7,
   errSize = 1,
+  errColor = "black",
   point_size = 2.5,
   point_alpha = 0.65,
   se = T,
@@ -20,6 +21,8 @@ ses_bar(
 \item{width}{Width of the bar.}
 
 \item{errSize}{The line width of the error bar.}
+
+\item{errColor}{The color of the error bar}
 
 \item{point_size}{Size of the individual jittered points.}
 

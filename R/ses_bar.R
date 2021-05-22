@@ -8,6 +8,9 @@
 #' Color of the bar.
 #' @param width
 #' Width of the bar.
+#'
+#' @param errColor
+#' The color of the error bar
 #' @param errSize
 #' The line width of the error bar.
 #' @param point_size
@@ -33,6 +36,7 @@
 ses_bar <- function(bar_fill_color = 'gray85',
                     width = 0.7,
                     errSize = 1,
+                    errColor = 'black',
                     point_size = 2.5,
                     point_alpha = 0.65,
                     se = T, ...) {
@@ -47,7 +51,8 @@ ses_bar <- function(bar_fill_color = 'gray85',
                              size = point_size,
                              alpha = point_alpha, ...),
          stat_summary(fun.data = mean_se, geom = "linerange",
-                      size = errSize),
+                      size = errSize,
+                      color = errColor),
          sesplot::ses_hgrid())
   } else {
     list(ggplot2::theme_bw(base_size = 10, base_family = ''),
@@ -61,7 +66,8 @@ ses_bar <- function(bar_fill_color = 'gray85',
          stat_summary(fun = mean, geom = "linerange",
                       fun.min = function(x) mean(x) - sd(x),
                       fun.max = function(x) mean(x) + sd(x),
-                      size = errSize),
+                      size = errSize,
+                      color = errColor),
          sesplot::ses_hgrid())
   }
 
