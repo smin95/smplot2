@@ -17,6 +17,11 @@
 #' Size of the lines
 #' @param point_size
 #' Size of the points
+#' @param line_type
+#' Type of the line. Default is 'solid'; other options include:
+#' 'twodash', 'longdash', 'dotted', 'dotdash', 'dashed', and
+#' 'blank'.
+#'
 #' @param ...
 #' Other parameters of geom_point(), such as 'shape', fill', and 'color.
 #' For more information, please type ?geom_point.
@@ -28,9 +33,10 @@ ses_slope <- function(labels,
                       line_color = 'gray53',
                       line_size = 0.4,
                       point_size = 2.5,
+                      line_type = 'solid',
                       ...) {
 
-  list(ggplot2::geom_line(color = line_color, size = line_size),
+  list(ggplot2::geom_line(color = line_color, size = line_size, linetype = line_type),
        ggplot2::geom_point(size = point_size*1.8, fill = "white", color = 'white'),
        ggplot2::geom_point(size = point_size, ...),
        ggplot2::scale_x_discrete(position = 'top', expand = c(0.17, .1),

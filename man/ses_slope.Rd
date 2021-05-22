@@ -9,6 +9,7 @@ ses_slope(
   line_color = "gray53",
   line_size = 0.4,
   point_size = 2.5,
+  line_type = "solid",
   ...
 )
 }
@@ -22,6 +23,10 @@ or multiple elements. ex: c('Day 1', 'Day 2')}
 \item{line_size}{Size of the lines}
 
 \item{point_size}{Size of the points}
+
+\item{line_type}{Type of the line. Default is 'solid'; other options include:
+'twodash', 'longdash', 'dotted', 'dotdash', 'dashed', and
+'blank'.}
 
 \item{...}{Other parameters of geom_point(), such as 'shape', fill', and 'color.
 For more information, please type ?geom_point.}

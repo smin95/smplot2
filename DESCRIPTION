@@ -1,10 +1,10 @@
 Package: sesplot
 Type: Package
-Title: sesplot - a package that makes ggplot2 super easy to use
+Title: sesplot - a package for statistical data visualization
 Version: 0.1.0
 Author: Seung Hyun (Sam) Min
 Maintainer: Sam's Editing Service (SES) <sam.editing21@gmail.com>
-Description: sesplot provides custom themes and colors for data visualization.
+Description: sesplot is a R package for statistical data visualization.
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
