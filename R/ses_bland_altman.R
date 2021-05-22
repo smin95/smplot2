@@ -26,7 +26,7 @@
 #' second <- rnorm(20)
 #' df <- as_tibble(cbind(first,second)) # requires library(tidyverse)
 #' res <- ses_statBlandAlt(df$first, df$second)
-#' df %>% ggplot(aes(x = res$mean, y = res$diff)) +
+#' ggplot(data = res$data, aes(x = res$mean, y = res$diff)) +
 #' ses_bland_altman(res)
 #' }
 #'
