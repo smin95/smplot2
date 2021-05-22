@@ -26,7 +26,8 @@
 #' @param second
 #' Data from the second repetition/session
 #' @export
-#'
+#' @importFrom stats t.test
+#' @importFrom tibble as_tibble
 #' @examples
 #' \dontrun{
 #' set.seed(1)
@@ -43,10 +44,12 @@ ses_statBlandAlt <- function(first, second) {
   sd = sd(diff)
   upper_limit  = mean_diff + 1.96*sd
   lower_limit = mean_diff - 1.96*sd
-
+  diff_ci <- t.test(diff)$conf.int
   data <- as_tibble(cbind(mean,diff))
-  res <- list(diff,mean,sd, mean_diff,upper_limit,lower_limit, data)
+  res <- list(diff,mean,sd, mean_diff,upper_limit,lower_limit,
+              data, diff_ci)
   names(res) <- c('diff', 'mean', 'sd', 'mean_diff',
-                  'upper_limit','lower_limit')
+                  'upper_limit','lower_limit','data',
+                  'diff_ci')
   return(res)
 }

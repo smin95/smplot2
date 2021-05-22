@@ -15,6 +15,12 @@
 #' that calculates important indices from drawing a Bland-Altman plot.
 #' @param point_size
 #' The size of the individual points. The default is set to 3.3.
+#' @param  diff_ci
+#' If set TRUE, then it will draw a shaded region that represents the 95%
+#' confidence interval of the difference between the two sessions from one-sample t-test.
+#' If the region (i.e. confidence interval) overlaps with zero, then there
+#' is no significant bias/difference between the two sessions/datasets.
+#' If it does not overlap with 0, then the measurement variability is significantly large.
 #' @param ...
 #' Parameters of geom_point(), such as 'color', 'fill', 'shape', etc.
 #' @export
@@ -30,11 +36,24 @@
 #' ses_bland_altman(res)
 #' }
 #'
-ses_bland_altman <- function(statBlandAlt, point_size = 3.3,...) {
-
+ses_bland_altman <- function(statBlandAlt,
+                             point_size = 3.3,
+                             diff_ci = TRUE,
+                             ...) {
+  if (diff_ci == FALSE) {
   list(geom_abline(intercept = statBlandAlt$upper_limit, slope = 0,linetype = "dashed", size = .4),
          geom_abline(intercept = statBlandAlt$mean_diff, slope = 0,linetype = "dashed", size = .4),
          geom_abline(intercept = statBlandAlt$lower_limit, slope = 0,linetype = "dashed", size = .4),
        geom_point(size = point_size, ...),
        sesplot::ses_classic(legends = F))
+  } else if (diff_ci == TRUE) {
+    list(annotate("rect", xmin = -Inf, xmax = Inf, ymin= statBlandAlt$diff_ci[[1]],
+                   ymax = statBlandAlt$diff_ci[[2]],
+                   fill = "grey", alpha = .25),
+         geom_abline(intercept = statBlandAlt$upper_limit, slope = 0,linetype = "dashed", size = .4),
+         geom_abline(intercept = statBlandAlt$mean_diff, slope = 0,linetype = "dashed", size = .4),
+         geom_abline(intercept = statBlandAlt$lower_limit, slope = 0,linetype = "dashed", size = .4),
+         geom_point(size = point_size, ...),
+         sesplot::ses_classic(legends = F))
+  }
 }

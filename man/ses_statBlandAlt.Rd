@@ -29,7 +29,7 @@ Another output 'data' is a tibble with two columns:
 (ex. a mean of the 1st element
 from the first set and 1st element from the second set), 2)
 Difference between each pair for every element.
-The output 'data' should be used as a data input for ggplot()
+The output 'data' should be used as a argument for data in ggplot()
 when plotting.
 }
 \examples{

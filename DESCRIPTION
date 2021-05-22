@@ -12,6 +12,7 @@ License: MIT + file LICENSE
 Imports:
   ggplot2,
   ggpubr,
-  cowplot
+  cowplot,
+  tibble
 URL: https://www.ses21.com 
 BugReports: https://github.com/smin95/sesplot/issues 

@@ -4,13 +4,19 @@
 \alias{ses_bland_altman}
 \title{SES themed Bland Altman plot}
 \usage{
-ses_bland_altman(statBlandAlt, point_size = 3.3, ...)
+ses_bland_altman(statBlandAlt, point_size = 3.3, diff_ci = TRUE, ...)
 }
 \arguments{
 \item{statBlandAlt}{Results from ses_statBlandAlt(), which is a function
 that calculates important indices from drawing a Bland-Altman plot.}
 
 \item{point_size}{The size of the individual points. The default is set to 3.3.}
+
+\item{diff_ci}{If set TRUE, then it will draw a shaded region that represents the 95%
+confidence interval of the difference between the two sessions from one-sample t-test.
+If the region (i.e. confidence interval) overlaps with zero, then there
+is no significant bias/difference between the two sessions/datasets.
+If it does not overlap with 0, then the measurement variability is significantly large.}
 
 \item{...}{Parameters of geom_point(), such as 'color', 'fill', 'shape', etc.}
 }
@@ -31,7 +37,7 @@ first <- rnorm(20)
 second <- rnorm(20)
 df <- as_tibble(cbind(first,second)) # requires library(tidyverse)
 res <- ses_statBlandAlt(df$first, df$second)
-df \%>\% ggplot(aes(x = res$mean, y = res$diff)) +
+ggplot(data = res$data, aes(x = res$mean, y = res$diff)) +
 ses_bland_altman(res)
 }
 

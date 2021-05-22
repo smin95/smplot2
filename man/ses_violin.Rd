@@ -7,6 +7,7 @@
 ses_violin(
   violin_fill_color = "gray90",
   violin_border_color = "transparent",
+  se = FALSE,
   points = TRUE,
   sd_length = 1,
   point_size = 2.5,
@@ -19,6 +20,9 @@ ses_violin(
 \item{violin_fill_color}{Color of the violin plot}
 
 \item{violin_border_color}{Color of the violin's border.}
+
+\item{se}{If set FALSE, standard deviation will be shown.
+If set TRUE, standard error will be shown.}
 
 \item{points}{TRUE if points need to be shown.
 FALSE if points need to be hidden.}
