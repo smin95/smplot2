@@ -45,6 +45,8 @@ ses_bland_altman <- function(statBlandAlt,
          geom_abline(intercept = statBlandAlt$mean_diff, slope = 0,linetype = "dashed", size = .4),
          geom_abline(intercept = statBlandAlt$lower_limit, slope = 0,linetype = "dashed", size = .4),
        geom_point(size = point_size, ...),
+       ylab('Difference between data'),
+       xlab('Mean across data'),
        sesplot::ses_classic(legends = F))
   } else if (diff_ci == TRUE) {
     list(annotate("rect", xmin = -Inf, xmax = Inf, ymin= statBlandAlt$diff_ci[[1]],
@@ -54,6 +56,8 @@ ses_bland_altman <- function(statBlandAlt,
          geom_abline(intercept = statBlandAlt$mean_diff, slope = 0,linetype = "dashed", size = .4),
          geom_abline(intercept = statBlandAlt$lower_limit, slope = 0,linetype = "dashed", size = .4),
          geom_point(size = point_size, ...),
+         ylab('Difference between data'),
+         xlab('Mean across data'),
          sesplot::ses_classic(legends = F))
   }
 }
