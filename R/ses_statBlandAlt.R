@@ -19,6 +19,14 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' set.seed(1)
+#' first <- rnorm(20)
+#' second <- rnorm(20)
+#' df <- as_tibble(cbind(first,second)) # requires library(tidyverse)
+#' ses_statBlandAlt(df$first, df$second)
+#' }
+
 ses_statBlandAlt <- function(first, second) {
   diff = second - first
   avg = rowMeans(cbind(first,second),na.rm=T)

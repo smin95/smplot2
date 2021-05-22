@@ -23,3 +23,11 @@ The list returned from this function can be directly
 used as an argument for ses_bland_altman(), which
 draws a Bland-Altman plot using ggplot2.
 }
+\examples{
+\dontrun{
+first <- rnorm(20)
+second <- rnorm(20)
+df <- as_tibble(cbind(first,second))
+ses_statBlandAlt(df$first, df$second)
+}
+}

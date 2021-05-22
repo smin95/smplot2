@@ -1,7 +1,14 @@
 #' SES themed Bland Altman plot
 #'
 #' @description
-#' It automatically uses ses_classic() theme.
+#' This function generates a Bland-Altman plot using the output
+#' from ses_statBlandAlt. The plot automatically uses ses_classic() theme.
+#' The upper dashed line indicates the upper limit (mean_diff + 1.96*sd), the middle
+#' dashed line indicates the mean difference between the
+#' two samples, and the lower dashed line indicates the lower limit
+#' (mean_diff - 1.96*sd).
+#'
+#' To add a legend, you will need to add ses_classic(legends = TRUE).
 #'
 #' @param statBlandAlt
 #' Results from ses_statBlandAlt(), which is a function
@@ -12,6 +19,16 @@
 #' Parameters of geom_point(), such as 'color', 'fill', 'shape', etc.
 #' @export
 #' @import ggplot2 cowplot
+#' @examples
+#' \dontrun{
+#' set.seed(1)
+#' first <- rnorm(20)
+#' second <- rnorm(20)
+#' df <- as_tibble(cbind(first,second)) # requires library(tidyverse)
+#' res <- ses_statBlandAlt(df$first, df$second)
+#' df %>% ggplot(aes(x = res$mean, y = res$diff)) +
+#' ses_bland_altman(res)
+#' }
 #'
 ses_bland_altman <- function(statBlandAlt, point_size = 3.3,...) {
 
