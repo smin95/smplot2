@@ -25,9 +25,10 @@ draws a Bland-Altman plot using ggplot2.
 }
 \examples{
 \dontrun{
+set.seed(1)
 first <- rnorm(20)
 second <- rnorm(20)
-df <- as_tibble(cbind(first,second))
+df <- as_tibble(cbind(first,second)) # requires library(tidyverse)
 ses_statBlandAlt(df$first, df$second)
 }
 }

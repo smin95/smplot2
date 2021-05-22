@@ -26,9 +26,10 @@ To add a legend, you will need to add ses_classic(legends = TRUE).
 }
 \examples{
 \dontrun{
+set.seed(1)
 first <- rnorm(20)
 second <- rnorm(20)
-df <- as_tibble(cbind(first,second))
+df <- as_tibble(cbind(first,second)) # requires library(tidyverse)
 res <- ses_statBlandAlt(df$first, df$second)
 df \%>\% ggplot(aes(x = res$mean, y = res$diff)) +
 ses_bland_altman(res)
