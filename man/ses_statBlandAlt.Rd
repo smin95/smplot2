@@ -19,9 +19,18 @@ It returns a list of difference (by element), mean,
 standard deviation of the difference,
 mean difference, upper and lower limits. These values
 are necessary to draw a Bland Altman plot.
+
 The list returned from this function can be directly
 used as an argument for ses_bland_altman(), which
 draws a Bland-Altman plot using ggplot2.
+
+Another output 'data' is a tibble with two columns:
+1) Mean across each pair for each element
+(ex. a mean of the 1st element
+from the first set and 1st element from the second set), 2)
+Difference between each pair for every element.
+The output 'data' should be used as a data input for ggplot()
+when plotting.
 }
 \examples{
 \dontrun{
