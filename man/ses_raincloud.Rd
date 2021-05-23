@@ -10,6 +10,7 @@ ses_raincloud(
   x,
   y,
   group,
+  which_side = "right",
   sep_level = 3,
   jitter_width = 0.09,
   point_size = 3,
@@ -38,6 +39,10 @@ This argument is used to draw a line that pairs each observation
 across different levels of the x-axis.
 
 If this argument is empty, no line will be drawn.}
+
+\item{which_side}{String argument to specify the side of the boxplots and violinplots.
+The options are: 'right', 'left', and 'mixed'. 'mixed' only works
+when there are 2 levels in the x-axis. Otherwise, it will return an error.}
 
 \item{sep_level}{A numerical value that controls the level of the separation among
 the boxplot, violin plot and the points. The value can be 0-3.

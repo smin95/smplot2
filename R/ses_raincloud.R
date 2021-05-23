@@ -31,6 +31,11 @@
 #'
 #' If this argument is empty, no line will be drawn.
 #'
+#' @param which_side
+#' String argument to specify the side of the boxplots and violinplots.
+#' The options are: 'right', 'left', and 'mixed'. 'mixed' only works
+#' when there are 2 levels in the x-axis. Otherwise, it will return an error.
+#'
 #' @param sep_level
 #' A numerical value that controls the level of the separation among
 #' the boxplot, violin plot and the points. The value can be 0-3.
@@ -76,6 +81,7 @@
 
 
 ses_raincloud <- function(data, x, y, group,
+                          which_side = 'right',
                           sep_level = 3,
                           jitter_width = 0.09,
                           point_size = 3,
@@ -97,17 +103,22 @@ ses_raincloud <- function(data, x, y, group,
 
   nLevels = length(unique(df$x_axis))
 
-  if (nLevels == 2) {
-    if (sep_level == 3) {
-      position_nudge_vector <- c(-0.3,0.2,-0.35,0.35)
-    } else if (sep_level == 2) {
-      position_nudge_vector <- c(-0.3,0.2,-0.2,0.2)
-    } else if (sep_level == 1) {
-      position_nudge_vector <- c(-0.2,0.1,-0.1,0.1)
-    } else if (sep_level == 0) {
-      position_nudge_vector <- c(-0.1,0,0,0)
+  if ((which_side == 'mixed')) {
+    if (nLevels == 2) {
+      if (sep_level == 3) {
+        position_nudge_vector <- c(-0.3,0.2,-0.35,0.35)
+      } else if (sep_level == 2) {
+        position_nudge_vector <- c(-0.3,0.2,-0.2,0.2)
+      } else if (sep_level == 1) {
+        position_nudge_vector <- c(-0.2,0.1,-0.1,0.1)
+      } else if (sep_level == 0) {
+        position_nudge_vector <- c(-0.1,0,0,0)
+      }
+    } else {
+      stop('For mixed sides, the number of levels in the x-axis must be 2.')
     }
-  } else if (nLevels > 2) {
+  } else if (which_side == 'right') {
+    side = 'r'
     if (sep_level == 3) {
       position_nudge_vector <- c(0.2,0.35)
     } else if (sep_level == 2) {
@@ -117,9 +128,21 @@ ses_raincloud <- function(data, x, y, group,
     } else if (sep_level == 0) {
       position_nudge_vector <- c(0,0)
     }
+  } else if (which_side == 'left') {
+    side = 'l'
+    if (sep_level == 3) {
+      position_nudge_vector <- c(-0.2,-0.35)
+    } else if (sep_level == 2) {
+      position_nudge_vector <- c(-0.2,-0.2)
+    } else if (sep_level == 1) {
+      position_nudge_vector <- c(-0.1,-0.1)
+    } else if (sep_level == 0) {
+      position_nudge_vector <- c(0,0)
+    }
   }
 
-  if (nLevels == 2) {
+
+  if ((which_side == 'mixed') & (nLevels == 2)) {
     fig <- ggplot(data = df, aes(fill = {{x}}, color = {{x}})) +
 
       geom_line(aes(x = jit, y = {{y}}, group = {{group}}), color = line_color,
@@ -152,20 +175,20 @@ ses_raincloud <- function(data, x, y, group,
                  aes(x = jit, y = {{y}}), size = point_size, ...) +
       xlab('x-axis label') + ses_minimal(legends = F)
 
-  } else if (nLevels > 2) {
+  } else {
     fig <- ggplot(data = df, aes(fill = {{x}}, color = {{x}})) +
 
       geom_line(aes(x = jit, y = {{y}}, group = {{group}}), color = line_color,
                 alpha = line_alpha) +
 
       geom_half_violin(data = df,
-                       aes(x = x_axis, y = {{y}}), side = 'r',
+                       aes(x = x_axis, y = {{y}}), side = side,
                        position = position_nudge(x = position_nudge_vector[2]), alpha = violin_alpha) +
 
       geom_half_boxplot(data = df,
                         aes(x = x_axis, y = {{y}}),
                         position = position_nudge(x = position_nudge_vector[1]),
-                        side = 'r', outlier.shape = NA, center = TRUE,
+                        side = side, outlier.shape = NA, center = TRUE,
                         errorbar.draw = FALSE, width = 0.2, alpha = boxplot_alpha, color = 'black') +
 
       geom_point(data = df,
@@ -177,6 +200,7 @@ ses_raincloud <- function(data, x, y, group,
   return(fig)
 
 }
+
 globalVariables(c('ggplot', 'geom_point', 'geom_line',
                   'geom_half_boxplot', 'geom_half_violin',
                   'position_nudge', '%>%', 'position',
