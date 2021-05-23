@@ -73,10 +73,6 @@
 #' @references
 #' Allen M, Poggiali D, Whitaker K et al. Raincloud plots: a multi-platform tool for robust data visualization [version 2; peer review: 2 approved]. Wellcome Open Res 2021, 4:63. DOI: 10.12688/wellcomeopenres.15191.2
 #'
-globalVariables(c('ggplot', 'geom_point', 'geom_line',
-'geom_half_boxplot', 'geom_half_violin',
-'position_nudge', '%>%', 'position',
-'geom_flat_violin', 'x_axis', 'jit'))
 
 
 ses_raincloud <- function(data, x, y, group,
@@ -88,8 +84,6 @@ ses_raincloud <- function(data, x, y, group,
                           boxplot_alpha = 1,
                           line_alpha = 0.6,
                           ...) {
-
-
 
   if (!missing(group)) {
     line_color = line_color
@@ -103,78 +97,41 @@ ses_raincloud <- function(data, x, y, group,
 
   nLevels = length(unique(df$x_axis))
 
-if (nLevels == 2) {
-  if (sep_level == 3) {
-    position_nudge_vector <- c(-0.3,0.2,-0.35,0.35)
-  } else if (sep_level == 2) {
-    position_nudge_vector <- c(-0.3,0.2,-0.2,0.2)
-  } else if (sep_level == 1) {
-    position_nudge_vector <- c(-0.2,0.1,-0.1,0.1)
-  } else if (sep_level == 0) {
-    position_nudge_vector <- c(-0.1,0,0,0)
+  if (nLevels == 2) {
+    if (sep_level == 3) {
+      position_nudge_vector <- c(-0.3,0.2,-0.35,0.35)
+    } else if (sep_level == 2) {
+      position_nudge_vector <- c(-0.3,0.2,-0.2,0.2)
+    } else if (sep_level == 1) {
+      position_nudge_vector <- c(-0.2,0.1,-0.1,0.1)
+    } else if (sep_level == 0) {
+      position_nudge_vector <- c(-0.1,0,0,0)
+    }
+  } else if (nLevels > 2) {
+    if (sep_level == 3) {
+      position_nudge_vector <- c(0.2,0.35)
+    } else if (sep_level == 2) {
+      position_nudge_vector <- c(0.2,0.2)
+    } else if (sep_level == 1) {
+      position_nudge_vector <- c(0.1,0.1)
+    } else if (sep_level == 0) {
+      position_nudge_vector <- c(0,0)
+    }
   }
-} else if (nLevels > 2) {
-  if (sep_level == 3) {
-    position_nudge_vector <- rep(c(0.2,0.35), each = nLevels)
-  } else if (sep_level == 2) {
-    position_nudge_vector <- rep(c(0.2,0.2), each = nLevels)
-  } else if (sep_level == 1) {
-    position_nudge_vector <- rep(c(0.1,0.1), each = nLevels)
-  } else if (sep_level == 0) {
-    position_nudge_vector <- rep(c(0,0), each = nLevels)
-  }
-}
 
   if (nLevels == 2) {
-  fig <- ggplot(data = df, aes(fill = {{x}}, color = {{x}})) +
-
-    geom_line(aes(x = jit, y = {{y}}, group = {{group}}), color = line_color,
-              alpha = line_alpha) +
-
-    geom_half_violin(data = df %>% dplyr::filter(x_axis == 1),
-                     aes(x = x_axis, y = {{y}}), side = 'l',
-                     position = position_nudge(x = position_nudge_vector[3]), alpha = violin_alpha) +
-
-    geom_half_violin(data = df %>% dplyr::filter(x_axis == 2),
-                     aes(x = x_axis, y = {{y}}), side = 'r',
-                     position = position_nudge(x = position_nudge_vector[4]), alpha = violin_alpha) +
-
-    geom_half_boxplot(data = df %>% dplyr::filter(x_axis == 1),
-                      aes(x = x_axis, y = {{y}}),
-                      position = position_nudge(x = position_nudge_vector[1]),
-                      side = 'r', outlier.shape = NA, center = TRUE,
-                      errorbar.draw = FALSE, width = 0.2, alpha = boxplot_alpha, color = 'black') +
-
-    geom_half_boxplot(data = df %>% dplyr::filter(x_axis == 2),
-                      aes(x = x_axis, y = {{y}}),
-                      position = position_nudge(x = position_nudge_vector[2]),
-                      side = 'r', outlier.shape = NA, center = TRUE,
-                      errorbar.draw = FALSE, width = 0.2, notch = F, alpha = boxplot_alpha, color = 'black') +
-
-    geom_point(data = df %>% dplyr::filter(x_axis == 1),
-               aes(x = jit, y = {{y}}), size = point_size, ...) +
-
-    geom_point(data = df %>% dplyr::filter(x_axis == 2),
-               aes(x = jit, y = {{y}}), size = point_size, ...) +
-    xlab('x-axis label') + ses_minimal(legends = F)
-
-  } else if (nLevels == 3) {
     fig <- ggplot(data = df, aes(fill = {{x}}, color = {{x}})) +
 
       geom_line(aes(x = jit, y = {{y}}, group = {{group}}), color = line_color,
                 alpha = line_alpha) +
 
       geom_half_violin(data = df %>% dplyr::filter(x_axis == 1),
-                       aes(x = x_axis, y = {{y}}), side = 'r',
-                       position = position_nudge(x = position_nudge_vector[4]), alpha = violin_alpha) +
+                       aes(x = x_axis, y = {{y}}), side = 'l',
+                       position = position_nudge(x = position_nudge_vector[3]), alpha = violin_alpha) +
 
       geom_half_violin(data = df %>% dplyr::filter(x_axis == 2),
                        aes(x = x_axis, y = {{y}}), side = 'r',
-                       position = position_nudge(x = position_nudge_vector[5]), alpha = violin_alpha) +
-
-      geom_half_violin(data = df %>% dplyr::filter(x_axis == 3),
-                       aes(x = x_axis, y = {{y}}), side = 'r',
-                       position = position_nudge(x = position_nudge_vector[6]), alpha = violin_alpha) +
+                       position = position_nudge(x = position_nudge_vector[4]), alpha = violin_alpha) +
 
       geom_half_boxplot(data = df %>% dplyr::filter(x_axis == 1),
                         aes(x = x_axis, y = {{y}}),
@@ -188,242 +145,39 @@ if (nLevels == 2) {
                         side = 'r', outlier.shape = NA, center = TRUE,
                         errorbar.draw = FALSE, width = 0.2, notch = F, alpha = boxplot_alpha, color = 'black') +
 
-      geom_half_boxplot(data = df %>% dplyr::filter(x_axis == 3),
-                        aes(x = x_axis, y = {{y}}),
-                        position = position_nudge(x = position_nudge_vector[3]),
-                        side = 'r', outlier.shape = NA, center = TRUE,
-                        errorbar.draw = FALSE, width = 0.2, notch = F, alpha = boxplot_alpha, color = 'black') +
-
       geom_point(data = df %>% dplyr::filter(x_axis == 1),
                  aes(x = jit, y = {{y}}), size = point_size, ...) +
 
       geom_point(data = df %>% dplyr::filter(x_axis == 2),
                  aes(x = jit, y = {{y}}), size = point_size, ...) +
-
-      geom_point(data = df %>% dplyr::filter(x_axis == 3),
-                 aes(x = jit, y = {{y}}), size = point_size, ...) +
       xlab('x-axis label') + ses_minimal(legends = F)
-  } else if (nLevels == 4) {
+
+  } else if (nLevels > 2) {
     fig <- ggplot(data = df, aes(fill = {{x}}, color = {{x}})) +
 
       geom_line(aes(x = jit, y = {{y}}, group = {{group}}), color = line_color,
                 alpha = line_alpha) +
 
-      geom_half_violin(data = df %>% dplyr::filter(x_axis == 1),
+      geom_half_violin(data = df,
                        aes(x = x_axis, y = {{y}}), side = 'r',
-                       position = position_nudge(x = position_nudge_vector[4]), alpha = violin_alpha) +
+                       position = position_nudge(x = position_nudge_vector[2]), alpha = violin_alpha) +
 
-      geom_half_violin(data = df %>% dplyr::filter(x_axis == 2),
-                       aes(x = x_axis, y = {{y}}), side = 'r',
-                       position = position_nudge(x = position_nudge_vector[5]), alpha = violin_alpha) +
-
-      geom_half_violin(data = df %>% dplyr::filter(x_axis == 3),
-                       aes(x = x_axis, y = {{y}}), side = 'r',
-                       position = position_nudge(x = position_nudge_vector[6]), alpha = violin_alpha) +
-
-      geom_half_violin(data = df %>% dplyr::filter(x_axis == 4),
-                       aes(x = x_axis, y = {{y}}), side = 'r',
-                       position = position_nudge(x = position_nudge_vector[6]), alpha = violin_alpha) +
-
-      geom_half_boxplot(data = df %>% dplyr::filter(x_axis == 1),
+      geom_half_boxplot(data = df,
                         aes(x = x_axis, y = {{y}}),
                         position = position_nudge(x = position_nudge_vector[1]),
                         side = 'r', outlier.shape = NA, center = TRUE,
                         errorbar.draw = FALSE, width = 0.2, alpha = boxplot_alpha, color = 'black') +
 
-      geom_half_boxplot(data = df %>% dplyr::filter(x_axis == 2),
-                        aes(x = x_axis, y = {{y}}),
-                        position = position_nudge(x = position_nudge_vector[2]),
-                        side = 'r', outlier.shape = NA, center = TRUE,
-                        errorbar.draw = FALSE, width = 0.2, notch = F, alpha = boxplot_alpha, color = 'black') +
-
-      geom_half_boxplot(data = df %>% dplyr::filter(x_axis == 3),
-                        aes(x = x_axis, y = {{y}}),
-                        position = position_nudge(x = position_nudge_vector[3]),
-                        side = 'r', outlier.shape = NA, center = TRUE,
-                        errorbar.draw = FALSE, width = 0.2, notch = F, alpha = boxplot_alpha, color = 'black') +
-
-      geom_half_boxplot(data = df %>% dplyr::filter(x_axis == 4),
-                        aes(x = x_axis, y = {{y}}),
-                        position = position_nudge(x = position_nudge_vector[3]),
-                        side = 'r', outlier.shape = NA, center = TRUE,
-                        errorbar.draw = FALSE, width = 0.2, notch = F, alpha = boxplot_alpha, color = 'black') +
-
-      geom_point(data = df %>% dplyr::filter(x_axis == 1),
-                 aes(x = jit, y = {{y}}), size = point_size, ...) +
-
-      geom_point(data = df %>% dplyr::filter(x_axis == 2),
-                 aes(x = jit, y = {{y}}), size = point_size, ...) +
-
-      geom_point(data = df %>% dplyr::filter(x_axis == 3),
-                 aes(x = jit, y = {{y}}), size = point_size, ...) +
-
-      geom_point(data = df %>% dplyr::filter(x_axis == 4),
+      geom_point(data = df,
                  aes(x = jit, y = {{y}}), size = point_size, ...) +
 
       xlab('x-axis label') + ses_minimal(legends = F)
-  } else if (nLevels == 5) {
-    fig <- ggplot(data = df, aes(fill = {{x}}, color = {{x}})) +
-
-      geom_line(aes(x = jit, y = {{y}}, group = {{group}}), color = line_color,
-                alpha = line_alpha) +
-
-      geom_half_violin(data = df %>% dplyr::filter(x_axis == 1),
-                       aes(x = x_axis, y = {{y}}), side = 'r',
-                       position = position_nudge(x = position_nudge_vector[4]), alpha = violin_alpha) +
-
-      geom_half_violin(data = df %>% dplyr::filter(x_axis == 2),
-                       aes(x = x_axis, y = {{y}}), side = 'r',
-                       position = position_nudge(x = position_nudge_vector[5]), alpha = violin_alpha) +
-
-      geom_half_violin(data = df %>% dplyr::filter(x_axis == 3),
-                       aes(x = x_axis, y = {{y}}), side = 'r',
-                       position = position_nudge(x = position_nudge_vector[6]), alpha = violin_alpha) +
-
-      geom_half_violin(data = df %>% dplyr::filter(x_axis == 4),
-                       aes(x = x_axis, y = {{y}}), side = 'r',
-                       position = position_nudge(x = position_nudge_vector[6]), alpha = violin_alpha) +
-
-      geom_half_violin(data = df %>% dplyr::filter(x_axis == 5),
-                       aes(x = x_axis, y = {{y}}), side = 'r',
-                       position = position_nudge(x = position_nudge_vector[6]), alpha = violin_alpha) +
-
-      geom_half_boxplot(data = df %>% dplyr::filter(x_axis == 1),
-                        aes(x = x_axis, y = {{y}}),
-                        position = position_nudge(x = position_nudge_vector[1]),
-                        side = 'r', outlier.shape = NA, center = TRUE,
-                        errorbar.draw = FALSE, width = 0.2, alpha = boxplot_alpha, color = 'black') +
-
-      geom_half_boxplot(data = df %>% dplyr::filter(x_axis == 2),
-                        aes(x = x_axis, y = {{y}}),
-                        position = position_nudge(x = position_nudge_vector[2]),
-                        side = 'r', outlier.shape = NA, center = TRUE,
-                        errorbar.draw = FALSE, width = 0.2, notch = F, alpha = boxplot_alpha, color = 'black') +
-
-      geom_half_boxplot(data = df %>% dplyr::filter(x_axis == 3),
-                        aes(x = x_axis, y = {{y}}),
-                        position = position_nudge(x = position_nudge_vector[3]),
-                        side = 'r', outlier.shape = NA, center = TRUE,
-                        errorbar.draw = FALSE, width = 0.2, notch = F, alpha = boxplot_alpha, color = 'black') +
-
-      geom_half_boxplot(data = df %>% dplyr::filter(x_axis == 4),
-                        aes(x = x_axis, y = {{y}}),
-                        position = position_nudge(x = position_nudge_vector[3]),
-                        side = 'r', outlier.shape = NA, center = TRUE,
-                        errorbar.draw = FALSE, width = 0.2, notch = F, alpha = boxplot_alpha, color = 'black') +
-
-      geom_half_boxplot(data = df %>% dplyr::filter(x_axis == 5),
-                        aes(x = x_axis, y = {{y}}),
-                        position = position_nudge(x = position_nudge_vector[3]),
-                        side = 'r', outlier.shape = NA, center = TRUE,
-                        errorbar.draw = FALSE, width = 0.2, notch = F, alpha = boxplot_alpha, color = 'black') +
-
-      geom_point(data = df %>% dplyr::filter(x_axis == 1),
-                 aes(x = jit, y = {{y}}), size = point_size, ...) +
-
-      geom_point(data = df %>% dplyr::filter(x_axis == 2),
-                 aes(x = jit, y = {{y}}), size = point_size, ...) +
-
-      geom_point(data = df %>% dplyr::filter(x_axis == 3),
-                 aes(x = jit, y = {{y}}), size = point_size, ...) +
-
-      geom_point(data = df %>% dplyr::filter(x_axis == 4),
-                 aes(x = jit, y = {{y}}), size = point_size, ...) +
-
-      geom_point(data = df %>% dplyr::filter(x_axis == 5),
-                 aes(x = jit, y = {{y}}), size = point_size, ...) +
-
-      xlab('x-axis label') + ses_minimal(legends = F)
-  } else if (nLevels == 6) {
-    fig <- ggplot(data = df, aes(fill = {{x}}, color = {{x}})) +
-
-      geom_line(aes(x = jit, y = {{y}}, group = {{group}}), color = line_color,
-                alpha = line_alpha) +
-
-      geom_half_violin(data = df %>% dplyr::filter(x_axis == 1),
-                       aes(x = x_axis, y = {{y}}), side = 'r',
-                       position = position_nudge(x = position_nudge_vector[4]), alpha = violin_alpha) +
-
-      geom_half_violin(data = df %>% dplyr::filter(x_axis == 2),
-                       aes(x = x_axis, y = {{y}}), side = 'r',
-                       position = position_nudge(x = position_nudge_vector[5]), alpha = violin_alpha) +
-
-      geom_half_violin(data = df %>% dplyr::filter(x_axis == 3),
-                       aes(x = x_axis, y = {{y}}), side = 'r',
-                       position = position_nudge(x = position_nudge_vector[6]), alpha = violin_alpha) +
-
-      geom_half_violin(data = df %>% dplyr::filter(x_axis == 4),
-                       aes(x = x_axis, y = {{y}}), side = 'r',
-                       position = position_nudge(x = position_nudge_vector[6]), alpha = violin_alpha) +
-
-      geom_half_violin(data = df %>% dplyr::filter(x_axis == 5),
-                       aes(x = x_axis, y = {{y}}), side = 'r',
-                       position = position_nudge(x = position_nudge_vector[6]), alpha = violin_alpha) +
-
-      geom_half_violin(data = df %>% dplyr::filter(x_axis == 6),
-                       aes(x = x_axis, y = {{y}}), side = 'r',
-                       position = position_nudge(x = position_nudge_vector[6]), alpha = violin_alpha) +
-
-      geom_half_boxplot(data = df %>% dplyr::filter(x_axis == 1),
-                        aes(x = x_axis, y = {{y}}),
-                        position = position_nudge(x = position_nudge_vector[1]),
-                        side = 'r', outlier.shape = NA, center = TRUE,
-                        errorbar.draw = FALSE, width = 0.2, alpha = boxplot_alpha, color = 'black') +
-
-      geom_half_boxplot(data = df %>% dplyr::filter(x_axis == 2),
-                        aes(x = x_axis, y = {{y}}),
-                        position = position_nudge(x = position_nudge_vector[2]),
-                        side = 'r', outlier.shape = NA, center = TRUE,
-                        errorbar.draw = FALSE, width = 0.2, notch = F, alpha = boxplot_alpha, color = 'black') +
-
-      geom_half_boxplot(data = df %>% dplyr::filter(x_axis == 3),
-                        aes(x = x_axis, y = {{y}}),
-                        position = position_nudge(x = position_nudge_vector[3]),
-                        side = 'r', outlier.shape = NA, center = TRUE,
-                        errorbar.draw = FALSE, width = 0.2, notch = F, alpha = boxplot_alpha, color = 'black') +
-
-      geom_half_boxplot(data = df %>% dplyr::filter(x_axis == 4),
-                        aes(x = x_axis, y = {{y}}),
-                        position = position_nudge(x = position_nudge_vector[3]),
-                        side = 'r', outlier.shape = NA, center = TRUE,
-                        errorbar.draw = FALSE, width = 0.2, notch = F, alpha = boxplot_alpha, color = 'black') +
-
-      geom_half_boxplot(data = df %>% dplyr::filter(x_axis == 5),
-                        aes(x = x_axis, y = {{y}}),
-                        position = position_nudge(x = position_nudge_vector[3]),
-                        side = 'r', outlier.shape = NA, center = TRUE,
-                        errorbar.draw = FALSE, width = 0.2, notch = F, alpha = boxplot_alpha, color = 'black') +
-
-      geom_half_boxplot(data = df %>% dplyr::filter(x_axis == 6),
-                        aes(x = x_axis, y = {{y}}),
-                        position = position_nudge(x = position_nudge_vector[3]),
-                        side = 'r', outlier.shape = NA, center = TRUE,
-                        errorbar.draw = FALSE, width = 0.2, notch = F, alpha = boxplot_alpha, color = 'black') +
-
-      geom_point(data = df %>% dplyr::filter(x_axis == 1),
-                 aes(x = jit, y = {{y}}), size = point_size, ...) +
-
-      geom_point(data = df %>% dplyr::filter(x_axis == 2),
-                 aes(x = jit, y = {{y}}), size = point_size, ...) +
-
-      geom_point(data = df %>% dplyr::filter(x_axis == 3),
-                 aes(x = jit, y = {{y}}), size = point_size, ...) +
-
-      geom_point(data = df %>% dplyr::filter(x_axis == 4),
-                 aes(x = jit, y = {{y}}), size = point_size, ...) +
-
-      geom_point(data = df %>% dplyr::filter(x_axis == 5),
-                 aes(x = jit, y = {{y}}), size = point_size, ...) +
-
-      geom_point(data = df %>% dplyr::filter(x_axis == 6),
-                 aes(x = jit, y = {{y}}), size = point_size, ...) +
-
-      xlab('x-axis label') + ses_minimal(legends = F)
-  } else {
-    stop('Sorry, the number of x-axis levels can be from 2 to 6.
-         Please use other R packages that draw raincloud plots.')
   }
 
   return(fig)
 
 }
+globalVariables(c('ggplot', 'geom_point', 'geom_line',
+                  'geom_half_boxplot', 'geom_half_violin',
+                  'position_nudge', '%>%', 'position',
+                  'geom_flat_violin', 'x_axis', 'jit'))
