@@ -1,10 +1,13 @@
 Package: sesR
 Type: Package
-Title: sesR - a package for statistical data visualization
+Title: sesR (super, easy, simple R) - a package for statistical data visualization
 Version: 0.1.0
 Author: Seung Hyun (Sam) Min
-Maintainer: Sam's Editing Service (SES) <sam.editing21@gmail.com>
-Description: sesR is a R package for statistical data visualization.
+Maintainer: Seung Hyun (Sam) Min <sam.editing21@gmail.com>
+Description: sesR is a R package for statistical data visualization that complements ggplot2. 
+It officially stands for 'super, easy, simple R'. This package represents 
+what I wish I had back when I was beginning to learn R. 
+It aims to make every process of data visualization easy.
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
