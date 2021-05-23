@@ -10,7 +10,7 @@
 
 ``` r
 install.packages("devtools")
-devtools::install_github('smin95/ses')
+devtools::install_github('smin95/sesE')
 ```
 
 For more examples and a tutorial, please visit https://www.ses21.com/rsesplot.
