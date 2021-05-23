@@ -21,7 +21,6 @@
 #' Type of the line. Default is 'solid'; other options include:
 #' 'twodash', 'longdash', 'dotted', 'dotdash', 'dashed', and
 #' 'blank'.
-#'
 #' @param ...
 #' Other parameters of geom_point(), such as 'shape', fill', and 'color.
 #' For more information, please type ?geom_point.
@@ -41,5 +40,5 @@ ses_slope <- function(labels,
        ggplot2::geom_point(size = point_size, ...),
        ggplot2::scale_x_discrete(position = 'top', expand = c(0.17, .1),
                         drop = FALSE, labels = labels),
-       sesplot::ses_slope_theme(legends = F))
+       ses_slope_theme(legends = F))
 }

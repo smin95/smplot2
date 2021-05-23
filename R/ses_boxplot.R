@@ -41,11 +41,11 @@ ses_boxplot <- function(boxplot_fill_color = 'gray95',
                                                         height = 0,
                                                         seed = 10),
                              size = point_size, ...),
-         sesplot::ses_hgrid())
+         ses_hgrid())
   } else if (points == FALSE) {
     list(ggplot2::theme_bw(base_size = 10, base_family = ''),
          ggplot2::geom_boxplot(notch = notch, width = width),
-         sesplot::ses_hgrid())
+         ses_hgrid())
   }
 
 }

@@ -1,10 +1,10 @@
-Package: sesplot
+Package: sesR
 Type: Package
-Title: sesplot - a package for statistical data visualization
+Title: sesR - a package for statistical data visualization
 Version: 0.1.0
 Author: Seung Hyun (Sam) Min
 Maintainer: Sam's Editing Service (SES) <sam.editing21@gmail.com>
-Description: sesplot is a R package for statistical data visualization.
+Description: sesR is a R package for statistical data visualization.
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
@@ -13,6 +13,10 @@ Imports:
   ggplot2,
   ggpubr,
   cowplot,
-  tibble
+  tibble,
+  dplyr,
+  gghalves,
+  magrittr,
+  utils
 URL: https://www.ses21.com 
-BugReports: https://github.com/smin95/sesplot/issues 
+BugReports: https://github.com/smin95/sesR/issues 

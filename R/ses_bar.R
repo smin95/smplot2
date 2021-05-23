@@ -53,7 +53,7 @@ ses_bar <- function(bar_fill_color = 'gray85',
          stat_summary(fun.data = mean_se, geom = "linerange",
                       size = errSize,
                       color = errColor),
-         sesplot::ses_hgrid())
+         ses_hgrid())
   } else {
     list(ggplot2::theme_bw(base_size = 10, base_family = ''),
          stat_summary(fun = mean, geom = "bar", width = width,
@@ -68,7 +68,7 @@ ses_bar <- function(bar_fill_color = 'gray85',
                       fun.max = function(x) mean(x) + sd(x),
                       size = errSize,
                       color = errColor),
-         sesplot::ses_hgrid())
+         ses_hgrid())
   }
 
 }

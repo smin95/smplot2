@@ -28,6 +28,8 @@
 #' @export
 #' @importFrom stats t.test
 #' @importFrom tibble as_tibble
+#' @references
+#' Giavarina D. (2015). Understanding Bland Altman analysis. Biochemia medica, 25(2), 141–151. https://doi.org/10.11613/BM.2015.015
 #' @examples
 #' \dontrun{
 #' set.seed(1)
@@ -36,6 +38,7 @@
 #' df <- as_tibble(cbind(first,second)) # requires library(tidyverse)
 #' ses_statBlandAlt(df$first, df$second)
 #' }
+
 
 ses_statBlandAlt <- function(first, second) {
   diff = second - first
@@ -46,6 +49,8 @@ ses_statBlandAlt <- function(first, second) {
   lower_limit = mean_diff - 1.96*sd
   diff_ci <- t.test(diff)$conf.int
   data <- as_tibble(cbind(mean,diff))
+  data$diff[[1]] <- upper_limit
+  data$diff[[2]] <- lower_limit
   res <- list(diff,mean,sd, mean_diff,upper_limit,lower_limit,
               data, diff_ci)
   names(res) <- c('diff', 'mean', 'sd', 'mean_diff',

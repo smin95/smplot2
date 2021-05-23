@@ -2,13 +2,14 @@
 % Please edit documentation in R/ses_bland_altman.R
 \name{ses_bland_altman}
 \alias{ses_bland_altman}
-\title{SES themed Bland Altman plot}
+\title{A Bland Altman plot}
 \usage{
-ses_bland_altman(statBlandAlt, point_size = 3.3, diff_ci = TRUE, ...)
+ses_bland_altman(first, second, point_size = 3.3, diff_ci = TRUE, ...)
 }
 \arguments{
-\item{statBlandAlt}{Results from ses_statBlandAlt(), which is a function
-that calculates important indices from drawing a Bland-Altman plot.}
+\item{first}{Data from the first repetition/session}
+
+\item{second}{Data from the second repetition/session}
 
 \item{point_size}{The size of the individual points. The default is set to 3.3.}
 
@@ -21,14 +22,19 @@ If it does not overlap with 0, then the measurement variability is significantly
 \item{...}{Parameters of geom_point(), such as 'color', 'fill', 'shape', etc.}
 }
 \description{
-This function generates a Bland-Altman plot using the output
-from ses_statBlandAlt. The plot automatically uses ses_classic() theme.
+This function generates a Bland-Altman plot. This function
+requires two paired data sets as input (same length), and uses ses_statBlandAlt()
+to compute statistical values necessary for a Bland Altman plot. For more
+information on these values, please type ?ses_statBlandAlt.
+
+The plot automatically uses ses_classic() theme.
 The upper dashed line indicates the upper limit (mean_diff + 1.96*sd), the middle
 dashed line indicates the mean difference between the
 two samples, and the lower dashed line indicates the lower limit
 (mean_diff - 1.96*sd).
 
 To add a legend, you will need to add ses_classic(legends = TRUE).
+To customise the figure, you can add more geom objects.
 }
 \examples{
 \dontrun{
@@ -36,9 +42,10 @@ set.seed(1)
 first <- rnorm(20)
 second <- rnorm(20)
 df <- as_tibble(cbind(first,second)) # requires library(tidyverse)
-res <- ses_statBlandAlt(df$first, df$second)
-ggplot(data = res$data, aes(x = res$mean, y = res$diff)) +
-ses_bland_altman(res)
+ses_bland_altman(df$first, df$second)
 }
 
+}
+\references{
+Giavarina D. (2015). Understanding Bland Altman analysis. Biochemia medica, 25(2), 141–151. https://doi.org/10.11613/BM.2015.015
 }

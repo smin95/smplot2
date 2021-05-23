@@ -57,7 +57,7 @@ ses_violin <- function(violin_fill_color = 'gray90',
                                alpha = point_alpha, ...),
            stat_summary(fun.data = mean_sdl, fun.args = list(mult = sd_length),
                         geom = 'pointrange', fatten = point_size*1.2, size = stroke_width),
-           sesplot::ses_hgrid())
+           ses_hgrid())
     } else if (points == FALSE) {
       list(ggplot2::theme_bw(base_size = 10, base_family = ''),
            ggplot2::geom_violin(color = violin_border_color,
@@ -65,7 +65,7 @@ ses_violin <- function(violin_fill_color = 'gray90',
            stat_summary(fun.data = mean_sdl, fun.args = list(mult = sd_length),
                         geom = 'pointrange',
                         fatten = point_size*1.2, size = stroke_width),
-           sesplot::ses_hgrid())
+           ses_hgrid())
     }
   } else if (se == TRUE) {
     if (points == TRUE) {
@@ -79,7 +79,7 @@ ses_violin <- function(violin_fill_color = 'gray90',
                                alpha = point_alpha, ...),
            stat_summary(fun.data = mean_se, fun.args = list(mult = sd_length),
                         geom = 'pointrange', fatten = point_size*1.2, size = stroke_width),
-           sesplot::ses_hgrid())
+           ses_hgrid())
     } else if (points == FALSE) {
       list(ggplot2::theme_bw(base_size = 10, base_family = ''),
            ggplot2::geom_violin(color = violin_border_color,
@@ -87,7 +87,7 @@ ses_violin <- function(violin_fill_color = 'gray90',
            stat_summary(fun.data = mean_se, fun.args = list(mult = sd_length),
                         geom = 'pointrange',
                         fatten = point_size*1.2, size = stroke_width),
-           sesplot::ses_hgrid())
+           ses_hgrid())
     }
   }
 

@@ -41,3 +41,6 @@ df <- as_tibble(cbind(first,second)) # requires library(tidyverse)
 ses_statBlandAlt(df$first, df$second)
 }
 }
+\references{
+Giavarina D. (2015). Understanding Bland Altman analysis. Biochemia medica, 25(2), 141–151. https://doi.org/10.11613/BM.2015.015
+}
