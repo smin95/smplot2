@@ -2,7 +2,7 @@
 
 # sesR
 
-**sesR** is a R package for statistical data visualization that complements ggplot2. It officially stands for 'super, easy, simple R'. This package represents what I wish I had back when I was beginning to learn R. It aims to make every process of data visualization easy.
+**sesR** is a R package for statistical data visualization that complements ggplot2. It officially stands for **'super, easy, simple R'**. This package represents what I wish I had back when I was beginning to learn R. It aims to make every process of data visualization easy.
 
 **sesR** was first created on May 2021, and it will be continuously updated.
 
