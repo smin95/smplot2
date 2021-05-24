@@ -10,6 +10,8 @@ ses_slope(
   line_size = 0.4,
   point_size = 2.5,
   line_type = "solid",
+  line_alpha = 1,
+  xtick_high = TRUE,
   ...
 )
 }
@@ -27,6 +29,14 @@ or multiple elements. ex: c('Day 1', 'Day 2')}
 \item{line_type}{Type of the line. Default is 'solid'; other options include:
 'twodash', 'longdash', 'dotted', 'dotdash', 'dashed', and
 'blank'.}
+
+\item{line_alpha}{Transparency of the lines (0 to 1).}
+
+\item{xtick_high}{If it is set to TRUE, the ticks of the x-axis will be above. The argument
+for 'labels' is required.
+If it is set to FALSE, they will be at the bottom. Also the argument
+for 'labels' will be ignored in this case. To change the labels, you
+will need to add a geom object with scale_x_discrete(labels = c('A','B')).}
 
 \item{...}{Other parameters of geom_point(), such as 'shape', fill', and 'color.
 For more information, please type ?geom_point.}
