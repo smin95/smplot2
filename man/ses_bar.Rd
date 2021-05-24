@@ -5,8 +5,10 @@
 \title{A SES bar plot with individual points (jittered)}
 \usage{
 ses_bar(
-  bar_fill_color = "gray85",
-  width = 0.7,
+  bar_fill_color,
+  bar_width = 0.7,
+  bar_border_color = "transparent",
+  bar_alpha = 1,
   errSize = 1,
   errColor = "black",
   point_size = 2.5,
@@ -16,9 +18,15 @@ ses_bar(
 )
 }
 \arguments{
-\item{bar_fill_color}{Color of the bar.}
+\item{bar_fill_color}{Color of the all bars in the plot. It only accepts one color.
+This argument is OPTIONAL.
+If this argument is included, then all bars will have the same color.}
 
-\item{width}{Width of the bar.}
+\item{bar_width}{Width of the bar.}
+
+\item{bar_border_color}{Color of the bar borders. It only accepts one color.}
+
+\item{bar_alpha}{Transparency of the bars (0 to 1).}
 
 \item{errSize}{The line width of the error bar.}
 
