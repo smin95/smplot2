@@ -12,6 +12,7 @@ ses_raincloud(
   group,
   which_side = "right",
   sep_level = 3,
+  vertical = TRUE,
   jitter_width = 0.09,
   point_size = 3,
   line_color = "gray80",
@@ -48,6 +49,10 @@ when there are 2 levels in the x-axis. Otherwise, it will return an error.}
 the boxplot, violin plot and the points. The value can be 0-3.
 If it's 0, all of these are clustered together. If it's 3, they are all
 separated. 1 and 2 are somewhere in the middle.}
+
+\item{vertical}{The orientation of the plots. The default is set to TRUE.
+If you want the horizontal orientation of the plot, please set this argument
+as FALSE.}
 
 \item{jitter_width}{A numerical value that determines the degree of the jitter for each point. If its 0,
 all the points will have no jitter (aligned along the y-axis).}

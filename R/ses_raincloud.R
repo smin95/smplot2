@@ -36,6 +36,11 @@
 #' The options are: 'right', 'left', and 'mixed'. 'mixed' only works
 #' when there are 2 levels in the x-axis. Otherwise, it will return an error.
 #'
+#' @param vertical
+#' The orientation of the plots. The default is set to TRUE.
+#' If you want the horizontal orientation of the plot, please set this argument
+#' as FALSE.
+#'
 #' @param sep_level
 #' A numerical value that controls the level of the separation among
 #' the boxplot, violin plot and the points. The value can be 0-3.
@@ -83,6 +88,7 @@
 ses_raincloud <- function(data, x, y, group,
                           which_side = 'right',
                           sep_level = 3,
+                          vertical = TRUE,
                           jitter_width = 0.09,
                           point_size = 3,
                           line_color = 'gray80',
@@ -194,9 +200,12 @@ ses_raincloud <- function(data, x, y, group,
       geom_point(data = df,
                  aes(x = jit, y = {{y}}), size = point_size, ...) +
 
-      xlab('x-axis label') + ses_minimal(legends = F)
+      xlab('Group label') + ses_minimal(legends = F)
   }
 
+  if (vertical == FALSE) {
+    fig <- fig + coord_flip()
+  }
   return(fig)
 
 }
