@@ -29,6 +29,10 @@
 #' When the error bar should represent standard error,
 #' it should be set to TRUE. If the error bar should
 #' represent standard deviation, it should be set to FALSE.
+#'
+#' @param point_jitter_width
+#' Width of the jitter
+#'
 #' @param ...
 #' Other parameters, such as 'color', 'shape', 'fill',
 #' to specify the properties of the points.
@@ -47,14 +51,15 @@ ses_bar <- function(bar_fill_color,
                     errColor = 'black',
                     point_size = 2.5,
                     point_alpha = 0.65,
-                    se = T, ...) {
+                    se = T,
+                    point_jitter_width = 0.12, ...) {
 
   if (missing(bar_fill_color)) {
     if (se == T) {
       list(ggplot2::theme_bw(base_size = 10, base_family = ''),
            stat_summary(fun = mean, geom = "bar", width = bar_width,
                         color = bar_border_color, alpha = bar_alpha),
-           ggplot2::geom_point(position = ggplot2::position_jitter(width = .12,
+           ggplot2::geom_point(position = ggplot2::position_jitter(width = point_jitter_width,
                                                                    height = 0,
                                                                    seed = 10),
                                size = point_size,
@@ -67,7 +72,7 @@ ses_bar <- function(bar_fill_color,
       list(ggplot2::theme_bw(base_size = 10, base_family = ''),
            stat_summary(fun = mean, geom = "bar", width = bar_width,
                         color = bar_border_color, alpha = bar_alpha),
-           ggplot2::geom_point(position = ggplot2::position_jitter(width = .12,
+           ggplot2::geom_point(position = ggplot2::position_jitter(width = point_jitter_width,
                                                                    height = 0,
                                                                    seed = 10),
                                size = point_size,
@@ -85,7 +90,7 @@ ses_bar <- function(bar_fill_color,
            stat_summary(fun = mean, geom = "bar", width = bar_width,
                         color = bar_border_color, alpha = bar_alpha,
                         fill = bar_fill_color),
-           ggplot2::geom_point(position = ggplot2::position_jitter(width = .12,
+           ggplot2::geom_point(position = ggplot2::position_jitter(width = point_jitter_width,
                                                                    height = 0,
                                                                    seed = 10),
                                size = point_size,
@@ -99,7 +104,7 @@ ses_bar <- function(bar_fill_color,
            stat_summary(fun = mean, geom = "bar", width = bar_width,
                         color = bar_border_color, alpha = bar_alpha,
                         fill = bar_fill_color),
-           ggplot2::geom_point(position = ggplot2::position_jitter(width = .12,
+           ggplot2::geom_point(position = ggplot2::position_jitter(width = point_jitter_width,
                                                                    height = 0,
                                                                    seed = 10),
                                size = point_size,

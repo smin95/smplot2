@@ -14,6 +14,7 @@ ses_bar(
   point_size = 2.5,
   point_alpha = 0.65,
   se = T,
+  point_jitter_width = 0.12,
   ...
 )
 }
@@ -39,6 +40,8 @@ If this argument is included, then all bars will have the same color.}
 \item{se}{When the error bar should represent standard error,
 it should be set to TRUE. If the error bar should
 represent standard deviation, it should be set to FALSE.}
+
+\item{point_jitter_width}{Width of the jitter}
 
 \item{...}{Other parameters, such as 'color', 'shape', 'fill',
 to specify the properties of the points.

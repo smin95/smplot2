@@ -36,15 +36,17 @@ ses_boxplot <- function(boxplot_fill_color = 'gray95',
   if (points == TRUE) {
     list(ggplot2::theme_bw(base_size = 10, base_family = ''),
          ggplot2::geom_boxplot(fill = boxplot_fill_color,
+                               color = boxplot_border_color,
                                notch = notch, width = width),
          ggplot2::geom_point(position = ggplot2::position_jitter(width = .12,
-                                                        height = 0,
-                                                        seed = 10),
+                                                                 height = 0,
+                                                                 seed = 10),
                              size = point_size, ...),
          ses_hgrid())
   } else if (points == FALSE) {
     list(ggplot2::theme_bw(base_size = 10, base_family = ''),
-         ggplot2::geom_boxplot(notch = notch, width = width),
+         ggplot2::geom_boxplot(color = boxplot_border_color,
+                               notch = notch, width = width),
          ses_hgrid())
   }
 

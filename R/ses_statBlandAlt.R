@@ -49,8 +49,6 @@ ses_statBlandAlt <- function(first, second) {
   lower_limit = mean_diff - 1.96*sd
   diff_ci <- t.test(diff)$conf.int
   data <- as_tibble(cbind(mean,diff))
-  data$diff[[1]] <- upper_limit
-  data$diff[[2]] <- lower_limit
   res <- list(diff,mean,sd, mean_diff,upper_limit,lower_limit,
               data, diff_ci)
   names(res) <- c('diff', 'mean', 'sd', 'mean_diff',

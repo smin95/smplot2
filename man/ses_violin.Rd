@@ -41,7 +41,6 @@ This argument is ignored when points = FALSE.}
 For more information check out ?geom_point.}
 }
 \description{
-#' @description
 A violin plot superimposed by jittered individual points.
 The dot represents the mean, and the sprouting lines indicate +/- 1 standard deviation.
 }
