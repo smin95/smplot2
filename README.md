@@ -12,5 +12,4 @@
 install.packages("devtools")
 devtools::install_github('smin95/sesR')
 ```
-
-For more examples and a tutorial, please visit https://www.ses21.com/r/. 
+ 
