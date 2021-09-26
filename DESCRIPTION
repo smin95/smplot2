@@ -1,14 +1,14 @@
-Package: sesR
+Package: smplot
 Type: Package
-Title: sesR (super, easy, simple R) - a package for statistical data visualization
+Title: smplot - a package for statistical data visualization
 Version: 0.1.0
 Author: Seung Hyun (Sam) Min
-Maintainer: Seung Hyun (Sam) Min <sam.editing21@gmail.com>
-Description: sesR is a R package for statistical data visualization that complements ggplot2. It officially stands for 'super, easy, simple R'. This package represents what I wish I had back when I was beginning to learn R. It aims to make every process of data visualization easy.
+Maintainer: Seung Hyun (Sam) Min <seung.min@mail.mcgill.ca>
+Description: smplot is a R package for statistical data visualization that complements ggplot2. It officially stands for 'super, easy, simple R'. This package represents what I wish I had back when I was beginning to learn R. It aims to make every process of data visualization easy.
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
-License: MIT + file LICENSE
+License: MIT + file LICENSE 
 Imports:
   ggplot2,
   ggpubr,
@@ -18,5 +18,5 @@ Imports:
   gghalves,
   magrittr,
   utils
-URL: https://www.ses21.com 
-BugReports: https://github.com/smin95/sesR/issues 
+URL: https://www.smin95.com 
+BugReports: https://github.com/smin95/smplot/issues 
