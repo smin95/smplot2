@@ -2,9 +2,9 @@
 
 # smplot
 
-Seung Hyum Min
+## Seung Hyun Min
 
-**smplot** is a R package for statistical data visualization that complements ggplot2. SM is my initials. This package represents what I wish I had back when I was beginning to learn R. It aims to make every step of data visualization easy.
+**smplot** is an R package for statistical data visualization that complements ggplot2. SM is my initials. This package represents what I wish I had back when I was beginning to learn R. It aims to make every step of data visualization easy.
 
 **smplot** was first created on May 2021, and it will be continuously updated.
 
