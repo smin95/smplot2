@@ -7,7 +7,7 @@
 sm_violin(
   violin_fill_color = "gray90",
   violin_border_color = "transparent",
-  se = FALSE,
+  errorbar_type = "sd",
   points = TRUE,
   sd_length = 1,
   point_size = 2.5,
@@ -21,14 +21,17 @@ sm_violin(
 
 \item{violin_border_color}{Color of the violin's border.}
 
-\item{se}{If set FALSE, standard deviation will be shown.
-If set TRUE, standard error will be shown.}
+\item{errorbar_type}{This argument determines the errorbar type.
+If it is set to 'se', standard error bar will be shown.
+If it is set to 'sd' (default), the error bar will display standard deviation.
+If it is set to 'ci', the error bar will display 95\% confidence interval.}
 
 \item{points}{TRUE if points need to be shown.
 FALSE if points need to be hidden.}
 
-\item{sd_length}{length of the +/- standard deviation.
-The default is set to +/- 1 SD.}
+\item{sd_length}{Length of the +/- standard deviation / standard error.
+The default is set to +/- 1 SD. If sd_length is set to 2, it will be +/1 2 SD.
+This input argument is ignored when errorbar_type = 'ci'.}
 
 \item{point_size}{Size of the individual jittered points.}
 
@@ -43,4 +46,20 @@ For more information check out ?geom_point.}
 \description{
 A violin plot superimposed by jittered individual points.
 The dot represents the mean, and the sprouting lines indicate +/- 1 standard deviation.
+}
+\examples{
+\dontrun{
+set.seed(1) # generate random data
+day1 = rnorm(20,0,1)
+day2 = rnorm(20,5,1)
+Subject <- rep(paste0('S',seq(1:20)), 2)
+Data <- data.frame(Value = matrix(c(day1,day2),ncol=1))
+Day <- rep(c('Day 1', 'Day 2'), each = length(day1))
+df <- cbind(Subject, Data, Day)
+
+# use the dataframe to generate a violin plot
+ggplot(data = df, mapping = aes(x = Day, y = Value, color = Day)) +
+sm_violin() +
+scale_color_manual(values = sm_color('blue','orange'))
+}
 }

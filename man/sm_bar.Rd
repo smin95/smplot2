@@ -13,7 +13,7 @@ sm_bar(
   errColor = "black",
   point_size = 2.5,
   point_alpha = 0.65,
-  se = T,
+  errorbar_type = "se",
   point_jitter_width = 0.12,
   ...
 )
@@ -37,11 +37,12 @@ If this argument is included, then all bars will have the same color.}
 
 \item{point_alpha}{Transparency of the jittered points.}
 
-\item{se}{When the error bar should represent standard error,
-it should be set to TRUE. If the error bar should
-represent standard deviation, it should be set to FALSE.}
+\item{errorbar_type}{This argument determines the errorbar type.
+If it is set to 'se' (default), standard error bar will be shown.
+If it is set to 'sd', the error bar will display standard deviation.
+If it is set to 'ci', the error bar will display 95\% confidence interval.}
 
-\item{point_jitter_width}{Width of the jitter}
+\item{point_jitter_width}{Width of the jitter. The default value is 0.12.}
 
 \item{...}{Other parameters, such as 'color', 'shape', 'fill',
 to specify the properties of the points.
@@ -50,4 +51,21 @@ For more information, type ?geom_point}
 \description{
 A bar plot superimposed by jittered individual points
 and the error bar for standard error or standard deviation.
+}
+\examples{
+\dontrun{
+set.seed(1) # generate random data
+day1 = rnorm(20,0,1)
+day2 = rnorm(20,5,1)
+Subject <- rep(paste0('S',seq(1:20)), 2)
+Data <- data.frame(Value = matrix(c(day1,day2),ncol=1))
+Day <- rep(c('Day 1', 'Day 2'), each = length(day1))
+df <- cbind(Subject, Data, Day) # final dataframe
+
+#use the dataframe to generate a bar plot
+ggplot(data = df, mapping = aes(x = Day, y = Value, fill = Day)) +
+sm_bar(shape = 21, color = 'white', bar_fill_color = 'gray80') +
+scale_fill_manual(values = sm_color('blue','orange'))
+}
+
 }

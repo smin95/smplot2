@@ -35,3 +35,21 @@ For more information check out ?geom_point.}
 \description{
 A boxplot superimposed by jittered individual points.
 }
+\examples{
+\dontrun{
+set.seed(1) # generate random data
+day1 = rnorm(20,0,1)
+day2 = rnorm(20,5,1)
+Subject <- rep(paste0('S',seq(1:20)), 2)
+Data <- data.frame(Value = matrix(c(day1,day2),ncol=1))
+Day <- rep(c('Day 1', 'Day 2'), each = length(day1))
+df <- cbind(Subject, Data, Day) # final dataframe
+
+#use the dataframe to generate a boxplot
+
+ggplot(data = df, mapping = aes(x = Day, y = Value, fill = Day)) +
+sm_boxplot(shape = 21, color = 'white') +
+scale_fill_manual(values = sm_color('blue','orange'))
+}
+
+}

@@ -9,6 +9,13 @@
 #' @export
 #' @import ggplot2 cowplot
 #'
+#' @examples
+#' \dontrun{
+#' library(tidyverse)
+#' ggplot(data = mpg) +
+#' geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
+#' sm_classic()
+#' }
 #'
 sm_classic <- function(legends = FALSE) {
   if (legends == TRUE) {

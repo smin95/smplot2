@@ -19,3 +19,13 @@ This is useful for plotting a bar graph.
 
 sm_bar_theme() is exactly the same as sm_hgrid().
 }
+\examples{
+\dontrun{
+\dontrun{
+library(tidyverse)
+ggplot(data = mpg) +
+geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
+sm_hgrid()
+}
+}
+}

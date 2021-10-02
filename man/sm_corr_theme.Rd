@@ -17,3 +17,12 @@ If the border is not needed, the input should be FALSE.}
 This theme has major vertical and horizontal grids. This is useful for plotting correlation.
 sm_corr_theme() is exactly the same as sm_hvgrid().
 }
+\examples{
+\dontrun{
+library(tidyverse)
+ggplot(data = mpg) +
+geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
+sm_corr_theme()
+}
+
+}

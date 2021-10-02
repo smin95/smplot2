@@ -56,3 +56,13 @@ This combines two different functions:
 `geom_smooth()` is used to fit the best-fit model, whereas
 `stat_cor()` is used to print correlation results at an optimized location.
 }
+\examples{
+\dontrun{
+library(tidyverse)
+p1 <- ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+geom_point(shape = 21, fill = sm_color('green'), color = 'white', size = 3)
+
+p1 + sm_corr_theme() +
+sm_statCorr(color = sm_color('green'))
+}
+}

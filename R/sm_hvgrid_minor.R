@@ -17,6 +17,16 @@
 #' @import ggplot2 cowplot
 #'
 #' @export
+#'
+#' @examples
+#'
+#' \dontrun{
+#' library(tidyverse)
+#' ggplot(data = mpg) +
+#' geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
+#' sm_hvgrid_minor()
+#' }
+#'
 sm_hvgrid_minor <- function(legends = TRUE, borders = TRUE) {
 
   if (legends == TRUE) {

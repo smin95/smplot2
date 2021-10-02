@@ -81,6 +81,22 @@ This function has been created to allow more customisation than the functions
 in the raincloudplots package. Also, this function automatically sorts the data given the
 condition that the x-axis factor levels have been sorted properly.
 }
+\examples{
+\dontrun{
+set.seed(2) # generate random data
+day1 = rnorm(20,0,1)
+day2 = rnorm(20,5,1)
+day3 = rnorm(20,6,1.5)
+day4 = rnorm(20,7,2)
+Subject <- rep(paste0('S',seq(1:20)), 4)
+Data <- data.frame(Value = matrix(c(day1,day2,day3,day4),ncol=1))
+Day <- rep(c('Day 1', 'Day 2', 'Day 3', 'Day 4'), each = length(day1))
+df2 <- cbind(Subject, Data, Day)
+
+# use the random data to generate a raincloud plot
+sm_raincloud(data = df2, x = Day, y = Value)
+}
+}
 \references{
 Allen M, Poggiali D, Whitaker K et al. Raincloud plots: a multi-platform tool for robust data visualization [version 2; peer review: 2 approved]. Wellcome Open Res 2021, 4:63. DOI: 10.12688/wellcomeopenres.15191.2
 }

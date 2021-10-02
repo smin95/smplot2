@@ -43,6 +43,16 @@
 #' @importFrom ggpubr stat_cor
 #'
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' library(tidyverse)
+#' p1 <- ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+#' geom_point(shape = 21, fill = sm_color('green'), color = 'white', size = 3)
+#'
+#' p1 + sm_corr_theme() +
+#' sm_statCorr(color = sm_color('green'))
+#' }
 sm_statCorr <- function(...,
                        line_type = 'dashed',
                        corr_method = 'pearson',
@@ -63,3 +73,7 @@ sm_statCorr <- function(...,
                         label.y = label_y,
                 size = text_size))
 }
+
+# computes standard error
+
+se <- function(x) sd(x)/sqrt(length(x))

@@ -16,8 +16,16 @@
 #' If the border needs to be displayed, the input should be TRUE.
 #' If the border is not needed, the input should be FALSE.
 #'
-#'
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' library(tidyverse)
+#' ggplot(data = mpg) +
+#' geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
+#' sm_corr_theme()
+#' }
+#'
 sm_corr_theme <- function(legends = TRUE, borders = TRUE) {
 
   if (legends == TRUE) {

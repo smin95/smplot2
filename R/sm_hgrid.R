@@ -16,8 +16,17 @@
 #'
 #' @import ggplot2 cowplot
 #'
-#'
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' \dontrun{
+#' library(tidyverse)
+#' ggplot(data = mpg) +
+#' geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
+#' sm_hgrid()
+#' }
+#' }
 sm_hgrid <- function(legends = FALSE, borders = TRUE) {
 
   if (legends == TRUE) {

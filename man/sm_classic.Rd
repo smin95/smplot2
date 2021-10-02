@@ -13,3 +13,12 @@ If the legend is not needed, the input should be FALSE.}
 \description{
 It has x and y axis but no grids.
 }
+\examples{
+\dontrun{
+library(tidyverse)
+ggplot(data = mpg) +
+geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
+sm_classic()
+}
+
+}

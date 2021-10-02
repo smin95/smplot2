@@ -16,3 +16,13 @@ If the border is not needed, the input should be `FALSE`.}
 \description{
 This theme has vertical and horizontal grids.
 }
+\examples{
+
+\dontrun{
+library(tidyverse)
+ggplot(data = mpg) +
+geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
+sm_hvgrid_minor()
+}
+
+}

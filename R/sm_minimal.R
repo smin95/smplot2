@@ -13,8 +13,17 @@
 #'
 #' @import ggplot2 cowplot
 #'
-#'
 #' @export
+#'
+#' @examples
+#'
+#' \dontrun{
+#' library(tidyverse)
+#' ggplot(data = mpg) +
+#' geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
+#' sm_minimal()
+#' }
+#'
 
 sm_minimal <- function(legends = TRUE, borders = TRUE) {
 
