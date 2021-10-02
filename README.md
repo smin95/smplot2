@@ -8,7 +8,7 @@ Author: Seung Hyun Min
 
 **smplot** was first created on May 2021, and it will be continuously updated.
 
-### Installation
+### Installation using RStudio
 
 ``` r
 install.packages("devtools")
