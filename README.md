@@ -2,7 +2,7 @@
 
 # smplot
 
-## Seung Hyun Min
+Author: Seung Hyun Min
 
 **smplot** is an R package for statistical data visualization that complements ggplot2. SM is my initials. This package represents what I wish I had back when I was beginning to learn R. It aims to make every step of data visualization easy.
 
