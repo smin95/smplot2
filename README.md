@@ -15,3 +15,4 @@ install.packages("devtools")
 devtools::install_github('smin95/smplot')
 ```
  
+![](images/sample.png)
