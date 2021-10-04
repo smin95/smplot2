@@ -99,16 +99,16 @@
 
 
 sm_raincloud <- function(data, x, y, group,
-                          which_side = 'right',
-                          sep_level = 3,
-                          vertical = TRUE,
-                          jitter_width = 0.09,
-                          point_size = 3,
-                          line_color = 'gray80',
-                          violin_alpha = 0.3,
-                          boxplot_alpha = 1,
-                          line_alpha = 0.6,
-                          ...) {
+                         which_side = 'right',
+                         sep_level = 3,
+                         vertical = TRUE,
+                         jitter_width = 0.09,
+                         point_size = 3,
+                         line_color = 'gray80',
+                         violin_alpha = 0.3,
+                         boxplot_alpha = 1,
+                         line_alpha = 0.6,
+                         ...) {
 
   if (!missing(group)) {
     line_color = line_color
@@ -124,7 +124,9 @@ sm_raincloud <- function(data, x, y, group,
 
   if ((which_side == 'mixed')) {
     if (nLevels == 2) {
-      if (sep_level == 3) {
+      if (sep_level == 4) {
+        position_nudge_vector <- c(-0.3,0.2,-0.4,0.4)
+      } else if (sep_level == 3) {
         position_nudge_vector <- c(-0.3,0.2,-0.35,0.35)
       } else if (sep_level == 2) {
         position_nudge_vector <- c(-0.3,0.2,-0.2,0.2)
@@ -138,25 +140,29 @@ sm_raincloud <- function(data, x, y, group,
     }
   } else if (which_side == 'right') {
     side = 'r'
-    if (sep_level == 3) {
-      position_nudge_vector <- c(0.2,0.35)
+    if (sep_level == 4) {
+      position_nudge_vector <- c(-0.2, 0,0.2)
+    } else if (sep_level == 3) {
+      position_nudge_vector <- c(-0.15, 0,0.15)
     } else if (sep_level == 2) {
-      position_nudge_vector <- c(0.2,0.2)
+      position_nudge_vector <- c(-0.15,0,0)
     } else if (sep_level == 1) {
-      position_nudge_vector <- c(0.1,0.1)
+      position_nudge_vector <- c(-0.08,0,0)
     } else if (sep_level == 0) {
-      position_nudge_vector <- c(0,0)
+      position_nudge_vector <- c(0,0,0)
     }
   } else if (which_side == 'left') {
     side = 'l'
-    if (sep_level == 3) {
-      position_nudge_vector <- c(-0.2,-0.35)
+    if (sep_level == 4) {
+      position_nudge_vector <- c(0.2, 0,-0.2)
+    } else if (sep_level == 3) {
+      position_nudge_vector <- c(0.15, 0,-0.15)
     } else if (sep_level == 2) {
-      position_nudge_vector <- c(-0.2,-0.2)
+      position_nudge_vector <- c(0.15,0,0)
     } else if (sep_level == 1) {
-      position_nudge_vector <- c(-0.1,-0.1)
+      position_nudge_vector <- c(0.08,0,0)
     } else if (sep_level == 0) {
-      position_nudge_vector <- c(0,0)
+      position_nudge_vector <- c(0,0,0)
     }
   }
 
@@ -202,16 +208,17 @@ sm_raincloud <- function(data, x, y, group,
 
       geom_half_violin(data = df,
                        aes(x = x_axis, y = {{y}}), side = side,
-                       position = position_nudge(x = position_nudge_vector[2]), alpha = violin_alpha) +
+                       position = position_nudge(x = position_nudge_vector[3]), alpha = violin_alpha) +
 
       geom_half_boxplot(data = df,
                         aes(x = x_axis, y = {{y}}),
-                        position = position_nudge(x = position_nudge_vector[1]),
+                        position = position_nudge(x = position_nudge_vector[2]),
                         side = side, outlier.shape = NA, center = TRUE,
                         errorbar.draw = FALSE, width = 0.2, alpha = boxplot_alpha, color = 'black') +
 
       geom_point(data = df,
-                 aes(x = jit, y = {{y}}), size = point_size, ...) +
+                 aes(x = jit, y = {{y}}), size = point_size,
+                 position = position_nudge(x = position_nudge_vector[1]),...) +
 
       xlab('Group label') + sm_minimal(legends = F)
   }
