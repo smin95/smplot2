@@ -42,9 +42,9 @@
 #'
 #' @param sep_level
 #' A numerical value that controls the level of the separation among
-#' the boxplot, violin plot and the points. The value can be 0-3.
+#' the boxplot, violin plot and the points. The value can be 0-4.
 #' If it's 0, all of these are clustered together. If it's 3, they are all
-#' separated. 1 and 2 are somewhere in the middle.
+#' separated. 1 and 2 are somewhere in the middle. Default is set to 2.
 #'
 #' @param jitter_width
 #' A numerical value that determines the degree of the jitter for each point. If its 0,
@@ -165,7 +165,6 @@ sm_raincloud <- function(data, x, y, group,
       position_nudge_vector <- c(0,0,0)
     }
   }
-
 
   if ((which_side == 'mixed') & (nLevels == 2)) {
     fig <- ggplot(data = df, aes(fill = {{x}}, color = {{x}})) +

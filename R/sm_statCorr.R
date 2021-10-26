@@ -67,13 +67,10 @@ sm_statCorr <- function(...,
                linetype = line_type,
                size = line_size, method = ln_method,
                alpha = 0.2, se = se, weight = 0.8),
-       ggpubr::stat_cor(p.accuracy = 0.01, method = corr_method,
+       ggpubr::stat_cor(p.accuracy = 0.001, method = corr_method,
                         label.sep = separate_by,
                         label.x = label_x,
                         label.y = label_y,
                 size = text_size))
 }
 
-# computes standard error
-
-se <- function(x) sd(x)/sqrt(length(x))

@@ -43,7 +43,7 @@ sm_minimal <- function(legends = TRUE, borders = TRUE) {
           axis.ticks = ggplot2::element_blank(),
           legend.text = ggplot2::element_text(size= ggplot2::rel(.78)),
           legend.title = ggplot2::element_text(size=ggplot2::rel(.78)),
-          plot.title = ggplot2::element_text(hjust = 0.5)
+          plot.title = ggplot2::element_text(hjust = 0.5, face = 'bold')
         )
     } else if (borders == TRUE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
@@ -58,7 +58,7 @@ sm_minimal <- function(legends = TRUE, borders = TRUE) {
           axis.text.x = ggplot2::element_text(vjust= 0),
           legend.text = ggplot2::element_text(size= ggplot2::rel(1.1)),
           legend.title = ggplot2::element_text(size=ggplot2::rel(1.1)),
-          plot.title = ggplot2::element_text(hjust = 0.5)
+          plot.title = ggplot2::element_text(hjust = 0.5, face = 'bold')
         )
     }
   } else if (legends == FALSE) {
@@ -76,7 +76,7 @@ sm_minimal <- function(legends = TRUE, borders = TRUE) {
           axis.line.x = ggplot2::element_blank(),
           axis.ticks = ggplot2::element_blank(),
           legend.position = 'none',
-          plot.title = ggplot2::element_text(hjust = 0.5)
+          plot.title = ggplot2::element_text(hjust = 0.5, face = 'bold')
         )
     } else if (borders == TRUE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
@@ -90,7 +90,7 @@ sm_minimal <- function(legends = TRUE, borders = TRUE) {
           axis.title.x =  ggplot2::element_text(size = ggplot2::rel(1.2), color = "black",vjust = -1),
           axis.text.x = ggplot2::element_text(vjust= 0),
           legend.position = 'none',
-          plot.title = ggplot2::element_text(hjust = 0.5)
+          plot.title = ggplot2::element_text(hjust = 0.5, face = 'bold')
         )
     }
   }

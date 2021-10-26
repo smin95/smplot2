@@ -1,3 +1,3 @@
 .onAttach <- function(...) {
-  packageStartupMessage("To read the updated tutorial for smplot, please visit smin95.com/pubs")
+  packageStartupMessage("Updated tutorial for smplot: smin95.github.io/dataviz/")
 }

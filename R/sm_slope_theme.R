@@ -29,7 +29,7 @@ sm_slope_theme <- function(legends = TRUE) {
         axis.text.x = ggplot2::element_text(vjust = -1, size = 12),
         panel.background = ggplot2::element_blank(),
         axis.title.x = ggplot2::element_blank(),
-        plot.title = ggplot2::element_text(hjust = 0.5)
+        plot.title = ggplot2::element_text(hjust = 0.5, face = 'bold')
       )
 
   } else if (legends == F) {
@@ -50,7 +50,7 @@ sm_slope_theme <- function(legends = TRUE) {
          axis.title.x = ggplot2::element_blank(),
          axis.text = ggplot2::element_text(color = "black", size = 12),
          legend.position = 'none',
-         plot.title = ggplot2::element_text(hjust = 0.5)
+         plot.title = ggplot2::element_text(hjust = 0.5, face = 'bold')
       )
   }
 }

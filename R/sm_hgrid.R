@@ -45,7 +45,7 @@ sm_hgrid <- function(legends = FALSE, borders = TRUE) {
           axis.text.x=ggplot2::element_text(vjust= 0),
           legend.text=ggplot2::element_text(size = ggplot2::rel(.78)),
           legend.title=ggplot2::element_text(size = ggplot2::rel(.78)),
-          plot.title = ggplot2::element_text(hjust = 0.5)
+          plot.title = ggplot2::element_text(hjust = 0.5, face = 'bold')
         )
     } else if (borders == TRUE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
@@ -61,7 +61,7 @@ sm_hgrid <- function(legends = FALSE, borders = TRUE) {
           axis.text.x=ggplot2::element_text(vjust = 0),
           legend.text=ggplot2::element_text(size = ggplot2::rel(1.1)),
           legend.title=ggplot2::element_text(size = ggplot2::rel(1.1)),
-          plot.title = ggplot2::element_text(hjust = 0.5)
+          plot.title = ggplot2::element_text(hjust = 0.5, face = 'bold')
         )
     }
   } else if (legends == FALSE) {
@@ -78,7 +78,7 @@ sm_hgrid <- function(legends = FALSE, borders = TRUE) {
                                                 vjust=-1),
           axis.text.x=ggplot2::element_text(vjust= 0),
           legend.position = 'none',
-          plot.title = ggplot2::element_text(hjust = 0.5)
+          plot.title = ggplot2::element_text(hjust = 0.5, face = 'bold')
         )
     } else if (borders == TRUE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
@@ -94,7 +94,7 @@ sm_hgrid <- function(legends = FALSE, borders = TRUE) {
                                                 vjust=-1),
           axis.text.x=ggplot2::element_text(vjust= 0),
           legend.position = 'none',
-          plot.title = ggplot2::element_text(hjust = 0.5)
+          plot.title = ggplot2::element_text(hjust = 0.5, face = 'bold')
         )
     }
   }
