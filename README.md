@@ -15,4 +15,5 @@ install.packages("devtools")
 devtools::install_github('smin95/smplot')
 ```
  
-<img src="images/sample.png" alt="drawing" width="500"/>
+To access an updated tutorial (sample codes and figures) of smplot, please visit https://smin95.github.io/dataviz/.
+
