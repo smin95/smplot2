@@ -100,7 +100,7 @@
 
 sm_raincloud <- function(data, x, y, group,
                          which_side = 'right',
-                         sep_level = 3,
+                         sep_level = 2,
                          vertical = TRUE,
                          jitter_width = 0.09,
                          point_size = 3,
