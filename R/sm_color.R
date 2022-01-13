@@ -1,14 +1,14 @@
 #' SM custom palette of colors
 #'
 #' @description
-#' This is a custom color palette that SES recommends for data visualization.
+#' This is a custom color palette that SM recommends for data visualization.
 #' It returns up to 16 different colors with a high visibility.
 #'
 #' @return A character/string of hex codes
 #'
 #' @param ...
 #' The input has to be a character string.of a color name.
-#' There are 16 colors available from the SES palette:
+#' There are 16 colors available from the SM palette:
 #' `'blue'`,`'cyan'`, `'green'`, `'purple'`, `'orange'`,
 #' `'skyblue'`, `'pink'`, `'limegreen'`, `'lightpurple'`,
 #' `'brown'`, `'red'`, `'lightorange'`,
