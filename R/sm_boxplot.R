@@ -20,6 +20,12 @@
 #' @param point_size
 #' Size of the individual jittered points.
 #'
+#' @param outlier_label
+#' Set to FALSE as default. If TRUE, another point that denotes the outlier
+#' (as shown in the jittered points) will appear. In the TRUE condition,
+#' two points that refer to the same individual point will appear
+#' (one jittered, one outlier label).
+#'
 #' @param ...
 #' Other parameters for geom_point(), such as "fill", "color" and "shape".
 #' For more information check out ?geom_point.
@@ -48,25 +54,43 @@
 sm_boxplot <- function(boxplot_fill_color = 'gray95',
                         boxplot_border_color = 'black',
                         points = TRUE, notch = F, width = 0.5,
-                        point_size = 2.5,...) {
+                        point_size = 2.5, outlier_label = FALSE,...) {
 
-  if (points == TRUE) {
-    list(ggplot2::theme_bw(base_size = 10, base_family = ''),
-         ggplot2::geom_boxplot(fill = boxplot_fill_color,
-                               color = boxplot_border_color,
-                               notch = notch, width = width,
-                               outlier.shape = NA),
-         ggplot2::geom_point(position = ggplot2::position_jitter(width = .12,
-                                                                 height = 0,
-                                                                 seed = 10),
-                             size = point_size, ...),
-         sm_hgrid())
-  } else if (points == FALSE) {
-    list(ggplot2::theme_bw(base_size = 10, base_family = ''),
-         ggplot2::geom_boxplot(color = boxplot_border_color,
-                               notch = notch, width = width,
-                               outlier.shape = NA),
-         sm_hgrid())
+  if (outlier_label == FALSE) {
+    if (points == TRUE) {
+      list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+           ggplot2::geom_boxplot(fill = boxplot_fill_color,
+                                 color = boxplot_border_color,
+                                 notch = notch, width = width,
+                                 outlier.shape = NA),
+           ggplot2::geom_point(position = ggplot2::position_jitter(width = .12,
+                                                                   height = 0,
+                                                                   seed = 10),
+                               size = point_size, ...),
+           sm_hgrid())
+    } else if (points == FALSE) {
+      list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+           ggplot2::geom_boxplot(color = boxplot_border_color,
+                                 notch = notch, width = width,
+                                 outlier.shape = NA),
+           sm_hgrid())
+    }
+  } else if (outlier_label == TRUE) {
+    if (points == TRUE) {
+      list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+           ggplot2::geom_boxplot(fill = boxplot_fill_color,
+                                 color = boxplot_border_color,
+                                 notch = notch, width = width),
+           ggplot2::geom_point(position = ggplot2::position_jitter(width = .12,
+                                                                   height = 0,
+                                                                   seed = 10),
+                               size = point_size, ...),
+           sm_hgrid())
+    } else if (points == FALSE) {
+      list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+           ggplot2::geom_boxplot(color = boxplot_border_color,
+                                 notch = notch, width = width),
+           sm_hgrid())
+    }
   }
-
 }

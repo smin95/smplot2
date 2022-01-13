@@ -11,6 +11,7 @@ sm_boxplot(
   notch = F,
   width = 0.5,
   point_size = 2.5,
+  outlier_label = FALSE,
   ...
 )
 }
@@ -28,6 +29,11 @@ FALSE to keep the boxplot's shape.}
 \item{width}{Width of the boxplot.}
 
 \item{point_size}{Size of the individual jittered points.}
+
+\item{outlier_label}{Set to FALSE as default. If TRUE, another point that denotes the outlier
+(as shown in the jittered points) will appear. In the TRUE condition,
+two points that refer to the same individual point will appear
+(one jittered, one outlier label).}
 
 \item{...}{Other parameters for geom_point(), such as "fill", "color" and "shape".
 For more information check out ?geom_point.}
