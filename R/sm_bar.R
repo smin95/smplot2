@@ -73,6 +73,8 @@ sm_bar <- function(bar_fill_color,
                    errorbar_type = 'se',
                    point_jitter_width = 0.12, ...) {
 
+  suppressWarnings() # suppress warnings
+
   if (missing(bar_fill_color)) {
     if (errorbar_type == 'se') {
       list(ggplot2::theme_bw(base_size = 10, base_family = ''),
