@@ -17,6 +17,8 @@ Imports:
   dplyr,
   gghalves,
   magrittr,
-  utils
+  utils,
+  pwr,
+  stats
 URL: https://www.smin95.com 
 BugReports: https://github.com/smin95/smplot/issues 
