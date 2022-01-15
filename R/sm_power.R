@@ -18,7 +18,7 @@
 sm_power <- function(group1, group2, paired,
                      sig.level = 0.05, power = 0.8) {
 
-  eff_size <- sm_cohensD(group1, group2)
+  eff_size <- sm_effsize(group1, group2)
 
   if (paired == TRUE) {
     res <- pwr::pwr.t.test(d = eff_size, sig.level = sig.level,

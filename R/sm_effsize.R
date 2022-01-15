@@ -1,6 +1,6 @@
-#' Cohen's D - effect size
+#' Cohen's d - effect size
 #'
-#' Cohen's D is a measure of the effect size.
+#' Cohen's d is a measure of the effect size.
 #' It is often reported with p-values (ex. from a t-test or posthoc pairwise comparisons).
 #'
 #' @param group1
@@ -20,9 +20,9 @@
 #' \dontrun{
 #' group1 <- rnorm(10,0,1)
 #' group2 <- rnorm(10,1,1)
-#' sm_cohensD(group1, group2)
+#' sm_effsize(group1, group2)
 #' }
-sm_cohensD <- function(group1, group2, absolute = TRUE) {
+sm_effsize <- function(group1, group2, absolute = TRUE) {
   n1 <- length(group1) # sample size for group 1
   n2 <- length(group2) # sample size for group 2
   diff <- mean(group2) - mean(group1)
