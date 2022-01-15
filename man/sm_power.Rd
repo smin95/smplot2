@@ -22,3 +22,10 @@ that is to be compared with the former group.}
 \description{
 Power analysis using two-sample or paired t-test
 }
+\examples{
+\dontrun{
+group1 <- rnorm(10,0,1)
+group2 <- rnorm(10,1,1)
+sm_power(group1, group2, paired = TRUE)
+}
+}

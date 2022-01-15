@@ -15,6 +15,11 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' group1 <- rnorm(10,0,1)
+#' group2 <- rnorm(10,1,1)
+#' sm_power(group1, group2, paired = TRUE)
+#' }
 sm_power <- function(group1, group2, paired,
                      sig.level = 0.05, power = 0.8) {
 
