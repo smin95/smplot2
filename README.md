@@ -19,4 +19,4 @@ To access an updated tutorial (sample codes and figures) of smplot, please visit
 
 If you decide to use **smplot**, please cite this paper:
 
-Seung Hyun Min, Jiawei Zhou. smplot: An R Package for Easy and Elegant Data Visualization (2021). Frontiers in Genetics, 12:802894.
+*Seung Hyun Min, Jiawei Zhou. smplot: An R Package for Easy and Elegant Data Visualization (2021). Frontiers in Genetics, 12:802894.*
