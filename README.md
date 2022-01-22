@@ -17,3 +17,5 @@ devtools::install_github('smin95/smplot')
  
 To access an updated tutorial (sample codes and figures) of smplot, please visit https://smin95.github.io/dataviz/.
 
+If you decide to use **smplot**, please cite this paper:
+Seung Hyun Min, Jiawei Zhou. smplot: An R Package for Easy and Elegant Data Visualization (2021). Frontiers in Genetics, 12:802894.
