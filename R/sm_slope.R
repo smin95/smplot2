@@ -29,6 +29,11 @@
 #' If it is set to FALSE, they will be at the bottom. Also the argument
 #' for 'labels' will be ignored in this case. To change the labels, you
 #' will need to add a geom object with scale_x_discrete(labels = c('A','B')).
+#'
+#' @param legends
+#' If the legend needs to be displayed, the input should be TRUE.
+#' If the legend is not needed, the input should be FALSE.
+#'
 #' @param ...
 #' Other parameters of geom_point(), such as 'shape', fill', and 'color.
 #' For more information, please type ?geom_point.
@@ -57,6 +62,7 @@ sm_slope <- function(labels,
                       line_type = 'solid',
                       line_alpha = 1,
                       xtick_high = TRUE,
+                      legends = FALSE,
                       ...) {
 
   if (xtick_high == TRUE) {
@@ -66,12 +72,12 @@ sm_slope <- function(labels,
          ggplot2::geom_point(size = point_size, ...),
          ggplot2::scale_x_discrete(position = 'top', expand = c(0.17, .1),
                                    drop = FALSE, labels = labels),
-         sm_slope_theme(legends = F))
+         sm_slope_theme(legends = legends))
   } else if (xtick_high == FALSE)
     list(ggplot2::geom_line(color = line_color, size = line_size, linetype = line_type,
                             alpha = line_alpha),
          ggplot2::geom_point(size = point_size*1.8, fill = "white", color = 'white'),
          ggplot2::geom_point(size = point_size, ...),
-         sm_slope_theme(legends = F))
+         sm_slope_theme(legends = legends))
 
 }

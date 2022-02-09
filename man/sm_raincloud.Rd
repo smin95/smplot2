@@ -19,6 +19,8 @@ sm_raincloud(
   violin_alpha = 0.3,
   boxplot_alpha = 1,
   line_alpha = 0.6,
+  borders = TRUE,
+  legends = FALSE,
   ...
 )
 }
@@ -68,6 +70,12 @@ if group argument is missing.}
 
 \item{line_alpha}{Transparency of the lines (0 to 1). This argument will be ignored
 if group argument is missing.}
+
+\item{borders}{If the border needs to be displayed, the input should be TRUE.
+If the border is not needed, the input should be FALSE.}
+
+\item{legends}{If the legend needs to be displayed, the input should be TRUE.
+If the legend is not needed, the input should be FALSE.}
 
 \item{...}{Parameters for the points' aesthetics, such as 'fill', 'shape', 'color',
 and 'alpha'. For more information, please type ?geom_point}

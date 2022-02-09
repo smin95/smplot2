@@ -67,6 +67,14 @@
 #' Transparency of the lines (0 to 1). This argument will be ignored
 #' if group argument is missing.
 #'
+#' @param legends
+#' If the legend needs to be displayed, the input should be TRUE.
+#' If the legend is not needed, the input should be FALSE.
+#'
+#' @param borders
+#' If the border needs to be displayed, the input should be TRUE.
+#' If the border is not needed, the input should be FALSE.
+#'
 #' @param ...
 #' Parameters for the points' aesthetics, such as 'fill', 'shape', 'color',
 #' and 'alpha'. For more information, please type ?geom_point
@@ -108,6 +116,8 @@ sm_raincloud <- function(data, x, y, group,
                          violin_alpha = 0.3,
                          boxplot_alpha = 1,
                          line_alpha = 0.6,
+                         borders = TRUE,
+                         legends = FALSE,
                          ...) {
 
   if (!missing(group)) {
@@ -197,7 +207,7 @@ sm_raincloud <- function(data, x, y, group,
 
       geom_point(data = df %>% dplyr::filter(x_axis == 2),
                  aes(x = jit, y = {{y}}), size = point_size, ...) +
-      xlab('x-axis label') + sm_minimal(legends = F)
+      xlab('x-axis label') + sm_minimal(borders = borders, legends = legends)
 
   } else {
     fig <- ggplot(data = df, aes(fill = {{x}}, color = {{x}})) +
@@ -219,7 +229,7 @@ sm_raincloud <- function(data, x, y, group,
                  aes(x = jit, y = {{y}}), size = point_size,
                  position = position_nudge(x = position_nudge_vector[1]),...) +
 
-      xlab('Group label') + sm_minimal(legends = F)
+      xlab('Group label') + sm_minimal(borders = borders, legends = legends)
   }
 
   if (vertical == FALSE) {

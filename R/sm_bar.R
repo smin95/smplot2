@@ -36,6 +36,14 @@
 #' @param point_jitter_width
 #' Width of the jitter. The default value is 0.12.
 #'
+#' @param legends
+#' If the legend needs to be displayed, the input should be TRUE.
+#' If the legend is not needed, the input should be FALSE.
+#'
+#' @param borders
+#' If the border needs to be displayed, the input should be TRUE.
+#' If the border is not needed, the input should be FALSE.
+#'
 #' @param ...
 #' Other parameters, such as 'color', 'shape', 'fill',
 #' to specify the properties of the points.
@@ -71,7 +79,10 @@ sm_bar <- function(bar_fill_color,
                    point_size = 2.5,
                    point_alpha = 0.65,
                    errorbar_type = 'se',
-                   point_jitter_width = 0.12, ...) {
+                   point_jitter_width = 0.12,
+                   borders = TRUE,
+                   legends = FALSE,
+                   ...) {
 
   if (missing(bar_fill_color)) {
     if (errorbar_type == 'se') {
@@ -86,7 +97,7 @@ sm_bar <- function(bar_fill_color,
            stat_summary(fun.data = mean_se, geom = "linerange",
                         size = errSize,
                         color = errColor),
-           sm_hgrid())
+           sm_hgrid(borders = borders, legends = legends))
     } else if (errorbar_type == 'sd') {
       list(ggplot2::theme_bw(base_size = 10, base_family = ''),
            stat_summary(fun = mean, geom = "bar", width = bar_width,
@@ -101,7 +112,7 @@ sm_bar <- function(bar_fill_color,
                         fun.max = function(x) mean(x) + sd(x),
                         size = errSize,
                         color = errColor),
-           sm_hgrid())
+           sm_hgrid(borders = borders, legends = legends))
     } else if (errorbar_type == 'ci') {
       list(ggplot2::theme_bw(base_size = 10, base_family = ''),
            stat_summary(fun = mean, geom = "bar", width = bar_width,
@@ -114,7 +125,7 @@ sm_bar <- function(bar_fill_color,
            stat_summary(fun.data = mean_cl_boot, geom = "linerange",
                         size = errSize,
                         color = errColor),
-           sm_hgrid())
+           sm_hgrid(borders = borders, legends = legends))
     } else {
       stop('Wrong input argument for errorbar_type. Please write either "se", "sd" or "ci"')
     }
@@ -132,7 +143,7 @@ sm_bar <- function(bar_fill_color,
            stat_summary(fun.data = mean_se, geom = "linerange",
                         size = errSize,
                         color = errColor),
-           sm_hgrid())
+           sm_hgrid(borders = borders, legends = legends))
     } else if (errorbar_type == 'sd') {
       list(ggplot2::theme_bw(base_size = 10, base_family = ''),
            stat_summary(fun = mean, geom = "bar", width = bar_width,
@@ -148,7 +159,7 @@ sm_bar <- function(bar_fill_color,
                         fun.max = function(x) mean(x) + sd(x),
                         size = errSize,
                         color = errColor),
-           sm_hgrid())
+           sm_hgrid(borders = borders, legends = legends))
     } else if (errorbar_type == 'ci') {
       list(ggplot2::theme_bw(base_size = 10, base_family = ''),
            stat_summary(fun = mean, geom = "bar", width = bar_width,
@@ -162,7 +173,7 @@ sm_bar <- function(bar_fill_color,
            stat_summary(fun.data = mean_cl_boot, geom = "linerange",
                         size = errSize,
                         color = errColor),
-           sm_hgrid())
+           sm_hgrid(borders = borders, legends = legends))
     } else {
       stop('Wrong input argument for errorbar_type. Please write either "se", "sd" or "ci"')
     }

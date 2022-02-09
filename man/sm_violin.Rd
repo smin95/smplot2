@@ -13,6 +13,8 @@ sm_violin(
   point_size = 2.5,
   point_alpha = 0.25,
   stroke_width = 1.2,
+  legends = FALSE,
+  borders = TRUE,
   ...
 )
 }
@@ -39,6 +41,12 @@ This input argument is ignored when errorbar_type = 'ci'.}
 This argument is ignored when points = FALSE.}
 
 \item{stroke_width}{The width of the lines that show standard deviation.}
+
+\item{legends}{If the legend needs to be displayed, the input should be TRUE.
+If the legend is not needed, the input should be FALSE.}
+
+\item{borders}{If the border needs to be displayed, the input should be TRUE.
+If the border is not needed, the input should be FALSE.}
 
 \item{...}{Other parameters for geom_point(), such as "fill".
 For more information check out ?geom_point.}

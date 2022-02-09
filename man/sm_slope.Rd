@@ -12,6 +12,7 @@ sm_slope(
   line_type = "solid",
   line_alpha = 1,
   xtick_high = TRUE,
+  legends = FALSE,
   ...
 )
 }
@@ -37,6 +38,9 @@ for 'labels' is required.
 If it is set to FALSE, they will be at the bottom. Also the argument
 for 'labels' will be ignored in this case. To change the labels, you
 will need to add a geom object with scale_x_discrete(labels = c('A','B')).}
+
+\item{legends}{If the legend needs to be displayed, the input should be TRUE.
+If the legend is not needed, the input should be FALSE.}
 
 \item{...}{Other parameters of geom_point(), such as 'shape', fill', and 'color.
 For more information, please type ?geom_point.}

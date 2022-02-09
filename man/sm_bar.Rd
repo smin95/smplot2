@@ -15,6 +15,8 @@ sm_bar(
   point_alpha = 0.65,
   errorbar_type = "se",
   point_jitter_width = 0.12,
+  borders = TRUE,
+  legends = FALSE,
   ...
 )
 }
@@ -43,6 +45,12 @@ If it is set to 'sd', the error bar will display standard deviation.
 If it is set to 'ci', the error bar will display 95\% confidence interval.}
 
 \item{point_jitter_width}{Width of the jitter. The default value is 0.12.}
+
+\item{borders}{If the border needs to be displayed, the input should be TRUE.
+If the border is not needed, the input should be FALSE.}
+
+\item{legends}{If the legend needs to be displayed, the input should be TRUE.
+If the legend is not needed, the input should be FALSE.}
 
 \item{...}{Other parameters, such as 'color', 'shape', 'fill',
 to specify the properties of the points.

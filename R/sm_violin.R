@@ -35,6 +35,14 @@
 #' @param stroke_width
 #' The width of the lines that show standard deviation.
 #'
+#' @param legends
+#' If the legend needs to be displayed, the input should be TRUE.
+#' If the legend is not needed, the input should be FALSE.
+#'
+#' @param borders
+#' If the border needs to be displayed, the input should be TRUE.
+#' If the border is not needed, the input should be FALSE.
+#'
 #' @param ...
 #' Other parameters for geom_point(), such as "fill".
 #' For more information check out ?geom_point.
@@ -68,7 +76,10 @@ sm_violin <- function(violin_fill_color = 'gray90',
                       sd_length = 1,
                       point_size = 2.5,
                       point_alpha = 0.25,
-                      stroke_width = 1.2, ...) {
+                      stroke_width = 1.2,
+                      legends = FALSE,
+                      borders = TRUE,
+                      ...) {
 
   if (errorbar_type == 'sd') {
     if (points == TRUE) {
@@ -82,7 +93,7 @@ sm_violin <- function(violin_fill_color = 'gray90',
                                alpha = point_alpha, ...),
            stat_summary(fun.data = mean_sdl, fun.args = list(mult = sd_length),
                         geom = 'pointrange', fatten = point_size*1.2, size = stroke_width),
-           sm_hgrid())
+           sm_hgrid(borders = borders, legends = legends))
     } else if (points == FALSE) {
       list(ggplot2::theme_bw(base_size = 10, base_family = ''),
            ggplot2::geom_violin(color = violin_border_color,
@@ -90,7 +101,7 @@ sm_violin <- function(violin_fill_color = 'gray90',
            stat_summary(fun.data = mean_sdl, fun.args = list(mult = sd_length),
                         geom = 'pointrange',
                         fatten = point_size*1.2, size = stroke_width),
-           sm_hgrid())
+           sm_hgrid(borders = borders, legends = legends))
     }
   } else if (errorbar_type == 'se') {
     if (points == TRUE) {
@@ -104,7 +115,7 @@ sm_violin <- function(violin_fill_color = 'gray90',
                                alpha = point_alpha, ...),
            stat_summary(fun.data = mean_se, fun.args = list(mult = sd_length),
                         geom = 'pointrange', fatten = point_size*1.2, size = stroke_width),
-           sm_hgrid())
+           sm_hgrid(borders = borders, legends = legends))
     } else if (points == FALSE) {
       list(ggplot2::theme_bw(base_size = 10, base_family = ''),
            ggplot2::geom_violin(color = violin_border_color,
@@ -112,7 +123,7 @@ sm_violin <- function(violin_fill_color = 'gray90',
            stat_summary(fun.data = mean_se, fun.args = list(mult = sd_length),
                         geom = 'pointrange',
                         fatten = point_size*1.2, size = stroke_width),
-           sm_hgrid())
+           sm_hgrid(borders = borders, legends = legends))
     }
   } else if (errorbar_type == 'ci') {
     if (points == TRUE) {
@@ -127,14 +138,14 @@ sm_violin <- function(violin_fill_color = 'gray90',
            stat_summary(fun.data = mean_cl_boot, fun.args=list(conf.int=.95),
                         geom = 'pointrange',
                         fatten = point_size*1.2, size = stroke_width),
-           sm_hgrid())
+           sm_hgrid(borders = borders, legends = legends))
     } else if (points == FALSE) {
       list(ggplot2::theme_bw(base_size = 10, base_family = ''),
            ggplot2::geom_violin(color = violin_border_color,
                                 fill = violin_fill_color),
            stat_summary(fun.data = mean_cl_boot, fun.args=list(conf.int=.95),
                         geom = 'pointrange', fatten = point_size*1.2, size = stroke_width),
-           sm_hgrid())
+           sm_hgrid(borders = borders, legends = legends))
     }
   } else {
     stop('Wrong input argument for errorbar_type. Please write either "se", "sd" or "ci"')
