@@ -12,6 +12,8 @@ sm_boxplot(
   width = 0.5,
   point_size = 2.5,
   outlier_label = FALSE,
+  borders = TRUE,
+  legends = FALSE,
   ...
 )
 }
@@ -34,6 +36,12 @@ FALSE to keep the boxplot's shape.}
 (as shown in the jittered points) will appear. In the TRUE condition,
 two points that refer to the same individual point will appear
 (one jittered, one outlier label).}
+
+\item{borders}{If the border needs to be displayed, the input should be TRUE.
+If the border is not needed, the input should be FALSE.}
+
+\item{legends}{If the legend needs to be displayed, the input should be TRUE.
+If the legend is not needed, the input should be FALSE.}
 
 \item{...}{Other parameters for geom_point(), such as "fill", "color" and "shape".
 For more information check out ?geom_point.}

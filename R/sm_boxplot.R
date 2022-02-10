@@ -26,6 +26,15 @@
 #' two points that refer to the same individual point will appear
 #' (one jittered, one outlier label).
 #'
+#' @param legends
+#' If the legend needs to be displayed, the input should be TRUE.
+#' If the legend is not needed, the input should be FALSE.
+#'
+#' @param borders
+#' If the border needs to be displayed, the input should be TRUE.
+#' If the border is not needed, the input should be FALSE.
+#'
+#'
 #' @param ...
 #' Other parameters for geom_point(), such as "fill", "color" and "shape".
 #' For more information check out ?geom_point.
@@ -54,7 +63,8 @@
 sm_boxplot <- function(boxplot_fill_color = 'gray95',
                         boxplot_border_color = 'black',
                         points = TRUE, notch = F, width = 0.5,
-                        point_size = 2.5, outlier_label = FALSE,...) {
+                        point_size = 2.5, outlier_label = FALSE,
+                        borders = TRUE, legends = FALSE, ...) {
 
   if (outlier_label == FALSE) {
     if (points == TRUE) {
@@ -67,13 +77,13 @@ sm_boxplot <- function(boxplot_fill_color = 'gray95',
                                                                    height = 0,
                                                                    seed = 10),
                                size = point_size, ...),
-           sm_hgrid())
+           sm_hgrid(borders = borders, legends = legends))
     } else if (points == FALSE) {
       list(ggplot2::theme_bw(base_size = 10, base_family = ''),
            ggplot2::geom_boxplot(color = boxplot_border_color,
                                  notch = notch, width = width,
                                  outlier.shape = NA),
-           sm_hgrid())
+           sm_hgrid(borders = borders, legends = legends))
     }
   } else if (outlier_label == TRUE) {
     if (points == TRUE) {
@@ -85,12 +95,12 @@ sm_boxplot <- function(boxplot_fill_color = 'gray95',
                                                                    height = 0,
                                                                    seed = 10),
                                size = point_size, ...),
-           sm_hgrid())
+           sm_hgrid(borders = borders, legends = legends))
     } else if (points == FALSE) {
       list(ggplot2::theme_bw(base_size = 10, base_family = ''),
            ggplot2::geom_boxplot(color = boxplot_border_color,
                                  notch = notch, width = width),
-           sm_hgrid())
+           sm_hgrid(borders = borders, legends = legends))
     }
   }
 }
