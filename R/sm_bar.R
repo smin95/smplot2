@@ -49,7 +49,7 @@
 #' to specify the properties of the points.
 #' For more information, type ?geom_point
 #'
-#' @import ggplot2 cowplot
+#' @import ggplot2 cowplot Hmisc
 #'
 #' @importFrom stats sd
 #' @export

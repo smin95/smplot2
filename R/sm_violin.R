@@ -47,7 +47,7 @@
 #' Other parameters for geom_point(), such as "fill".
 #' For more information check out ?geom_point.
 #'
-#' @import ggplot2 cowplot
+#' @import ggplot2 cowplot Hmisc
 #'
 #' @importFrom stats sd
 #'
@@ -152,4 +152,3 @@ sm_violin <- function(violin_fill_color = 'gray90',
   }
 
 }
-

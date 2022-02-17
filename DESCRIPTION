@@ -19,6 +19,7 @@ Imports:
   magrittr,
   utils,
   pwr,
-  stats
+  stats,
+  Hmisc
 URL: https://www.smin95.com 
 BugReports: https://github.com/smin95/smplot/issues 
