@@ -9,16 +9,13 @@ sm_raincloud(
   data,
   x,
   y,
-  group,
   which_side = "right",
   sep_level = 2,
   vertical = TRUE,
   jitter_width = 0.09,
   point_size = 3,
-  line_color = "gray80",
   violin_alpha = 0.3,
   boxplot_alpha = 1,
-  line_alpha = 0.6,
   borders = TRUE,
   legends = FALSE,
   ...
@@ -34,14 +31,6 @@ This is used to define the aes() in ggplot().}
 
 \item{y}{Column variable of the data that defines the level of the y-axis.
 This is used to define the aes() in ggplot().}
-
-\item{group}{Group argument for aesthetics. It has to be set for the variable
-that defines each observation (ex. id, subject, patient, etc).
-This is used to define the aes() in geom_line().
-This argument is used to draw a line that pairs each observation
-across different levels of the x-axis.
-
-If this argument is empty, no line will be drawn.}
 
 \item{which_side}{String argument to specify the side of the boxplots and violinplots.
 The options are: 'right', 'left', and 'mixed'. 'mixed' only works
@@ -61,15 +50,9 @@ all the points will have no jitter (aligned along the y-axis).}
 
 \item{point_size}{Size of the points.}
 
-\item{line_color}{Color of the line. This argument will be ignored
-if group argument is missing.}
-
 \item{violin_alpha}{Transparency of the violin (0 to 1).}
 
 \item{boxplot_alpha}{Transparency of the boxplot (0 to 1).}
-
-\item{line_alpha}{Transparency of the lines (0 to 1). This argument will be ignored
-if group argument is missing.}
 
 \item{borders}{If the border needs to be displayed, the input should be TRUE.
 If the border is not needed, the input should be FALSE.}

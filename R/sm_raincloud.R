@@ -21,14 +21,6 @@
 #' @param y
 #' Column variable of the data that defines the level of the y-axis.
 #' This is used to define the aes() in ggplot().
-#' @param group
-#' Group argument for aesthetics. It has to be set for the variable
-#' that defines each observation (ex. id, subject, patient, etc).
-#' This is used to define the aes() in geom_line().
-#' This argument is used to draw a line that pairs each observation
-#' across different levels of the x-axis.
-#'
-#' If this argument is empty, no line will be drawn.
 #'
 #' @param which_side
 #' String argument to specify the side of the boxplots and violinplots.
@@ -53,19 +45,11 @@
 #' @param point_size
 #' Size of the points.
 #'
-#' @param line_color
-#' Color of the line. This argument will be ignored
-#' if group argument is missing.
-#'
 #' @param violin_alpha
 #' Transparency of the violin (0 to 1).
 #'
 #' @param boxplot_alpha
 #' Transparency of the boxplot (0 to 1).
-#'
-#' @param line_alpha
-#' Transparency of the lines (0 to 1). This argument will be ignored
-#' if group argument is missing.
 #'
 #' @param legends
 #' If the legend needs to be displayed, the input should be TRUE.
@@ -106,26 +90,18 @@
 #' }
 
 
-sm_raincloud <- function(data, x, y, group,
+sm_raincloud <- function(data, x, y,
                          which_side = 'right',
                          sep_level = 2,
                          vertical = TRUE,
                          jitter_width = 0.09,
                          point_size = 3,
-                         line_color = 'gray80',
                          violin_alpha = 0.3,
                          boxplot_alpha = 1,
-                         line_alpha = 0.6,
                          borders = TRUE,
                          legends = FALSE,
                          ...) {
 
-  if (!missing(group)) {
-    line_color = line_color
-  } else if (missing(group)) {
-    line_color <- 'transparent'
-    line_alpha <- 0
-  }
 
   df <- data %>% dplyr::mutate(x_axis = as.numeric(factor({{x}}))) %>%
     dplyr::mutate(jit = jitter(x_axis, amount = jitter_width))
@@ -179,9 +155,6 @@ sm_raincloud <- function(data, x, y, group,
   if ((which_side == 'mixed') & (nLevels == 2)) {
     fig <- ggplot(data = df, aes(fill = {{x}}, color = {{x}})) +
 
-      geom_line(aes(x = jit, y = {{y}}, group = {{group}}), color = line_color,
-                alpha = line_alpha) +
-
       geom_half_violin(data = df %>% dplyr::filter(x_axis == 1),
                        aes(x = x_axis, y = {{y}}), side = 'l',
                        position = position_nudge(x = position_nudge_vector[3]), alpha = violin_alpha) +
@@ -211,9 +184,6 @@ sm_raincloud <- function(data, x, y, group,
 
   } else {
     fig <- ggplot(data = df, aes(fill = {{x}}, color = {{x}})) +
-
-      geom_line(aes(x = jit, y = {{y}}, group = {{group}}), color = line_color,
-                alpha = line_alpha) +
 
       geom_half_violin(data = df,
                        aes(x = x_axis, y = {{y}}), side = side,
