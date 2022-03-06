@@ -15,7 +15,6 @@
 #'
 #' @return
 #'
-#' @export
 #'
 #' @examples
 sm_auc_list <- function(subjects, conditions, x, values) {

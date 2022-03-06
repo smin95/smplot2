@@ -2,17 +2,18 @@
 #'
 #' @description
 #' This is a custom color palette that SM recommends for data visualization.
-#' It returns up to 16 different colors with a high visibility.
+#' It returns up to 20 different colors with a high visibility.
 #'
 #' @return A character/string of hex codes
 #'
 #' @param ...
 #' The input has to be a character string.of a color name.
-#' There are 16 colors available from the SM palette:
+#' There are 20 colors available from the SM palette:
 #' `'blue'`,`'crimson'`, `'green'`, `'purple'`, `'orange'`,
 #' `'skyblue'`, `'pink'`, `'limegreen'`, `'lightpurple'`,
-#' `'brown'`, `'red'`, `'lightorange'`,
-#' `'asparagus'`, `'viridian'`, `'darkred'`, `'lightblue'`
+#' `'brown'`, `'red'`, `'lightbrown'`,
+#' `'asparagus'`, `'viridian'`, `'darkred'`, `'lightblue'`,
+#' `'light blue'`, `'wine'`, `'yellow'`, `'lightgreen'`
 #'
 #' @export
 #'
@@ -36,11 +37,15 @@ sm_color <- function(...) {
     if (color == 'lightpurple') return('#7b3dcc')
     if (color == 'brown') return('#7f5d0d')
     if (color == 'red') return('#cc3d3d')
-    if (color == 'lightorange') return('#cc9666')
+    if (color == 'lightbrown') return('#cc9666')
     if (color == 'asparagus') return('#8c994d')
     if (color == 'viridian') return('#408073')
     if (color == 'darkred') return('#7f404a')
     if (color == 'lightblue') return('#45e0e6')
+    if (color == 'wine') return('#c9b9c6')
+    if (color == 'yellow') return('#ffe764')
+    if (color == 'yelloworange') return('#ffb359')
+    if (color == 'lightgreen') return('#9ee1a8')
   }
   return(unlist(lapply(colors,string_to_hex)))
 }

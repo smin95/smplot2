@@ -12,7 +12,6 @@
 #'
 #' @return
 #' @importFrom zoo rollmean
-#' @export
 #'
 #' @examples
 #' \dontrun{
