@@ -20,6 +20,7 @@ Imports:
   utils,
   pwr,
   stats,
-  Hmisc
+  Hmisc,
+  zoo
 URL: https://www.smin95.com 
 BugReports: https://github.com/smin95/smplot/issues 

@@ -9,7 +9,7 @@
 #' @param ...
 #' The input has to be a character string.of a color name.
 #' There are 16 colors available from the SM palette:
-#' `'blue'`,`'cyan'`, `'green'`, `'purple'`, `'orange'`,
+#' `'blue'`,`'crimson'`, `'green'`, `'purple'`, `'orange'`,
 #' `'skyblue'`, `'pink'`, `'limegreen'`, `'lightpurple'`,
 #' `'brown'`, `'red'`, `'lightorange'`,
 #' `'asparagus'`, `'viridian'`, `'darkred'`, `'lightblue'`
@@ -17,16 +17,16 @@
 #' @export
 #'
 #' @examples
-#' sm_color('cyan')
+#' sm_color('crimson')
 #'
-#' sm_color('cyan', 'green', 'blue')
+#' sm_color('crimson', 'green', 'blue')
 
 sm_color <- function(...) {
   colors <- list(...)
 
   string_to_hex <- function(color) {
     if (color == 'blue') return("#1262b3")
-    if (color == 'cyan') return("#cc1489")
+    if (color == 'crimson') return("#cc1489")
     if (color == 'green') return("#0f993d")
     if (color == 'purple') return("#5b4080")
     if (color == 'orange') return("#e57717")

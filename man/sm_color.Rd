@@ -9,7 +9,7 @@ sm_color(...)
 \arguments{
 \item{...}{The input has to be a character string.of a color name.
 There are 16 colors available from the SM palette:
-`'blue'`,`'cyan'`, `'green'`, `'purple'`, `'orange'`,
+`'blue'`,`'crimson'`, `'green'`, `'purple'`, `'orange'`,
 `'skyblue'`, `'pink'`, `'limegreen'`, `'lightpurple'`,
 `'brown'`, `'red'`, `'lightorange'`,
 `'asparagus'`, `'viridian'`, `'darkred'`, `'lightblue'`}
@@ -22,7 +22,7 @@ This is a custom color palette that SM recommends for data visualization.
 It returns up to 16 different colors with a high visibility.
 }
 \examples{
-sm_color('cyan')
+sm_color('crimson')
 
-sm_color('cyan', 'green', 'blue')
+sm_color('crimson', 'green', 'blue')
 }
