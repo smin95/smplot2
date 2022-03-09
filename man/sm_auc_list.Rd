@@ -4,9 +4,12 @@
 \alias{sm_auc_list}
 \title{Calculating Area under Curve across multiple conditions and subjects}
 \usage{
-sm_auc_list(subjects, conditions, x, values, data)
+sm_auc_list(data, subjects, conditions, x, values)
 }
 \arguments{
+\item{data}{Name of the variable that stores the data frame that contains
+the columns with the specified column names.}
+
 \item{subjects}{The name of the column of the data frame that contains subjects.
 It must be strings.}
 
@@ -21,9 +24,6 @@ characters.}
 \item{values}{The name of the column of the data frame that contains the
 actual data, which are the y-axis points from which the
 AUC can be calculated. It must be strings.}
-
-\item{data}{Name of the variable that stores the data frame that contains
-the columns with the specified column names.}
 }
 \description{
 This function returns a data frame containing AUCs from a data frame

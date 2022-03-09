@@ -12,6 +12,7 @@
 #'
 #' @importFrom zoo rollmean
 #'
+#' @export
 #' @examples
 #' \dontrun{
 #' X = c(1,2,3,4,5)

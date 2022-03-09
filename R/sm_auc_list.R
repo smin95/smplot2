@@ -27,7 +27,7 @@
 #' actual data, which are the y-axis points from which the
 #' AUC can be calculated. It must be strings.
 #'
-
+#' @export
 #' @examples
 #' \dontrun{
 #' set.seed(1) # generate random data
@@ -44,9 +44,7 @@
 #'
 #' }
 #'
-sm_auc_list <- function(subjects, conditions, x, values, data) {
-
-  #if (missing(data)) {data <- ...}
+sm_auc_list <- function(data, subjects, conditions, x, values) {
 
   x <- unique(data[[x]])
   subjects_list <- unique(base::as.character(data[[subjects]]))
