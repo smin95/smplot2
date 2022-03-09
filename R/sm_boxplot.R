@@ -36,7 +36,8 @@
 #'
 #'
 #' @param ...
-#' Other parameters for geom_point(), such as "fill", "color" and "shape".
+#' Other parameters for geom_point(), such as "fill", "color", "shape"
+#' and "alpha".
 #' For more information check out ?geom_point.
 #'
 #' @import ggplot2 cowplot

@@ -4,39 +4,48 @@
 #' ('values' argument).
 #'
 #' @param subjects
-#' A column of 'subjects' from a data frame or a unique list of subjects
+#' The name of the column of the data frame that contains subjects.
+#' It must strings, ex. `'Subject'`, not `Subject`.
 #' @param conditions
-#' A column of 'Conditions' from a data frame or a unique list of subjects
+#' The name of the column of the data frame that contains each condition.
+#' It must strings, ex. `'Day'`, not `Day`.
 #' @param x
-#' A column of 'x' from a data frame or a unique list of x coordinate.
+#' The name of the column of the data frame that contains the x-axis points
+#'  (i.e., x coordinates) from which the AUC can be calculated.
+#' It must  strings, ex. `'Time'`, not `Time`.
 #' @param values
-#' A column of 'values' from a data frame that will be used to
-#' the compute area under curve.
+#' The name of the column of the data frame that contains the
+#' actual data, which are the y-axis points from which the
+#' AUC can be calculated. It must strings, ex. `'Cbratio'`, not `Cbratio`.
+#' @param data
+#' Name of the variable that stores the data frame. ex. `df`.
 #'
 #' @return
 #'
 #'
 #' @examples
-sm_auc_list <- function(subjects, conditions, x, values) {
-  x <- unique(x)
-  subjects_list <- unique(subjects)
+sm_auc_list <- function(subjects, conditions, x, values,data) {
+
+  x <- unique(data[[x]])
+  subjects_list <- unique(as.character(data[[subjects]]))
   subj_num <- length(subjects_list)
-  cond_list <- unique(conditions)
+  cond_list <- unique(data[[conditions]])
   cond_num <- length(cond_list)
   x_length <- length(unique(x))
 
   auc_list <- data.frame(matrix(ncol = 3, nrow = subj_num*cond_num))
-  names(auc_list) <- c('Subject', 'Condition', 'AUC')
+  names(auc_list) <- c(subjects, conditions, paste0('AUC_', values))
 
   for (iCond in seq_along(1:cond_num)) {
     for (iSubj in seq_along(1:subj_num)) {
-      ind <- which(condition == unique(cond_list)[iCond] &
-                     subject == unique(subject)[iSubj])
-      auc_list$Subject[(cond_num*(iSubj-1))+(iCond)] <- subj_list[iSubj]
-      auc_list$Condition[(cond_num*(iSubj-1))+(iCond)] <- cond_list[iCond]
-      auc_list$AUC[(cond_num*(iSubj-1))+(iCond)] <- sm_auc(x,values)
+      ind <- which(data[[conditions]] == unique(cond_list)[iCond] &
+                     data[[subjects]] == unique(subjects_list)[iSubj])
+
+      auc_list[,1][(cond_num*(iSubj-1))+(iCond)] <- subjects_list[iSubj]
+      auc_list[,2][(cond_num*(iSubj-1))+(iCond)] <- cond_list[iCond]
+      auc_list[,3][(cond_num*(iSubj-1))+(iCond)] <- sm_auc(x,data[[values]][ind])
     }
   }
-
+  auc_list[[conditions]] <- as.factor(auc_list[[conditions]])
   return(auc_list)
 }
