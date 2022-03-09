@@ -13,9 +13,6 @@ approximate integral value for ‘Y’ with unit spacing based on the length of 
 
 \item{y}{Numerical data. The length of x and y must be equal.}
 }
-\value{
-
-}
 \description{
 This is equivalent to Matlab's trapz function.
 }

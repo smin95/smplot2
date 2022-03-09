@@ -43,7 +43,8 @@ If the border is not needed, the input should be FALSE.}
 \item{legends}{If the legend needs to be displayed, the input should be TRUE.
 If the legend is not needed, the input should be FALSE.}
 
-\item{...}{Other parameters for geom_point(), such as "fill", "color" and "shape".
+\item{...}{Other parameters for geom_point(), such as "fill", "color", "shape"
+and "alpha".
 For more information check out ?geom_point.}
 }
 \description{

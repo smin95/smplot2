@@ -10,7 +10,6 @@
 #' @param y
 #' Numerical data. The length of x and y must be equal.
 #'
-#' @return
 #' @importFrom zoo rollmean
 #'
 #' @examples

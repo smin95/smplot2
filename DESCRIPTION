@@ -7,7 +7,7 @@ Maintainer: Seung Hyun (Sam) Min <seung.min@mail.mcgill.ca>
 Description: smplot is a R package for statistical data visualization that complements ggplot2. This package represents what I wish I had back when I was beginning to learn R. It aims to make every step of data visualization easy.
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 License: MIT + file LICENSE 
 Imports:
   ggplot2,

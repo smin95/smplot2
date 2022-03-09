@@ -4,22 +4,45 @@
 \alias{sm_auc_list}
 \title{Calculating Area under Curve across multiple conditions and subjects}
 \usage{
-sm_auc_list(subjects, conditions, x, values)
+sm_auc_list(subjects, conditions, x, values, data)
 }
 \arguments{
-\item{subjects}{A column of 'subjects' from a data frame or a unique list of subjects}
+\item{subjects}{The name of the column of the data frame that contains subjects.
+It must be strings.}
 
-\item{conditions}{A column of 'Conditions' from a data frame or a unique list of subjects}
+\item{conditions}{The name of the column of the data frame that contains each condition.
+It must be strings.}
 
-\item{x}{A column of 'x' from a data frame or a unique list of x coordinate.}
+\item{x}{The name of the column of the data frame that contains the
+x-axis points/x coordinates from which the AUC can be calculated.
+It must be strings. The column must not have
+characters.}
 
-\item{values}{A column of 'values' from a data frame that will be used to
-the compute area under curve.}
-}
-\value{
+\item{values}{The name of the column of the data frame that contains the
+actual data, which are the y-axis points from which the
+AUC can be calculated. It must be strings.}
 
+\item{data}{Name of the variable that stores the data frame that contains
+the columns with the specified column names.}
 }
 \description{
-This function returns a dataframe of AUC computed from raw data
-('values' argument).
+This function returns a data frame containing AUCs from a data frame
+that contains the original raw data.
+}
+\examples{
+\dontrun{
+set.seed(1) # generate random data
+day1 = rnorm(16,0,1)
+day2 = rnorm(16,5,1)
+Subject <- rep(paste0('S',seq(1:16)), 2)
+Value <- data.frame(Value = matrix(c(day1,day2),ncol=1))
+Day <- rep(c(1,2), each = length(day1))
+Condition <- rep('Control', length(day1)*2)
+df <- cbind(Subject, Value, Condition, Day)
+
+sm_auc_list(data = df, subjects = 'Subject',values = 'Value',
+conditions = 'Condition',x = 'Day')
+
+}
+
 }

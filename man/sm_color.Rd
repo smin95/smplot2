@@ -8,18 +8,19 @@ sm_color(...)
 }
 \arguments{
 \item{...}{The input has to be a character string.of a color name.
-There are 16 colors available from the SM palette:
+There are 20 colors available from the SM palette:
 `'blue'`,`'crimson'`, `'green'`, `'purple'`, `'orange'`,
 `'skyblue'`, `'pink'`, `'limegreen'`, `'lightpurple'`,
-`'brown'`, `'red'`, `'lightorange'`,
-`'asparagus'`, `'viridian'`, `'darkred'`, `'lightblue'`}
+`'brown'`, `'red'`, `'lightbrown'`,
+`'asparagus'`, `'viridian'`, `'darkred'`, `'lightblue'`,
+`'light blue'`, `'wine'`, `'yellow'`, `'lightgreen'`}
 }
 \value{
 A character/string of hex codes
 }
 \description{
 This is a custom color palette that SM recommends for data visualization.
-It returns up to 16 different colors with a high visibility.
+It returns up to 20 different colors with a high visibility.
 }
 \examples{
 sm_color('crimson')
