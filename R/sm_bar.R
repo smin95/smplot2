@@ -44,6 +44,10 @@
 #' If the border needs to be displayed, the input should be TRUE.
 #' If the border is not needed, the input should be FALSE.
 #'
+#' @param points
+#' If points is set TRUE, individual points are shown. If FALSE,
+#' they are not shown.
+#'
 #' @param ...
 #' Other parameters, such as 'color', 'shape', 'fill',
 #' to specify the properties of the points.
@@ -82,100 +86,168 @@ sm_bar <- function(bar_fill_color,
                    point_jitter_width = 0.12,
                    borders = TRUE,
                    legends = FALSE,
+                   points = TRUE,
                    ...) {
 
   if (missing(bar_fill_color)) {
-    if (errorbar_type == 'se') {
-      list(ggplot2::theme_bw(base_size = 10, base_family = ''),
-           stat_summary(fun = mean, geom = "bar", width = bar_width,
-                        color = bar_border_color, alpha = bar_alpha),
-           ggplot2::geom_point(position = ggplot2::position_jitter(width = point_jitter_width,
-                                                                   height = 0,
-                                                                   seed = 10),
-                               size = point_size,
-                               alpha = point_alpha, ...),
-           stat_summary(fun.data = mean_se, geom = "linerange",
-                        size = errSize,
-                        color = errColor),
-           sm_hgrid(borders = borders, legends = legends))
-    } else if (errorbar_type == 'sd') {
-      list(ggplot2::theme_bw(base_size = 10, base_family = ''),
-           stat_summary(fun = mean, geom = "bar", width = bar_width,
-                        color = bar_border_color, alpha = bar_alpha),
-           ggplot2::geom_point(position = ggplot2::position_jitter(width = point_jitter_width,
-                                                                   height = 0,
-                                                                   seed = 10),
-                               size = point_size,
-                               alpha = point_alpha, ...),
-           stat_summary(fun = mean, geom = "linerange",
-                        fun.min = function(x) mean(x) - sd(x),
-                        fun.max = function(x) mean(x) + sd(x),
-                        size = errSize,
-                        color = errColor),
-           sm_hgrid(borders = borders, legends = legends))
-    } else if (errorbar_type == 'ci') {
-      list(ggplot2::theme_bw(base_size = 10, base_family = ''),
-           stat_summary(fun = mean, geom = "bar", width = bar_width,
-                        color = bar_border_color, alpha = bar_alpha),
-           ggplot2::geom_point(position = ggplot2::position_jitter(width = point_jitter_width,
-                                                                   height = 0,
-                                                                   seed = 10),
-                               size = point_size,
-                               alpha = point_alpha, ...),
-           stat_summary(fun.data = mean_cl_boot, geom = "linerange",
-                        size = errSize,
-                        color = errColor),
-           sm_hgrid(borders = borders, legends = legends))
-    } else {
-      stop('Wrong input argument for errorbar_type. Please write either "se", "sd" or "ci"')
+    if (points == TRUE) {
+      if (errorbar_type == 'se') {
+        list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+             stat_summary(fun = mean, geom = "bar", width = bar_width,
+                          color = bar_border_color, alpha = bar_alpha),
+             ggplot2::geom_point(position = ggplot2::position_jitter(width = point_jitter_width,
+                                                                     height = 0,
+                                                                     seed = 10),
+                                 size = point_size,
+                                 alpha = point_alpha, ...),
+             stat_summary(fun.data = mean_se, geom = "linerange",
+                          size = errSize,
+                          color = errColor),
+             sm_hgrid(borders = borders, legends = legends))
+      } else if (errorbar_type == 'sd') {
+        list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+             stat_summary(fun = mean, geom = "bar", width = bar_width,
+                          color = bar_border_color, alpha = bar_alpha),
+             ggplot2::geom_point(position = ggplot2::position_jitter(width = point_jitter_width,
+                                                                     height = 0,
+                                                                     seed = 10),
+                                 size = point_size,
+                                 alpha = point_alpha, ...),
+             stat_summary(fun = mean, geom = "linerange",
+                          fun.min = function(x) mean(x) - sd(x),
+                          fun.max = function(x) mean(x) + sd(x),
+                          size = errSize,
+                          color = errColor),
+             sm_hgrid(borders = borders, legends = legends))
+      } else if (errorbar_type == 'ci') {
+        list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+             stat_summary(fun = mean, geom = "bar", width = bar_width,
+                          color = bar_border_color, alpha = bar_alpha),
+             ggplot2::geom_point(position = ggplot2::position_jitter(width = point_jitter_width,
+                                                                     height = 0,
+                                                                     seed = 10),
+                                 size = point_size,
+                                 alpha = point_alpha, ...),
+             stat_summary(fun.data = mean_cl_boot, geom = "linerange",
+                          size = errSize,
+                          color = errColor),
+             sm_hgrid(borders = borders, legends = legends))
+      } else {
+        stop('Wrong input argument for errorbar_type. Please write either "se", "sd" or "ci"')
+      }
+    } else if (points == FALSE) {
+      if (errorbar_type == 'se') {
+        list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+             stat_summary(fun = mean, geom = "bar", width = bar_width,
+                          color = bar_border_color, alpha = bar_alpha),
+             stat_summary(fun.data = mean_se, geom = "linerange",
+                          size = errSize,
+                          color = errColor),
+             sm_hgrid(borders = borders, legends = legends))
+      } else if (errorbar_type == 'sd') {
+        list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+             stat_summary(fun = mean, geom = "bar", width = bar_width,
+                          color = bar_border_color, alpha = bar_alpha),
+             stat_summary(fun = mean, geom = "linerange",
+                          fun.min = function(x) mean(x) - sd(x),
+                          fun.max = function(x) mean(x) + sd(x),
+                          size = errSize,
+                          color = errColor),
+             sm_hgrid(borders = borders, legends = legends))
+      } else if (errorbar_type == 'ci') {
+        list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+             stat_summary(fun = mean, geom = "bar", width = bar_width,
+                          color = bar_border_color, alpha = bar_alpha),
+             stat_summary(fun.data = mean_cl_boot, geom = "linerange",
+                          size = errSize,
+                          color = errColor),
+             sm_hgrid(borders = borders, legends = legends))
+      } else {
+        stop('Wrong input argument for errorbar_type. Please write either "se", "sd" or "ci"')
+      }
     }
   } else {
-    if (errorbar_type == 'se') {
-      list(ggplot2::theme_bw(base_size = 10, base_family = ''),
-           stat_summary(fun = mean, geom = "bar", width = bar_width,
-                        color = bar_border_color, alpha = bar_alpha,
-                        fill = bar_fill_color),
-           ggplot2::geom_point(position = ggplot2::position_jitter(width = point_jitter_width,
-                                                                   height = 0,
-                                                                   seed = 10),
-                               size = point_size,
-                               alpha = point_alpha, ...),
-           stat_summary(fun.data = mean_se, geom = "linerange",
-                        size = errSize,
-                        color = errColor),
-           sm_hgrid(borders = borders, legends = legends))
-    } else if (errorbar_type == 'sd') {
-      list(ggplot2::theme_bw(base_size = 10, base_family = ''),
-           stat_summary(fun = mean, geom = "bar", width = bar_width,
-                        color = bar_border_color, alpha = bar_alpha,
-                        fill = bar_fill_color),
-           ggplot2::geom_point(position = ggplot2::position_jitter(width = point_jitter_width,
-                                                                   height = 0,
-                                                                   seed = 10),
-                               size = point_size,
-                               alpha = point_alpha, ...),
-           stat_summary(fun = mean, geom = "linerange",
-                        fun.min = function(x) mean(x) - sd(x),
-                        fun.max = function(x) mean(x) + sd(x),
-                        size = errSize,
-                        color = errColor),
-           sm_hgrid(borders = borders, legends = legends))
-    } else if (errorbar_type == 'ci') {
-      list(ggplot2::theme_bw(base_size = 10, base_family = ''),
-           stat_summary(fun = mean, geom = "bar", width = bar_width,
-                        color = bar_border_color, alpha = bar_alpha,
-                        fill = bar_fill_color),
-           ggplot2::geom_point(position = ggplot2::position_jitter(width = point_jitter_width,
-                                                                   height = 0,
-                                                                   seed = 10),
-                               size = point_size,
-                               alpha = point_alpha, ...),
-           stat_summary(fun.data = mean_cl_boot, geom = "linerange",
-                        size = errSize,
-                        color = errColor),
-           sm_hgrid(borders = borders, legends = legends))
-    } else {
-      stop('Wrong input argument for errorbar_type. Please write either "se", "sd" or "ci"')
+    if (points == TRUE) {
+      if (errorbar_type == 'se') {
+        list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+             stat_summary(fun = mean, geom = "bar", width = bar_width,
+                          color = bar_border_color, alpha = bar_alpha,
+                          fill = bar_fill_color),
+             ggplot2::geom_point(position = ggplot2::position_jitter(width = point_jitter_width,
+                                                                     height = 0,
+                                                                     seed = 10),
+                                 size = point_size,
+                                 alpha = point_alpha, ...),
+             stat_summary(fun.data = mean_se, geom = "linerange",
+                          size = errSize,
+                          color = errColor),
+             sm_hgrid(borders = borders, legends = legends))
+      } else if (errorbar_type == 'sd') {
+        list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+             stat_summary(fun = mean, geom = "bar", width = bar_width,
+                          color = bar_border_color, alpha = bar_alpha,
+                          fill = bar_fill_color),
+             ggplot2::geom_point(position = ggplot2::position_jitter(width = point_jitter_width,
+                                                                     height = 0,
+                                                                     seed = 10),
+                                 size = point_size,
+                                 alpha = point_alpha, ...),
+             stat_summary(fun = mean, geom = "linerange",
+                          fun.min = function(x) mean(x) - sd(x),
+                          fun.max = function(x) mean(x) + sd(x),
+                          size = errSize,
+                          color = errColor),
+             sm_hgrid(borders = borders, legends = legends))
+      } else if (errorbar_type == 'ci') {
+        list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+             stat_summary(fun = mean, geom = "bar", width = bar_width,
+                          color = bar_border_color, alpha = bar_alpha,
+                          fill = bar_fill_color),
+             ggplot2::geom_point(position = ggplot2::position_jitter(width = point_jitter_width,
+                                                                     height = 0,
+                                                                     seed = 10),
+                                 size = point_size,
+                                 alpha = point_alpha, ...),
+             stat_summary(fun.data = mean_cl_boot, geom = "linerange",
+                          size = errSize,
+                          color = errColor),
+             sm_hgrid(borders = borders, legends = legends))
+      } else {
+        stop('Wrong input argument for errorbar_type. Please write either "se", "sd" or "ci"')
+      }
+    } else if (points == FALSE) {
+      if (errorbar_type == 'se') {
+        list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+             stat_summary(fun = mean, geom = "bar", width = bar_width,
+                          color = bar_border_color, alpha = bar_alpha,
+                          fill = bar_fill_color),
+             stat_summary(fun.data = mean_se, geom = "linerange",
+                          size = errSize,
+                          color = errColor),
+             sm_hgrid(borders = borders, legends = legends))
+      } else if (errorbar_type == 'sd') {
+        list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+             stat_summary(fun = mean, geom = "bar", width = bar_width,
+                          color = bar_border_color, alpha = bar_alpha,
+                          fill = bar_fill_color),
+             stat_summary(fun = mean, geom = "linerange",
+                          fun.min = function(x) mean(x) - sd(x),
+                          fun.max = function(x) mean(x) + sd(x),
+                          size = errSize,
+                          color = errColor),
+             sm_hgrid(borders = borders, legends = legends))
+      } else if (errorbar_type == 'ci') {
+        list(ggplot2::theme_bw(base_size = 10, base_family = ''),
+             stat_summary(fun = mean, geom = "bar", width = bar_width,
+                          color = bar_border_color, alpha = bar_alpha,
+                          fill = bar_fill_color),
+             stat_summary(fun.data = mean_cl_boot, geom = "linerange",
+                          size = errSize,
+                          color = errColor),
+             sm_hgrid(borders = borders, legends = legends))
+      } else {
+        stop('Wrong input argument for errorbar_type. Please write either "se", "sd" or "ci"')
+      }
     }
   }
 }
