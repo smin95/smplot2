@@ -17,7 +17,6 @@ sm_bar(
   point_jitter_width = 0.12,
   borders = TRUE,
   legends = FALSE,
-  points = TRUE,
   ...
 )
 }
@@ -52,9 +51,6 @@ If the border is not needed, the input should be FALSE.}
 
 \item{legends}{If the legend needs to be displayed, the input should be TRUE.
 If the legend is not needed, the input should be FALSE.}
-
-\item{points}{If points is set TRUE, individual points are shown. If FALSE,
-they are not shown.}
 
 \item{...}{Other parameters, such as 'color', 'shape', 'fill',
 to specify the properties of the points.
