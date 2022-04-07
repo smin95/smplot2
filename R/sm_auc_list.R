@@ -67,5 +67,6 @@ sm_auc_list <- function(data, subjects, conditions, x, values) {
     }
   }
   auc_list[[conditions]] <- base::as.factor(auc_list[[conditions]])
+  levels(auc_list[[conditions]]) <- levels(data[[conditions]])
   return(auc_list)
 }
