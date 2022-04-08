@@ -45,7 +45,7 @@
 #' }
 #'
 sm_auc_list <- function(data, subjects, conditions, x, values) {
-
+  data[[conditions]] <- as.factor(data[[conditions]])
   x <- unique(data[[x]])
   subjects_list <- unique(base::as.character(data[[subjects]]))
   subj_num <- length(subjects_list)
