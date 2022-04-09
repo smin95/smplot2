@@ -55,7 +55,7 @@ sm_slope_list <- function(data, subjects, conditions, x, values) {
   subj_num <- length(subjects_list)
   cond_list <- unique(data[[conditions]])
   cond_num <- length(cond_list)
-  x_val <- unique(data[[x]])
+  x_val <- unique(as.numeric(base::as.character(data[[x]])))
   x_length <- length(unique(x_val))
 
   slope_list <- data.frame(matrix(ncol = 3, nrow = subj_num*cond_num))
@@ -65,6 +65,7 @@ sm_slope_list <- function(data, subjects, conditions, x, values) {
     for (iSubj in seq_along(1:subj_num)) {
       ind <- which(data[[conditions]] == unique(cond_list)[iCond] &
                      data[[subjects]] == unique(subjects_list)[iSubj])
+
       lin_model <- lm(data[[values]][ind] ~ x_val)
 
       slope_list[,1][(cond_num*(iSubj-1))+(iCond)] <- subjects_list[iSubj]
