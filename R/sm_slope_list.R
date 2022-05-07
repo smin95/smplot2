@@ -15,7 +15,7 @@
 #' It must be strings.
 #'
 #' @param groups
-#' The name of the column of the data frame that contains each guorp.
+#' The name of the column of the data frame that contains each group.
 #' It must be strings.
 
 #' @param conditions
@@ -33,6 +33,7 @@
 #' actual data, which are the y-axis points from which the
 #' slope can be calculated. It must be strings.
 #'
+#' @importFrom stats na.omit
 #' @export
 #' @importFrom stats coef lm
 #' @examples

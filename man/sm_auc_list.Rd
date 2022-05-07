@@ -4,13 +4,16 @@
 \alias{sm_auc_list}
 \title{Calculating Area under Curve across multiple conditions and subjects}
 \usage{
-sm_auc_list(data, subjects, conditions, x, values)
+sm_auc_list(data, subjects, groups, conditions, x, values)
 }
 \arguments{
 \item{data}{Name of the variable that stores the data frame that contains
 the columns with the specified column names.}
 
 \item{subjects}{The name of the column of the data frame that contains subjects.
+It must be strings.}
+
+\item{groups}{The name of the column of the data frame that contains each group.
 It must be strings.}
 
 \item{conditions}{The name of the column of the data frame that contains each condition.
@@ -27,7 +30,9 @@ AUC can be calculated. It must be strings.}
 }
 \description{
 This function returns a data frame containing AUCs from a data frame
-that contains the original raw data.
+that contains the original raw data. One of the two arguments 'groups'
+and 'conditions' must be filled. The function will throw an error
+if both arguments are empty.
 }
 \examples{
 \dontrun{

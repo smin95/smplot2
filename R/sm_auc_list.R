@@ -16,7 +16,7 @@
 #' It must be strings.
 #'
 #' @param groups
-#' The name of the column of the data frame that contains each guorp.
+#' The name of the column of the data frame that contains each group.
 #' It must be strings.
 
 #' @param conditions
@@ -33,6 +33,8 @@
 #' The name of the column of the data frame that contains the
 #' actual data, which are the y-axis points from which the
 #' AUC can be calculated. It must be strings.
+#'
+#' @importFrom stats na.omit
 #'
 #' @export
 #' @examples

@@ -4,13 +4,16 @@
 \alias{sm_slope_list}
 \title{Calculating the slope across multiple conditions and subjects}
 \usage{
-sm_slope_list(data, subjects, conditions, x, values)
+sm_slope_list(data, subjects, groups, conditions, x, values)
 }
 \arguments{
 \item{data}{Name of the variable that stores the data frame that contains
 the columns with the specified column names.}
 
 \item{subjects}{The name of the column of the data frame that contains subjects.
+It must be strings.}
+
+\item{groups}{The name of the column of the data frame that contains each group.
 It must be strings.}
 
 \item{conditions}{The name of the column of the data frame that contains each condition.
