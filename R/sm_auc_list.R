@@ -74,7 +74,7 @@ sm_auc_list <- function(data, subjects, groups, conditions, x, values) {
       for (iSubj in seq_along(1:subj_num)) {
         ind <- which(data[[conditions]] == unique(cond_list)[iCond] &
                        data[[subjects]] == unique(subjects_list)[iSubj])
-        print(ind)
+
         auc_list[,1][(cond_num*(iSubj-1))+(iCond)] <- subjects_list[iSubj]
         auc_list[,2][(cond_num*(iSubj-1))+(iCond)] <- cond_list[iCond]
         auc_list[,3][(cond_num*(iSubj-1))+(iCond)] <- sm_auc(x_val,data[[values]][ind])
