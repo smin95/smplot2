@@ -74,12 +74,13 @@ sm_slope_list <- function(data, subjects, groups, conditions, x, values) {
       for (iSubj in seq_along(1:subj_num)) {
         ind <- which(data[[conditions]] == unique(cond_list)[iCond] &
                        data[[subjects]] == unique(subjects_list)[iSubj])
+        if (length(ind)!=0) {
+          lin_model <- lm(data[[values]][ind] ~ x_val)
 
-        lin_model <- lm(data[[values]][ind] ~ x_val)
-
-        slope_list[,1][(cond_num*(iSubj-1))+(iCond)] <- subjects_list[iSubj]
-        slope_list[,2][(cond_num*(iSubj-1))+(iCond)] <- cond_list[iCond]
-        slope_list[,3][(cond_num*(iSubj-1))+(iCond)] <- coef(lin_model)[[2]]
+          slope_list[,1][(cond_num*(iSubj-1))+(iCond)] <- subjects_list[iSubj]
+          slope_list[,2][(cond_num*(iSubj-1))+(iCond)] <- cond_list[iCond]
+          slope_list[,3][(cond_num*(iSubj-1))+(iCond)] <- coef(lin_model)[[2]]
+        }
       }
     }
 
@@ -100,11 +101,13 @@ sm_slope_list <- function(data, subjects, groups, conditions, x, values) {
         ind <- which(data[[groups]] == unique(group_list)[iGroup] &
                        data[[subjects]] == unique(subjects_list)[iSubj])
 
-        lin_model <- lm(data[[values]][ind] ~ x_val)
+        if (length(ind)!=0) {
+          lin_model <- lm(data[[values]][ind] ~ x_val)
 
-        slope_list[,1][(group_num*(iSubj-1))+(iGroup)] <- subjects_list[iSubj]
-        slope_list[,2][(group_num*(iSubj-1))+(iGroup)] <- cond_list[iGroup]
-        slope_list[,3][(group_num*(iSubj-1))+(iGroup)] <- coef(lin_model)[[2]]
+          slope_list[,1][(group_num*(iSubj-1))+(iGroup)] <- subjects_list[iSubj]
+          slope_list[,2][(group_num*(iSubj-1))+(iGroup)] <- group_list[iGroup]
+          slope_list[,3][(group_num*(iSubj-1))+(iGroup)] <- coef(lin_model)[[2]]
+        }
       }
     }
     slope_list[[groups]] <- base::as.factor(slope_list[[groups]])
