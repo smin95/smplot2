@@ -2,7 +2,7 @@
 % Please edit documentation in R/sm_violin.R
 \name{sm_violin}
 \alias{sm_violin}
-\title{violin plot with individual points (jittered)}
+\title{A violin plot with individual points (jittered)}
 \usage{
 sm_violin(
   violin_fill_color = "gray90",

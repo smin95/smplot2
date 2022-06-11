@@ -1,4 +1,4 @@
-#' violin plot with individual points (jittered)
+#' A violin plot with individual points (jittered)
 #'
 #' @description
 #' A violin plot superimposed by jittered individual points.
