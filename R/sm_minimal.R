@@ -30,7 +30,7 @@ sm_minimal <- function(legends = TRUE, borders = TRUE) {
   if (legends == TRUE) {
     if (borders == FALSE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
-        cowplot::theme_minimal_hgrid()
+        #cowplot::theme_minimal_hgrid()
         ggplot2::theme(
           panel.grid.minor.x=  ggplot2::element_blank(),
           panel.grid.major.x=  ggplot2::element_blank(), panel.grid.minor.y = ggplot2::element_blank(),
@@ -64,7 +64,7 @@ sm_minimal <- function(legends = TRUE, borders = TRUE) {
   } else if (legends == FALSE) {
     if (borders == FALSE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
-        cowplot::theme_minimal_hgrid()
+        #cowplot::theme_minimal_hgrid()
         ggplot2::theme(
           panel.grid.minor.x=  ggplot2::element_blank(),
           panel.grid.major.x=  ggplot2::element_blank(), panel.grid.minor.y = element_blank(),
