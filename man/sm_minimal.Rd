@@ -2,16 +2,13 @@
 % Please edit documentation in R/sm_minimal.R
 \name{sm_minimal}
 \alias{sm_minimal}
-\title{SM minimal theme (no grid).}
+\title{SM minimal theme (no grid) with borders.}
 \usage{
-sm_minimal(legends = TRUE, borders = TRUE)
+sm_minimal(legends = FALSE)
 }
 \arguments{
 \item{legends}{If the legend needs to be displayed, the input should be TRUE.
 If the legend is not needed, the input should be FALSE.}
-
-\item{borders}{If the border needs to be displayed, the input should be TRUE.
-If the border is not needed, the input should be FALSE.}
 }
 \description{
 This theme has no major grid.

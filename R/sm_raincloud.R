@@ -179,7 +179,7 @@ sm_raincloud <- function(data, x, y,
 
       geom_point(data = df %>% dplyr::filter(x_axis == 2),
                  aes(x = jit, y = {{y}}), size = point_size, ...) +
-      xlab('x-axis label') + sm_minimal(borders = borders, legends = legends)
+      xlab('x-axis label') + sm_hgrid(borders = borders, legends = legends)
 
   } else {
     fig <- ggplot(data = df, aes(fill = {{x}}, color = {{x}})) +
@@ -198,7 +198,7 @@ sm_raincloud <- function(data, x, y,
                  aes(x = jit, y = {{y}}), size = point_size,
                  position = position_nudge(x = position_nudge_vector[1]),...) +
 
-      xlab('Group label') + sm_minimal(borders = borders, legends = legends)
+      xlab('Group label') + sm_hgrid(borders = borders, legends = legends)
   }
 
   if (vertical == FALSE) {
