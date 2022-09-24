@@ -102,6 +102,10 @@ sm_raincloud <- function(data, x, y,
                          legends = FALSE,
                          ...) {
 
+  if (jitter_width == 0) {
+    jitter_width = 1e-15
+  }
+
   df <- data %>% dplyr::mutate(x_axis = as.numeric(factor({{x}}))) %>%
     dplyr::mutate(jit = jitter(x_axis, amount = jitter_width))
 
