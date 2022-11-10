@@ -79,11 +79,10 @@
 #' @importFrom magrittr %>%
 #' @importFrom dplyr filter group_by mutate
 #' @importFrom utils globalVariables
-#'
+#' @return
 #' @export
 #'
 #' @examples
-#'
 #' \dontrun{
 #' #' set.seed(2) # generate random data
 #' day1 = rnorm(20,0,1)
