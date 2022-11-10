@@ -17,7 +17,7 @@
 #' Column variable of the data that defines the level of the y-axis.
 #' This is used to define the aes() in ggplot().
 #'
-#' @param err_side
+#' @param range_side
 #' String argument to specify the side of the text of the error range (ex. 95% CI interval texts).
 #' The options are: 'top' and 'bottom'. This is an similar argument to
 #' 'which_side' in the `sm_raincloud()` function.
@@ -96,13 +96,13 @@
 #'
 #' sm_forest(data = df2, x = Value, y = Day, alpha = 0.2,
 #' error_type = 'sd',
-#' err_side = 'top',
+#' range_side = 'top',
 #' jitter_width = 0.1, sep_level = 0,
 #' avg_point_shape= 23, shape = 21)
 #' }
 #'
 sm_forest <- function(data, x, y,
-          err_side = 'top',
+          range_side = 'top',
           errorbar_type = 'ci',
           sep_level = 2,
           vertical = FALSE,
@@ -148,7 +148,7 @@ sm_forest <- function(data, x, y,
 
   nLevels = length(unique(df$y_axis))
 
-  if (err_side == 'top') {
+  if (range_side == 'top') {
     if (sep_level == 3) {
       position_nudge_vector <- c(-0.3, 0,0.3)
     } else if (sep_level == 2) {
@@ -158,7 +158,7 @@ sm_forest <- function(data, x, y,
     } else if (sep_level == 0) {
       position_nudge_vector <- c(0,0,0.35)
     }
-  } else if (err_side == 'bottom') {
+  } else if (range_side == 'bottom') {
     if (sep_level == 3) {
       position_nudge_vector <- c(0.3, 0,-0.3)
     } else if (sep_level == 2) {

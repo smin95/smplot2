@@ -8,7 +8,7 @@ sm_forest(
   data,
   x,
   y,
-  err_side = "top",
+  range_side = "top",
   errorbar_type = "ci",
   sep_level = 2,
   vertical = FALSE,
@@ -34,7 +34,7 @@ This is used to define the aes() in ggplot().}
 \item{y}{Column variable of the data that defines the level of the y-axis.
 This is used to define the aes() in ggplot().}
 
-\item{err_side}{String argument to specify the side of the text of the error range (ex. 95% CI interval texts).
+\item{range_side}{String argument to specify the side of the text of the error range (ex. 95% CI interval texts).
 The options are: 'top' and 'bottom'. This is an similar argument to
 'which_side' in the `sm_raincloud()` function.}
 
@@ -92,7 +92,7 @@ df2 <- cbind(Subject, Data, Day)
 
 sm_forest(data = df2, x = Value, y = Day, alpha = 0.2,
 error_type = 'sd',
-err_side = 'top',
+range_side = 'top',
 jitter_width = 0.1, sep_level = 0,
 avg_point_shape= 23, shape = 21)
 }
