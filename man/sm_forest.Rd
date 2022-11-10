@@ -11,7 +11,6 @@ sm_forest(
   range_side = "top",
   errorbar_type = "ci",
   sep_level = 2,
-  vertical = FALSE,
   jitter_width = 0,
   point_size = 2.5,
   avg_point_shape = 18,
@@ -47,10 +46,6 @@ If it is set to 'ci' (default), the error bar will display 95\% confidence inter
 the individual points and the average point. The value can be 0-4.
 If it's 0, all of these are clustered together. If it's 3, they are all
 separated. 1 and 2 are somewhere in the middle. Default is set to 2.}
-
-\item{vertical}{The orientation of the plots. The default is set to FALSE.
-If you want the horizontal orientation of the plot, please set this argument
-as FALSE.}
 
 \item{jitter_width}{A numerical value that determines the degree of the jitter for each point. If its 0,
 all the points will have no jitter (aligned along the y-axis).}

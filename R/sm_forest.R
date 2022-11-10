@@ -35,12 +35,6 @@
 #' If it's 0, all of these are clustered together. If it's 3, they are all
 #' separated. 1 and 2 are somewhere in the middle. Default is set to 2.
 #'
-#' @param vertical
-#'
-#' The orientation of the plots. The default is set to FALSE.
-#' If you want the horizontal orientation of the plot, please set this argument
-#' as FALSE.
-#'
 #' @param jitter_width
 #' A numerical value that determines the degree of the jitter for each point. If its 0,
 #' all the points will have no jitter (aligned along the y-axis).
@@ -105,7 +99,6 @@ sm_forest <- function(data, x, y,
           range_side = 'top',
           errorbar_type = 'ci',
           sep_level = 2,
-          vertical = FALSE,
           jitter_width = 0,
           point_size = 2.5,
           avg_point_shape = 18,
@@ -193,11 +186,6 @@ sm_forest <- function(data, x, y,
 
     ylab('Group label') + sm_hgrid(borders = borders, legends = legends) +
     xlab('Value')
-
-
-  if (vertical == TRUE) {
-    fig <- fig + coord_flip()
-  }
   return(fig)
 
 }
