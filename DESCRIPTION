@@ -1,4 +1,4 @@
-Package: smplot
+Package: smplot2
 Type: Package
 Title: smplot - a package for statistical data visualization
 Version: 0.1.0
@@ -24,4 +24,4 @@ Imports:
   ggstance,
   zoo
 URL: https://www.smin95.com 
-BugReports: https://github.com/smin95/smplot/issues 
+BugReports: https://github.com/smin95/smplot2/issues 

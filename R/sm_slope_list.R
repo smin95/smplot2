@@ -48,12 +48,12 @@
 #' Condition <- rep('Control', length(day1)*2)
 #' df <- cbind(Subject, Value, Condition, Day)
 #'
-#' sm_slope_list(data = df, subjects = 'Subject',values = 'Value',
+#' sm_slope_all(data = df, subjects = 'Subject',values = 'Value',
 #' conditions = 'Condition',x = 'Day')
 #'
 #' }
 #'
-sm_slope_list <- function(data, subjects, groups, conditions, x, values) {
+sm_slope_all <- function(data, subjects, groups, conditions, x, values) {
 
   x_val <- unique(as.numeric(base::as.character(data[[x]])))
   subjects_list <- unique(base::as.character(data[[subjects]]))
@@ -155,4 +155,9 @@ sm_slope_list <- function(data, subjects, groups, conditions, x, values) {
   slope_list <- na.omit(slope_list)
   print(paste('Slope = ', values, ' ~ ', x))
   return(slope_list)
+}
+
+sm_slope_list <- function(...) {
+  message('sm_slope_list is deprecated. Use sm_slope_all instead.')
+  sm_auc_all(...)
 }

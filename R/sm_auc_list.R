@@ -48,12 +48,12 @@
 #' Condition <- rep('Control', length(day1)*2)
 #' df <- cbind(Subject, Value, Condition, Day)
 #'
-#' sm_auc_list(data = df, subjects = 'Subject',values = 'Value',
+#' sm_auc_all(data = df, subjects = 'Subject',values = 'Value',
 #' conditions = 'Condition',x = 'Day')
 #'
 #' }
 #'
-sm_auc_list <- function(data, subjects, groups, conditions, x, values) {
+sm_auc_all <- function(data, subjects, groups, conditions, x, values) {
 
   x_val <- unique(data[[x]])
   subjects_list <- unique(base::as.character(data[[subjects]]))
@@ -145,4 +145,9 @@ sm_auc_list <- function(data, subjects, groups, conditions, x, values) {
   auc_list <- na.omit(auc_list)
   print(paste('AUC =', values, '*', x))
   return(auc_list)
+}
+
+sm_auc_list <- function(...) {
+  message('sm_auc_list is deprecated. Use sm_auc_all instead.')
+  sm_auc_all(...)
 }
