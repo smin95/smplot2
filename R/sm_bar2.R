@@ -1,4 +1,4 @@
-#' A bar plot with jittered individual points (updated)
+#' A bar plot with jittered individual points (updated in smplot2)
 #'
 #' @param ...
 #' A generic aesthetic parameter across points and the boxplot. This is optional.
@@ -42,6 +42,7 @@
 #'
 #' @examples
 #' \dontrun{
+#' library(smplot2)
 #' set.seed(1) # generate random data
 #‘ day1 = rnorm(16,2,1)
 #’ day2 = rnorm(16,5,1)

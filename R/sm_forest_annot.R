@@ -39,3 +39,7 @@ sm_forest_annot <- function(data, x, y, errorbar_type = 'ci',
 
 }
 
+globalVariables(c('ggplot', 'geom_point', 'geom_line', 'geom_linerangeh',
+                  'position_nudge', '%>%', 'position','ci','avg','high','low',
+                  'y_axis', 'mutate', 'int',
+                  'geom_flat_violin', 'x_axis', 'jit'))

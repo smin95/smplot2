@@ -2,7 +2,7 @@
 % Please edit documentation in R/sm_bar2.R
 \name{sm_bar}
 \alias{sm_bar}
-\title{A bar plot with jittered individual points (updated)}
+\title{A bar plot with jittered individual points (updated in smplot2)}
 \usage{
 sm_bar(
   ...,
@@ -43,10 +43,11 @@ If the border is not needed, the input should be FALSE.}
 If the legend is not needed, the input should be FALSE.}
 }
 \description{
-A bar plot with jittered individual points (updated)
+A bar plot with jittered individual points (updated in smplot2)
 }
 \examples{
 \dontrun{
+library(smplot2)
 set.seed(1) # generate random data
 
 # with aesthetic defaults of smplot

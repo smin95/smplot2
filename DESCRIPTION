@@ -19,6 +19,7 @@ Imports:
   magrittr,
   utils,
   pwr,
+  sdamr,
   stats,
   Hmisc,
   ggstance,

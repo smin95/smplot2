@@ -1,3 +1,88 @@
+#' Raincloud plot (updated in smplot2)
+#'
+#' @description
+#' This function visualizes a raincloud plot, which is a combination of jittered points, boxplots
+#' and violin plots. The creation of this function
+#' has been inspired by the R package called 'raincloudplots' by Jordy van
+#' Langen (https://github.com/jorvlan/raincloudplots).
+#'
+#' This function has been created to allow more customisation than the functions
+#' in the raincloudplots package. Also, this function automatically sorts the data given the
+#' condition that the x-axis factor levels have been sorted properly.
+#'
+#' Also in smplot2, there will be more flexibility. For example, you can plot
+#' the raincloud across multiple groups. Also the number of input argument has been
+#' reduced, thereby avoiding potential confusion from users.
+#'
+#' @param ...
+#' A generic aesthetic parameter across points, boxplot and violin. This
+#' is optional.
+#'
+#' @param boxplot.params
+#' List of parameters for boxplot, such as color, alpha, fill etc
+#'
+#' @param violin.params
+#' List of parameters for violin, such as color, alpha, fill etc
+#'
+#' @param point.params
+#' List of parameters for individual points, such as color, alpha, fill etc
+#'
+#' @param which_side
+#' String argument to specify the side of the boxplots and violinplots.
+#' The options are: 'right' and 'left'. 'mixed' has been removed from smplot due
+#' to its lack of usage.
+#'
+#' @param sep_level
+#' A numerical value that controls the level of the separation among
+#' the boxplot, violin plot and the points. The value can be 0-4.
+#' If it's 0, all of these are clustered together. If it's 3, they are all
+#' separated. 1 and 2 are somewhere in the middle. Default is set to 2.
+#'
+#' @param point_jitter_width
+#' A numerical value that determines the degree of the jitter for each point. If its 0,
+#' all the points will have no jitter (aligned along the y-axis).
+#'
+#' @param vertical
+#' The orientation of the plots. The default is set to TRUE.
+#' If you want the horizontal orientation of the plot, please set this argument
+#' as FALSE.
+#'
+#' @param borders
+#' If the border needs to be displayed, the input should be TRUE.
+#' If the border is not needed, the input should be FALSE.
+#'
+#' @param legends
+#' If the legend needs to be displayed, the input should be TRUE.
+#' If the legend is not needed, the input should be FALSE.
+#'
+#' @return
+#' @import ggplot2 cowplot Hmisc
+#' @importFrom stats sd
+#' @importFrom utils modifyList
+#' @importFrom gghalves geom_half_boxplot geom_half_violin
+#' @importFrom sdamr position_jitternudge
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' library(smplot2)
+#'
+#' set.seed(2) # generate random data
+#' day1 = rnorm(20,0,1)
+#' day2 = rnorm(20,5,1)
+#‘ day3 = rnorm(20,6,1.5)
+#’ day4 = rnorm(20,7,2)
+#‘ Subject <- rep(paste0('S',seq(1:20)), 4)
+#’ Data <- data.frame(Value = matrix(c(day1,day2,day3,day4),ncol=1))
+#‘ Day <- rep(c('Day 1', 'Day 2', 'Day 3', 'Day 4'), each = length(day1))
+#' df2 <- cbind(Subject, Data, Day)
+#'
+#' df2 %>% ggplot(aes(x = Day, y = Value, color = Day, fill = Day)) +
+#' sm_raincloud() +
+#'  xlab('Day')  +
+#'  scale_fill_manual(values = sm_palette(4))
+#'
+#' }
 sm_raincloud <- function(...,
                          boxplot.params = list(),
                          violin.params = list(alpha = 0.3, color = 'transparent'),
