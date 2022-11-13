@@ -86,12 +86,12 @@ sm_statCorr <- function(...,
                         borders = TRUE,
                         legends = FALSE) {
 
-  params <- list(...)
-  fit.params <- modifyList(params, fit.params)
+  fit.params <- modifyList(fit.params)
 
   fitPlot <- do.call('geom_smooth',
                      modifyList(list(method = 'lm', se = F,
-                                     alpha = 0.2, weight = 0.8, fullrange = fullrange), fit.params))
+                                     alpha = 0.2, weight = 0.8, fullrange = fullrange,
+                                     ...), fit.params))
 
 
 
