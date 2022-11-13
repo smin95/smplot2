@@ -94,7 +94,7 @@ sm_violin <- function(...,
                        modifyList(list(fun.data = mean_sdl,
                                        fun.args = list(mult = 1),
                                        geom = 'pointrange',
-                                       fatten = point.params$size),err.params))
+                                       fatten = point.params$size*1.3),err.params))
   } else if (errorbar_type == 'ci') {
     errPlot <- do.call('stat_summary',
                        modifyList(list(fun.data = mean_cl_boot,
