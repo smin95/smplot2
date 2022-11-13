@@ -8,7 +8,7 @@ sm_violin(
   ...,
   violin.params = list(fill = "gray90", color = "transparent"),
   err.params = list(size = 1.2),
-  point.params = list(size = 2.5, alpha = 0.25),
+  point.params = list(alpha = 0.2),
   errorbar_type = "sd",
   point_jitter_width = 0.17,
   points = TRUE,

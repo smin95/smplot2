@@ -53,8 +53,9 @@
 #' scale_color_manual(values = sm_color('blue','orange'))
 #' }
 sm_boxplot <- function(...,
-                       boxplot.params = list(notch = F, fill = 'gray95', color ='black', width=0.5, outlier.shape = NA),
-                       point.params = list(size = 2.5, alpha = 0.65, shape = 16),
+                       boxplot.params = list(notch = F, fill = 'gray95', color ='black',
+                                             size = 0.5, width=0.5, outlier.shape = NA),
+                       point.params = list(alpha = 0.65),
                        point_jitter_width = 0.12, points = TRUE,
                        borders = TRUE, legends = FALSE) {
 
