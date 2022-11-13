@@ -7,7 +7,7 @@ from a paired correlation test (updated in smplot2)}
 \usage{
 sm_statCorr(
   ...,
-  fit.params = list(size = 1, color = "black", linetype = "dashed"),
+  fit.params = list(),
   corr_method = "pearson",
   separate_by = ",",
   fullrange = TRUE,
@@ -19,7 +19,7 @@ sm_statCorr(
 )
 }
 \arguments{
-\item{...}{Arguments for the properties of regression line.
+\item{...}{Arguments for the properties of regression line, such as `linetype`, `color`, etc.
 For more information, type ?geom_smooth}
 
 \item{fit.params}{Paramters for the fitted line, such as color, linetype and alpha.}

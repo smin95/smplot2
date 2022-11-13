@@ -11,7 +11,7 @@
 #' pairing with `sm_corr_theme()`.
 #'
 #' @param ...
-#' Arguments for the properties of regression line.
+#' Arguments for the properties of regression line, such as `linetype`, `color`, etc.
 #' For more information, type ?geom_smooth
 #'
 #' @param fit.params
@@ -75,8 +75,7 @@
 
 #' }
 sm_statCorr <- function(...,
-                        fit.params = list(size = 1,
-                                          color = 'black', linetype = 'dashed'),
+                        fit.params = list(),
                         corr_method = 'pearson',
                         separate_by = ',',
                         fullrange = TRUE,
@@ -86,12 +85,12 @@ sm_statCorr <- function(...,
                         borders = TRUE,
                         legends = FALSE) {
 
-  fit.params <- modifyList(fit.params)
+  params <- list(...)
+  fit.params <- modifyList(params, fit.params)
 
   fitPlot <- do.call('geom_smooth',
                      modifyList(list(method = 'lm', se = F,
-                                     alpha = 0.2, weight = 0.8, fullrange = fullrange,
-                                     ...), fit.params))
+                                     alpha = 0.2, weight = 0.8, fullrange = fullrange), fit.params))
 
 
 
