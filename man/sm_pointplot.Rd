@@ -6,7 +6,7 @@
 \usage{
 sm_pointplot(
   ...,
-  avgPoint.params = list(size = 2.5, shape = 21, color = "transparent"),
+  avgPoint.params = list(size = 2.5),
   avgLine.params = list(),
   point.params = list(alpha = 0.35, color = "gray", fill = "gray"),
   line.params = list(alpha = 0.35, color = "gray"),

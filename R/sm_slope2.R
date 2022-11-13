@@ -116,7 +116,7 @@ sm_slope <- function(...,
   }
 
   if (missing(labels)) {
-    labels <- letters
+    labels <- rev(letters)
   }
 
   params <- list(...)
