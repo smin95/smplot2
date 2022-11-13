@@ -1,8 +1,8 @@
-#' SM theme with horizontal and vertical grids
+#' Minimalistic theme with major horizontal and vertical grids (updated in smplot2)
 #'
 #' @description
 #'
-#' This theme has major vertical and horizontal grids. This is useful for plotting correlation.
+#' This theme has major vertical and horizontal grids. This is useful for plotting correlations.
 #' sm_corr_theme() is exactly the same as sm_hvgrid().
 #'
 #' @export
@@ -38,7 +38,8 @@ sm_hvgrid <- function(legends = TRUE, borders = TRUE) {
           axis.title.x =  ggplot2::element_text(size = ggplot2::rel(.85), color = "black", vjust = -1),
           axis.text.x=  ggplot2::element_text(vjust= 0, size = ggplot2::rel(1.)),
           panel.grid.major =  ggplot2::element_line(size = 0.4),
-          plot.title =  ggplot2::element_text(hjust = 0.5, face = 'bold'),
+          plot.title =  ggplot2::element_text(size = ggplot2::rel(.85),
+                                              hjust = 0.5, face = 'bold'),
           panel.grid.minor.x =  ggplot2::element_blank(),
           panel.grid.minor.y = ggplot2::element_blank(),
           strip.background = ggplot2::element_rect(fill = NA, colour = NA),
@@ -75,7 +76,8 @@ sm_hvgrid <- function(legends = TRUE, borders = TRUE) {
           axis.title.x =  ggplot2::element_text(size = ggplot2::rel(.85), color = "black", vjust = -1),
           axis.text.x=  ggplot2::element_text(vjust= 0),
           panel.grid.major =  ggplot2::element_line(size = 0.4),
-          plot.title =  ggplot2::element_text(hjust = 0.5, face = 'bold'),
+          plot.title =  ggplot2::element_text(size = ggplot2::rel(.85),
+                                              hjust = 0.5, face = 'bold'),
           panel.grid.minor.x =  ggplot2::element_blank(),
           panel.grid.minor.y = ggplot2::element_blank(),
           strip.background = ggplot2::element_rect(fill = NA, colour = NA),

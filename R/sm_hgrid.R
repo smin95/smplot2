@@ -1,4 +1,4 @@
-#' A SM theme with a horizontal grid
+#' Minimalistic theme of horizontal major grids (updated in smplot2)
 
 #' @description
 #'
@@ -45,22 +45,23 @@ sm_hgrid <- function(legends = FALSE, borders = TRUE) {
           axis.text.x=ggplot2::element_text(vjust= 0),
           legend.text=ggplot2::element_text(size = ggplot2::rel(.78)),
           legend.title=ggplot2::element_text(size = ggplot2::rel(.78)),
-          plot.title = ggplot2::element_text(hjust = 0.5, face = 'bold')
+          plot.title = ggplot2::element_text(size = ggplot2::rel(.85),
+                                             hjust = 0.5, face = 'bold')
         )
     } else if (borders == TRUE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
 
         ggplot2::theme(
-          panel.grid.minor.x=  ggplot2::element_blank(),
-          panel.grid.major.x=  ggplot2::element_blank(), panel.grid.minor.y = element_blank(),
+          panel.grid.minor.x =  ggplot2::element_blank(),
+          panel.grid.major.x =  ggplot2::element_blank(), panel.grid.minor.y = element_blank(),
           panel.grid.major.y =  ggplot2::element_line(size = 0.5),
           axis.text =  ggplot2::element_text(size = ggplot2::rel(1.2), color = "black"),
           axis.title.y =  ggplot2::element_text(size = ggplot2::rel(1.2), color = "black"),
           axis.title.x =  ggplot2::element_text(size = ggplot2::rel(1.2), color = "black",
                                                 vjust=-1),
-          axis.text.x=ggplot2::element_text(vjust = 0),
-          legend.text=ggplot2::element_text(size = ggplot2::rel(1.1)),
-          legend.title=ggplot2::element_text(size = ggplot2::rel(1.1)),
+          axis.text.x = ggplot2::element_text(vjust = 0),
+          legend.text = ggplot2::element_text(size = ggplot2::rel(1.1)),
+          legend.title = ggplot2::element_text(size = ggplot2::rel(1.1)),
           plot.title = ggplot2::element_text(hjust = 0.5, face = 'bold')
         )
     }
@@ -69,8 +70,8 @@ sm_hgrid <- function(legends = FALSE, borders = TRUE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
         cowplot::theme_minimal_hgrid() +
         ggplot2::theme(
-          panel.grid.minor.x=  ggplot2::element_blank(),
-          panel.grid.major.x=  ggplot2::element_blank(), panel.grid.minor.y = ggplot2::element_blank(),
+          panel.grid.minor.x =  ggplot2::element_blank(),
+          panel.grid.major.x =  ggplot2::element_blank(), panel.grid.minor.y = ggplot2::element_blank(),
           panel.grid.major.y =  ggplot2::element_line(size = 0.5),
           axis.text =  ggplot2::element_text(size = ggplot2::rel(.85), color = "black"),
           axis.title.y =  ggplot2::element_text(size = ggplot2::rel(.85), color = "black"),
@@ -78,21 +79,22 @@ sm_hgrid <- function(legends = FALSE, borders = TRUE) {
                                                 vjust=-1),
           axis.text.x=ggplot2::element_text(vjust= 0),
           legend.position = 'none',
-          plot.title = ggplot2::element_text(hjust = 0.5, face = 'bold')
+          plot.title = ggplot2::element_text(size = ggplot2::rel(.85),
+                                             hjust = 0.5, face = 'bold')
         )
     } else if (borders == TRUE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
 
         ggplot2::theme(
-          panel.grid.minor.x=  ggplot2::element_blank(),
-          panel.grid.major.x=  ggplot2::element_blank(),
+          panel.grid.minor.x =  ggplot2::element_blank(),
+          panel.grid.major.x =  ggplot2::element_blank(),
           panel.grid.minor.y = ggplot2::element_blank(),
           panel.grid.major.y =  ggplot2::element_line(size = 0.5),
           axis.text =  ggplot2::element_text(size = ggplot2::rel(1.2), color = "black"),
           axis.title.y =  ggplot2::element_text(size = ggplot2::rel(1.2), color = "black"),
           axis.title.x =  ggplot2::element_text(size = ggplot2::rel(1.2), color = "black",
                                                 vjust=-1),
-          axis.text.x=ggplot2::element_text(vjust= 0),
+          axis.text.x = ggplot2::element_text(vjust= 0),
           legend.position = 'none',
           plot.title = ggplot2::element_text(hjust = 0.5, face = 'bold')
         )

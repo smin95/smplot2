@@ -2,7 +2,7 @@
 % Please edit documentation in R/sm_hgrid.R
 \name{sm_hgrid}
 \alias{sm_hgrid}
-\title{A SM theme with a horizontal grid}
+\title{Minimalistic theme of horizontal major grids (updated in smplot2)}
 \usage{
 sm_hgrid(legends = FALSE, borders = TRUE)
 }

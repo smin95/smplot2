@@ -2,7 +2,7 @@
 % Please edit documentation in R/sm_hvgrid.R
 \name{sm_hvgrid}
 \alias{sm_hvgrid}
-\title{SM theme with horizontal and vertical grids}
+\title{Minimalistic theme with major horizontal and vertical grids (updated in smplot2)}
 \usage{
 sm_hvgrid(legends = TRUE, borders = TRUE)
 }
@@ -14,7 +14,7 @@ If the legend is not needed, the input should be FALSE.}
 If the border is not needed, the input should be `FALSE`.}
 }
 \description{
-This theme has major vertical and horizontal grids. This is useful for plotting correlation.
+This theme has major vertical and horizontal grids. This is useful for plotting correlations.
 sm_corr_theme() is exactly the same as sm_hvgrid().
 }
 \examples{

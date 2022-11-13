@@ -1,4 +1,4 @@
-#' SM theme with horizontal and vertical major and minor grids
+#' SM theme with horizontal and vertical major and minor grids (updated in smplot2)
 #'
 #' @description
 #'
@@ -34,14 +34,14 @@ sm_hvgrid_minor <- function(legends = TRUE, borders = TRUE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
         cowplot::theme_minimal_grid() +
         ggplot2::theme(
-          axis.text =  ggplot2::element_text(size = ggplot2::rel(.71), color = "black"),
-          axis.title.y =  ggplot2::element_text(size = ggplot2::rel(.71), color = "black"),
-          axis.title.x =  ggplot2::element_text(size = ggplot2::rel(.71), color = "black", vjust = -1),
+          axis.text =  ggplot2::element_text(size = ggplot2::rel(.85), color = "black"),
+          axis.title.y =  ggplot2::element_text(size = ggplot2::rel(.85), color = "black"),
+          axis.title.x =  ggplot2::element_text(size = ggplot2::rel(.85), color = "black", vjust = -1),
           axis.text.x=  ggplot2::element_text(vjust= 0, size = ggplot2::rel(1.)),
           panel.grid.major =  ggplot2::element_line(size = 0.3),
           panel.grid.minor =  ggplot2::element_line(size = 0.3),
           axis.ticks = ggplot2::element_blank(),
-          plot.title =  ggplot2::element_text(hjust = 0.5, face = 'bold'),
+          plot.title =  ggplot2::element_text(size = ggplot2::rel(.85), hjust = 0.5, face = 'bold'),
           strip.background = ggplot2::element_rect(fill = NA, colour = NA),
           strip.text.x = ggplot2::element_text(colour = "black", size = ggplot2::rel(.85)),
           strip.text.y = ggplot2::element_text(colour = "black", size = ggplot2::rel(.85)),
@@ -51,9 +51,9 @@ sm_hvgrid_minor <- function(legends = TRUE, borders = TRUE) {
     } else if (borders == TRUE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
         ggplot2::theme(
-          axis.text =  ggplot2::element_text(size = ggplot2::rel(1), color = "black"),
-          axis.title.y =  ggplot2::element_text(size = ggplot2::rel(1), color = "black"),
-          axis.title.x =  ggplot2::element_text(size = ggplot2::rel(1), color = "black", vjust = -1),
+          axis.text =  ggplot2::element_text(size = ggplot2::rel(1.2), color = "black"),
+          axis.title.y =  ggplot2::element_text(size = ggplot2::rel(1.2), color = "black"),
+          axis.title.x =  ggplot2::element_text(size = ggplot2::rel(1.2), color = "black", vjust = -1),
           axis.text.x=  ggplot2::element_text(vjust= 0),
           panel.grid.major =  ggplot2::element_line(size = 0.3),
           panel.grid.minor =  ggplot2::element_line(size = 0.3),
@@ -71,14 +71,14 @@ sm_hvgrid_minor <- function(legends = TRUE, borders = TRUE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
         cowplot::theme_minimal_grid() +
         ggplot2::theme(
-          axis.text =  ggplot2::element_text(size = ggplot2::rel(.71), color = "black"),
-          axis.title.y =  ggplot2::element_text(size = ggplot2::rel(.71), color = "black"),
-          axis.title.x =  ggplot2::element_text(size = ggplot2::rel(.71), color = "black", vjust = -1),
+          axis.text =  ggplot2::element_text(size = ggplot2::rel(.85), color = "black"),
+          axis.title.y =  ggplot2::element_text(size = ggplot2::rel(.85), color = "black"),
+          axis.title.x =  ggplot2::element_text(size = ggplot2::rel(.85), color = "black", vjust = -1),
           axis.text.x=  ggplot2::element_text(vjust= 0),
           panel.grid.major =  ggplot2::element_line(size = 0.3),
           panel.grid.minor =  ggplot2::element_line(size = 0.3),
           axis.ticks = ggplot2::element_blank(),
-          plot.title =  ggplot2::element_text(hjust = 0.5, face = 'bold'),
+          plot.title =  ggplot2::element_text(size = ggplot2::rel(.85), hjust = 0.5, face = 'bold'),
           strip.background = ggplot2::element_rect(fill = NA, colour = NA),
           strip.text.x = ggplot2::element_text(colour = "black", size = ggplot2::rel(.85)),
           strip.text.y = ggplot2::element_text(colour = "black", size = ggplot2::rel(.85)),
@@ -87,9 +87,9 @@ sm_hvgrid_minor <- function(legends = TRUE, borders = TRUE) {
     } else if (borders == TRUE) {
       ggplot2::theme_bw(base_size = 10, base_family = '') +
         ggplot2::theme(
-          axis.text =  ggplot2::element_text(size = ggplot2::rel(1), color = "black"),
-          axis.title.y =  ggplot2::element_text(size = ggplot2::rel(1), color = "black"),
-          axis.title.x =  ggplot2::element_text(size = ggplot2::rel(1), color = "black", vjust = -1),
+          axis.text =  ggplot2::element_text(size = ggplot2::rel(1.2), color = "black"),
+          axis.title.y =  ggplot2::element_text(size = ggplot2::rel(1.2), color = "black"),
+          axis.title.x =  ggplot2::element_text(size = ggplot2::rel(1.2), color = "black", vjust = -1),
           axis.text.x=  ggplot2::element_text(vjust= 0),
           panel.grid.major =  ggplot2::element_line(size = 0.3),
           panel.grid.minor =  ggplot2::element_line(size = 0.3),

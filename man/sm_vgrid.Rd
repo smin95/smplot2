@@ -2,7 +2,7 @@
 % Please edit documentation in R/sm_vgrid.R
 \name{sm_vgrid}
 \alias{sm_vgrid}
-\title{SM theme with vertical grid}
+\title{Minimalistic theme with vertical major grids (updated in smplot2)}
 \usage{
 sm_vgrid(legends = TRUE, borders = TRUE)
 }
