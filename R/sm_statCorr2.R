@@ -39,6 +39,10 @@
 #'
 #' @param text_size
 #' Size (numerical value) of the texts from correlation.
+#‘
+#' @param show_text
+#' If the statistical result needs to be displayed, the input should be TRUE (default).
+#' If the statistical result is not needed, the input should be FALSE.
 #'
 #' @param borders
 #' If the border needs to be displayed, the input should be TRUE.
@@ -82,6 +86,7 @@ sm_statCorr <- function(...,
                         label_x = NULL,
                         label_y = NULL,
                         text_size = 4,
+                        show_text = TRUE,
                         borders = TRUE,
                         legends = FALSE) {
 
@@ -93,13 +98,18 @@ sm_statCorr <- function(...,
                                      alpha = 0.2, weight = 0.8, fullrange = fullrange), fit.params))
 
 
+  textPlot <- ggpubr::stat_cor(p.accuracy = 0.001, method = corr_method,
+                               label.sep = separate_by,
+                               label.x = label_x,
+                               label.y = label_y,
+                               size = text_size)
+
+  if (show_text == FALSE) {
+    textPlot <- NULL
+  }
 
   list(fitPlot,
-       ggpubr::stat_cor(p.accuracy = 0.001, method = corr_method,
-                        label.sep = separate_by,
-                        label.x = label_x,
-                        label.y = label_y,
-                        size = text_size),
+       textPlot,
        sm_corr_theme(borders = borders, legends = legends))
 }
 

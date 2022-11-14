@@ -14,6 +14,7 @@ sm_statCorr(
   label_x = NULL,
   label_y = NULL,
   text_size = 4,
+  show_text = TRUE,
   borders = TRUE,
   legends = FALSE
 )
@@ -40,6 +41,9 @@ It asks for a number within the x-axis limit.}
 It requires a number within the y-axis limit.}
 
 \item{text_size}{Size (numerical value) of the texts from correlation.}
+
+\item{show_text}{If the statistical result needs to be displayed, the input should be TRUE (default).
+If the statistical result is not needed, the input should be FALSE.}
 
 \item{borders}{If the border needs to be displayed, the input should be TRUE.
 If the border is not needed, the input should be FALSE.}

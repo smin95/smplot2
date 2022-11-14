@@ -9,8 +9,8 @@ sm_corr_avgErr(
   x,
   y,
   point.params = list(size = 2.5),
-  errh.params = list(height = 0.1),
-  errv.params = list(width = 0.1),
+  errh.params = list(height = 0),
+  errv.params = list(width = 0),
   errorbar_type = "se",
   ...
 )

@@ -51,8 +51,8 @@
 #’ }
 sm_corr_avgErr <- function(data, x, y,
                            point.params = list(size = 2.5),
-                           errh.params = list(height = 0.1),
-                           errv.params = list(width = 0.1),
+                           errh.params = list(height = 0),
+                           errv.params = list(width = 0),
                            errorbar_type = 'se',
                            ...) {
 
@@ -106,7 +106,7 @@ sm_corr_avgErr <- function(data, x, y,
                                           ymax = y_avg + y_err), inherit.aes = F),
                                  errv.params))
 
-  list(pointPlot,errhPlot,errvPlot)
+  list(errhPlot,errvPlot, pointPlot)
 }
 
 globalVariables(c('x_err', 'y_err', 'x_avg','y_avg'))
