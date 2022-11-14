@@ -159,8 +159,14 @@ sm_raincloud <- function(...,
 
 
 
-  list(violinPlot,boxPlot,pointPlot,
+  fig <- list(violinPlot,boxPlot,pointPlot,
        sm_hgrid(borders=borders, legends=legends))
+
+
+  if (vertical == FALSE) {
+    fig <- fig + coord_flip()
+  }
+  return(fig)
 
 
 }
