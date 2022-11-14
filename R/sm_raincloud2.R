@@ -136,7 +136,7 @@ sm_raincloud <- function(...,
   }
 
   pointPlot <- do.call('geom_point',
-                       modifyList(list(position = position_jitternudge(jitter.width=point_jitter_width,
+                       modifyList(list(position = sdamr::position_jitternudge(jitter.width=point_jitter_width,
                                                                        jitter.height=0,
                                                                        seed=10,
                                                                   nudge.x = position_nudge_vector[1])),
@@ -159,13 +159,19 @@ sm_raincloud <- function(...,
 
 
 
-  fig <- list(violinPlot,boxPlot,pointPlot,
-       sm_hgrid(borders=borders, legends=legends))
 
 
   if (vertical == FALSE) {
-    fig <- fig + coord_flip()
+  fig <-  list(violinPlot,boxPlot,pointPlot,
+               sm_hgrid(borders=borders, legends=legends), coord_flip())
+  } else if (vertical == TRUE) {
+    fig <- list(violinPlot,boxPlot,pointPlot,
+                sm_hgrid(borders=borders, legends=legends))
+
+  } else {
+    stop('vertical argument must be TRUE or FALSE.')
   }
+
   return(fig)
 
 
