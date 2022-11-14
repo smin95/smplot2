@@ -1,3 +1,35 @@
+#' Annotation of the error range on the forest plot
+#'
+#' @param data
+#' Data frame variable that is used for plotting.
+#' @param x
+#' Column of the data frame that represents the x-axis.
+#' @param y
+#' Column of the data frame that represents the y-axis.
+#' @param errorbar_type
+#' This argument determines the errorbar type.
+#' If it is set to 'se', standard error bar will be shown.
+#' If it is set to 'sd' (default), the error bar will display standard deviation.
+#' If it is set to 'ci', the error bar will display 95\% confidence interval.
+#'
+#' @param text.params
+#' List of parameters for the text annotation, such as color, size etc
+#'
+#' @param sep_level
+#' A numerical value that controls the level of the separation between
+#' the text annotation and the average point.
+#' If it's 0, all of these are clustered together. If it's higher (and more positive),
+#' the text annotations will increasingly go above the mean point. Default is set to 2. The values
+#' can be negative so that the texts can be below the mean point. There is no limit of
+#' the range for this argument. Ideally, this should equal to the sep_level in sm_forest().
+#'
+#' @param ...
+#' Parameters for the text annotation, such as size and color etc.
+#'
+#' @return
+#' @export
+#'
+#' @examples
 sm_forest_annot <- function(data, x, y, errorbar_type = 'ci',
                             text.params = list(size=4,color='black'),
                             sep_level = 2, ...) {

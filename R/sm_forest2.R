@@ -20,10 +20,12 @@
 #' Location of the vertical reference line along the x coordinate.
 #'
 #' @param sep_level
-#' A numerical value (0-3) that controls the level of the separation among
-#' the individual points and the average point. The value can be 0-4.
-#' If it's 0, all of these are clustered together. If it's 3, they are all
-#' separated. 1 and 2 are somewhere in the middle. Default is set to 2.
+#' A numerical value that controls the level of the separation between
+#' the individual points and the average point.
+#' If it's 0, all of these are clustered together. If it's higher (and more positive),
+#' the text annotations will increasingly go below the mean point. Default is set to 2. The values
+#' can be negative so that the points can be above the mean point. There is no limit of
+#' the range for this argument.
 #'
 #' @param point_jitter_width
 #' A numerical value that determines the degree of the jitter for each point. If its 0,
@@ -40,8 +42,8 @@
 #' they are not shown.
 #'
 #' @param refLine
-#' If it is set TRUE, the referece line is shown. If FALSE,
-#' it is not shown.
+#' If it is set TRUE, the reference line at a specified location along the x-axis is shown.
+#' If it is set FALSE, it is not shown.
 #'
 #' @param borders
 #' If the border needs to be displayed, the input should be TRUE.

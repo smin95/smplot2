@@ -13,6 +13,7 @@ sm_raincloud(
   sep_level = 2,
   point_jitter_width = 0.12,
   vertical = TRUE,
+  points = TRUE,
   borders = TRUE,
   legends = FALSE
 )
@@ -42,6 +43,9 @@ all the points will have no jitter (aligned along the y-axis).}
 \item{vertical}{The orientation of the plots. The default is set to TRUE.
 If you want the horizontal orientation of the plot, please set this argument
 as FALSE.}
+
+\item{points}{If the points need to be displayed, the input should be TRUE.
+If the points are not needed, the input should be FALSE.}
 
 \item{borders}{If the border needs to be displayed, the input should be TRUE.
 If the border is not needed, the input should be FALSE.}

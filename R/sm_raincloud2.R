@@ -47,6 +47,10 @@
 #' If you want the horizontal orientation of the plot, please set this argument
 #' as FALSE.
 #'
+#' @param points
+#' If the points need to be displayed, the input should be TRUE.
+#' If the points are not needed, the input should be FALSE.
+#'
 #' @param borders
 #' If the border needs to be displayed, the input should be TRUE.
 #' If the border is not needed, the input should be FALSE.
@@ -92,6 +96,7 @@ sm_raincloud <- function(...,
                          sep_level = 2,
                          point_jitter_width = 0.12,
                          vertical = TRUE,
+                         points = TRUE,
                          borders = TRUE,
                          legends = FALSE) {
 
@@ -157,7 +162,9 @@ sm_raincloud <- function(...,
                                    violin.params))
 
 
-
+  if (points == FALSE) {
+    pointPlot <- NULL
+  }
 
 
 
