@@ -105,7 +105,7 @@ sm_forest <- function(...,
   point.params <- modifyList(params, point.params)
   avgPoint.params <- modifyList(params, avgPoint.params)
   err.params <- modifyList(params, err.params)
-  ref.params <- modifyList(params, ref.params)
+  #ref.params <- modifyList(params, ref.params)
 
   if (errorbar_type == 'se') {
     errPlot <- do.call('stat_summary',
