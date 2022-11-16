@@ -47,7 +47,7 @@
 #' If it is set to 'sd' (default), the error bar will display standard deviation.
 #' If it is set to 'ci', the error bar will display 95\% confidence interval.
 #'
-#' @param errorBar
+#' @param show_err
 #' If the error bar needs to be displayed, the input should be TRUE.
 #' If the error bar is not needed, the input should be FALSE.
 #'
@@ -107,7 +107,7 @@ sm_slope <- function(...,
                                          expand = c(0.17,.1),
                                          drop=FALSE),
                      errorbar_type = 'sd',
-                     errorBar = FALSE,
+                     show_err = FALSE,
                      show_mean = FALSE,
                      legends = FALSE) {
 
@@ -164,7 +164,7 @@ sm_slope <- function(...,
                     modifyList(list(labels = labels), xTick.params))
 
 
-  if (errorBar == FALSE) {
+  if (show_err == FALSE) {
     errPlot <- NULL
   }
 

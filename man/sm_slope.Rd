@@ -15,7 +15,7 @@ sm_slope(
   err.params = list(),
   xTick.params = list(position = "top", expand = c(0.17, 0.1), drop = FALSE),
   errorbar_type = "sd",
-  errorBar = FALSE,
+  show_err = FALSE,
   show_mean = FALSE,
   legends = FALSE
 )
@@ -47,7 +47,7 @@ If it is set to 'se', standard error bar will be shown.
 If it is set to 'sd' (default), the error bar will display standard deviation.
 If it is set to 'ci', the error bar will display 95\% confidence interval.}
 
-\item{errorBar}{If the error bar needs to be displayed, the input should be TRUE.
+\item{show_err}{If the error bar needs to be displayed, the input should be TRUE.
 If the error bar is not needed, the input should be FALSE.}
 
 \item{show_mean}{If the average plot is not needed, the input should be FALSE.}
