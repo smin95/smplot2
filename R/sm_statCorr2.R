@@ -26,9 +26,6 @@
 #' The default option is: ','
 #' For more information, check out stat_cor() from the ggpubr package.
 #'
-#' @param fullrange
-#' TRUE or FALSE: Whether the fitted regression line is continuous throughout the x-axis
-#'
 #' @param label_x
 #' Location of the statistical value prints along the figure's x-axis.
 #' It asks for a number within the x-axis limit.
@@ -82,7 +79,6 @@ sm_statCorr <- function(...,
                         fit.params = list(),
                         corr_method = 'pearson',
                         separate_by = ',',
-                        fullrange = TRUE,
                         label_x = NULL,
                         label_y = NULL,
                         text_size = 4,
@@ -95,7 +91,7 @@ sm_statCorr <- function(...,
 
   fitPlot <- do.call('geom_smooth',
                      modifyList(list(method = 'lm', se = F,
-                                     alpha = 0.2, weight = 0.8, fullrange = fullrange), fit.params))
+                                     alpha = 0.2, weight = 0.8), fit.params))
 
 
   textPlot <- ggpubr::stat_cor(p.accuracy = 0.001, method = corr_method,

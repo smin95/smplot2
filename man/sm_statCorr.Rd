@@ -10,7 +10,6 @@ sm_statCorr(
   fit.params = list(),
   corr_method = "pearson",
   separate_by = ",",
-  fullrange = TRUE,
   label_x = NULL,
   label_y = NULL,
   text_size = 4,
@@ -31,8 +30,6 @@ Options include: 'pearson', 'kendall', or 'spearman'.}
 \item{separate_by}{This marks how the p- and r- values should be separated.
 The default option is: ','
 For more information, check out stat_cor() from the ggpubr package.}
-
-\item{fullrange}{TRUE or FALSE: Whether the fitted regression line is continuous throughout the x-axis}
 
 \item{label_x}{Location of the statistical value prints along the figure's x-axis.
 It asks for a number within the x-axis limit.}
