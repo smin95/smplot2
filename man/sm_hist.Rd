@@ -8,7 +8,7 @@ sm_hist(
   ...,
   hist.params = list(binwidth = 1/2, fill = sm_color("blue"), color = "white", alpha =
     0.4),
-  density.params = list(color = sm_color("blue"), size = 0.8),
+  density.params = list(color = sm_color("blue"), size = 0.8, fill = "transparent"),
   rug.params = list(color = sm_color("blue"), alpha = 0.8, size = 0.4),
   histogram = TRUE,
   density = TRUE,

@@ -44,7 +44,7 @@
 #'
 #' @param vertical
 #' The orientation of the plots. The default is set to TRUE.
-#' If you want the horizontal orientation of the plot, please set this argument
+#' If you want the horizontal orientation of the plot, set this argument
 #' as FALSE.
 #'
 #' @param points

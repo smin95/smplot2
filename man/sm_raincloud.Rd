@@ -41,7 +41,7 @@ separated. 1 and 2 are somewhere in the middle. Default is set to 2.}
 all the points will have no jitter (aligned along the y-axis).}
 
 \item{vertical}{The orientation of the plots. The default is set to TRUE.
-If you want the horizontal orientation of the plot, please set this argument
+If you want the horizontal orientation of the plot, set this argument
 as FALSE.}
 
 \item{points}{If the points need to be displayed, the input should be TRUE.
