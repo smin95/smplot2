@@ -47,6 +47,13 @@
 #' If it is set to 'sd' (default), the error bar will display standard deviation.
 #' If it is set to 'ci', the error bar will display 95\% confidence interval.
 #'
+#' @param many_groups
+#' This argument determines whether the average line can be plotted for each group when
+#' multiple groups are plotted at once.
+#' If the average line needs to be plotted across all data presented, set this as FALSE.
+#' If there are many groups that are presented and that each average line has to be plotted,
+#' then set this as TRUE.
+#'
 #' @param show_err
 #' If the error bar needs to be displayed, the input should be TRUE.
 #' If the error bar is not needed, the input should be FALSE.
@@ -107,6 +114,7 @@ sm_slope <- function(...,
                                          expand = c(0.17,.1),
                                          drop=FALSE),
                      errorbar_type = 'sd',
+                     many_groups = FALSE,
                      show_err = FALSE,
                      show_mean = FALSE,
                      legends = FALSE) {
@@ -153,9 +161,18 @@ sm_slope <- function(...,
   pointPlot <- do.call('geom_point',
                        modifyList(list(aes(group={{group}})), point.params))
 
-  avgLinePlot <- do.call('stat_summary',
-                         modifyList(list(aes(group=1), fun = mean,
-                                         geom = 'line'), avgLine.params))
+  if (many_groups == FALSE) {
+    avgLinePlot <- do.call('stat_summary',
+                           modifyList(list(aes(group=1), fun = mean,
+                                           geom = 'line'), avgLine.params))
+  } else if (many_groups == TRUE) {
+    avgLinePlot <- do.call('stat_summary',
+                           modifyList(list(fun = mean,
+                                           geom = 'line'), avgLine.params))
+  } else {
+    stop('many_groups has to be either TRUE or FALSE.')
+  }
+
   avgPointPlot <- do.call('stat_summary',
                           modifyList(list(fun = mean,
                                           geom = 'point'), avgPoint.params))
