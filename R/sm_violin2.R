@@ -88,7 +88,7 @@ sm_violin <- function(...,
   if (errorbar_type == 'se') {
     errPlot <- do.call('stat_summary',
                        modifyList(list(fun.data = mean_se,
-                                       geom = 'linerange'), err.params))
+                                       geom = 'pointrange'), err.params))
   } else if (errorbar_type == 'sd') {
     errPlot <- do.call('stat_summary',
                        modifyList(list(fun.data = mean_sdl,
@@ -98,7 +98,7 @@ sm_violin <- function(...,
   } else if (errorbar_type == 'ci') {
     errPlot <- do.call('stat_summary',
                        modifyList(list(fun.data = mean_cl_boot,
-                                       geom = 'linerange'), err.params))
+                                       geom = 'pointrange'), err.params))
   } else {
     stop('Wrong input argument for errorbar_type. Please write either "se", "sd" or "ci"')
   }
