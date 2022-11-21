@@ -63,7 +63,7 @@
 #' @import ggplot2 cowplot Hmisc
 #' @importFrom stats sd
 #' @importFrom utils modifyList
-#' @importFrom
+#' @importFrom gghalves geom_half_boxplot geom_half_violin
 #' @importFrom sdamr position_jitternudge
 #' @export
 #'
