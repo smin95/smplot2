@@ -82,7 +82,7 @@
 #' }
 sm_forest <- function(...,
                       point.params = list(size=  2.5, alpha = 0.3),
-                      avgPoint.params = list(size = point.params$size * 2.2,
+                      avgPoint.params = list(size = 5.5,
                                              shape = 18),
                       err.params = list(color = 'black'),
                       ref.params = list(size = 0.4, color = 'gray80',
