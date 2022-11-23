@@ -4,18 +4,15 @@
 \alias{sm_corr_theme}
 \title{SM theme for correlation plots}
 \usage{
-sm_corr_theme(legends = TRUE, borders = TRUE)
+sm_corr_theme(...)
 }
 \arguments{
-\item{legends}{If the legend needs to be displayed, the input should be TRUE.
-If the legend is not needed, the input should be FALSE.}
-
-\item{borders}{If the border needs to be displayed, the input should be TRUE.
-If the border is not needed, the input should be FALSE.}
+\item{...}{This is the parameter for `sm_slope_all`.}
 }
 \description{
 This theme has major vertical and horizontal grids. This is useful for plotting correlation.
-sm_corr_theme() is exactly the same as sm_hvgrid().
+sm_corr_theme() is exactly the same as sm_hvgrid(). For more information please
+look up `?sm_hvgrid`.
 }
 \examples{
 \dontrun{
