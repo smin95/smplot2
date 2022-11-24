@@ -23,6 +23,6 @@
 #' }
 #'
 sm_corr_theme <- function(...) {
-  message('This is equivalent to sm_hvgrid.')
+  message('sm_corr_theme is equivalent to sm_hvgrid.')
   sm_hvgrid(...)
 }
