@@ -55,7 +55,7 @@ This combines two different functions:
 `stat_cor()` is used to print correlation results at an optimized location.
 
 Updates from smplot2 include more flexibility, less input arguments and its
-pairing with `sm_corr_theme()`.
+pairing with `sm_hvgrid()` / `sm_corr_theme()`.
 }
 \examples{
 \dontrun{
