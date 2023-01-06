@@ -59,11 +59,11 @@
 #' If the error bar is not needed, the input should be FALSE.
 #'
 #' @param show_mean
-#‘ If the average plot needs to be displayed, the input should be TRUE.
+#' If the average plot needs to be displayed, the input should be TRUE.
 #' If the average plot is not needed, the input should be FALSE.
 #'
 #' @param legends
-#’ If the legend needs to be displayed, the input should be TRUE.
+#' If the legend needs to be displayed, the input should be TRUE.
 #' If the legend is not needed, the input should be FALSE.
 #'
 #'
@@ -97,8 +97,8 @@
 #'                                  size = 4, fill = sm_color('blue')),
 #'           avgLine.params = list(color = sm_color('blue'), size = 1),
 #'           show_mean = TRUE)
-#’
-#‘ }
+#'
+#' }
 sm_slope <- function(...,
                      labels,
                      group,

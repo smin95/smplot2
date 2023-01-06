@@ -2,7 +2,7 @@
 % Please edit documentation in R/sm_corr_theme.R
 \name{sm_corr_theme}
 \alias{sm_corr_theme}
-\title{SM theme for correlation plots}
+\title{A theme for the correlation plot}
 \usage{
 sm_corr_theme(...)
 }

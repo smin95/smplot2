@@ -65,7 +65,7 @@ sm_boxplot <- function(...,
 
 
   boxPlot <- do.call('geom_boxplot',
-                        modifyList(list(), boxplot.params))
+                     modifyList(list(), boxplot.params))
 
   pointPlot <- do.call('geom_point',
                        modifyList(list(position = position_jitter(height=0,

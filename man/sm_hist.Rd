@@ -48,6 +48,7 @@ Histogram with kernel density estimation (Gaussian) and rugs
 \dontrun{
 
 set.seed(2)
+data=data.frame(value=rnorm(1000))
 data2 = data.frame(value=rnorm(1000,5,1))
 
 data$day <- 'day1'

@@ -147,4 +147,3 @@ sm_auc_all <- function(data, subjects, groups, conditions, x, values) {
   return(auc_list)
 }
 
-

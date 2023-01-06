@@ -78,7 +78,7 @@ sm_violin <- function(...,
   point.params <- modifyList(params, point.params)
 
   violinPlot <- do.call('geom_violin',
-                     modifyList(list(), violin.params))
+                        modifyList(list(), violin.params))
 
   pointPlot <- do.call('geom_point',
                        modifyList(list(position = position_jitter(height=0,

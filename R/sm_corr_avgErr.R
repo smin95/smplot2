@@ -1,4 +1,5 @@
-#' Superimposition of the average with horizontal and vertical error bars
+#' Superimposition of the average point with horizontal and vertical error bars
+#' in the correlation plot
 #'
 #' @param data
 #' Data frame variable that is used for plotting.
@@ -42,13 +43,13 @@
 #' Method <- rep(c('Method 1', 'Method 2'), each = length(method1))
 #' df_general <- cbind(Subject, Data, Method) # used for sm_bar(), sm_boxplot(), sm_violin(), etc
 #'
-#’ df_corr <- data.frame(first = method1, second = method2) # used for correlation
-#‘
-#’ ggplot(data = df_corr, mapping = aes(x = first,  y = second)) +
-#‘  geom_point(size = 2) +
-#’  sm_corr_avgErr(df_corr, first,second, errorbar_type = 'se',
-#‘                 color = sm_color('red'))
-#’ }
+#' df_corr <- data.frame(first = method1, second = method2) # used for correlation
+#'
+#' ggplot(data = df_corr, mapping = aes(x = first,  y = second)) +
+#'  geom_point(size = 2) +
+#'  sm_corr_avgErr(df_corr, first,second, errorbar_type = 'se',
+#'                 color = sm_color('red'))
+#' }
 sm_corr_avgErr <- function(data, x, y,
                            point.params = list(size = 2.5),
                            errh.params = list(height = 0),
@@ -68,14 +69,14 @@ sm_corr_avgErr <- function(data, x, y,
                        y_err = sm_stdErr({{y}}),
                        x_avg = mean({{x}}),
                        y_avg = mean({{y}})
-    )
+      )
   } else if (errorbar_type == 'sd') {
 
     data <- data %>%
       dplyr::summarise(x_err = sd({{x}}),
-                     y_err = sd({{y}}),
-                     x_avg = mean({{x}}),
-                     y_avg = mean({{y}}))
+                       y_err = sd({{y}}),
+                       x_avg = mean({{x}}),
+                       y_avg = mean({{y}}))
 
   } else if (errorbar_type == 'ci') {
     data <- data %>%
@@ -89,15 +90,15 @@ sm_corr_avgErr <- function(data, x, y,
 
 
   pointPlot <- do.call('geom_point',
-                     modifyList(list(data = data,
-                                     aes(y = y_avg, x = x_avg)), point.params))
+                       modifyList(list(data = data,
+                                       aes(y = y_avg, x = x_avg)), point.params))
 
   errhPlot <- do.call('geom_errorbarh',
-                     modifyList(list(data = data,
-                                     aes(y = y_avg,
-                                         xmin = x_avg - x_err,
-                                         xmax = x_avg + x_err), inherit.aes = F),
-                                errh.params))
+                      modifyList(list(data = data,
+                                      aes(y = y_avg,
+                                          xmin = x_avg - x_err,
+                                          xmax = x_avg + x_err), inherit.aes = F),
+                                 errh.params))
 
   errvPlot <- do.call('geom_errorbar',
                       modifyList(list(data = data,

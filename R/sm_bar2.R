@@ -44,12 +44,12 @@
 #' \dontrun{
 #' library(smplot2)
 #' set.seed(1) # generate random data
-#‘ day1 = rnorm(16,2,1)
-#’ day2 = rnorm(16,5,1)
-#‘ Subject <- rep(paste0('S',seq(1:16)), 2)
-#’ Data <- data.frame(Value = matrix(c(day1,day2),ncol=1))
-#‘ Day <- rep(c('Day 1', 'Day 2'), each = length(day1))
-#’ df <- cbind(Subject, Data, Day)
+#' day1 = rnorm(16,2,1)
+#' day2 = rnorm(16,5,1)
+#' Subject <- rep(paste0('S',seq(1:16)), 2)
+#' Data <- data.frame(Value = matrix(c(day1,day2),ncol=1))
+#' Day <- rep(c('Day 1', 'Day 2'), each = length(day1))
+#' df <- cbind(Subject, Data, Day)
 #'
 #' # with aesthetic defaults of smplot
 #' ggplot(data = df, mapping = aes(x = Day, y = Value, color = Day)) +
@@ -58,9 +58,9 @@
 #'
 #' # with aesthetic defaults of smplots and unique color for each point
 #' ggplot(data = df, mapping = aes(x = Day, y = Value, color = Subject)) +
-#‘ sm_bar(bar.params = list(fill = 'gray80', color = 'transparent', width = 0.7),
-#’       point.params = list(size =2.5, shape = 16)) +
-#‘ scale_color_manual(values = sm_palette(16))
+#' sm_bar(bar.params = list(fill = 'gray80', color = 'transparent', width = 0.7),
+#'       point.params = list(size =2.5, shape = 16)) +
+#' scale_color_manual(values = sm_palette(16))
 #'
 #' # without aesthetic defaults of smplot
 #' ggplot(data = df, mapping = aes(x = Day, y = Value, color = Day,
@@ -87,13 +87,13 @@ sm_bar <- function(...,
   point.params <- modifyList(params, point.params)
 
   barPlot <- do.call('stat_summary',
-                      modifyList(list(fun = 'mean',
-                                      geom = 'bar'), bar.params))
+                     modifyList(list(fun = 'mean',
+                                     geom = 'bar'), bar.params))
 
   pointPlot <- do.call('geom_point',
-                         modifyList(list(position = position_jitter(height=0,
-                                                                    seed=10,
-                                                                    width=point_jitter_width)), point.params))
+                       modifyList(list(position = position_jitter(height=0,
+                                                                  seed=10,
+                                                                  width=point_jitter_width)), point.params))
 
   if (errorbar_type == 'se') {
     errPlot <- do.call('stat_summary',
@@ -105,7 +105,7 @@ sm_bar <- function(...,
                                        fun.min = function(x) mean(x) - sd(x),
                                        fun.max = function(x) mean(x) + sd(x),
                                        geom = 'linerange'),
-                       err.params))
+                                  err.params))
   } else if (errorbar_type == 'ci') {
     errPlot <- do.call('stat_summary',
                        modifyList(list(fun.data = mean_cl_boot,

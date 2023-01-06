@@ -1,4 +1,4 @@
-#' SM theme for correlation plots
+#' A theme for the correlation plot
 #'
 #' @description
 #'

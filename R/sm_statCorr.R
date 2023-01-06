@@ -36,7 +36,7 @@
 #'
 #' @param text_size
 #' Size (numerical value) of the texts from correlation.
-#‘
+#'
 #' @param show_text
 #' If the statistical result needs to be displayed, the input should be TRUE (default).
 #' If the statistical result is not needed, the input should be FALSE.
@@ -108,4 +108,3 @@ sm_statCorr <- function(...,
        textPlot,
        sm_hvgrid(borders = borders, legends = legends))
 }
-

@@ -41,7 +41,7 @@
 #'
 #  #dataset
 #' set.seed(2)
-#’ data=data.frame(value=rnorm(1000))
+#' data=data.frame(value=rnorm(1000))
 #' data2 = data.frame(value=rnorm(1000,5,1))
 #'
 #' data$day <- 'day1'
@@ -79,14 +79,14 @@ sm_hist <- function(...,
   rug.params <- modifyList(params, rug.params)
 
   histPlot <- do.call('geom_histogram',
-                  modifyList(list(), hist.params))
+                      modifyList(list(), hist.params))
 
   densityPlot <- do.call('geom_density',
-                     modifyList(list(aes(y= hist.params$binwidth* ..count..)),
-                                density.params))
+                         modifyList(list(aes(y= hist.params$binwidth* ..count..)),
+                                    density.params))
 
   rugPlot <- do.call('geom_rug',
-                 modifyList(list(), rug.params))
+                     modifyList(list(), rug.params))
 
   if (density == FALSE) {
     densityPlot <- NULL
