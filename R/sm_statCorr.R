@@ -21,6 +21,10 @@
 #' Method of the correlation test.
 #' Options include: 'pearson', 'kendall', or 'spearman'.
 #'
+#' @param alternative
+#' Specifies the alternative hypothesis (H1). 'two.sided' is the standard way.
+#' 'greater' is a positive association, whereas 'less' is a negative association.
+#'
 #' @param separate_by
 #' This marks how the p- and r- values should be separated.
 #' The default option is: ','
@@ -78,6 +82,7 @@
 sm_statCorr <- function(...,
                         fit.params = list(),
                         corr_method = 'pearson',
+                        alternative = 'two.sided',
                         separate_by = ',',
                         label_x = NULL,
                         label_y = NULL,
@@ -95,6 +100,7 @@ sm_statCorr <- function(...,
 
 
   textPlot <- ggpubr::stat_cor(p.accuracy = 0.001, method = corr_method,
+                               alternative = alternative,
                                label.sep = separate_by,
                                label.x = label_x,
                                label.y = label_y,

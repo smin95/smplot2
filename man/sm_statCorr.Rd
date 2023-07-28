@@ -9,6 +9,7 @@ sm_statCorr(
   ...,
   fit.params = list(),
   corr_method = "pearson",
+  alternative = "two.sided",
   separate_by = ",",
   label_x = NULL,
   label_y = NULL,
@@ -26,6 +27,9 @@ For more information, type ?geom_smooth}
 
 \item{corr_method}{Method of the correlation test.
 Options include: 'pearson', 'kendall', or 'spearman'.}
+
+\item{alternative}{Specifies the alternative hypothesis (H1). 'two.sided' is the standard way.
+'greater' is a positive association, whereas 'less' is a negative association.}
 
 \item{separate_by}{This marks how the p- and r- values should be separated.
 The default option is: ','
