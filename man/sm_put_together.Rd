@@ -52,6 +52,9 @@ is to compensate for the loss of space due to x-ticks in the last row.}
 \item{margin}{Empty space between panels can be specified using this argument. The number can be
 negative to reduce the space further (ex. -0.5).}
 }
+\value{
+Returns a combined figure.
+}
 \description{
 Combining figures together
 }

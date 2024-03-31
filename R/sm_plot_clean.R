@@ -13,6 +13,7 @@
 #' negative to reduce the space further (ex. -0.5).
 #'
 #' @return
+#' Returns a list of plots with new layouts.
 #' @export
 #'
 #' @examples

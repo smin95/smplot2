@@ -34,6 +34,7 @@
 #' Empty space between panels can be specified using this argument. The number can be
 #' negative to reduce the space further (ex. -0.5).
 #' @return
+#' Returns a combined figure.
 #' @export
 #' @importFrom cowplot plot_grid
 #'

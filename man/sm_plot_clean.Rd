@@ -17,6 +17,9 @@ that are to be combined into one figure.}
 \item{margin}{Empty space between panels can be specified using this argument. The number can be
 negative to reduce the space further (ex. -0.5).}
 }
+\value{
+Returns a list of plots with new layouts.
+}
 \description{
 Remove xticklabels and yticklabels in selected panels for proper subplotting
 }
