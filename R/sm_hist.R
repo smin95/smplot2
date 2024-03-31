@@ -33,7 +33,7 @@
 #' If the legend is not needed, the input should be FALSE.
 #'
 #'
-#' @return
+#' @return Returns a histogram generated using ggplot2.
 #' @export
 #'
 #' @examples

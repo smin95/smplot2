@@ -53,6 +53,9 @@ If the border is not needed, the input should be FALSE.}
 \item{legends}{If the legend needs to be displayed, the input should be TRUE.
 If the legend is not needed, the input should be FALSE.}
 }
+\value{
+Returns a raincloud plot generated using ggplot2.
+}
 \description{
 This function visualizes a raincloud plot, which is a combination of jittered points, boxplots
 and violin plots. The creation of this function

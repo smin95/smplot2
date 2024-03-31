@@ -34,6 +34,9 @@
 #' actual data, which are the y-axis points from which the
 #' AUC can be calculated. It must be strings.
 #'
+#' @return Returns a data frame containing area under curve from each subject
+#' and experimental condition and/or group.
+#'
 #' @importFrom stats na.omit
 #'
 #' @export

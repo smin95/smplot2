@@ -54,7 +54,7 @@
 #' If the legend is not needed, the input should be FALSE.
 #'
 #'
-#' @return
+#' @return A forest plot generated using ggplot2
 #' @import ggplot2 cowplot Hmisc
 #' @importFrom stats sd
 #' @importFrom utils modifyList

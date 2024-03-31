@@ -33,6 +33,9 @@
 #' actual data, which are the y-axis points from which the
 #' slope can be calculated. It must be strings.
 #'
+#' @return Returns a data frame containing slopes for each subject and
+#' each experimental condition and/or group.
+#'
 #' @importFrom stats na.omit
 #' @export
 #' @importFrom stats coef lm

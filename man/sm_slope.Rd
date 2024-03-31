@@ -63,6 +63,9 @@ If the average plot is not needed, the input should be FALSE.}
 \item{legends}{If the legend needs to be displayed, the input should be TRUE.
 If the legend is not needed, the input should be FALSE.}
 }
+\value{
+Returns a double vector output representing the slope from linear regression.
+}
 \description{
 This function generates a slope chart.
 This is very useful for comparing the effect between two time points.

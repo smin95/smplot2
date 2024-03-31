@@ -34,7 +34,10 @@ If it is set to 'se' , standard error bar will be shown.
 If it is set to 'sd', the error bar will display standard deviation.
 If it is set to 'ci' (default), the error bar will display 95\% confidence interval.}
 
-\item{...}{A generic aesthetic parameter across points and errorbars. This is optional.}
+\item{...}{A generic aesthetic parameter across points and error bars. This is optional.}
+}
+\value{
+A point with error bars representing the average will be returned.
 }
 \description{
 Superimposition of the average point with horizontal and vertical error bars

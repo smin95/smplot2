@@ -54,7 +54,8 @@
 #' If the legend is not needed, the input should be FALSE.
 #'
 #'
-#' @return
+#' @return Plots a best-fitted linear regression on a correlation plot
+#' with results from correlation statistical tests.
 #' @import ggplot2 cowplot
 #' @importFrom ggpubr stat_cor
 #'

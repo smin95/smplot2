@@ -42,6 +42,9 @@ If the border is not needed, the input should be FALSE.}
 \item{legends}{If the legend needs to be displayed, the input should be TRUE.
 If the legend is not needed, the input should be FALSE.}
 }
+\value{
+Violin plot generated using ggplot2
+}
 \description{
 A violin plot with jittered individual points (updated in smplot2)
 }

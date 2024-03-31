@@ -52,6 +52,9 @@ If the border is not needed, the input should be FALSE.}
 \item{legends}{If the legend needs to be displayed, the input should be TRUE.
 If the legend is not needed, the input should be FALSE.}
 }
+\value{
+Returns a pointplot generated using ggplot2.
+}
 \description{
 This is a common plot with mean point, standard error (se, sd or 95% CI) and
 uniquely shadow, which is a faint display of individual points behind the mean.

@@ -67,7 +67,7 @@
 #' If the legend is not needed, the input should be FALSE.
 #'
 #'
-#' @return
+#' @return Returns a double vector output representing the slope from linear regression.
 #' @import ggplot2 cowplot Hmisc
 #' @importFrom stats sd
 #' @importFrom utils modifyList

@@ -34,6 +34,9 @@ If the border is not needed, the input should be FALSE.}
 \item{legends}{If the legend needs to be displayed, the input should be TRUE.
 If the legend is not needed, the input should be FALSE.}
 }
+\value{
+A boxplot generated using ggplot2
+}
 \description{
 A boxplot with jittered individual points (updated in smplot2)
 }

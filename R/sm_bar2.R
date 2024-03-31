@@ -37,7 +37,7 @@
 #' @import ggplot2 cowplot Hmisc
 #' @importFrom stats sd
 #' @importFrom utils modifyList
-#' @return
+#' @return A bar graph generated using ggplot2
 #' @export
 #'
 #' @examples

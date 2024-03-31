@@ -41,6 +41,9 @@ If the border is not needed, the input should be FALSE.}
 \item{legends}{If the legend needs to be displayed, the input should be TRUE.
 If the legend is not needed, the input should be FALSE.}
 }
+\value{
+Returns a histogram generated using ggplot2.
+}
 \description{
 Histogram with kernel density estimation (Gaussian) and rugs
 }

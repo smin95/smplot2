@@ -52,6 +52,10 @@ If the border is not needed, the input should be FALSE.}
 \item{legends}{If the legend needs to be displayed, the input should be TRUE.
 If the legend is not needed, the input should be FALSE.}
 }
+\value{
+Plots a best-fitted linear regression on a correlation plot
+with results from correlation statistical tests.
+}
 \description{
 This combines two different functions:
 1) `geom_smooth()` from ggplot, and 2) `stat_cor()` from ggpubr.

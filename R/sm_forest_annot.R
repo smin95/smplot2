@@ -26,10 +26,28 @@
 #' @param ...
 #' Parameters for the text annotation, such as size and color etc.
 #'
-#' @return
+#' @return Annotations showing the range of uncertainty will printed
+#' on the forest plot.
+#'
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' set.seed(2) # generate random data
+#' day1 = rnorm(20,0,1)
+#' day2 = rnorm(20,5,1)
+#' day3 = rnorm(20,6,1.5)
+#' day4 = rnorm(20,7,2)
+#' Subject <- rep(paste0('S',seq(1:20)), 4)
+#' Data <- data.frame(Value = matrix(c(day1,day2,day3,day4),ncol=1))
+#' Day <- rep(c('Day 1', 'Day 2', 'Day 3', 'Day 4'), each = length(day1))
+#' df2 <- cbind(Subject, Data, Day)
+#'
+#' ggplot(data = df2, aes(x = Value, y = Day, color = Day)) +
+#'  sm_forest(point_jitter_width = 0.12, sep_level = 3) +
+#'  scale_color_manual(values = sm_palette(4)) +
+#'  sm_forest_annot(data = df2, x = Value, y = Day, sep_level = 3)
+#' }
 sm_forest_annot <- function(data, x, y, errorbar_type = 'ci',
                             text.params = list(size=4,color='black'),
                             sep_level = 2, ...) {

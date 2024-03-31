@@ -23,10 +23,10 @@
 #' If it is set to 'ci' (default), the error bar will display 95\% confidence interval.
 #'
 #' @param ...
-#' A generic aesthetic parameter across points and errorbars. This is optional.
+#' A generic aesthetic parameter across points and error bars. This is optional.
 #'
 #'
-#' @return
+#' @return A point with error bars representing the average will be returned.
 #' @import ggplot2 cowplot Hmisc
 #' @importFrom stats sd
 #' @importFrom utils modifyList

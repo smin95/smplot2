@@ -28,7 +28,7 @@
 #'
 #' @import ggplot2 cowplot
 #' @importFrom utils modifyList
-#' @return
+#' @return A boxplot generated using ggplot2
 #' @export
 #'
 #' @examples
