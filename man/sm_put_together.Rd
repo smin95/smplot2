@@ -14,7 +14,8 @@ sm_put_together(
   nrow,
   panel_scale = 0.9,
   wRatio = 1.1,
-  hRatio = 1.1
+  hRatio = 1.1,
+  margin = 1
 )
 }
 \arguments{
@@ -47,6 +48,9 @@ is to compensate for the loss of space due to y-ticks in the first column.}
 \item{hRatio}{This adjusts the ratio of the height of the last row to those of other rows
 By default, it is set to be 1.1x taller than that of other columns. The 0.1 difference
 is to compensate for the loss of space due to x-ticks in the last row.}
+
+\item{margin}{Empty space between panels can be specified using this argument. The number can be
+negative to reduce the space further (ex. -0.5).}
 }
 \description{
 Combining figures together

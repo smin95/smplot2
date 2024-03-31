@@ -30,7 +30,9 @@
 #' This adjusts the ratio of the height of the last row to those of other rows
 #' By default, it is set to be 1.1x taller than that of other columns. The 0.1 difference
 #' is to compensate for the loss of space due to x-ticks in the last row.
-#'
+#' @param margin
+#' Empty space between panels can be specified using this argument. The number can be
+#' negative to reduce the space further (ex. -0.5).
 #' @return
 #' @export
 #' @importFrom cowplot plot_grid
@@ -43,9 +45,10 @@
 #' plots_tgd <- sm_put_together(indv_plots, title, xlabel,ylabel,
 #' ncol=3,nrow=3)
 #' }
+
 sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
                             ncol, nrow, panel_scale = 0.9, wRatio = 1.1,
-                            hRatio = 1.1) {
+                            hRatio = 1.1, margin = 1) {
 
   if (missing(legend)) {
     all_plots <- all_plots
@@ -53,7 +56,7 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
     all_plots[[length(all_plots)+1]] <- legend
   }
 
-  all_plots1 <- sm_plot_clean(all_plots, ncol=ncol,nrow=nrow)
+  all_plots1 <- sm_plot_clean(all_plots, ncol=ncol,nrow=nrow, margin=margin)
 
   # all_plots should be list
   all_plots2 <- lapply(1:length(all_plots1), function(iPlot) {

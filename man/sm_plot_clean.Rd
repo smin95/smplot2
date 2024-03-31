@@ -4,7 +4,7 @@
 \alias{sm_plot_clean}
 \title{Remove xticklabels and yticklabels in selected panels for proper subplotting}
 \usage{
-sm_plot_clean(all_plots, ncol, nrow)
+sm_plot_clean(all_plots, ncol, nrow, margin = margin)
 }
 \arguments{
 \item{all_plots}{all_plots should be list, which should contain all panels
@@ -13,6 +13,9 @@ that are to be combined into one figure.}
 \item{ncol}{Number of columns in the combined plot}
 
 \item{nrow}{Number of rows in the combined plot}
+
+\item{margin}{Empty space between panels can be specified using this argument. The number can be
+negative to reduce the space further (ex. -0.5).}
 }
 \description{
 Remove xticklabels and yticklabels in selected panels for proper subplotting
