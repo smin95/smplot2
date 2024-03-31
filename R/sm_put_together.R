@@ -33,6 +33,8 @@
 #' @param margin
 #' Empty space between panels can be specified using this argument. The number can be
 #' negative to reduce the space further (ex. -0.5).
+#' @param remove_ticks
+#' X-axis ticks and y-axis ticks will be removed in inner plots.
 #' @return
 #' Returns a combined figure.
 #' @export
@@ -49,7 +51,7 @@
 
 sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
                             ncol, nrow, panel_scale = 0.9, wRatio = 1.1,
-                            hRatio = 1.1, margin = 1) {
+                            hRatio = 1.1, margin = 1, remove_ticks = TRUE) {
 
   if (missing(legend)) {
     all_plots <- all_plots
@@ -57,7 +59,12 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
     all_plots[[length(all_plots)+1]] <- legend
   }
 
-  all_plots1 <- sm_plot_clean(all_plots, ncol=ncol,nrow=nrow, margin=margin)
+  if (remove_ticks == TRUE) {
+    all_plots1 <- sm_plot_clean(all_plots, ncol=ncol,nrow=nrow, margin=margin)
+  } else {
+    all_plots1 <- all_plots
+  }
+
 
   # all_plots should be list
   all_plots2 <- lapply(1:length(all_plots1), function(iPlot) {

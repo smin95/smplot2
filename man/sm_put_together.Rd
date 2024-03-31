@@ -15,7 +15,8 @@ sm_put_together(
   panel_scale = 0.9,
   wRatio = 1.1,
   hRatio = 1.1,
-  margin = 1
+  margin = 1,
+  remove_ticks = TRUE
 )
 }
 \arguments{
@@ -51,6 +52,8 @@ is to compensate for the loss of space due to x-ticks in the last row.}
 
 \item{margin}{Empty space between panels can be specified using this argument. The number can be
 negative to reduce the space further (ex. -0.5).}
+
+\item{remove_ticks}{X-axis ticks and y-axis ticks will be removed in inner plots.}
 }
 \value{
 Returns a combined figure.
