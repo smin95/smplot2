@@ -30,9 +30,14 @@
 #' This adjusts the ratio of the height of the last row to those of other rows
 #' By default, it is set to be 1.1x taller than that of other columns. The 0.1 difference
 #' is to compensate for the loss of space due to x-ticks in the last row.
-#' @param margin
-#' Empty space between panels can be specified using this argument. The number can be
-#' negative to reduce the space further (ex. -0.5).
+#' @param hmargin
+#' The amount of height of blank space between subplots. It sets the size of the empty space (i.e., margin) between panels. T
+#' he default is set to 1, which should reduce the empty space (right and left side of each panel)
+#' between the panels.
+#' @param wmargin
+#' The amount of width of blank space between subplots. It sets the size of the empty space (i.e., margin) between panels. T
+#' he default is set to 1, which should reduce the empty space (right and left side of each panel)
+#' between the panels.
 #' @param remove_ticks
 #' X-axis ticks and y-axis ticks will be removed in inner plots.
 #' @return
@@ -51,7 +56,8 @@
 
 sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
                             ncol, nrow, panel_scale = 0.9, wRatio = 1.1,
-                            hRatio = 1.1, margin = 1, remove_ticks = TRUE) {
+                            hRatio = 1.1, hmargin = 1, wmargin = 1, remove_ticks = TRUE) {
+
 
   if (missing(legend)) {
     all_plots <- all_plots
@@ -59,10 +65,17 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
     all_plots[[length(all_plots)+1]] <- legend
   }
 
-  if (remove_ticks == TRUE) {
-    all_plots1 <- sm_plot_clean(all_plots, ncol=ncol,nrow=nrow, margin=margin)
+
+  if (remove_ticks == FALSE) {
+    all_plots1 <- lapply(1:length(all_plots), function(iPlot) {
+      all_plots[[iPlot]] + sm_common_axis('bottomleft', hmargin=hmargin, wmargin=wmargin)
+    })
+    rel_widths <- rep(1,ncol)
+    rel_heights <- rep(1,ncol)
   } else {
-    all_plots1 <- all_plots
+    all_plots1 <- sm_plot_clean(all_plots, ncol=ncol,nrow=nrow, hmargin=hmargin, wmargin=wmargin)
+    rel_widths <- c(wRatio, rep(1,ncol-1))
+    rel_heights <- c(rep(1,nrow-1), hRatio)
   }
 
 
@@ -70,9 +83,6 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
   all_plots2 <- lapply(1:length(all_plots1), function(iPlot) {
     plot_grid(all_plots1[[iPlot]], scale=panel_scale)
   })
-
-  rel_widths <- c(wRatio, rep(1,ncol-1))
-  rel_heights <- c(rep(1,nrow-1), hRatio)
 
 
   tgd1 <- plot_grid(plotlist = all_plots2, ncol=ncol, nrow=nrow,

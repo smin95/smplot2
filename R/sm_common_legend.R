@@ -1,4 +1,4 @@
-#' Creating a common legend for subplots
+#' Creating a common legend for subplots on a separate panel
 #'
 #' @param ...
 #' Additional arguments to adjust the legend within the theme() function.
@@ -10,7 +10,7 @@
 #' @param title
 #' Title of the legend. Input should be string
 #' @param direction
-#' Direction of the legend. 'Horizontal' or 'Vertical'.
+#' Direction of the legend: 'horizontal' or 'vertical'.
 #' @param border
 #' If set TRUE, border around the legend will be created.
 #' If set FALSE, the border will be removed.

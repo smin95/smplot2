@@ -23,6 +23,7 @@ Imports:
   stats,
   Hmisc,
   ggstance,
-  zoo
+  zoo,
+  patchwork
 URL: https://www.smin95.com 
 BugReports: https://github.com/smin95/smplot2/issues 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/sm_common_legend.R
 \name{sm_common_legend}
 \alias{sm_common_legend}
-\title{Creating a common legend for subplots}
+\title{Creating a common legend for subplots on a separate panel}
 \usage{
 sm_common_legend(
   ...,
@@ -25,7 +25,7 @@ In usual cases, this argument should not be filled.}
 
 \item{title}{Title of the legend. Input should be string}
 
-\item{direction}{Direction of the legend. 'Horizontal' or 'Vertical'.}
+\item{direction}{Direction of the legend: 'horizontal' or 'vertical'.}
 
 \item{border}{If set TRUE, border around the legend will be created.
 If set FALSE, the border will be removed.}
@@ -39,7 +39,7 @@ It prints a legend on a blank plot. It can be used to create
 a common legend for subplots.
 }
 \description{
-Creating a common legend for subplots
+Creating a common legend for subplots on a separate panel
 }
 \examples{
 \dontrun{

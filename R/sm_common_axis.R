@@ -13,46 +13,51 @@
 #' `'topcenter'`: removes x-axis title, x-axis ticklabel, y-axis title, y-axis ticklabel.
 #' `'bottomcenter'`: removes x-axis title, y-axis title, y-axis ticklabel.
 #'
-#' @param margin
-#' It sets the size of the empty space (i.e., margin) between panels. T
+#' @param hmargin
+#' The amount of height of blank space between subplots. It sets the size of the empty space (i.e., margin) between panels. T
+#' he default is set to 1, which should reduce the empty space (right and left side of each panel)
+#' between the panels.
+#'
+#' @param wmargin
+#' The amount of width of blank space between subplots. It sets the size of the empty space (i.e., margin) between panels. T
 #' he default is set to 1, which should reduce the empty space (right and left side of each panel)
 #' between the panels.
 #'
 #' @export
 #'
 #'
-sm_common_axis <- function(location, margin = 1) {
+sm_common_axis <- function(location, hmargin = 1, wmargin =1) {
   if (location == 'topleft') {
     ggplot2::theme(axis.title.x = element_blank()) +
       ggplot2::theme(axis.text.x= element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
-      theme(plot.margin = margin(r=margin, t = margin, l = margin, b = margin))
+      theme(plot.margin = margin(r=wmargin, t = hmargin, l = wmargin, b = hmargin))
   } else if (location == 'topright') {
     ggplot2::theme(axis.title.x = element_blank()) +
       ggplot2::theme(axis.text.x = element_blank()) +
       ggplot2::theme(axis.text.y = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
-      ggplot2::theme(plot.margin = margin(r=margin, t = margin, l = margin, b = margin))
+      ggplot2::theme(plot.margin = margin(r=wmargin, t = hmargin, l = wmargin, b = hmargin))
   } else if (location == 'bottomleft') {
     ggplot2::theme(axis.title.x = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
-      ggplot2::theme(plot.margin = margin(r=margin, t = margin, l = margin, b = margin))
+      ggplot2::theme(plot.margin = margin(r=wmargin, t = hmargin, l = wmargin, b = hmargin))
   } else if (location == 'bottomright') {
     ggplot2::theme(axis.title.x = element_blank()) +
       ggplot2::theme(axis.text.y = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
-      ggplot2::theme(plot.margin = margin(r=margin, t = margin, l = margin, b = margin))
+      ggplot2::theme(plot.margin = margin(r=wmargin, t = hmargin, l = wmargin, b = hmargin))
   } else if (location == 'topcenter') {
     ggplot2::theme(axis.title.x = element_blank()) +
       ggplot2::theme(axis.text.x = element_blank()) +
       ggplot2::theme(axis.text.y = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
-      ggplot2::theme(plot.margin = margin(r=margin, t = margin, l = margin, b = margin))
+      ggplot2::theme(plot.margin = margin(r=wmargin, t = hmargin, l = wmargin, b = hmargin))
   } else if (location == 'bottomcenter') {
     ggplot2::theme(axis.title.x = element_blank()) +
       ggplot2::theme(axis.text.y = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
-      ggplot2::theme(plot.margin = margin(r=margin, t = margin, l = margin, b = margin))
+      ggplot2::theme(plot.margin = margin(r=wmargin, t = hmargin, l = wmargin, b = hmargin))
   } else {
     stop('The location has to be set to either:\n"topleft",\n"topright",\n"bottomleft"\n,"bottomright"\n,"topcenter"\n,"bottomcenter"')
   }

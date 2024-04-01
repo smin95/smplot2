@@ -4,7 +4,7 @@
 \alias{sm_common_axis}
 \title{A function to plot panels with common x- and y- axes}
 \usage{
-sm_common_axis(location, margin = 1)
+sm_common_axis(location, hmargin = 1, wmargin = 1)
 }
 \arguments{
 \item{location}{Location of the panel.
@@ -15,7 +15,11 @@ sm_common_axis(location, margin = 1)
 `'topcenter'`: removes x-axis title, x-axis ticklabel, y-axis title, y-axis ticklabel.
 `'bottomcenter'`: removes x-axis title, y-axis title, y-axis ticklabel.}
 
-\item{margin}{It sets the size of the empty space (i.e., margin) between panels. T
+\item{hmargin}{The amount of height of blank space between subplots. It sets the size of the empty space (i.e., margin) between panels. T
+he default is set to 1, which should reduce the empty space (right and left side of each panel)
+between the panels.}
+
+\item{wmargin}{The amount of width of blank space between subplots. It sets the size of the empty space (i.e., margin) between panels. T
 he default is set to 1, which should reduce the empty space (right and left side of each panel)
 between the panels.}
 }

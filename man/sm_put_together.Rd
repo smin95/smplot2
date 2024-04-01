@@ -15,7 +15,8 @@ sm_put_together(
   panel_scale = 0.9,
   wRatio = 1.1,
   hRatio = 1.1,
-  margin = 1,
+  hmargin = 1,
+  wmargin = 1,
   remove_ticks = TRUE
 )
 }
@@ -50,8 +51,13 @@ is to compensate for the loss of space due to y-ticks in the first column.}
 By default, it is set to be 1.1x taller than that of other columns. The 0.1 difference
 is to compensate for the loss of space due to x-ticks in the last row.}
 
-\item{margin}{Empty space between panels can be specified using this argument. The number can be
-negative to reduce the space further (ex. -0.5).}
+\item{hmargin}{The amount of height of blank space between subplots. It sets the size of the empty space (i.e., margin) between panels. T
+he default is set to 1, which should reduce the empty space (right and left side of each panel)
+between the panels.}
+
+\item{wmargin}{The amount of width of blank space between subplots. It sets the size of the empty space (i.e., margin) between panels. T
+he default is set to 1, which should reduce the empty space (right and left side of each panel)
+between the panels.}
 
 \item{remove_ticks}{X-axis ticks and y-axis ticks will be removed in inner plots.}
 }
