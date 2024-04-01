@@ -19,6 +19,8 @@
 #' Spacing within the legend.
 #' @param border_color
 #' Color of the legend border
+#' @param font_size
+#' Text size of the legend
 #' @importFrom patchwork inset_element
 #'
 #' @return
@@ -31,7 +33,8 @@
 #' # Check Ch7 of smin95.github.io/dataviz
 #' }
 sm_add_legend <- function(combined_plot, x,y, sampleplot, legend, direction='vertical',
-                          border=TRUE, legend_spacing = 0.5, border_color='black') {
+                          border=TRUE, legend_spacing = 0.5, border_color='black',
+                          font_size=12) {
   if (missing(legend)) {
     if (missing(sampleplot)) {
       stop('If legend is not provided, sampleplot should be provided so that a legend can be derived.')
@@ -41,7 +44,9 @@ sm_add_legend <- function(combined_plot, x,y, sampleplot, legend, direction='ver
       theme(legend.spacing.y = unit(legend_spacing, "mm"),
             legend.spacing.x = unit(legend_spacing, 'mm'),
             aspect.ratio = 1,
-            legend.background = element_blank())
+            legend.background = element_blank(),
+            legend.text=element_text(size=font_size),
+            legend.title = element_text(size=font_size))
 
     if (border==TRUE) {
       poi <- poi + theme(legend.box.background = element_rect(colour = border_color))

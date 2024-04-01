@@ -13,7 +13,8 @@ sm_add_legend(
   direction = "vertical",
   border = TRUE,
   legend_spacing = 0.5,
-  border_color = "black"
+  border_color = "black",
+  font_size = 12
 )
 }
 \arguments{
@@ -35,6 +36,8 @@ If set FALSE, the border will be removed.}
 \item{legend_spacing}{Spacing within the legend.}
 
 \item{border_color}{Color of the legend border}
+
+\item{font_size}{Text size of the legend}
 }
 \value{
 It prints a legend on a a combined plot. It can be used to create
