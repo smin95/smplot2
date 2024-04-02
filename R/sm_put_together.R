@@ -35,12 +35,12 @@
 #' is to compensate for the loss of space due to x-ticks in the last row.
 #' @param hmargin
 #' The amount of height of blank space between subplots. It sets the size of the empty space (i.e., margin) between panels. T
-#' he default is set to 1, which should reduce the empty space (right and left side of each panel)
-#' between the panels.
+#' he default is set to 0. If its positive, the blank spacing will increase. If its negative, it will get reduced
+#' between panels.
 #' @param wmargin
 #' The amount of width of blank space between subplots. It sets the size of the empty space (i.e., margin) between panels. T
-#' he default is set to 1, which should reduce the empty space (right and left side of each panel)
-#' between the panels.
+#' he default is set to 0. If its positive, the blank spacing will increase. If its negative, it will get reduced
+#' between panels.
 #' @param remove_ticks
 #' X-axis ticks and y-axis ticks will be removed in inner plots.
 #' @return
@@ -59,7 +59,7 @@
 
 sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
                             ncol, nrow, tickRatio = 1.4, panel_scale = 0.9, wRatio = 1.1,
-                            hRatio = 1.1, hmargin = -4, wmargin = -4, remove_ticks = TRUE) {
+                            hRatio = 1.1, hmargin = 0, wmargin = 0, remove_ticks = TRUE) {
 
 
   if (missing(legend)) {
