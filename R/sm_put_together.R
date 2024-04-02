@@ -18,6 +18,9 @@
 #' Number of columns in the combined plot
 #' @param nrow
 #' Number of rows in the combined plot
+#' @param tickRatio
+#' Relative size of the ticks to the default aesthetics of the thematic functions (ex. sm_hgrid()).
+#' If there are more rows or columns, please increase the tickRatio (1.4 - 1.8).
 #' @param panel_scale
 #' Scale of the panel. Default is set to 0.9 to reduce empty space
 #' within and around each panel. The user can set to a value from 0 to 1 to
@@ -55,7 +58,7 @@
 #' }
 
 sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
-                            ncol, nrow, panel_scale = 0.9, wRatio = 1.1,
+                            ncol, nrow, tickRatio = 1.4, panel_scale = 0.9, wRatio = 1.1,
                             hRatio = 1.1, hmargin = 1, wmargin = 1, remove_ticks = TRUE) {
 
 
@@ -64,6 +67,11 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
   } else {
     all_plots[[length(all_plots)+1]] <- legend
   }
+
+  all_plots <- lapply(1:length(all_plots), function(iPlot) {
+    all_plots[[iPlot]] + theme(axis.text.x = element_text(size = rel(tickRatio)),
+                               axis.text.y = element_text(size = rel(tickRatio)))
+  })
 
 
   if (remove_ticks == FALSE) {
@@ -77,6 +85,7 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
     rel_widths <- c(wRatio, rep(1,ncol-1))
     rel_heights <- c(rep(1,nrow-1), hRatio)
   }
+
 
 
   # all_plots should be list

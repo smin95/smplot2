@@ -38,7 +38,7 @@
 #' panel_tag ='1', panel_pretag = 'S', text_size = 4, text_color = 'black')
 #' }
 sm_panel_label <- function(all_plots, x, y, panel_tag='1', panel_pretag, panel_posttag,
-                           text_size = 4.5, text_color = 'black', fontface = 'plain', ...) {
+                           text_size = 5.5, text_color = 'black', fontface = 'plain', ...) {
 
   if (panel_tag == 'A') {
     labelStr = LETTERS

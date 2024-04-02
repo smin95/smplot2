@@ -12,6 +12,7 @@ sm_put_together(
   legend,
   ncol,
   nrow,
+  tickRatio = 1.4,
   panel_scale = 0.9,
   wRatio = 1.1,
   hRatio = 1.1,
@@ -38,6 +39,9 @@ This is created using sm_common_ylabel().}
 \item{ncol}{Number of columns in the combined plot}
 
 \item{nrow}{Number of rows in the combined plot}
+
+\item{tickRatio}{Relative size of the ticks to the default aesthetics of the thematic functions (ex. sm_hgrid()).
+If there are more rows or columns, please increase the tickRatio (1.4 - 1.8).}
 
 \item{panel_scale}{Scale of the panel. Default is set to 0.9 to reduce empty space
 within and around each panel. The user can set to a value from 0 to 1 to

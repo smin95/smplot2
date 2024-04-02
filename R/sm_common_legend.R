@@ -1,8 +1,5 @@
 #' Creating a common legend for subplots on a separate panel
 #'
-#' @param ...
-#' Additional arguments to adjust the legend within the theme() function.
-#' In usual cases, this argument should not be filled.
 #' @param x
 #' Location of the legend along the x-axis. Default is the middle origin (0.5).
 #' @param y
@@ -18,6 +15,9 @@
 #' Spacing within the legend.
 #' @param border_color
 #' Color of the legend border
+#' @param textRatio
+#' Size of the text relative to the plot's default. It has been set to 1.2. The larger
+#' the textRatio, the larger the texts in the legend.
 #'
 #' @return
 #' It prints a legend on a blank plot. It can be used to create
@@ -37,22 +37,26 @@
 #'                     labels = c('Condition 1 ',
 #'                                'Condition 2 '))
 #' }
-sm_common_legend <- function(..., x = 0.5, y = 0.5, title=FALSE, direction='vertical',
-                             border=TRUE, legend_spacing = 0.5, border_color='black') {
-  params <- list(...)
+sm_common_legend <- function(x = 0.5, y = 0.5, title=FALSE, direction='vertical',
+                             border=TRUE, legend_spacing = 0.5, border_color='black',
+                             textRatio = 1) {
+
   blank <- do.call('annotate', list(geom = 'rect', ymin=-Inf,ymax=Inf,xmin=-Inf,xmax=Inf,
                                                        fill = 'white'))
   blank2 <- theme_nothing()
-  box <- do.call('theme', modifyList(params, list(legend.spacing.y = unit(legend_spacing, "mm"),
+  box <- do.call('theme', list(legend.spacing.y = unit(legend_spacing, "mm"),
                                                   legend.spacing.x = unit(legend_spacing, 'mm'),
                                                   aspect.ratio = 1,
                                                   legend.background = element_blank(),
-                                                  legend.box.background = element_rect(colour = border_color))))
+                                                  legend.box.background = element_rect(colour = border_color)))
 
   if (title==TRUE) {
-    location <- do.call('theme',  list(legend.position = c(x,y), legend.direction = direction))
+    location <- do.call('theme',  list(legend.position = c(x,y), legend.direction = direction,
+                                       legend.text = element_text(size = rel(textRatio)),
+                                       legend.title = element_text(size = rel(textRatio))))
   } else {
     location <- do.call('theme', list(legend.position = c(x,y),legend.direction = direction,
+                                      legend.text = element_text(size = rel(textRatio)),
                                                          title = element_blank()))
   }
 

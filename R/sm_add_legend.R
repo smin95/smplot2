@@ -60,6 +60,10 @@ sm_add_legend <- function(combined_plot, x,y, sampleplot, legend, direction='ver
   } else if (missing(sampleplot)) {
     sampleplot <- NULL
   }
+  if (x > 0.9) x <- 0.9
+  if (y > 0.9) y <- 0.9
+
+
   output <- combined_plot + inset_element(legend, x, y, x, y)
   return(output)
 }

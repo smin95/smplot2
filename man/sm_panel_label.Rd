@@ -11,7 +11,7 @@ sm_panel_label(
   panel_tag = "1",
   panel_pretag,
   panel_posttag,
-  text_size = 4.5,
+  text_size = 5.5,
   text_color = "black",
   fontface = "plain",
   ...

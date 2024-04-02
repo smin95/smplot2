@@ -5,20 +5,17 @@
 \title{Creating a common legend for subplots on a separate panel}
 \usage{
 sm_common_legend(
-  ...,
   x = 0.5,
   y = 0.5,
   title = FALSE,
   direction = "vertical",
   border = TRUE,
   legend_spacing = 0.5,
-  border_color = "black"
+  border_color = "black",
+  textRatio = 1
 )
 }
 \arguments{
-\item{...}{Additional arguments to adjust the legend within the theme() function.
-In usual cases, this argument should not be filled.}
-
 \item{x}{Location of the legend along the x-axis. Default is the middle origin (0.5).}
 
 \item{y}{Location of the legend along the y-axis. Default is the middle origin (0.5).}
@@ -33,6 +30,9 @@ If set FALSE, the border will be removed.}
 \item{legend_spacing}{Spacing within the legend.}
 
 \item{border_color}{Color of the legend border}
+
+\item{textRatio}{Size of the text relative to the plot's default. It has been set to 1.2. The larger
+the textRatio, the larger the texts in the legend.}
 }
 \value{
 It prints a legend on a blank plot. It can be used to create
