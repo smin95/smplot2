@@ -59,7 +59,7 @@
 
 sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
                             ncol, nrow, tickRatio = 1.4, panel_scale = 0.9, wRatio = 1.1,
-                            hRatio = 1.1, hmargin = 1, wmargin = 1, remove_ticks = TRUE) {
+                            hRatio = 1.1, hmargin = -4, wmargin = -4, remove_ticks = TRUE) {
 
 
   if (missing(legend)) {

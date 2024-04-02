@@ -16,8 +16,8 @@ sm_put_together(
   panel_scale = 0.9,
   wRatio = 1.1,
   hRatio = 1.1,
-  hmargin = 1,
-  wmargin = 1,
+  hmargin = -4,
+  wmargin = -4,
   remove_ticks = TRUE
 )
 }
