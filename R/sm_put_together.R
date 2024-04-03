@@ -5,15 +5,15 @@
 #' that are to be combined into one figure.
 #' @param title
 #' Title layer that will determine the main title of the combined plot.
-#' This is created using sm_common_title().
+#' This is created using sm_common_title(). Optional argument.
 #' @param xlabel
 #' xlabel layer that will determine the label of the combined plot's x-axis.
-#' This is created using sm_common_xlabel().
+#' This is created using sm_common_xlabel(). Optional argument.
 #' @param ylabel
 #' ylabel layer that will determine the label of the combined plot's y-axis.
-#' This is created using sm_common_ylabel().
+#' This is created using sm_common_ylabel(). Optional argument.
 #' @param legend
-#' ggplot() layer that has legend
+#' ggplot() layer that has legend. Optional argument.
 #' @param ncol
 #' Number of columns in the combined plot
 #' @param nrow
@@ -27,11 +27,11 @@
 #' see what happens to the spacing within each panel and between panels.
 #' @param wRatio
 #' This adjusts the ratio of the width of the first column to those of other columns.
-#' By default, it is set to be 1.1x wider than that of other columns. The 0.1 difference
+#' By default, it is set to be 1.15x wider than that of other columns. The 0.1 difference
 #' is to compensate for the loss of space due to y-ticks in the first column.
 #' @param hRatio
 #' This adjusts the ratio of the height of the last row to those of other rows
-#' By default, it is set to be 1.1x taller than that of other columns. The 0.1 difference
+#' By default, it is set to be 1.11x taller than that of other columns. The 0.1 difference
 #' is to compensate for the loss of space due to x-ticks in the last row.
 #' @param hmargin
 #' The amount of height of blank space between subplots. It sets the size of the empty space (i.e., margin) between panels. T
@@ -58,8 +58,18 @@
 #' }
 
 sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
-                            ncol, nrow, tickRatio = 1.4, panel_scale = 0.9, wRatio = 1.1,
-                            hRatio = 1.1, hmargin = 0, wmargin = 0, remove_ticks = TRUE) {
+                            ncol, nrow, tickRatio = 1.4, panel_scale = 0.9, wRatio = 1.15,
+                            hRatio = 1.11, hmargin = 0, wmargin = 0, remove_ticks = TRUE) {
+
+  if ((class(all_plots[[1]]) == 'list')[[1]] == TRUE) {
+    while ((class(all_plots[[1]]) == 'list')[[1]] == TRUE) {
+      all_plots <- unlist(all_plots, recursive=FALSE)
+    }
+  }
+
+  if (missing(title)) title <- NULL
+  if (missing(xlabel)) xlabel <- NULL
+  if (missing(ylabel)) ylabel <- NULL
 
 
   if (missing(legend)) {

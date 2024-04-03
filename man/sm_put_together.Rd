@@ -14,8 +14,8 @@ sm_put_together(
   nrow,
   tickRatio = 1.4,
   panel_scale = 0.9,
-  wRatio = 1.1,
-  hRatio = 1.1,
+  wRatio = 1.15,
+  hRatio = 1.11,
   hmargin = 0,
   wmargin = 0,
   remove_ticks = TRUE
@@ -26,15 +26,15 @@ sm_put_together(
 that are to be combined into one figure.}
 
 \item{title}{Title layer that will determine the main title of the combined plot.
-This is created using sm_common_title().}
+This is created using sm_common_title(). Optional argument.}
 
 \item{xlabel}{xlabel layer that will determine the label of the combined plot's x-axis.
-This is created using sm_common_xlabel().}
+This is created using sm_common_xlabel(). Optional argument.}
 
 \item{ylabel}{ylabel layer that will determine the label of the combined plot's y-axis.
-This is created using sm_common_ylabel().}
+This is created using sm_common_ylabel(). Optional argument.}
 
-\item{legend}{ggplot() layer that has legend}
+\item{legend}{ggplot() layer that has legend. Optional argument.}
 
 \item{ncol}{Number of columns in the combined plot}
 
@@ -48,11 +48,11 @@ within and around each panel. The user can set to a value from 0 to 1 to
 see what happens to the spacing within each panel and between panels.}
 
 \item{wRatio}{This adjusts the ratio of the width of the first column to those of other columns.
-By default, it is set to be 1.1x wider than that of other columns. The 0.1 difference
+By default, it is set to be 1.15x wider than that of other columns. The 0.1 difference
 is to compensate for the loss of space due to y-ticks in the first column.}
 
 \item{hRatio}{This adjusts the ratio of the height of the last row to those of other rows
-By default, it is set to be 1.1x taller than that of other columns. The 0.1 difference
+By default, it is set to be 1.11x taller than that of other columns. The 0.1 difference
 is to compensate for the loss of space due to x-ticks in the last row.}
 
 \item{hmargin}{The amount of height of blank space between subplots. It sets the size of the empty space (i.e., margin) between panels. T
