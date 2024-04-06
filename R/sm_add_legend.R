@@ -3,9 +3,9 @@
 #' @param combined_plot
 #' Combined figure, an output from sm_put_together().
 #' @param x
-#' Location of the legend along the x-axis of the combined figure. Default is the middle origin (0.5).
+#' Location of the legend along the x-axis of the combined figure. The middle origin is at 0.5.
 #' @param y
-#' Location of the legend along the y-axis of the combined figure. Default is the middle origin (0.5).
+#' Location of the legend along the y-axis of the combined figure. The middle origin is at 0.5.
 #' @param sampleplot
 #' A variable containing one sample ggplot2 from which the legend can be derived.
 #' @param legend

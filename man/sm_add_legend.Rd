@@ -20,9 +20,9 @@ sm_add_legend(
 \arguments{
 \item{combined_plot}{Combined figure, an output from sm_put_together().}
 
-\item{x}{Location of the legend along the x-axis of the combined figure. Default is the middle origin (0.5).}
+\item{x}{Location of the legend along the x-axis of the combined figure. The middle origin is at 0.5.}
 
-\item{y}{Location of the legend along the y-axis of the combined figure. Default is the middle origin (0.5).}
+\item{y}{Location of the legend along the y-axis of the combined figure. The middle origin is at 0.5.}
 
 \item{sampleplot}{A variable containing one sample ggplot2 from which the legend can be derived.}
 
