@@ -18,13 +18,13 @@ sm_add_line(
 \arguments{
 \item{combined_plot}{Combined figure, an output from sm_put_together().}
 
-\item{x}{Starting location of the line along the x-axis of the combined figure. The middle origin is at 0.5.}
+\item{x}{Starting location of the line along the x-axis of the combined figure. The middle origin is at 0.5. Values from 0 to 1.}
 
-\item{y}{Starting location of the line along the y-axis of the combined figure. The middle origin is at 0.5.}
+\item{y}{Starting location of the line along the y-axis of the combined figure. The middle origin is at 0.5. Values from 0 to 1.}
 
-\item{xend}{Final location of the line along the x-axis of the combined figure. The middle origin is at 0.5.}
+\item{xend}{Final location of the line along the x-axis of the combined figure. The middle origin is at 0.5. Values from 0 to 1.}
 
-\item{yend}{Final location of the line along the y-axis of the combined figure. The middle origin is at 0.5.}
+\item{yend}{Final location of the line along the y-axis of the combined figure. The middle origin is at 0.5. Values from 0 to 1.}
 
 \item{color}{Color of the line. Default is set to black.}
 

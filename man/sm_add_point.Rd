@@ -9,9 +9,9 @@ sm_add_point(combined_plot, x, y, size, shape = 16, color = "black", ...)
 \arguments{
 \item{combined_plot}{Combined figure, an output from sm_put_together().}
 
-\item{x}{Location of the point annotation along the x-axis of the combined figure. Default is the middle origin (0.5).}
+\item{x}{Location of the point annotation along the x-axis of the combined figure. Default is the middle origin (0.5). Values from 0 to 1.}
 
-\item{y}{Location of the point annotation along the y-axis of the combined figure. Default is the middle origin (0.5).}
+\item{y}{Location of the point annotation along the y-axis of the combined figure. Default is the middle origin (0.5). Values from 0 to 1.}
 
 \item{size}{Size of the point}
 

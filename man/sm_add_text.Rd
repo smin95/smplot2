@@ -21,9 +21,9 @@ sm_add_text(
 
 \item{label}{Text label in strings.}
 
-\item{x}{Location of the text annotation along the x-axis of the combined figure. Default is the middle origin (0.5).}
+\item{x}{Location of the text annotation along the x-axis of the combined figure. Default is the middle origin (0.5). Values from 0 to 1.}
 
-\item{y}{Location of the text annotation along the y-axis of the combined figure. Default is the middle origin (0.5).}
+\item{y}{Location of the text annotation along the y-axis of the combined figure. Default is the middle origin (0.5). Values from 0 to 1.}
 
 \item{angle}{Angle of the text. Default is set to 0 (i.e., horizontal orientation).}
 

@@ -3,13 +3,13 @@
 #' @param combined_plot
 #' Combined figure, an output from sm_put_together().
 #' @param x
-#' Starting location of the line along the x-axis of the combined figure. The middle origin is at 0.5.
+#' Starting location of the line along the x-axis of the combined figure. The middle origin is at 0.5. Values from 0 to 1.
 #' @param y
-#' Starting location of the line along the y-axis of the combined figure. The middle origin is at 0.5.
+#' Starting location of the line along the y-axis of the combined figure. The middle origin is at 0.5. Values from 0 to 1.
 #' @param xend
-#' Final location of the line along the x-axis of the combined figure. The middle origin is at 0.5.
+#' Final location of the line along the x-axis of the combined figure. The middle origin is at 0.5. Values from 0 to 1.
 #' @param yend
-#' Final location of the line along the y-axis of the combined figure. The middle origin is at 0.5.
+#' Final location of the line along the y-axis of the combined figure. The middle origin is at 0.5. Values from 0 to 1.
 #' @param color
 #' Color of the line. Default is set to black.
 #' @param linewidth

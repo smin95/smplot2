@@ -3,9 +3,9 @@
 #' @param combined_plot
 #' Combined figure, an output from sm_put_together().
 #' @param x
-#' Location of the point annotation along the x-axis of the combined figure. Default is the middle origin (0.5).
+#' Location of the point annotation along the x-axis of the combined figure. Default is the middle origin (0.5). Values from 0 to 1.
 #' @param y
-#' Location of the point annotation along the y-axis of the combined figure. Default is the middle origin (0.5).
+#' Location of the point annotation along the y-axis of the combined figure. Default is the middle origin (0.5). Values from 0 to 1.
 #' @param size
 #' Size of the point
 #' @param shape
