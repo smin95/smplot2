@@ -41,8 +41,10 @@ sm_add_polygon <- function(combined_plot, x, y, fill = 'gray80',
     theme_nothing() +
     annotate('polygon', x, y, fill=fill,color=color,
              linewidth=linewidth, ...) +
-    scale_x_continuous(limits=c(xmin, xmax)) +
-    scale_y_continuous(limits=c(ymin, ymax)) -> annot
+    scale_x_continuous(limits=c(xmin, xmax),
+                       expand = c(0,0)) +
+    scale_y_continuous(limits=c(ymin, ymax),
+                       expand = c(0,0)) -> annot
 
   width <- abs(xmin-xmax)
   height <- abs(ymin-ymax)

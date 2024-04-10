@@ -30,8 +30,8 @@ sm_add_point <- function(combined_plot, x, y, size, shape=16, color = 'black', .
     theme_nothing() +
     annotate('point', shape = shape, x=.5, y=.5, color=color,
              size = size/.pt, ...) +
-    scale_x_continuous(limits=c(0,1)) +
-    scale_y_continuous(limits=c(0,1))-> annot
+    scale_x_continuous(limits=c(0,1), expand=c(0,0)) +
+    scale_y_continuous(limits=c(0,1), expand=c(0,0))-> annot
 
   x <- x - 0.5
   y <- y - 0.5

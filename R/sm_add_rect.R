@@ -39,8 +39,10 @@ sm_add_rect <- function(combined_plot, xmin, ymin, xmax, ymax, fill = 'gray80',
     theme_nothing() +
     annotate('rect', xmin=xmin, ymin=ymin, xmax=xmax, ymax=ymax, fill=fill,color=color,
              linewidth=linewidth, ...) +
-    scale_x_continuous(limits=c(min(xmin,xmax),max(xmin,xmax))) +
-    scale_y_continuous(limits=c(min(ymin,ymax),max(ymin,ymax))) -> annot
+    scale_x_continuous(limits=c(min(xmin,xmax),max(xmin,xmax)),
+                       expand = c(0,0)) +
+    scale_y_continuous(limits=c(min(ymin,ymax),max(ymin,ymax)),
+                       expand = c(0,0)) -> annot
 
   width <- abs(xmin-xmax)
   height <- abs(ymin-ymax)

@@ -39,8 +39,10 @@ sm_add_text <- function(combined_plot, label, x, y, angle=0, color = 'black',
              angle=angle, color=color,
              size = size/.pt,
              fontface=fontface, ...) +
-    scale_x_continuous(limits=c(0,1)) +
-    scale_y_continuous(limits=c(0,1))-> annot
+    scale_x_continuous(limits=c(0,1),
+                       expand = c(0,0)) +
+    scale_y_continuous(limits=c(0,1),
+                       expand = c(0,0))-> annot
 
   x <- x - 0.5
   y <- y - 0.5

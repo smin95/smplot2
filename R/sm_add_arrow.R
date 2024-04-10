@@ -40,13 +40,15 @@ sm_add_arrow <- function(combined_plot, x, y, xend, yend, color = 'black',
     annotate('segment', x=x, y=y, xend=xend, yend=yend, color=color,
              linewidth = linewidth, ...,
              arrow = arrow(type = type, length = unit(arrowlength, 'npc'))) +
-    scale_x_continuous(limits=c(min(x,xend),max(x,xend))) +
-    scale_y_continuous(limits=c(min(y,yend),max(y,yend))) -> annot
+    scale_x_continuous(limits=c(min(x,xend),max(x,xend)),
+                       expand = c(0,0)) +
+    scale_y_continuous(limits=c(min(y,yend),max(y,yend)),
+                       expand = c(0,0)) -> annot
 
   width <- abs(x-xend) + linewidth/100 + arrowlength/100
   height <- abs(y-yend) + linewidth/100 + arrowlength/100
-  x <- min(x,xend)
-  y <- min(y,yend)
+  x <- min(x,xend) - linewidth/200 - arrowlength/200
+  y <- min(y,yend) - linewidth/200 - arrowlength/200
 
   output <- ggdraw(combined_plot) + draw_plot(annot, x, y, width, height)
   return(output)
