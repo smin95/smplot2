@@ -42,7 +42,9 @@
 #' he default is set to 0. If its positive, the blank spacing will increase. If its negative, it will get reduced
 #' between panels.
 #' @param remove_ticks
-#' X-axis ticks and y-axis ticks will be removed in inner plots.
+#' If set to 'some', x-axis ticks and y-axis ticks will be removed in inner plots.
+#' If set to 'all', then all panels' ticks will be removed.
+#' If set to 'none', then all panels' ticks will be kept.
 #' @return
 #' Returns a combined figure.
 #' @export
@@ -59,13 +61,9 @@
 
 sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
                             ncol, nrow, tickRatio = 1.4, panel_scale = 0.9, wRatio,
-                            hRatio = 1.11, hmargin = 0, wmargin = 0, remove_ticks = TRUE) {
+                            hRatio = 1.11, hmargin = 0, wmargin = 0, remove_ticks = 'some') {
 
-  if ((class(all_plots[[1]]) == 'list')[[1]] == TRUE) {
-    while ((class(all_plots[[1]]) == 'list')[[1]] == TRUE) {
-      all_plots <- unlist(all_plots, recursive=FALSE)
-    }
-  }
+  all_plots <- flatten_ggplot(all_plots)
 
   if (missing(wRatio)) {
     if (ncol == 2) wRatio <- 1.15
@@ -81,12 +79,6 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
   if (missing(xlabel)) xlabel <- NULL
   if (missing(ylabel)) ylabel <- NULL
 
-
-  if (missing(legend)) {
-    all_plots <- all_plots
-  } else {
-    all_plots[[length(all_plots)+1]] <- legend
-  }
 
   all_plots <- lapply(1:length(all_plots), function(iPlot) {
     all_plots[[iPlot]] + theme(axis.text.x = element_text(size = rel(tickRatio)),
@@ -106,7 +98,29 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
     rel_heights <- c(rep(1,nrow-1), hRatio)
   }
 
+  if (remove_ticks == 'none') {
+    all_plots1 <- lapply(1:length(all_plots), function(iPlot) {
+      all_plots[[iPlot]] + sm_common_axis('bottomleft', hmargin=hmargin, wmargin=wmargin)
+    })
+    rel_widths <- rep(1,ncol)
+    rel_heights <- rep(1,ncol)
+  } else if (remove_ticks == 'some') {
+    all_plots1 <- sm_plot_clean(all_plots, ncol=ncol,nrow=nrow, hmargin=hmargin, wmargin=wmargin)
+    rel_widths <- c(wRatio, rep(1,ncol-1))
+    rel_heights <- c(rep(1,nrow-1), hRatio)
+  } else if (remove_ticks == 'all') {
+    all_plots1 <- lapply(1:length(all_plots), function(iPlot) {
+      all_plots[[iPlot]] + sm_common_axis('topright', hmargin=hmargin, wmargin=wmargin)
+    })
+    rel_widths <- rep(1,ncol)
+    rel_heights <- rep(1,ncol)
+  }
 
+  if (missing(legend)) {
+    all_plots1 <- all_plots1
+  } else {
+    all_plots1[[length(all_plots1)+1]] <- legend
+  }
 
   # all_plots should be list
   all_plots2 <- lapply(1:length(all_plots1), function(iPlot) {
@@ -121,4 +135,16 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
   tgd4 <- plot_grid(ylabel, tgd3, ncol=2, rel_widths = c(0.1,1))
 
   return(tgd4)
+}
+
+flatten_ggplot <- function(lst) {
+  plots <- list()
+  for (item in lst) {
+    if (inherits(item, "gg")) {
+      plots <- c(plots, list(item))
+    } else if (is.list(item)) {
+      plots <- c(plots, flatten_ggplot(item))
+    }
+  }
+  return(plots)
 }

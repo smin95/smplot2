@@ -18,7 +18,7 @@ sm_put_together(
   hRatio = 1.11,
   hmargin = 0,
   wmargin = 0,
-  remove_ticks = TRUE
+  remove_ticks = "some"
 )
 }
 \arguments{
@@ -63,7 +63,9 @@ between panels.}
 he default is set to 0. If its positive, the blank spacing will increase. If its negative, it will get reduced
 between panels.}
 
-\item{remove_ticks}{X-axis ticks and y-axis ticks will be removed in inner plots.}
+\item{remove_ticks}{If set to 'some', x-axis ticks and y-axis ticks will be removed in inner plots.
+If set to 'all', then all panels' ticks will be removed.
+If set to 'none', then all panels' ticks will be kept.}
 }
 \value{
 Returns a combined figure.
