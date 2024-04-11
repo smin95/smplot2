@@ -9,12 +9,16 @@ sm_palette(colorNum = 10)
 \arguments{
 \item{colorNum}{Number of colors (1-20).}
 }
+\value{
+Returns a hex code in string vector. The input determines the length of the output.
+}
 \description{
 This is a custom color palette that SM recommends for data visualization.
 It returns up to 20 different colors with a high contrast.
 }
 \examples{
-\dontrun{
+\donttest{
+library(smplot2)
 #' sm_palette(3) # returns 3 colors
 }
 

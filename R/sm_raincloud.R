@@ -55,6 +55,8 @@
 #' @param legends
 #' If the legend needs to be displayed, the input should be TRUE.
 #' If the legend is not needed, the input should be FALSE.
+#' @param seed
+#' Random seed
 #'
 #' @return Returns a raincloud plot generated using ggplot2.
 #' @import ggplot2 cowplot Hmisc
@@ -65,7 +67,8 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
+#' library(ggplot2)
 #' library(smplot2)
 #'
 #' set.seed(2) # generate random data
@@ -78,7 +81,7 @@
 #' Day <- rep(c('Day 1', 'Day 2', 'Day 3', 'Day 4'), each = length(day1))
 #' df2 <- cbind(Subject, Data, Day)
 #'
-#' df2 %>% ggplot(aes(x = Day, y = Value, color = Day, fill = Day)) +
+#' ggplot(data=df2, aes(x = Day, y = Value, color = Day, fill = Day)) +
 #' sm_raincloud() +
 #'  xlab('Day')  +
 #'  scale_fill_manual(values = sm_palette(4))
@@ -95,9 +98,10 @@ sm_raincloud <- function(...,
                          vertical = TRUE,
                          points = TRUE,
                          borders = TRUE,
-                         legends = FALSE) {
+                         legends = FALSE,
+                         seed = NULL) {
 
-
+  if (length(seed)) set.seed(seed)
   if (which_side == 'right') {
     which_side <- 'r'
   } else if (which_side == 'left') {
@@ -140,7 +144,6 @@ sm_raincloud <- function(...,
   pointPlot <- do.call('geom_point',
                        modifyList(list(position = sdamr::position_jitternudge(jitter.width=point_jitter_width,
                                                                               jitter.height=0,
-                                                                              seed=10,
                                                                               nudge.x = position_nudge_vector[1])),
                                   point.params))
 

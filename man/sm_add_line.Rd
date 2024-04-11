@@ -40,7 +40,20 @@ Prints a line to the combined plot.
 Adding a line annotation in the combined plot
 }
 \examples{
-\dontrun{
-combined_figure2 <- sm_add_arrow(combined_figure, x = .5, y= .5, xend=.6, yend=.6)
+\donttest{
+library(ggplot2)
+library(smplot2)
+
+ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+geom_point(shape = 21, fill = '#0f993d', color = 'white',
+          size = 3) -> p1
+
+ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+ geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
+ sm_hvgrid() -> p2
+
+combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
+sm_add_line(combined_fig, x = 0.4, y = 0.4, xend = 0.6, yend = 0.6)
+
 }
 }

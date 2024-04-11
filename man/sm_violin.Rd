@@ -13,7 +13,8 @@ sm_violin(
   point_jitter_width = 0.17,
   points = TRUE,
   borders = TRUE,
-  legends = FALSE
+  legends = FALSE,
+  seed = NULL
 )
 }
 \arguments{
@@ -41,6 +42,8 @@ If the border is not needed, the input should be FALSE.}
 
 \item{legends}{If the legend needs to be displayed, the input should be TRUE.
 If the legend is not needed, the input should be FALSE.}
+
+\item{seed}{Random seed}
 }
 \value{
 Violin plot generated using ggplot2
@@ -49,7 +52,9 @@ Violin plot generated using ggplot2
 A violin plot with jittered individual points
 }
 \examples{
-\dontrun{
+\donttest{
+library(ggplot2)
+library(smplot2)
 set.seed(1) # generate random data
 day1 = rnorm(16,2,1)
 day2 = rnorm(16,5,1)

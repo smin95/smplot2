@@ -28,8 +28,20 @@
 #' @importFrom cowplot ggdraw draw_plot theme_nothing
 #'
 #' @examples
-#' \dontrun{
-#' combined_figure2 <- sm_add_polygon(combined_figure, x = c(.2,.8,.8), y = c(.2,.8,.2))
+#' \donttest{
+#' library(smplot2)
+#' library(ggplot2)
+#' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+#'  geom_point(shape = 21, fill = '#0f993d', color = 'white',
+#'             size = 3) -> p1
+#'
+#' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+#'  geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
+#'  sm_hvgrid() -> p2
+#'
+#' combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
+#' sm_add_polygon(combined_fig, x = c(.2,.8,.8), y = c(.2,.8,.2))
+#'
 #' }
 sm_add_polygon <- function(combined_plot, x, y, fill = 'gray80',
                            color = 'black', linewidth = 0.5, ...) {

@@ -9,11 +9,15 @@ sm_stdErr(data)
 \arguments{
 \item{data}{Numerical vector of data.}
 }
+\value{
+A double vector is returned with a standard error of the input (given sample).
+}
 \description{
 Standard error
 }
 \examples{
-\dontrun{
+\donttest{
+library(smplot2)
 sm_stdErr(rnorm(10,0,1))
 }
 

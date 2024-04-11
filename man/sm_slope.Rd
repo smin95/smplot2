@@ -78,7 +78,10 @@ With smplot2, average plot can be displayed along with error bars, both of which
 are optional.
 }
 \examples{
-\dontrun{
+\donttest{
+library(ggplot2)
+library(smplot2)
+
 set.seed(1) # generate random data
 day1 = rnorm(16,2,1)
 day2 = rnorm(16,5,1)
@@ -87,7 +90,7 @@ Data <- data.frame(Value = matrix(c(day1,day2),ncol=1))
 Day <- rep(c('Day 1', 'Day 2'), each = length(day1))
 df <- cbind(Subject, Data, Day)
 
-df \%>\% ggplot(aes(x = Day, y = Value, fill = Day)) +
+ggplot(data=df, aes(x = Day, y = Value, fill = Day)) +
  sm_slope(labels = c('Day 1', 'Day 2'), group = Subject) +
  scale_fill_manual(values=  sm_color('blue','orange'))
 ggplot(data = df, aes(x = Day, y = Value, fill = Day)) +

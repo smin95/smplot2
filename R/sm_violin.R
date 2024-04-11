@@ -34,6 +34,9 @@
 #' If the legend needs to be displayed, the input should be TRUE.
 #' If the legend is not needed, the input should be FALSE.
 #'
+#' @param seed
+#' Random seed
+#'
 #' @import ggplot2 cowplot Hmisc
 #' @importFrom stats sd
 #' @importFrom utils modifyList
@@ -41,7 +44,9 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
+#' library(ggplot2)
+#' library(smplot2)
 #' set.seed(1) # generate random data
 #' day1 = rnorm(16,2,1)
 #' day2 = rnorm(16,5,1)
@@ -70,7 +75,9 @@ sm_violin <- function(...,
                       point_jitter_width = 0.17,
                       points = TRUE,
                       borders = TRUE,
-                      legends =  FALSE) {
+                      legends =  FALSE, seed = NULL) {
+
+  if (length(seed)) set.seed(seed)
 
   params <- list(...)
   violin.params <- modifyList(params, violin.params)
@@ -82,7 +89,6 @@ sm_violin <- function(...,
 
   pointPlot <- do.call('geom_point',
                        modifyList(list(position = position_jitter(height=0,
-                                                                  seed=10,
                                                                   width=point_jitter_width)), point.params))
 
   if (errorbar_type == 'se') {

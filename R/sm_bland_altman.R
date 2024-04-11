@@ -31,14 +31,16 @@
 #' Parameters of geom_point(), such as 'color', 'fill', 'shape', etc.
 #' @export
 #' @import ggplot2 cowplot
-#' @references
-#' Giavarina D. (2015). Understanding Bland Altman analysis. Biochemia medica, 25(2), 141–151. https://doi.org/10.11613/BM.2015.015
+#' @return
+#' Prints a figure, which is the Bland-Altman plot (ggplot2 object).
 #' @examples
-#' \dontrun{
-#' set.seed(1)
+#' \donttest{
+#' library(smplot2)
+#' library(tibble)
+#'
 #' first <- rnorm(20)
 #' second <- rnorm(20)
-#' df <- as_tibble(cbind(first,second)) # requires library(tidyverse)
+#' df <- as_tibble(cbind(first,second))
 #' sm_bland_altman(df$first, df$second)
 #' # when all 3 dashed lines are not shown, extend the range of the y-axis.
 #' }

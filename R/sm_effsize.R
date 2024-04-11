@@ -15,9 +15,12 @@
 #' example, it will be positive if group2 has a larger mean than group 1.
 #' @export
 #' @importFrom stats var
+#' @return
+#' Returns a double vector that is the effect size between two samples.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
+#' library(smplot2)
 #' group1 <- rnorm(10,0,1)
 #' group2 <- rnorm(10,1,1)
 #' sm_effsize(group1, group2)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/sm_hgrid.R
 \name{sm_hgrid}
 \alias{sm_hgrid}
-\title{Minimalistic theme of horizontal major grids (updated in smplot2)}
+\title{Minimalistic theme of horizontal major grids}
 \usage{
 sm_hgrid(legends = FALSE, borders = TRUE)
 }
@@ -13,15 +13,17 @@ If the legend is not needed, the input should be FALSE.}
 \item{borders}{If the border needs to be displayed, the input should be TRUE.
 If the border is not needed, the input should be FALSE.}
 }
+\value{
+Returns a background theme with major horizontal grids (ggplot2 output).
+}
 \description{
 A graph with a horizontal grid is plotted. Border can be added or removed.
 This is useful for plotting a bar graph.
-
-sm_bar_theme() is exactly the same as sm_hgrid().
 }
 \examples{
-\dontrun{
-library(tidyverse)
+\donttest{
+library(ggplot2)
+library(smplot2)
 ggplot(data = mpg) +
 geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
 sm_hgrid()

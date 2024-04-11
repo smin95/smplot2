@@ -6,13 +6,14 @@
 \usage{
 sm_boxplot(
   ...,
-  boxplot.params = list(notch = F, fill = "gray95", color = "black", size = 0.5, width =
-    0.5, outlier.shape = NA),
+  boxplot.params = list(notch = FALSE, fill = "gray95", color = "black", size = 0.5,
+    width = 0.5, outlier.shape = NA),
   point.params = list(alpha = 0.65),
   point_jitter_width = 0.12,
   points = TRUE,
   borders = TRUE,
-  legends = FALSE
+  legends = FALSE,
+  seed = NULL
 )
 }
 \arguments{
@@ -33,6 +34,8 @@ If the border is not needed, the input should be FALSE.}
 
 \item{legends}{If the legend needs to be displayed, the input should be TRUE.
 If the legend is not needed, the input should be FALSE.}
+
+\item{seed}{Random seed}
 }
 \value{
 A boxplot generated using ggplot2
@@ -41,7 +44,9 @@ A boxplot generated using ggplot2
 A boxplot with jittered individual points
 }
 \examples{
-\dontrun{
+\donttest{
+library(ggplot2)
+library(smplot2)
 set.seed(1) # generate random data
 day1 = rnorm(16,2,1)
 day2 = rnorm(16,5,1)

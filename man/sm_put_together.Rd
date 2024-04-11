@@ -76,11 +76,23 @@ Returns a combined figure.
 Combining figures together
 }
 \examples{
-\dontrun{
+\donttest{
+library(smplot2)
+library(ggplot2)
+
+ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+geom_point(shape = 21, fill = '#0f993d', color = 'white',
+          size = 3) -> p1
+
+ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+  geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
+  sm_hvgrid() -> p2
+
 title <- sm_common_title('My title')
-xlabel <- sm_common_xlabel('My x-axis ')
+xlabel <- sm_common_xlabel('My x-axis')
 ylabel <- sm_common_ylabel('My y-axis')
-plots_tgd <- sm_put_together(indv_plots, title, xlabel,ylabel,
-ncol=3,nrow=3)
+
+sm_put_together(list(p1,p2), title=title, xlabel=xlabel,
+                ylabel=ylabel, ncol=2,nrow=1)
 }
 }

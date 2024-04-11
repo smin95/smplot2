@@ -13,12 +13,17 @@ If the legend is not needed, the input should be FALSE.}
 \item{borders}{If the border needs to be displayed, the input should be TRUE.
 If the border is not needed, the input should be FALSE.}
 }
+\value{
+Returns a background theme with major vertical grids (ggplot2 output).
+}
 \description{
 This theme has major vertical grids.
 }
 \examples{
-\dontrun{
-library(tidyverse)
+\donttest{
+library(ggplot2)
+library(smplot2)
+
 ggplot(data = mpg) +
 geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
 sm_vgrid()

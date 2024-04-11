@@ -45,8 +45,10 @@ on the forest plot.
 Annotation of the error range on the forest plot
 }
 \examples{
-\dontrun{
-set.seed(2) # generate random data
+\donttest{
+library(ggplot2)
+library(smplot2)
+
 day1 = rnorm(20,0,1)
 day2 = rnorm(20,5,1)
 day3 = rnorm(20,6,1.5)

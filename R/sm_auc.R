@@ -13,13 +13,16 @@
 #' @importFrom zoo rollmean
 #'
 #' @export
+#' @return
+#' A vector that is the value from the trapezoidal integration is returned.
 #' @examples
-#' \dontrun{
+#' \donttest{
+#' library(smplot2)
 #' X = c(1,2,3,4,5)
 #' Y1 = c(2,3,4,2,3)
 #' Y2 = c(3,3,3,3,3)
 #'
-#' sm_auc(Y2)
+#' sm_auc(X,Y2)
 #' sm_auc(X,Y1)
 #' }
 sm_auc <- function(x,y) {

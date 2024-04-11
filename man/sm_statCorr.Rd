@@ -66,20 +66,11 @@ Updates from smplot2 include more flexibility, less input arguments and its
 pairing with `sm_hvgrid()` / `sm_corr_theme()`.
 }
 \examples{
-\dontrun{
+\donttest{
 library(smplot2)
-
-set.seed(11) # generate random data
-method1 = c(rnorm(19,0,1),2.5)
-method2 = c(rnorm(19,0,1),2.5)
-Subject <- rep(paste0('S',seq(1:20)), 2)
-Data <- data.frame(Value = matrix(c(method1,method2),ncol=1))
-Method <- rep(c('Method 1', 'Method 2'), each = length(method1))
-df_general <- cbind(Subject, Data, Method) # used for sm_bar(), sm_boxplot(), sm_violin(), etc
-df_corr <- data.frame(first = method1, second = method2) # used for correlation
-
-ggplot(data = df_corr, mapping = aes(x = first,  y = second)) +
-geom_point(size = 2) +
-sm_statCorr()
+library(ggplot2)
+ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
+ sm_statCorr()
 }
 }

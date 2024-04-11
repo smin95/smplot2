@@ -22,8 +22,18 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' all_plots1 <- sm_plot_clean(all_plots, ncol=3,nrow=2)
+#' \donttest{
+#' library(smplot2)
+#' library(ggplot2)
+#' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+#'   geom_point(shape = 21, fill = '#0f993d', color = 'white',
+#'              size = 3) -> p1
+#'
+#' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+#'   geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
+#'   sm_hvgrid() -> p2
+#'
+#' sm_plot_clean(list(p1,p2), ncol=2,nrow=1,wmargin=-2, hmargin=-2)
 #' }
 sm_plot_clean <- function(all_plots, ncol, nrow, wmargin=wmargin, hmargin=hmargin) { # returns list
   output <- lapply(1:length(all_plots), function(iPlot) {

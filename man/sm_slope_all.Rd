@@ -40,7 +40,8 @@ The user can use lm() from base R to compute the slope as well.
 }
 \examples{
 
-\dontrun{
+\donttest{
+library(smplot2)
 set.seed(1) # generate random data
 day1 = rnorm(16,0,1)
 day2 = rnorm(16,5,1)

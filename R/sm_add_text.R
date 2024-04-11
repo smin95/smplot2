@@ -26,9 +26,22 @@
 #' @importFrom cowplot ggdraw draw_plot theme_nothing
 #'
 #' @examples
-#' \dontrun{
-#' combined_figure2 <- sm_add_arrow(combined_figure, label='My label', x = .5, y= .5)
+#' \donttest{
+#' library(smplot2)
+#' library(ggplot2)
+#' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+#'  geom_point(shape = 21, fill = '#0f993d', color = 'white',
+#'             size = 3) -> p1
+#'
+#' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+#'  geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
+#'  sm_hvgrid() -> p2
+#'
+#' combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
+#' sm_add_text(combined_fig, label='My label', x = .5, y= .5)
+#'
 #' }
+#'
 sm_add_text <- function(combined_plot, label, x, y, angle=0, color = 'black',
                         fontface='plain', size=10, ...) {
 

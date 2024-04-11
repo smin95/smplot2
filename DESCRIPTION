@@ -1,10 +1,16 @@
 Package: smplot2
 Type: Package
-Title: Statistical Data Visualization Tool for Creating a Composite Plot in 'ggplot2'
+Title: Creating and Annotating a Composite Plot in 'ggplot2'
 Version: 0.1.0
-Author: Seung Hyun (Sam) Min
+Authors@R: 
+    person(
+      given = "Seung Hyun (Sam)",
+      family = "Min",
+      role = c("aut", "cre"),
+      email = "seung.min@mail.mcgill.ca"
+    )
 Maintainer: Seung Hyun (Sam) Min <seung.min@mail.mcgill.ca>
-Description: Provides functions for statistical data visualization and for creating a composite plot in 'ggplot2'. It represents what I wish I had back when I was beginning to learn R. It aims to make every step of data visualization easy.
+Description: Provides functions for creating and annotating a composite plot in 'ggplot2'. Offers background themes and shortcut plotting functions that produce figures that are appropriate for the format of scientific journals. Some methods are described in Min and Zhou (2021) <doi:10.3389/fgene.2021.802894>.
 Encoding: UTF-8
 RoxygenNote: 7.2.2
 License: GPL-2

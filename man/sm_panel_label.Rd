@@ -18,7 +18,7 @@ sm_panel_label(
 )
 }
 \arguments{
-\item{all_plots}{all_plots should be list, which should contain all panels
+\item{all_plots}{all_plots should be a list vector, which should contain all panels
 that are to be combined into one figure.}
 
 \item{x}{Location of the label along the x-axis (0 to 1). 0.5 is the middle origin.}
@@ -51,8 +51,20 @@ It returns a list of plots with panel labels.
 Writing a label for each panel of a combined figure
 }
 \examples{
-\dontrun{
-all_plots_label <- sm_panel_label(all_plots, x = 0.1, y = 0.9,
-panel_tag ='1', panel_pretag = 'S', text_size = 4, text_color = 'black')
+\donttest{
+library(ggplot2)
+library(smplot2)
+
+ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+geom_point(shape = 21, fill = '#0f993d', color = 'white',
+          size = 3) -> p1
+
+ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+ geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
+ sm_hvgrid() -> p2
+
+sm_panel_label(list(p1,p2), x = 0.1, y = 0.9,
+              panel_tag ='1', panel_pretag = 'S', text_size = 4, text_color = 'black')
+
 }
 }

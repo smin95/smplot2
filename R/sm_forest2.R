@@ -53,6 +53,9 @@
 #' If the legend needs to be displayed, the input should be TRUE.
 #' If the legend is not needed, the input should be FALSE.
 #'
+#' @param seed
+#' Random seed
+#'
 #'
 #' @return A forest plot generated using ggplot2
 #' @import ggplot2 cowplot Hmisc
@@ -62,9 +65,10 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(smplot2)
-#' set.seed(2) # generate random data
+#' library(ggplot2)
+#'
 #' day1 = rnorm(20,0,1)
 #' day2 = rnorm(20,5,1)
 #' day3 = rnorm(20,6,1.5)
@@ -74,7 +78,7 @@
 #' Day <- rep(c('Day 1', 'Day 2', 'Day 3', 'Day 4'), each = length(day1))
 #' df2 <- cbind(Subject, Data, Day)
 #'
-#' df2 %>% ggplot(aes(x = Value, y = Day, color = Day, fill = Day)) +
+#' ggplot(data = df2, aes(x = Value, y = Day, color = Day, fill = Day)) +
 #'  sm_forest(sep_level = 2, point_jitter_width = .12,
 #'            errorbar_type = 'ci',
 #'            point.params = list(alpha=0.2, size=  2.5)) +
@@ -94,8 +98,11 @@ sm_forest <- function(...,
                       points = TRUE,
                       refLine = TRUE,
                       borders = TRUE,
-                      legends = FALSE
+                      legends = FALSE,
+                      seed = NULL
 ) {
+
+  if (length(seed)) set.seed(seed)
 
   if (point_jitter_width == 0) {
     point_jitter_width <- 1e-10
@@ -136,7 +143,6 @@ sm_forest <- function(...,
   pointPlot <- do.call('geom_point',
                        modifyList(list(position = position_jitternudge(jitter.width=point_jitter_width,
                                                                        jitter.height=point_jitter_width,
-                                                                       seed=10,
                                                                        nudge.y = 0,
                                                                        nudge.x = position_nudge_vector[1])),
                                   point.params))

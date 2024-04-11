@@ -23,14 +23,18 @@ between the panels.}
 he default is set to 1, which should reduce the empty space (right and left side of each panel)
 between the panels.}
 }
+\value{
+Returns a ggplot2 output with ticks removed.
+}
 \description{
 This function should be used when plotting individual data.
 Please read Chapter 5 of the online guide for more
 details: smin95.github.io/dataviz
 }
 \examples{
-\dontrun{
-ibrary(smplot2)
+\donttest{
+library(ggplot2)
+library(smplot2)
 set.seed(1) # generate random data
 day1 = rnorm(16,2,1)
 day2 = rnorm(16,5,1)

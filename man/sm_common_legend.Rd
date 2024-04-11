@@ -42,14 +42,14 @@ a common legend for subplots.
 Creating a common legend for subplots on a separate panel
 }
 \examples{
-\dontrun{
-df2 <- read_csv('https://www.smin95.com/amblyopia_random.csv')
-df2 \%>\% select(Subject, SF, absBP, Condition) \%>\%
-ggplot(aes(x = SF, y = absBP, shape = Condition, group = Condition)) +
- geom_point(color='black', fill = 'black', size = 2.5) +
- sm_common_legend(x = .5, y = 0.5 , title=FALSE) +
- scale_shape_manual(values = c(21,22),
-                    labels = c('Condition 1 ',
-                               'Condition 2 '))
+\donttest{
+library(ggplot2)
+library(smplot2)
+ggplot(data = mtcars, mapping = aes(x = drat, y = mpg,
+fill = as.factor(cyl))) +
+ geom_point(shape = 21, color = 'white', size = 3) +
+ sm_common_legend(x = .5, y = 0.5 , direction='horizontal',
+                  border=FALSE)
+
 }
 }

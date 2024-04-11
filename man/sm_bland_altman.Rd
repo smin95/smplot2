@@ -21,6 +21,9 @@ If it does not overlap with 0, then the measurement variability is significantly
 
 \item{...}{Parameters of geom_point(), such as 'color', 'fill', 'shape', etc.}
 }
+\value{
+Prints a figure, which is the Bland-Altman plot (ggplot2 object).
+}
 \description{
 This function generates a Bland-Altman plot. This function
 requires two paired data sets as input (same length), and uses sm_statBlandAlt()
@@ -37,16 +40,15 @@ To add a legend, you will need to add sm_classic(legends = TRUE).
 To customise the figure, you can add more geom objects.
 }
 \examples{
-\dontrun{
-set.seed(1)
+\donttest{
+library(smplot2)
+library(tibble)
+
 first <- rnorm(20)
 second <- rnorm(20)
-df <- as_tibble(cbind(first,second)) # requires library(tidyverse)
+df <- as_tibble(cbind(first,second))
 sm_bland_altman(df$first, df$second)
 # when all 3 dashed lines are not shown, extend the range of the y-axis.
 }
 
-}
-\references{
-Giavarina D. (2015). Understanding Bland Altman analysis. Biochemia medica, 25(2), 141–151. https://doi.org/10.11613/BM.2015.015
 }

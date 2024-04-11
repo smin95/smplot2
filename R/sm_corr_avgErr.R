@@ -30,24 +30,16 @@
 #' @import ggplot2 cowplot Hmisc
 #' @importFrom stats sd
 #' @importFrom utils modifyList
+#' @importFrom dplyr summarise
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(smplot2)
-#'  set.seed(11) # generate random data
-#' method1 = c(rnorm(19,0,1),2.5)
-#' method2 = c(rnorm(19,0,1),2.5)
-#' Subject <- rep(paste0('S',seq(1:20)), 2)
-#' Data <- data.frame(Value = matrix(c(method1,method2),ncol=1))
-#' Method <- rep(c('Method 1', 'Method 2'), each = length(method1))
-#' df_general <- cbind(Subject, Data, Method) # used for sm_bar(), sm_boxplot(), sm_violin(), etc
-#'
-#' df_corr <- data.frame(first = method1, second = method2) # used for correlation
-#'
-#' ggplot(data = df_corr, mapping = aes(x = first,  y = second)) +
-#'  geom_point(size = 2) +
-#'  sm_corr_avgErr(df_corr, first,second, errorbar_type = 'se',
+#' library(ggplot2)
+#' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+#' geom_point(shape = 21, size = 3) +
+#'  sm_corr_avgErr(mtcars, drat,mpg, errorbar_type = 'se',
 #'                 color = sm_color('red'))
 #' }
 sm_corr_avgErr <- function(data, x, y,
@@ -64,23 +56,20 @@ sm_corr_avgErr <- function(data, x, y,
 
 
   if (errorbar_type == 'se') {
-    data <- data %>%
-      dplyr::summarise(x_err = sm_stdErr({{x}}),
+    data <- dplyr::summarise(.data = data, x_err = sm_stdErr({{x}}),
                        y_err = sm_stdErr({{y}}),
                        x_avg = mean({{x}}),
                        y_avg = mean({{y}})
       )
   } else if (errorbar_type == 'sd') {
 
-    data <- data %>%
-      dplyr::summarise(x_err = sd({{x}}),
+    data <- dplyr::summarise(.data = data, x_err = sd({{x}}),
                        y_err = sd({{y}}),
                        x_avg = mean({{x}}),
                        y_avg = mean({{y}}))
 
   } else if (errorbar_type == 'ci') {
-    data <- data %>%
-      dplyr::summarise(x_err = qt(p=0.05/2, df=length({{x}})-1, lower.tail=F) *
+    data <- dplyr::summarise(.data = data, x_err = qt(p=0.05/2, df=length({{x}})-1, lower.tail=F) *
                          sm_stdErr({{x}}),
                        y_err = qt(p=0.05/2, df=length({{x}})-1, lower.tail=F) *
                          sm_stdErr({{y}}),

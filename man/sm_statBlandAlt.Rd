@@ -11,6 +11,9 @@ sm_statBlandAlt(first, second)
 
 \item{second}{Data from the second repetition/session}
 }
+\value{
+A list is returned, which has all numerical results that are relevant to drawing a Bland-Altman plot.
+}
 \description{
 Bland-Altman plot is drawn to
 show measurement variability/reliabiilty of a task. This
@@ -33,14 +36,13 @@ The output 'data' should be used as a argument for data in ggplot()
 when plotting.
 }
 \examples{
-\dontrun{
-set.seed(1)
+\donttest{
+library(smplot2)
+library(tibble)
+
 first <- rnorm(20)
 second <- rnorm(20)
 df <- as_tibble(cbind(first,second)) # requires library(tidyverse)
 sm_statBlandAlt(df$first, df$second)
 }
-}
-\references{
-Giavarina D. (2015). Understanding Bland Altman analysis. Biochemia medica, 25(2), 141–151. https://doi.org/10.11613/BM.2015.015
 }

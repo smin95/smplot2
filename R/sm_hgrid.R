@@ -1,11 +1,10 @@
-#' Minimalistic theme of horizontal major grids (updated in smplot2)
+#' Minimalistic theme of horizontal major grids
 
 #' @description
 #'
 #' A graph with a horizontal grid is plotted. Border can be added or removed.
 #' This is useful for plotting a bar graph.
 #'
-#' sm_bar_theme() is exactly the same as sm_hgrid().
 #'
 #' @param legends
 #' If the legend needs to be displayed, the input should be TRUE.
@@ -17,10 +16,13 @@
 #' @import ggplot2 cowplot
 #'
 #' @export
+#' @return
+#' Returns a background theme with major horizontal grids (ggplot2 output).
 #'
 #' @examples
-#' \dontrun{
-#' library(tidyverse)
+#' \donttest{
+#' library(ggplot2)
+#' library(smplot2)
 #' ggplot(data = mpg) +
 #' geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
 #' sm_hgrid()

@@ -8,10 +8,13 @@
 #' If the legend is not needed, the input should be FALSE.
 #' @export
 #' @import ggplot2 cowplot
+#' @return
+#' Returns a background theme as a ggplot2 object.
 #'
 #' @examples
-#' \dontrun{
-#' library(tidyverse)
+#' \donttest{
+#' library(ggplot2)
+#' library(smplot2)
 #' ggplot(data = mpg) +
 #' geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
 #' sm_classic()

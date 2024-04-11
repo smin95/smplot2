@@ -34,7 +34,8 @@ It returns a layer with the specified common y-axis label for combined plot.
 Common y-axis label (title) for combined subplots
 }
 \examples{
-\dontrun{
-ylabel <- sm_common_ylabel('My y-axis')
+\donttest{
+library(smplot2)
+sm_common_ylabel('My y-axis')
 }
 }

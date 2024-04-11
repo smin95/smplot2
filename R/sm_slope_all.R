@@ -41,7 +41,8 @@
 #' @importFrom stats coef lm
 #' @examples
 #'
-#' \dontrun{
+#' \donttest{
+#' library(smplot2)
 #' set.seed(1) # generate random data
 #' day1 = rnorm(16,0,1)
 #' day2 = rnorm(16,5,1)
@@ -161,7 +162,3 @@ sm_slope_all <- function(data, subjects, groups, conditions, x, values) {
 }
 
 
-sm_slope_list <- function(...) {
-  message('sm_slope_list is deprecated. Use sm_slope_all instead.')
-  sm_slope_all(...)
-}

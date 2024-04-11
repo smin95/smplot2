@@ -4,7 +4,7 @@
 \alias{sm_add_point}
 \title{Add a point annotation onto the combined plot}
 \usage{
-sm_add_point(combined_plot, x, y, size, shape = 16, color = "black", ...)
+sm_add_point(combined_plot, x, y, size = 10, shape = 16, color = "black", ...)
 }
 \arguments{
 \item{combined_plot}{Combined figure, an output from sm_put_together().}
@@ -28,7 +28,19 @@ Prints a point in the combined plot.
 Add a point annotation onto the combined plot
 }
 \examples{
-\dontrun{
-combined_figure2 <- sm_add_point(combined_figure, color='red', x = .5, y= .5)
+\donttest{
+library(ggplot2)
+library(smplot2)
+
+ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+geom_point(shape = 21, fill = '#0f993d', color = 'white',
+          size = 3) -> p1
+
+ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+ geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
+ sm_hvgrid() -> p2
+
+combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
+sm_add_point(combined_fig, color='red', size = 10, x = .5, y= .5)
 }
 }

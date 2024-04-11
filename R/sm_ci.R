@@ -16,15 +16,17 @@
 #' @importFrom stats qt
 #'
 #' @export
+#' @return
+#' Prints a double vector that is a single end of the specified confidence interval.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
+#' library(smplot2)
 #' set.seed(1)
 #'
-#' a <- rnorm(10)
-#'
+#' a <- rnorm(100,1,1)
 #' sm_ci(a)
-#' sm_ci(a, low=F)
+#' sm_ci(a, low=FALSE)
 #' }
 #'
 sm_ci <- function(data, alpha=0.05, low=TRUE) {

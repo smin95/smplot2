@@ -13,16 +13,20 @@ approximate integral value for ‘Y’ with unit spacing based on the length of 
 
 \item{y}{Numerical data. The length of x and y must be equal.}
 }
+\value{
+A vector that is the value from the trapezoidal integration is returned.
+}
 \description{
 This is equivalent to Matlab's trapz function.
 }
 \examples{
-\dontrun{
+\donttest{
+library(smplot2)
 X = c(1,2,3,4,5)
 Y1 = c(2,3,4,2,3)
 Y2 = c(3,3,3,3,3)
 
-sm_auc(Y2)
+sm_auc(X,Y2)
 sm_auc(X,Y1)
 }
 }

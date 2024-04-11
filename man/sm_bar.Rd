@@ -13,7 +13,8 @@ sm_bar(
   point_jitter_width = 0.12,
   points = TRUE,
   borders = TRUE,
-  legends = FALSE
+  legends = FALSE,
+  seed = NULL
 )
 }
 \arguments{
@@ -41,6 +42,8 @@ If the border is not needed, the input should be FALSE.}
 
 \item{legends}{If the legend needs to be displayed, the input should be TRUE.
 If the legend is not needed, the input should be FALSE.}
+
+\item{seed}{Random seed}
 }
 \value{
 A bar graph generated using ggplot2
@@ -49,8 +52,9 @@ A bar graph generated using ggplot2
 A bar plot with jittered individual points
 }
 \examples{
-\dontrun{
+\donttest{
 library(smplot2)
+library(ggplot2)
 set.seed(1) # generate random data
 day1 = rnorm(16,2,1)
 day2 = rnorm(16,5,1)
@@ -62,18 +66,6 @@ df <- cbind(Subject, Data, Day)
 # with aesthetic defaults of smplot
 ggplot(data = df, mapping = aes(x = Day, y = Value, color = Day)) +
 sm_bar() +
-scale_color_manual(values = sm_color('blue','orange'))
-
-# with aesthetic defaults of smplots and unique color for each point
-ggplot(data = df, mapping = aes(x = Day, y = Value, color = Subject)) +
-sm_bar(bar.params = list(fill = 'gray80', color = 'transparent', width = 0.7),
-      point.params = list(size =2.5, shape = 16)) +
-scale_color_manual(values = sm_palette(16))
-
-# without aesthetic defaults of smplot
-ggplot(data = df, mapping = aes(x = Day, y = Value, color = Day,
-fill =  Day)) +
-sm_bar(bar.params = list()) +
 scale_color_manual(values = sm_color('blue','orange'))
 
 }

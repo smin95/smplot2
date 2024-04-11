@@ -15,10 +15,13 @@
 #' @import ggplot2 cowplot
 #'
 #' @export
-#'
+#' @return
+#' Returns a background theme with major vertical grids (ggplot2 output).
 #' @examples
-#' \dontrun{
-#' library(tidyverse)
+#' \donttest{
+#' library(ggplot2)
+#' library(smplot2)
+#'
 #' ggplot(data = mpg) +
 #' geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
 #' sm_vgrid()

@@ -17,7 +17,8 @@ sm_forest(
   points = TRUE,
   refLine = TRUE,
   borders = TRUE,
-  legends = FALSE
+  legends = FALSE,
+  seed = NULL
 )
 }
 \arguments{
@@ -60,6 +61,8 @@ If the border is not needed, the input should be FALSE.}
 
 \item{legends}{If the legend needs to be displayed, the input should be TRUE.
 If the legend is not needed, the input should be FALSE.}
+
+\item{seed}{Random seed}
 }
 \value{
 A forest plot generated using ggplot2
@@ -68,9 +71,10 @@ A forest plot generated using ggplot2
 Forest plot
 }
 \examples{
-\dontrun{
+\donttest{
 library(smplot2)
-set.seed(2) # generate random data
+library(ggplot2)
+
 day1 = rnorm(20,0,1)
 day2 = rnorm(20,5,1)
 day3 = rnorm(20,6,1.5)
@@ -80,7 +84,7 @@ Data <- data.frame(Value = matrix(c(day1,day2,day3,day4),ncol=1))
 Day <- rep(c('Day 1', 'Day 2', 'Day 3', 'Day 4'), each = length(day1))
 df2 <- cbind(Subject, Data, Day)
 
-df2 \%>\% ggplot(aes(x = Value, y = Day, color = Day, fill = Day)) +
+ggplot(data = df2, aes(x = Value, y = Day, color = Day, fill = Day)) +
  sm_forest(sep_level = 2, point_jitter_width = .12,
            errorbar_type = 'ci',
            point.params = list(alpha=0.2, size=  2.5)) +

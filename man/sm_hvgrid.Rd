@@ -13,13 +13,17 @@ If the legend is not needed, the input should be FALSE.}
 \item{borders}{If the border needs to be displayed, the input should be `TRUE`.
 If the border is not needed, the input should be `FALSE`.}
 }
+\value{
+Returns a background theme that has both horizontal and vertical major grids (ggplot2 output).
+}
 \description{
 This theme has major vertical and horizontal grids. This is useful for plotting correlations.
 sm_corr_theme() is exactly the same as sm_hvgrid().
 }
 \examples{
-\dontrun{
-library(tidyverse)
+\donttest{
+library(ggplot2)
+library(smplot2)
 ggplot(data = mpg) +
 geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
 sm_hvgrid()

@@ -20,8 +20,9 @@
 #' @importFrom cowplot ggdraw draw_label
 #'
 #' @examples
-#' \dontrun{
-#' title <- sm_common_title('My title')
+#' \donttest{
+#' library(smplot2)
+#' sm_common_title('My title')
 #' }
 sm_common_title <- function(title = '', size=17, x = 0.5, y = 0.5, fontface='bold') {
 

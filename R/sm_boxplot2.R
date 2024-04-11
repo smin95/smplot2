@@ -25,6 +25,8 @@
 #' @param legends
 #' If the legend needs to be displayed, the input should be TRUE.
 #' If the legend is not needed, the input should be FALSE.
+#' @param seed
+#' Random seed
 #'
 #' @import ggplot2 cowplot
 #' @importFrom utils modifyList
@@ -32,7 +34,9 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
+#' library(ggplot2)
+#' library(smplot2)
 #' set.seed(1) # generate random data
 #' day1 = rnorm(16,2,1)
 #' day2 = rnorm(16,5,1)
@@ -53,11 +57,13 @@
 #' scale_color_manual(values = sm_color('blue','orange'))
 #' }
 sm_boxplot <- function(...,
-                       boxplot.params = list(notch = F, fill = 'gray95', color ='black',
+                       boxplot.params = list(notch = FALSE, fill = 'gray95', color ='black',
                                              size = 0.5, width=0.5, outlier.shape = NA),
                        point.params = list(alpha = 0.65),
                        point_jitter_width = 0.12, points = TRUE,
-                       borders = TRUE, legends = FALSE) {
+                       borders = TRUE, legends = FALSE, seed = NULL) {
+
+  if (length(seed)) set.seed(seed)
 
   params <- list(...)
   boxplot.params <- modifyList(params, boxplot.params)
@@ -69,7 +75,6 @@ sm_boxplot <- function(...,
 
   pointPlot <- do.call('geom_point',
                        modifyList(list(position = position_jitter(height=0,
-                                                                  seed=10,
                                                                   width=point_jitter_width)), point.params))
   if (points == FALSE) {
     pointPlot <- NULL

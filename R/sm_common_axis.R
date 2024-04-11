@@ -24,10 +24,13 @@
 #' between the panels.
 #'
 #' @export
+#' @return
+#' Returns a ggplot2 output with ticks removed.
 #'
 #' @examples
-#' \dontrun{
-#' ibrary(smplot2)
+#' \donttest{
+#' library(ggplot2)
+#' library(smplot2)
 #' set.seed(1) # generate random data
 #' day1 = rnorm(16,2,1)
 #' day2 = rnorm(16,5,1)

@@ -18,8 +18,9 @@
 #' @importFrom cowplot ggdraw draw_label
 #'
 #' @examples
-#' \dontrun{
-#' xlabel <- sm_common_xlabel('My x-axis')
+#' \donttest{
+#' library(smplot2)
+#' sm_common_xlabel('My x-axis')
 #' }
 sm_common_xlabel <- function(label = '', size=17, x = 0.5, y = 0.5, fontface='plain') {
   layer <- ggdraw()

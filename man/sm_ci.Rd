@@ -14,17 +14,20 @@ sm_ci(data, alpha = 0.05, low = TRUE)
 \item{low}{If its TRUE, it will compute the low tail of the confidence interval.
 If its FALSE, it will compute the high tail of the confidence interval.}
 }
+\value{
+Prints a double vector that is a single end of the specified confidence interval.
+}
 \description{
 This function computes the confidence interval.
 }
 \examples{
-\dontrun{
+\donttest{
+library(smplot2)
 set.seed(1)
 
-a <- rnorm(10)
-
+a <- rnorm(100,1,1)
 sm_ci(a)
-sm_ci(a, low=F)
+sm_ci(a, low=FALSE)
 }
 
 }

@@ -25,7 +25,8 @@ It prints title on a blank layer of ploting.
 Common title for combined subplots
 }
 \examples{
-\dontrun{
-title <- sm_common_title('My title')
+\donttest{
+library(smplot2)
+sm_common_title('My title')
 }
 }

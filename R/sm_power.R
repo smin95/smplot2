@@ -13,9 +13,12 @@
 #' Power of test (1 minus Type II error probability). Default is set to 0.8.
 #' @importFrom pwr pwr.t2n.test
 #' @export
+#' @return
+#' Returns a result with a class of "power.htest" from the pwr package.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
+#' library(smplot2)
 #' group1 <- rnorm(10,0,1)
 #' group2 <- rnorm(10,1,1)
 #' sm_power(group1, group2, paired = TRUE)

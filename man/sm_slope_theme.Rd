@@ -10,13 +10,18 @@ sm_slope_theme(legends = TRUE)
 \item{legends}{#' If the legend needs to be displayed, the input should be TRUE.
 If the legend is not needed, the input should be FALSE.}
 }
+\value{
+Returns a background theme that is suitable for a slope chart (ggplot2 output).
+}
 \description{
 In this plot, all aspects except for the left-handed spine are missing.
 This format is appropriate for the slope chart.
 }
 \examples{
-\dontrun{
-library(tidyverse)
+\donttest{
+library(ggplot2)
+library(smplot2)
+
 ggplot(data = mpg) +
 geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
 sm_slope_theme()

@@ -41,7 +41,8 @@
 #'
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
+#' library(smplot2)
 #' set.seed(1) # generate random data
 #' day1 = rnorm(16,0,1)
 #' day2 = rnorm(16,5,1)
@@ -150,7 +151,3 @@ sm_auc_all <- function(data, subjects, groups, conditions, x, values) {
   return(auc_list)
 }
 
-sm_auc_list <- function(...) {
-  message('sm_auc_list is deprecated. Use sm_auc_all instead.')
-  sm_auc_all(...)
-}

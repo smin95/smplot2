@@ -53,12 +53,24 @@
 #' @importFrom cowplot plot_grid
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
+#' library(smplot2)
+#' library(ggplot2)
+#'
+#' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+#' geom_point(shape = 21, fill = '#0f993d', color = 'white',
+#'           size = 3) -> p1
+#'
+#' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+#'   geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
+#'   sm_hvgrid() -> p2
+#'
 #' title <- sm_common_title('My title')
-#' xlabel <- sm_common_xlabel('My x-axis ')
+#' xlabel <- sm_common_xlabel('My x-axis')
 #' ylabel <- sm_common_ylabel('My y-axis')
-#' plots_tgd <- sm_put_together(indv_plots, title, xlabel,ylabel,
-#' ncol=3,nrow=3)
+#'
+#' sm_put_together(list(p1,p2), title=title, xlabel=xlabel,
+#'                 ylabel=ylabel, ncol=2,nrow=1)
 #' }
 
 sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
@@ -78,18 +90,6 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
                                axis.text.y = element_text(size = rel(tickRatio)))
   })
 
-
-  if (remove_ticks == FALSE) {
-    all_plots1 <- lapply(1:length(all_plots), function(iPlot) {
-      all_plots[[iPlot]] + sm_common_axis('bottomleft', hmargin=hmargin, wmargin=wmargin)
-    })
-    rel_widths <- rep(1,ncol)
-    rel_heights <- rep(1,ncol)
-  } else {
-    all_plots1 <- sm_plot_clean(all_plots, ncol=ncol,nrow=nrow, hmargin=hmargin, wmargin=wmargin)
-    rel_widths <- c(wRatio, rep(1,ncol-1))
-    rel_heights <- c(rep(1,nrow-1), hRatio)
-  }
 
   if (remove_ticks == 'none') {
     all_plots1 <- lapply(1:length(all_plots), function(iPlot) {

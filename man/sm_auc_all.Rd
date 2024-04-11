@@ -39,7 +39,8 @@ and 'conditions' must be filled. The function will throw an error
 if both arguments are empty.
 }
 \examples{
-\dontrun{
+\donttest{
+library(smplot2)
 set.seed(1) # generate random data
 day1 = rnorm(16,0,1)
 day2 = rnorm(16,5,1)

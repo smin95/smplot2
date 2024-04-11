@@ -28,11 +28,13 @@
 #' @export
 #' @importFrom stats t.test
 #' @importFrom tibble as_tibble
-#' @references
-#' Giavarina D. (2015). Understanding Bland Altman analysis. Biochemia medica, 25(2), 141–151. https://doi.org/10.11613/BM.2015.015
+#' @return
+#' A list is returned, which has all numerical results that are relevant to drawing a Bland-Altman plot.
 #' @examples
-#' \dontrun{
-#' set.seed(1)
+#' \donttest{
+#' library(smplot2)
+#' library(tibble)
+#'
 #' first <- rnorm(20)
 #' second <- rnorm(20)
 #' df <- as_tibble(cbind(first,second)) # requires library(tidyverse)

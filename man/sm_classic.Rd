@@ -10,12 +10,16 @@ sm_classic(legends = FALSE)
 \item{legends}{If the legend needs to be displayed, the input should be TRUE.
 If the legend is not needed, the input should be FALSE.}
 }
+\value{
+Returns a background theme as a ggplot2 object.
+}
 \description{
 It has x and y axis but no grids.
 }
 \examples{
-\dontrun{
-library(tidyverse)
+\donttest{
+library(ggplot2)
+library(smplot2)
 ggplot(data = mpg) +
 geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
 sm_classic()

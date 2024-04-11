@@ -29,11 +29,15 @@
 #' @return Annotations showing the range of uncertainty will printed
 #' on the forest plot.
 #'
+#' @importFrom dplyr %>%
+#'
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' set.seed(2) # generate random data
+#' \donttest{
+#' library(ggplot2)
+#' library(smplot2)
+#'
 #' day1 = rnorm(20,0,1)
 #' day2 = rnorm(20,5,1)
 #' day3 = rnorm(20,6,1.5)
@@ -74,7 +78,7 @@ sm_forest_annot <- function(data, x, y, errorbar_type = 'ci',
                        high = mean({{x}}) + sm_stdErr({{x}}))
   }
 
-  df_ci <- df_avg %>% mutate(int = paste0('(',round(low,2),', ',round(high,2),')'))
+  df_ci <- df_avg %>% dplyr::mutate(int = paste0('(',round(low,2),', ',round(high,2),')'))
 
   position_nudge_vector <- sep_level/10
 

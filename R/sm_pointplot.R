@@ -55,26 +55,11 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(smplot2)
-#' library(tidyverse)
-#'
-#' df <- read_csv('https://www.smin95.com/amblyopia_random.csv')
-#' df1 <- df %>% filter(Condition == 'One') %>% select(-Condition)
-#' df1 %>%
-#'  ggplot(aes(x = SF, y = absBP, fill = Group,
-#'             color = Group, group = Group)) +
-#'  sm_pointplot(position = position_nudge(x = c(0,0.1))) # dodge
-#'
-#'
-#' df1 %>% ggplot(aes(x = SF, y = absBP, fill = Group,
-#' color = Group, group = Group)) +
-#'   sm_pointplot(group = Subject, show_shadow = T,
-#'               position = position_nudge(x = c(0,0.1)),
-#'               line.params = list(alpha = 0.1),
-#'               point.params = list(alpha=0.1)) +
-#'  scale_fill_manual(values = sm_palette(2)) +
-#'   scale_color_manual(values = sm_palette(2)) # dodge + shadow + multiple groups
+#' library(ggplot2)
+#' ggplot(data = mtcars, mapping = aes(x = cyl, y = mpg)) +
+#' sm_pointplot()
 #' }
 #'
 sm_pointplot <- function(...,

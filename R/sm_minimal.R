@@ -9,13 +9,16 @@
 #' If the legend is not needed, the input should be FALSE.
 #'
 #' @import ggplot2 cowplot
+#' @return
+#' Returns a background theme that has no grids (ggplot2 output).
 #'
 #' @export
 #'
 #' @examples
 #'
-#' \dontrun{
-#' library(tidyverse)
+#' \donttest{
+#' library(ggplot2)
+#' library(smplot2)
 #' ggplot(data = mpg) +
 #' geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
 #' sm_minimal()

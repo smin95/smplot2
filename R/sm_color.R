@@ -18,7 +18,8 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
+#' library(smplot2)
 #' sm_color('crimson')
 #'
 #' sm_color('crimson', 'green', 'blue')

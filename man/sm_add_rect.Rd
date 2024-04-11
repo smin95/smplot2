@@ -43,7 +43,19 @@ Areas captured by xmin, ymin, xmax and ymax will become a patch
 once the function gets called.
 }
 \examples{
-\dontrun{
-combined_figure2 <- sm_add_rect(combined_figure, xmin = .5, ymin = .5, xmax =.6, ymax =.6)
+\donttest{
+library(smplot2)
+library(ggplot2)
+ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+ geom_point(shape = 21, fill = '#0f993d', color = 'white',
+            size = 3) -> p1
+
+ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+ geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
+ sm_hvgrid() -> p2
+
+combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
+sm_add_rect(combined_fig, xmin = .5, ymin = .5, xmax =.6, ymax =.6)
 }
+
 }

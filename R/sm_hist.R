@@ -37,9 +37,10 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#'
-#  #dataset
+#' \donttest{
+#' library(ggplot2)
+#' library(smplot2)
+#
 #' set.seed(2)
 #' data=data.frame(value=rnorm(1000))
 #' data2 = data.frame(value=rnorm(1000,5,1))
@@ -48,10 +49,10 @@
 #' data2$day <- 'day2'
 #' rbind(data,data2) -> df
 #'
-#' ggplot(data, aes(x=value)) +
+#' ggplot(data = data, aes(x=value)) +
 #' sm_hist()
 #'
-#' df %>% ggplot(aes(x=value, fill=day, color = day)) +
+#' ggplot(data = df, aes(x=value, fill=day, color = day)) +
 #' sm_hist(hist.params = list(binwidth = 1/2, alpha = 0.3),
 #'        density.params = list(fill='transparent', size = 0.8),
 #'        rug.params = list(alpha = 0.8)) +
@@ -82,7 +83,7 @@ sm_hist <- function(...,
                       modifyList(list(), hist.params))
 
   densityPlot <- do.call('geom_density',
-                         modifyList(list(aes(y= hist.params$binwidth* ..count..)),
+                         modifyList(list(aes(y= hist.params$binwidth* after_stat(count))),
                                     density.params))
 
   rugPlot <- do.call('geom_rug',
@@ -106,4 +107,4 @@ sm_hist <- function(...,
 
 }
 
-globalVariables(c('..count..'))
+globalVariables(c('count'))

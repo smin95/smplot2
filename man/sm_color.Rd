@@ -23,7 +23,8 @@ This is a custom color palette that SM recommends for data visualization.
 It returns up to 20 different colors with a high visibility.
 }
 \examples{
-\dontrun{
+\donttest{
+library(smplot2)
 sm_color('crimson')
 
 sm_color('crimson', 'green', 'blue')
