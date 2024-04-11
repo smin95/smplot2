@@ -1,4 +1,4 @@
-#' A violin plot with jittered individual points (updated in smplot2)
+#' A violin plot with jittered individual points
 #'
 #' @param ...
 #' A generic aesthetic parameter across points and the violin plot. This is optional.

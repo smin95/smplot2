@@ -8,7 +8,9 @@
 #' Number of colors (1-20).
 #'
 #' @examples
-#' sm_palette(3) # returns 3 colors
+#' \dontrun{
+#' #' sm_palette(3) # returns 3 colors
+#' }
 #'
 #' @export
 sm_palette <- function(colorNum = 10) {

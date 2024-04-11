@@ -2,7 +2,7 @@
 % Please edit documentation in R/sm_slope.R
 \name{sm_slope}
 \alias{sm_slope}
-\title{A slope chart (updated in smplot2)}
+\title{A slope chart}
 \usage{
 sm_slope(
   ...,

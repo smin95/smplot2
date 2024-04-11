@@ -1,4 +1,4 @@
-#' A slope chart (updated in smplot2)
+#' A slope chart
 #'
 #' @description
 #' This function generates a slope chart.

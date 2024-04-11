@@ -61,7 +61,7 @@ sm_bland_altman <- function(first, second,
       geom_point(size = point_size, ...) +
       ylab('Difference between data') +
       xlab('Mean across data') +
-      sm_classic(legends = F)
+      sm_classic(legends = FALSE)
   } else if (diff_ci == TRUE) {
     fig <- ggplot(data = statBlandAlt$data, aes(x = statBlandAlt$mean, y = statBlandAlt$diff)) +
       annotate("rect", xmin = -Inf, xmax = Inf, ymin= statBlandAlt$diff_ci[[1]],
@@ -72,7 +72,7 @@ sm_bland_altman <- function(first, second,
       geom_point(size = point_size, ...) +
       ylab('Difference between data') +
       xlab('Mean across data') +
-      sm_classic(legends = F)
+      sm_classic(legends = FALSE)
 
   }
   return(fig)

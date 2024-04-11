@@ -1,4 +1,4 @@
-#' Forest plot (updated in smplot2)
+#' Forest plot
 #'
 #' @param ...
 #' A generic aesthetic parameter across points, lines and error bars. This

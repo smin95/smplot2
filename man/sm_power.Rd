@@ -2,7 +2,7 @@
 % Please edit documentation in R/sm_power.R
 \name{sm_power}
 \alias{sm_power}
-\title{Post-hoc pPower analysis using two-sample or paired t-test}
+\title{Post-hoc power analysis using two-sample or paired t-test}
 \usage{
 sm_power(group1, group2, paired, sig.level = 0.05, power = 0.8)
 }
@@ -20,7 +20,7 @@ that is to be compared with the former group.}
 \item{power}{Power of test (1 minus Type II error probability). Default is set to 0.8.}
 }
 \description{
-Post-hoc pPower analysis using two-sample or paired t-test
+Post-hoc power analysis using two-sample or paired t-test
 }
 \examples{
 \dontrun{

@@ -42,7 +42,7 @@
 
 sm_statBlandAlt <- function(first, second) {
   diff = second - first
-  mean = rowMeans(cbind(first,second),na.rm=T)
+  mean = rowMeans(cbind(first,second),na.rm=TRUE)
   mean_diff = mean(diff)
   sd = sd(diff)
   upper_limit  = mean_diff + 1.96*sd

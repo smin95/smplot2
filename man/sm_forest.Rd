@@ -2,7 +2,7 @@
 % Please edit documentation in R/sm_forest2.R
 \name{sm_forest}
 \alias{sm_forest}
-\title{Forest plot (updated in smplot2)}
+\title{Forest plot}
 \usage{
 sm_forest(
   ...,
@@ -65,7 +65,7 @@ If the legend is not needed, the input should be FALSE.}
 A forest plot generated using ggplot2
 }
 \description{
-Forest plot (updated in smplot2)
+Forest plot
 }
 \examples{
 \dontrun{

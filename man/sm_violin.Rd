@@ -2,7 +2,7 @@
 % Please edit documentation in R/sm_violin.R
 \name{sm_violin}
 \alias{sm_violin}
-\title{A violin plot with jittered individual points (updated in smplot2)}
+\title{A violin plot with jittered individual points}
 \usage{
 sm_violin(
   ...,
@@ -46,7 +46,7 @@ If the legend is not needed, the input should be FALSE.}
 Violin plot generated using ggplot2
 }
 \description{
-A violin plot with jittered individual points (updated in smplot2)
+A violin plot with jittered individual points
 }
 \examples{
 \dontrun{

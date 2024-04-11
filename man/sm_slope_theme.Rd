@@ -14,3 +14,11 @@ If the legend is not needed, the input should be FALSE.}
 In this plot, all aspects except for the left-handed spine are missing.
 This format is appropriate for the slope chart.
 }
+\examples{
+\dontrun{
+library(tidyverse)
+ggplot(data = mpg) +
+geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
+sm_slope_theme()
+}
+}

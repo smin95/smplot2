@@ -2,7 +2,7 @@
 % Please edit documentation in R/sm_hvgrid_minor.R
 \name{sm_hvgrid_minor}
 \alias{sm_hvgrid_minor}
-\title{A theme with horizontal and vertical major and minor grids (updated in smplot2)}
+\title{A theme with horizontal and vertical major and minor grids}
 \usage{
 sm_hvgrid_minor(legends = TRUE, borders = TRUE)
 }

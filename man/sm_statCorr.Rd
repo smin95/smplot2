@@ -3,7 +3,7 @@
 \name{sm_statCorr}
 \alias{sm_statCorr}
 \title{Linear regression slope and statistical values
-from a paired correlation test (updated in smplot2)}
+from a paired correlation test}
 \usage{
 sm_statCorr(
   ...,

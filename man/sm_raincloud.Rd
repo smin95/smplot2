@@ -2,7 +2,7 @@
 % Please edit documentation in R/sm_raincloud.R
 \name{sm_raincloud}
 \alias{sm_raincloud}
-\title{Raincloud plot (updated in smplot2)}
+\title{Raincloud plot}
 \usage{
 sm_raincloud(
   ...,
@@ -60,15 +60,11 @@ Returns a raincloud plot generated using ggplot2.
 This function visualizes a raincloud plot, which is a combination of jittered points, boxplots
 and violin plots. The creation of this function
 has been inspired by the R package called 'raincloudplots' by Jordy van
-Langen (https://github.com/jorvlan/raincloudplots).
+Langen.
 
 This function has been created to allow more customisation than the functions
 in the raincloudplots package. Also, this function automatically sorts the data given the
 condition that the x-axis factor levels have been sorted properly.
-
-Also in smplot2, there will be more flexibility. For example, you can plot
-the raincloud across multiple groups. Also the number of input argument has been
-reduced, thereby avoiding potential confusion from users.
 }
 \examples{
 \dontrun{

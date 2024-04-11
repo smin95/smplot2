@@ -163,5 +163,5 @@ sm_slope_all <- function(data, subjects, groups, conditions, x, values) {
 
 sm_slope_list <- function(...) {
   message('sm_slope_list is deprecated. Use sm_slope_all instead.')
-  sm_auc_all(...)
+  sm_slope_all(...)
 }

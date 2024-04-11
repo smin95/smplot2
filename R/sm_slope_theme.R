@@ -11,6 +11,13 @@
 #'
 #'
 #' @export
+#' @examples
+#' \dontrun{
+#' library(tidyverse)
+#' ggplot(data = mpg) +
+#' geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
+#' sm_slope_theme()
+#' }
 
 sm_slope_theme <- function(legends = TRUE) {
   if (legends == T) {

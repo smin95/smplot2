@@ -1,4 +1,4 @@
-#' Minimalistic theme with major horizontal and vertical grids (updated in smplot2)
+#' Minimalistic theme with major horizontal and vertical grids
 #'
 #' @description
 #'
@@ -103,4 +103,9 @@ sm_hvgrid <- function(legends = TRUE, borders = TRUE) {
         )
     }
   }
+}
+
+sm_corr_theme <- function(...) {
+  message('sm_corr_theme is equivalent to sm_hvgrid.')
+  sm_hvgrid(...)
 }

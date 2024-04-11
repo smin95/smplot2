@@ -150,3 +150,7 @@ sm_auc_all <- function(data, subjects, groups, conditions, x, values) {
   return(auc_list)
 }
 
+sm_auc_list <- function(...) {
+  message('sm_auc_list is deprecated. Use sm_auc_all instead.')
+  sm_auc_all(...)
+}

@@ -2,7 +2,7 @@
 % Please edit documentation in R/sm_boxplot2.R
 \name{sm_boxplot}
 \alias{sm_boxplot}
-\title{A boxplot with jittered individual points (updated in smplot2)}
+\title{A boxplot with jittered individual points}
 \usage{
 sm_boxplot(
   ...,
@@ -38,7 +38,7 @@ If the legend is not needed, the input should be FALSE.}
 A boxplot generated using ggplot2
 }
 \description{
-A boxplot with jittered individual points (updated in smplot2)
+A boxplot with jittered individual points
 }
 \examples{
 \dontrun{

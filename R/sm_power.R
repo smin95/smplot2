@@ -1,4 +1,4 @@
-#' Post-hoc pPower analysis using two-sample or paired t-test
+#' Post-hoc power analysis using two-sample or paired t-test
 #' @param group1
 #' Numeric vector containing data from one sample (i.e., group 1)
 #' that is to be compared with another group.

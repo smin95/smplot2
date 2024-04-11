@@ -1,4 +1,4 @@
-#' A boxplot with jittered individual points (updated in smplot2)
+#' A boxplot with jittered individual points
 #'
 #'
 #' @param ...

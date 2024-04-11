@@ -18,9 +18,11 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' sm_color('crimson')
 #'
 #' sm_color('crimson', 'green', 'blue')
+#' }
 
 sm_color <- function(...) {
   colors <- list(...)

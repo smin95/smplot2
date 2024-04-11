@@ -40,7 +40,7 @@ sm_add_legend <- function(combined_plot, x,y, sampleplot, legend, direction='ver
       stop('If legend is not provided, sampleplot should be provided so that a legend can be derived.')
     }
 
-    poi <- sampleplot+sm_hgrid(legends=T) + theme(legend.direction = direction) +
+    poi <- sampleplot+sm_hgrid(legends=TRUE) + theme(legend.direction = direction) +
       theme(legend.spacing.y = unit(legend_spacing, "mm"),
             legend.spacing.x = unit(legend_spacing, 'mm'),
             aspect.ratio = 1,

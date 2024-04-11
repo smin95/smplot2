@@ -1,4 +1,4 @@
-#' Minimalistic theme with vertical major grids (updated in smplot2)
+#' Minimalistic theme with vertical major grids
 #'
 #' @description
 #'

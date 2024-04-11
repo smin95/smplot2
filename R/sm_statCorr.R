@@ -1,5 +1,5 @@
 #' Linear regression slope and statistical values
-#' from a paired correlation test (updated in smplot2)
+#' from a paired correlation test
 #'
 #' @description
 #' This combines two different functions:
@@ -96,7 +96,7 @@ sm_statCorr <- function(...,
   fit.params <- modifyList(params, fit.params)
 
   fitPlot <- do.call('geom_smooth',
-                     modifyList(list(method = 'lm', se = F,
+                     modifyList(list(method = 'lm', se = FALSE,
                                      alpha = 0.2, weight = 0.8), fit.params))
 
 

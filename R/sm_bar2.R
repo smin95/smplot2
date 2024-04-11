@@ -1,4 +1,4 @@
-#' A bar plot with jittered individual points (updated in smplot2)
+#' A bar plot with jittered individual points
 #'
 #' @param ...
 #' A generic aesthetic parameter across points and the boxplot. This is optional.

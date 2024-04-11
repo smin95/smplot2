@@ -1,4 +1,4 @@
-#' A theme with horizontal and vertical major and minor grids (updated in smplot2)
+#' A theme with horizontal and vertical major and minor grids
 #'
 #' @description
 #'

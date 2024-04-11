@@ -1,18 +1,15 @@
-#' Raincloud plot (updated in smplot2)
+#' Raincloud plot
 #'
 #' @description
 #' This function visualizes a raincloud plot, which is a combination of jittered points, boxplots
 #' and violin plots. The creation of this function
 #' has been inspired by the R package called 'raincloudplots' by Jordy van
-#' Langen (https://github.com/jorvlan/raincloudplots).
+#' Langen.
 #'
 #' This function has been created to allow more customisation than the functions
 #' in the raincloudplots package. Also, this function automatically sorts the data given the
 #' condition that the x-axis factor levels have been sorted properly.
 #'
-#' Also in smplot2, there will be more flexibility. For example, you can plot
-#' the raincloud across multiple groups. Also the number of input argument has been
-#' reduced, thereby avoiding potential confusion from users.
 #'
 #' @param ...
 #' A generic aesthetic parameter across points, boxplot and violin. This

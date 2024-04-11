@@ -12,3 +12,10 @@ sm_stdErr(data)
 \description{
 Standard error
 }
+\examples{
+\dontrun{
+sm_stdErr(rnorm(10,0,1))
+}
+
+
+}
