@@ -1,5 +1,3 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/smin95/smplot2/blob/master/LICENSE/)
-
 # smplot2
 
 Author: Seung Hyun Min
