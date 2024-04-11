@@ -1,6 +1,6 @@
 Package: smplot2
 Type: Package
-Title: Statistical Data Visualization for Creating a Composite Plot in `ggplot2`
+Title: Statistical Data Visualization Tool for Creating a Composite Plot in 'ggplot2'
 Version: 0.1.0
 Author: Seung Hyun (Sam) Min
 Maintainer: Seung Hyun (Sam) Min <seung.min@mail.mcgill.ca>

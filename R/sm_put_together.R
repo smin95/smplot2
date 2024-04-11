@@ -27,12 +27,14 @@
 #' see what happens to the spacing within each panel and between panels.
 #' @param wRatio
 #' This adjusts the ratio of the width of the first column to those of other columns.
-#' By default, it is set to be slightly wider than that of other columns. If the value
-#' is larger than 1, then it will be wider than that of other columns.
+#' By default, it is set to be 1.1x wider than that of other columns. If the value
+#' is larger than 1, then it will be wider than that of other columns. Users are encouraged
+#' to adjust this value because different computers can show different looking outputs.
 #' @param hRatio
 #' This adjusts the ratio of the height of the last row to those of other rows
-#' By default, it is set to be 1.11x taller than that of other columns. If the value
-#' is larger than 1, then it will be taller than that of other columns.
+#' By default, it is set to be 1.1x taller than that of other columns. If the value
+#' is larger than 1, then it will be taller than that of other columns. Users are encouraged
+#' to adjust this value because different computers can show different looking outputs.
 #' @param hmargin
 #' The amount of height of blank space between subplots. It sets the size of the empty space (i.e., margin) between panels. T
 #' he default is set to 0. If its positive, the blank spacing will increase. If its negative, it will get reduced
@@ -60,20 +62,11 @@
 #' }
 
 sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
-                            ncol, nrow, tickRatio = 1.4, panel_scale = 0.9, wRatio,
-                            hRatio = 1.11, hmargin = 0, wmargin = 0, remove_ticks = 'some') {
+                            ncol, nrow, tickRatio = 1.4, panel_scale = 0.9, wRatio=1.1,
+                            hRatio = 1.1, hmargin = 0, wmargin = 0, remove_ticks = 'some') {
 
   all_plots <- flatten_ggplot(all_plots)
 
-  if (missing(wRatio)) {
-    if (ncol == 2) wRatio <- 1.15
-    else if (ncol == 3) wRatio <- 1.07
-    else if (ncol == 4) wRatio <- 1.07
-    else if (ncol == 5) wRatio <- 1.07
-    else if (ncol > 5) wRatio <- 1.06
-  } else {
-    wRatio <- wRatio
-  }
 
   if (missing(title)) title <- NULL
   if (missing(xlabel)) xlabel <- NULL
@@ -129,7 +122,7 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
 
 
   tgd1 <- plot_grid(plotlist = all_plots2, ncol=ncol, nrow=nrow,
-                    rel_widths = rel_widths, rel_heights = rel_heights)
+                    rel_widths = rel_widths, rel_heights = rel_heights, axis='tblr', align='hv')
   tgd2 <- plot_grid(title, tgd1, ncol=1, rel_heights=c(0.1,1))
   tgd3 <- plot_grid(tgd2, xlabel, ncol=1, rel_heights = c(1,0.1))
   tgd4 <- plot_grid(ylabel, tgd3, ncol=2, rel_widths = c(0.1,1))
