@@ -18,12 +18,10 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
 #' library(smplot2)
 #' sm_color('crimson')
 #'
 #' sm_color('crimson', 'green', 'blue')
-#' }
 
 sm_color <- function(...) {
   colors <- list(...)

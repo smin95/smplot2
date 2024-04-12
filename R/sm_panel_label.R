@@ -33,7 +33,6 @@
 #' @importFrom utils as.roman
 #'
 #' @examples
-#' \donttest{
 #' library(ggplot2)
 #' library(smplot2)
 #'
@@ -48,7 +47,6 @@
 #' sm_panel_label(list(p1,p2), x = 0.1, y = 0.9,
 #'               panel_tag ='1', panel_pretag = 'S', text_size = 4, text_color = 'black')
 #'
-#' }
 sm_panel_label <- function(all_plots, x, y, panel_tag='1', panel_pretag, panel_posttag,
                            text_size = 5.5, text_color = 'black', fontface = 'plain', ...) {
 

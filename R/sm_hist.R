@@ -37,7 +37,6 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
 #' library(ggplot2)
 #' library(smplot2)
 #
@@ -58,7 +57,6 @@
 #'        rug.params = list(alpha = 0.8)) +
 #'  scale_color_manual(values = sm_palette(2)) +
 #'   scale_fill_manual(values = sm_palette(2))
-#' }
 #'
 sm_hist <- function(...,
                     hist.params = list(binwidth = 1/2, fill = sm_color('blue'),

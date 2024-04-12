@@ -65,7 +65,6 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
 #' library(smplot2)
 #' library(ggplot2)
 #'
@@ -83,7 +82,7 @@
 #'            errorbar_type = 'ci',
 #'            point.params = list(alpha=0.2, size=  2.5)) +
 #'   scale_color_manual(values = sm_palette(4))
-#' }
+
 sm_forest <- function(...,
                       point.params = list(size=  2.5, alpha = 0.3),
                       avgPoint.params = list(size = 5.5,

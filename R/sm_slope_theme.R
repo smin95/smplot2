@@ -14,14 +14,13 @@
 #' @return
 #' Returns a background theme that is suitable for a slope chart (ggplot2 output).
 #' @examples
-#' \donttest{
 #' library(ggplot2)
 #' library(smplot2)
 #'
 #' ggplot(data = mpg) +
 #' geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
 #' sm_slope_theme()
-#' }
+#'
 
 sm_slope_theme <- function(legends = TRUE) {
   if (legends == T) {

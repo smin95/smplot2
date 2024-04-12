@@ -70,7 +70,6 @@ in the raincloudplots package. Also, this function automatically sorts the data 
 condition that the x-axis factor levels have been sorted properly.
 }
 \examples{
-\donttest{
 library(ggplot2)
 library(smplot2)
 
@@ -89,5 +88,5 @@ sm_raincloud() +
  xlab('Day')  +
  scale_fill_manual(values = sm_palette(4))
 
-}
+
 }

@@ -34,14 +34,13 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
 #' library(smplot2)
 #' library(ggplot2)
 #' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
 #' geom_point(shape = 21, size = 3) +
 #'  sm_corr_avgErr(mtcars, drat,mpg, errorbar_type = 'se',
 #'                 color = sm_color('red'))
-#' }
+
 sm_corr_avgErr <- function(data, x, y,
                            point.params = list(size = 2.5),
                            errh.params = list(height = 0),

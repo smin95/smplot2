@@ -45,7 +45,6 @@ Prints an arrow to the combined plot.
 Adding an arrow annotation in the combined plot
 }
 \examples{
-\donttest{
 library(ggplot2)
 library(smplot2)
 ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
@@ -58,5 +57,4 @@ ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
 
 combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
 sm_add_arrow(combined_fig, x = 0.4, y = 0.4, xend = 0.6, yend = 0.6)
-}
 }

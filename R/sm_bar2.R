@@ -43,7 +43,6 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
 #' library(smplot2)
 #' library(ggplot2)
 #' set.seed(1) # generate random data
@@ -59,7 +58,6 @@
 #' sm_bar() +
 #' scale_color_manual(values = sm_color('blue','orange'))
 #'
-#' }
 sm_bar <- function(...,
                    bar.params = list(width = 0.7, alpha = 1, color = 'transparent',
                                      fill = 'gray80'),

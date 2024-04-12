@@ -34,7 +34,6 @@
 #' @return
 #' Prints a figure, which is the Bland-Altman plot (ggplot2 object).
 #' @examples
-#' \donttest{
 #' library(smplot2)
 #' library(tibble)
 #'
@@ -43,7 +42,6 @@
 #' df <- as_tibble(cbind(first,second))
 #' sm_bland_altman(df$first, df$second)
 #' # when all 3 dashed lines are not shown, extend the range of the y-axis.
-#' }
 #'
 sm_bland_altman <- function(first, second,
                              point_size = 3.3,

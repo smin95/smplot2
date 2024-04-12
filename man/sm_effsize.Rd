@@ -25,10 +25,8 @@ Cohen's d is a measure of the effect size.
 It is often reported with p-values (ex. from a t-test or posthoc pairwise comparisons).
 }
 \examples{
-\donttest{
 library(smplot2)
 group1 <- rnorm(10,0,1)
 group2 <- rnorm(10,1,1)
 sm_effsize(group1, group2)
-}
 }

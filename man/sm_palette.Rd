@@ -17,9 +17,7 @@ This is a custom color palette that SM recommends for data visualization.
 It returns up to 20 different colors with a high contrast.
 }
 \examples{
-\donttest{
 library(smplot2)
 #' sm_palette(3) # returns 3 colors
-}
 
 }

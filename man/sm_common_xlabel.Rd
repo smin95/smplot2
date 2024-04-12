@@ -25,8 +25,6 @@ It returns a layer with the specified common x-axis label for combined plot.
 Common x-axis label (title) for combined subplots
 }
 \examples{
-\donttest{
 library(smplot2)
 sm_common_xlabel('My x-axis')
-}
 }

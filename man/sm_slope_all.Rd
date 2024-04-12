@@ -40,7 +40,6 @@ The user can use lm() from base R to compute the slope as well.
 }
 \examples{
 
-\donttest{
 library(smplot2)
 set.seed(1) # generate random data
 day1 = rnorm(16,0,1)
@@ -54,6 +53,6 @@ df <- cbind(Subject, Value, Condition, Day)
 sm_slope_all(data = df, subjects = 'Subject',values = 'Value',
 conditions = 'Condition',x = 'Day')
 
-}
+
 
 }

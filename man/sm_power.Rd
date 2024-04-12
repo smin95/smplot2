@@ -26,10 +26,9 @@ Returns a result with a class of "power.htest" from the pwr package.
 Post-hoc power analysis using two-sample or paired t-test
 }
 \examples{
-\donttest{
 library(smplot2)
 group1 <- rnorm(10,0,1)
 group2 <- rnorm(10,1,1)
 sm_power(group1, group2, paired = TRUE)
-}
+
 }

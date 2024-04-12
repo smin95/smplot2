@@ -29,7 +29,6 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
 #' library(ggplot2)
 #' library(smplot2)
 #'
@@ -48,7 +47,6 @@
 #'combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
 #'sm_add_legend(combined_fig, x = 0.1, y = 0.1, sampleplot = p1)
 #'
-#' }
 sm_add_legend <- function(combined_plot, x,y, sampleplot, legend, direction='vertical',
                           border=TRUE, legend_spacing = 0.5, border_color='black',
                           font_size=12) {

@@ -20,13 +20,12 @@
 #' Returns a background theme with major horizontal grids (ggplot2 output).
 #'
 #' @examples
-#' \donttest{
 #' library(ggplot2)
 #' library(smplot2)
 #' ggplot(data = mpg) +
 #' geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
 #' sm_hgrid()
-#' }
+
 sm_hgrid <- function(legends = FALSE, borders = TRUE) {
 
   if (legends == TRUE) {

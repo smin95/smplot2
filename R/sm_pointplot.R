@@ -55,12 +55,10 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
 #' library(smplot2)
 #' library(ggplot2)
 #' ggplot(data = mtcars, mapping = aes(x = cyl, y = mpg)) +
 #' sm_pointplot()
-#' }
 #'
 sm_pointplot <- function(...,
                          avgPoint.params = list(size = 2.5),

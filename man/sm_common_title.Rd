@@ -25,8 +25,7 @@ It prints title on a blank layer of ploting.
 Common title for combined subplots
 }
 \examples{
-\donttest{
 library(smplot2)
 sm_common_title('My title')
-}
+
 }

@@ -34,7 +34,6 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
 #' library(ggplot2)
 #' library(smplot2)
 #'
@@ -51,7 +50,7 @@
 #'  sm_forest(point_jitter_width = 0.12, sep_level = 3) +
 #'  scale_color_manual(values = sm_palette(4)) +
 #'  sm_forest_annot(data = df2, x = Value, y = Day, sep_level = 3)
-#' }
+
 sm_forest_annot <- function(data, x, y, errorbar_type = 'ci',
                             text.params = list(size=4,color='black'),
                             sep_level = 2, ...) {

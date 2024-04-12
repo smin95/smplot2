@@ -41,7 +41,6 @@
 #'
 #' @export
 #' @examples
-#' \donttest{
 #' library(smplot2)
 #' set.seed(1) # generate random data
 #' day1 = rnorm(16,0,1)
@@ -55,7 +54,6 @@
 #' sm_auc_all(data = df, subjects = 'Subject',values = 'Value',
 #' conditions = 'Condition',x = 'Day')
 #'
-#' }
 #'
 sm_auc_all <- function(data, subjects, groups, conditions, x, values) {
 
@@ -147,7 +145,7 @@ sm_auc_all <- function(data, subjects, groups, conditions, x, values) {
 
   }
   auc_list <- na.omit(auc_list)
-  print(paste('AUC =', values, '*', x))
+  message(paste('AUC =', values, '*', x))
   return(auc_list)
 }
 

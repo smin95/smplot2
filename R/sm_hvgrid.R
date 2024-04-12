@@ -22,13 +22,12 @@
 #' Returns a background theme that has both horizontal and vertical major grids (ggplot2 output).
 #'
 #' @examples
-#' \donttest{
 #' library(ggplot2)
 #' library(smplot2)
 #' ggplot(data = mpg) +
 #' geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
 #' sm_hvgrid()
-#' }
+#'
 sm_hvgrid <- function(legends = TRUE, borders = TRUE) {
 
   if (legends == TRUE) {

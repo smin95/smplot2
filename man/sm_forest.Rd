@@ -71,7 +71,6 @@ A forest plot generated using ggplot2
 Forest plot
 }
 \examples{
-\donttest{
 library(smplot2)
 library(ggplot2)
 
@@ -89,5 +88,4 @@ ggplot(data = df2, aes(x = Value, y = Day, color = Day, fill = Day)) +
            errorbar_type = 'ci',
            point.params = list(alpha=0.2, size=  2.5)) +
   scale_color_manual(values = sm_palette(4))
-}
 }

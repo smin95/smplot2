@@ -19,12 +19,11 @@
 #' Returns a double vector that is the effect size between two samples.
 #'
 #' @examples
-#' \donttest{
 #' library(smplot2)
 #' group1 <- rnorm(10,0,1)
 #' group2 <- rnorm(10,1,1)
 #' sm_effsize(group1, group2)
-#' }
+
 sm_effsize <- function(group1, group2, absolute = TRUE) {
   n1 <- length(group1) # sample size for group 1
   n2 <- length(group2) # sample size for group 2

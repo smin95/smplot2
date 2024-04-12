@@ -74,7 +74,6 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
 #' library(ggplot2)
 #' library(smplot2)
 #'
@@ -101,7 +100,7 @@
 #'           avgLine.params = list(color = sm_color('blue'), size = 1),
 #'           show_mean = TRUE)
 #'
-#' }
+#'
 sm_slope <- function(...,
                      labels,
                      group,

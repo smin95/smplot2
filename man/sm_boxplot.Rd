@@ -44,7 +44,6 @@ A boxplot generated using ggplot2
 A boxplot with jittered individual points
 }
 \examples{
-\donttest{
 library(ggplot2)
 library(smplot2)
 set.seed(1) # generate random data
@@ -65,5 +64,4 @@ sm_boxplot() +
 ggplot(data = df, mapping = aes(x = Day, y = Value, color = Day)) +
 sm_boxplot(boxplot.params = list()) +
 scale_color_manual(values = sm_color('blue','orange'))
-}
 }

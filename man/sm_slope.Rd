@@ -78,7 +78,6 @@ With smplot2, average plot can be displayed along with error bars, both of which
 are optional.
 }
 \examples{
-\donttest{
 library(ggplot2)
 library(smplot2)
 
@@ -104,5 +103,5 @@ ggplot(data = df, aes(x = Day, y = Value, fill = Day)) +
           avgLine.params = list(color = sm_color('blue'), size = 1),
           show_mean = TRUE)
 
-}
+
 }

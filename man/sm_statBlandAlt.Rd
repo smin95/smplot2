@@ -36,7 +36,6 @@ The output 'data' should be used as a argument for data in ggplot()
 when plotting.
 }
 \examples{
-\donttest{
 library(smplot2)
 library(tibble)
 
@@ -44,5 +43,5 @@ first <- rnorm(20)
 second <- rnorm(20)
 df <- as_tibble(cbind(first,second)) # requires library(tidyverse)
 sm_statBlandAlt(df$first, df$second)
-}
+
 }

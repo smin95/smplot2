@@ -28,7 +28,6 @@ Prints a point in the combined plot.
 Add a point annotation onto the combined plot
 }
 \examples{
-\donttest{
 library(ggplot2)
 library(smplot2)
 
@@ -42,5 +41,4 @@ ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
 
 combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
 sm_add_point(combined_fig, color='red', size = 10, x = .5, y= .5)
-}
 }

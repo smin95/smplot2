@@ -22,7 +22,6 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
 #' library(smplot2)
 #' library(ggplot2)
 #' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
@@ -34,7 +33,7 @@
 #'   sm_hvgrid() -> p2
 #'
 #' sm_plot_clean(list(p1,p2), ncol=2,nrow=1,wmargin=-2, hmargin=-2)
-#' }
+#'
 sm_plot_clean <- function(all_plots, ncol, nrow, wmargin=wmargin, hmargin=hmargin) { # returns list
   output <- lapply(1:length(all_plots), function(iPlot) {
     aX = (iPlot-1) %% ncol + 1 # column

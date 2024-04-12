@@ -21,11 +21,10 @@ This theme has major vertical and horizontal grids. This is useful for plotting 
 sm_corr_theme() is exactly the same as sm_hvgrid().
 }
 \examples{
-\donttest{
 library(ggplot2)
 library(smplot2)
 ggplot(data = mpg) +
 geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
 sm_hvgrid()
-}
+
 }

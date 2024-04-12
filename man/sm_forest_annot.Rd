@@ -45,7 +45,6 @@ on the forest plot.
 Annotation of the error range on the forest plot
 }
 \examples{
-\donttest{
 library(ggplot2)
 library(smplot2)
 
@@ -62,5 +61,4 @@ ggplot(data = df2, aes(x = Value, y = Day, color = Day)) +
  sm_forest(point_jitter_width = 0.12, sep_level = 3) +
  scale_color_manual(values = sm_palette(4)) +
  sm_forest_annot(data = df2, x = Value, y = Day, sep_level = 3)
-}
 }

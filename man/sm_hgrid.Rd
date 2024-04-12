@@ -21,11 +21,9 @@ A graph with a horizontal grid is plotted. Border can be added or removed.
 This is useful for plotting a bar graph.
 }
 \examples{
-\donttest{
 library(ggplot2)
 library(smplot2)
 ggplot(data = mpg) +
 geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
 sm_hgrid()
-}
 }

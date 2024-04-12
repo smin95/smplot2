@@ -62,13 +62,12 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
 #' library(smplot2)
 #' library(ggplot2)
 #' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
 #' geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
 #'  sm_statCorr()
-#' }
+#'
 sm_statCorr <- function(...,
                         fit.params = list(),
                         corr_method = 'pearson',

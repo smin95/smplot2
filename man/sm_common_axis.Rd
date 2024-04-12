@@ -32,7 +32,6 @@ Please read Chapter 5 of the online guide for more
 details: smin95.github.io/dataviz
 }
 \examples{
-\donttest{
 library(ggplot2)
 library(smplot2)
 set.seed(1) # generate random data
@@ -48,7 +47,6 @@ ggplot(data = df, mapping = aes(x = Day, y = Value, color = Day)) +
 sm_bar() +
 scale_color_manual(values = sm_color('blue','orange')) +
 sm_common_axis('bottomleft')
-}
 
 
 }

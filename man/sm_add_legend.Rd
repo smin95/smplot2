@@ -47,7 +47,6 @@ a common legend for subplots.
 Adding a common legend on a combined figure
 }
 \examples{
-\donttest{
 library(ggplot2)
 library(smplot2)
 
@@ -66,5 +65,4 @@ ggplot(data = mtcars, mapping = aes(x = drat, y = mpg,
 combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
 sm_add_legend(combined_fig, x = 0.1, y = 0.1, sampleplot = p1)
 
-}
 }

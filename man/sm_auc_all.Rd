@@ -39,7 +39,6 @@ and 'conditions' must be filled. The function will throw an error
 if both arguments are empty.
 }
 \examples{
-\donttest{
 library(smplot2)
 set.seed(1) # generate random data
 day1 = rnorm(16,0,1)
@@ -53,6 +52,5 @@ df <- cbind(Subject, Value, Condition, Day)
 sm_auc_all(data = df, subjects = 'Subject',values = 'Value',
 conditions = 'Condition',x = 'Day')
 
-}
 
 }

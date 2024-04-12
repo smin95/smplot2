@@ -66,11 +66,10 @@ Updates from smplot2 include more flexibility, less input arguments and its
 pairing with `sm_hvgrid()` / `sm_corr_theme()`.
 }
 \examples{
-\donttest{
 library(smplot2)
 library(ggplot2)
 ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
 geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
  sm_statCorr()
-}
+
 }

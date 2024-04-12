@@ -44,7 +44,6 @@ Prints a text in the combined plot.
 Add a text annotation onto the combined plot
 }
 \examples{
-\donttest{
 library(smplot2)
 library(ggplot2)
 ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
@@ -58,6 +57,5 @@ ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
 combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
 sm_add_text(combined_fig, label='My label', x = .5, y= .5)
 
-}
 
 }

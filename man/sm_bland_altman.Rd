@@ -40,7 +40,6 @@ To add a legend, you will need to add sm_classic(legends = TRUE).
 To customise the figure, you can add more geom objects.
 }
 \examples{
-\donttest{
 library(smplot2)
 library(tibble)
 
@@ -49,6 +48,5 @@ second <- rnorm(20)
 df <- as_tibble(cbind(first,second))
 sm_bland_altman(df$first, df$second)
 # when all 3 dashed lines are not shown, extend the range of the y-axis.
-}
 
 }

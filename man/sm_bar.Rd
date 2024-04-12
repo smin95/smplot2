@@ -52,7 +52,6 @@ A bar graph generated using ggplot2
 A bar plot with jittered individual points
 }
 \examples{
-\donttest{
 library(smplot2)
 library(ggplot2)
 set.seed(1) # generate random data
@@ -68,5 +67,4 @@ ggplot(data = df, mapping = aes(x = Day, y = Value, color = Day)) +
 sm_bar() +
 scale_color_manual(values = sm_color('blue','orange'))
 
-}
 }

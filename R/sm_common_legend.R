@@ -27,7 +27,6 @@
 #' @importFrom cowplot theme_nothing
 #'
 #' @examples
-#' \donttest{
 #' library(ggplot2)
 #' library(smplot2)
 #' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg,
@@ -36,7 +35,7 @@
 #'  sm_common_legend(x = .5, y = 0.5 , direction='horizontal',
 #'                   border=FALSE)
 #'
-#' }
+
 sm_common_legend <- function(x = 0.5, y = 0.5, title=FALSE, direction='vertical',
                              border=TRUE, legend_spacing = 0.5, border_color='black',
                              textRatio = 1) {

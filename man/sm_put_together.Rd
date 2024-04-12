@@ -76,7 +76,6 @@ Returns a combined figure.
 Combining figures together
 }
 \examples{
-\donttest{
 library(smplot2)
 library(ggplot2)
 
@@ -94,5 +93,5 @@ ylabel <- sm_common_ylabel('My y-axis')
 
 sm_put_together(list(p1,p2), title=title, xlabel=xlabel,
                 ylabel=ylabel, ncol=2,nrow=1)
-}
+
 }

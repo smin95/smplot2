@@ -18,14 +18,13 @@
 #' @return
 #' Returns a background theme with major vertical grids (ggplot2 output).
 #' @examples
-#' \donttest{
 #' library(ggplot2)
 #' library(smplot2)
 #'
 #' ggplot(data = mpg) +
 #' geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
 #' sm_vgrid()
-#' }
+#'
 
 sm_vgrid <- function(legends = TRUE, borders = TRUE) {
   if (legends == TRUE) {

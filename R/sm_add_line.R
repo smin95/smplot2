@@ -23,7 +23,6 @@
 #' @importFrom cowplot ggdraw draw_plot theme_nothing
 #'
 #' @examples
-#' \donttest{
 #' library(ggplot2)
 #' library(smplot2)
 #'
@@ -38,7 +37,6 @@
 #' combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
 #' sm_add_line(combined_fig, x = 0.4, y = 0.4, xend = 0.6, yend = 0.6)
 #'
-#' }
 sm_add_line <- function(combined_plot, x, y, xend, yend, color = 'black',
                         linewidth = 0.5, ...) {
 

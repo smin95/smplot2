@@ -20,10 +20,9 @@
 #' @importFrom cowplot ggdraw draw_label
 #'
 #' @examples
-#' \donttest{
 #' library(smplot2)
 #' sm_common_ylabel('My y-axis')
-#' }
+
 sm_common_ylabel <- function(label = '', size=17, x = 0.5, y = 0.5,
                              fontface='plain', angle=90) {
   layer <- ggdraw()

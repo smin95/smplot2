@@ -20,7 +20,6 @@ A vector that is the value from the trapezoidal integration is returned.
 This is equivalent to Matlab's trapz function.
 }
 \examples{
-\donttest{
 library(smplot2)
 X = c(1,2,3,4,5)
 Y1 = c(2,3,4,2,3)
@@ -28,5 +27,4 @@ Y2 = c(3,3,3,3,3)
 
 sm_auc(X,Y2)
 sm_auc(X,Y1)
-}
 }

@@ -52,7 +52,6 @@ Violin plot generated using ggplot2
 A violin plot with jittered individual points
 }
 \examples{
-\donttest{
 library(ggplot2)
 library(smplot2)
 set.seed(1) # generate random data
@@ -71,6 +70,6 @@ scale_color_manual(values = sm_color('blue','orange'))
 ggplot(data = df, mapping = aes(x = Day, y = Value, color = Day)) +
 sm_violin(violin.params = list()) +
 scale_color_manual(values = sm_color('blue','orange'))
-}
+
 
 }

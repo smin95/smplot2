@@ -29,7 +29,6 @@
 #'
 #'
 #' @examples
-#' \donttest{
 #' library(smplot2)
 #' library(ggplot2)
 #' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
@@ -42,7 +41,6 @@
 #'
 #' combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
 #' sm_add_rect(combined_fig, xmin = .5, ymin = .5, xmax =.6, ymax =.6)
-#' }
 #'
 sm_add_rect <- function(combined_plot, xmin, ymin, xmax, ymax, fill = 'gray80',
                         color = 'black', linewidth = 0.5, ...) {

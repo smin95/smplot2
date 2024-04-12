@@ -41,7 +41,6 @@
 #' @importFrom stats coef lm
 #' @examples
 #'
-#' \donttest{
 #' library(smplot2)
 #' set.seed(1) # generate random data
 #' day1 = rnorm(16,0,1)
@@ -55,7 +54,7 @@
 #' sm_slope_all(data = df, subjects = 'Subject',values = 'Value',
 #' conditions = 'Condition',x = 'Day')
 #'
-#' }
+#'
 #'
 sm_slope_all <- function(data, subjects, groups, conditions, x, values) {
 
@@ -157,7 +156,7 @@ sm_slope_all <- function(data, subjects, groups, conditions, x, values) {
 
   }
   slope_list <- na.omit(slope_list)
-  print(paste('Slope = ', values, ' ~ ', x))
+  message(paste('Slope = ', values, ' ~ ', x))
   return(slope_list)
 }
 

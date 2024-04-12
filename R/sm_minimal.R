@@ -16,13 +16,11 @@
 #'
 #' @examples
 #'
-#' \donttest{
 #' library(ggplot2)
 #' library(smplot2)
 #' ggplot(data = mpg) +
 #' geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
 #' sm_minimal()
-#' }
 #'
 
 sm_minimal <- function(legends = FALSE) {

@@ -11,10 +11,8 @@
 #' Returns a hex code in string vector. The input determines the length of the output.
 #'
 #' @examples
-#' \donttest{
 #' library(smplot2)
 #' #' sm_palette(3) # returns 3 colors
-#' }
 #'
 #' @export
 sm_palette <- function(colorNum = 10) {

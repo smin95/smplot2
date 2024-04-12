@@ -31,7 +31,6 @@
 #' @return
 #' A list is returned, which has all numerical results that are relevant to drawing a Bland-Altman plot.
 #' @examples
-#' \donttest{
 #' library(smplot2)
 #' library(tibble)
 #'
@@ -39,7 +38,7 @@
 #' second <- rnorm(20)
 #' df <- as_tibble(cbind(first,second)) # requires library(tidyverse)
 #' sm_statBlandAlt(df$first, df$second)
-#' }
+#'
 
 
 sm_statBlandAlt <- function(first, second) {

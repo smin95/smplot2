@@ -44,7 +44,6 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
 #' library(ggplot2)
 #' library(smplot2)
 #' set.seed(1) # generate random data
@@ -64,7 +63,7 @@
 #' ggplot(data = df, mapping = aes(x = Day, y = Value, color = Day)) +
 #' sm_violin(violin.params = list()) +
 #' scale_color_manual(values = sm_color('blue','orange'))
-#' }
+#'
 #'
 sm_violin <- function(...,
                       violin.params = list(fill = 'gray90',

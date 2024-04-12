@@ -67,7 +67,6 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
 #' library(ggplot2)
 #' library(smplot2)
 #'
@@ -86,7 +85,7 @@
 #'  xlab('Day')  +
 #'  scale_fill_manual(values = sm_palette(4))
 #'
-#' }
+#'
 sm_raincloud <- function(...,
                          boxplot.params = list(),
                          violin.params = list(alpha = 0.3, color = 'transparent'),

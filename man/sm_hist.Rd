@@ -48,7 +48,6 @@ Returns a histogram generated using ggplot2.
 Histogram with kernel density estimation (Gaussian) and rugs
 }
 \examples{
-\donttest{
 library(ggplot2)
 library(smplot2)
 set.seed(2)
@@ -68,6 +67,5 @@ sm_hist(hist.params = list(binwidth = 1/2, alpha = 0.3),
        rug.params = list(alpha = 0.8)) +
  scale_color_manual(values = sm_palette(2)) +
   scale_fill_manual(values = sm_palette(2))
-}
 
 }

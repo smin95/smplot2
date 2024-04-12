@@ -20,12 +20,11 @@ Returns a background theme with major vertical grids (ggplot2 output).
 This theme has major vertical grids.
 }
 \examples{
-\donttest{
 library(ggplot2)
 library(smplot2)
 
 ggplot(data = mpg) +
 geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
 sm_vgrid()
-}
+
 }

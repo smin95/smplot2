@@ -28,7 +28,6 @@
 #' Returns a ggplot2 output with ticks removed.
 #'
 #' @examples
-#' \donttest{
 #' library(ggplot2)
 #' library(smplot2)
 #' set.seed(1) # generate random data
@@ -44,7 +43,6 @@
 #' sm_bar() +
 #' scale_color_manual(values = sm_color('blue','orange')) +
 #' sm_common_axis('bottomleft')
-#' }
 #'
 #'
 sm_common_axis <- function(location, hmargin = 1, wmargin =1) {

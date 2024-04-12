@@ -20,12 +20,10 @@ Returns a background theme that has both horizontal and vertical major and minor
 This theme has vertical and horizontal grids.
 }
 \examples{
-\donttest{
 library(ggplot2)
 library(smplot2)
 ggplot(data = mpg) +
 geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
 sm_hvgrid_minor()
-}
 
 }

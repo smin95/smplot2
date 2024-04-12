@@ -29,7 +29,6 @@ Returns a list of plots with new layouts.
 Remove xticklabels and yticklabels in selected panels for proper subplotting
 }
 \examples{
-\donttest{
 library(smplot2)
 library(ggplot2)
 ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
@@ -41,5 +40,5 @@ ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
   sm_hvgrid() -> p2
 
 sm_plot_clean(list(p1,p2), ncol=2,nrow=1,wmargin=-2, hmargin=-2)
-}
+
 }

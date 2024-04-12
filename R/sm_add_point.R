@@ -21,7 +21,6 @@
 #' @importFrom cowplot ggdraw draw_plot theme_nothing
 #'
 #' @examples
-#' \donttest{
 #' library(ggplot2)
 #' library(smplot2)
 #'
@@ -35,7 +34,6 @@
 #'
 #' combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
 #' sm_add_point(combined_fig, color='red', size = 10, x = .5, y= .5)
-#' }
 sm_add_point <- function(combined_plot, x, y, size=10, shape=16, color = 'black', ...) {
 
   ggplot(NULL) +

@@ -12,13 +12,11 @@
 #' Returns a background theme as a ggplot2 object.
 #'
 #' @examples
-#' \donttest{
 #' library(ggplot2)
 #' library(smplot2)
 #' ggplot(data = mpg) +
 #' geom_point(mapping = aes(x = displ, y = hwy, color = class)) +
 #' sm_classic()
-#' }
 #'
 sm_classic <- function(legends = FALSE) {
   if (legends == TRUE) {

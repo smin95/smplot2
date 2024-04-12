@@ -42,7 +42,6 @@ a common legend for subplots.
 Creating a common legend for subplots on a separate panel
 }
 \examples{
-\donttest{
 library(ggplot2)
 library(smplot2)
 ggplot(data = mtcars, mapping = aes(x = drat, y = mpg,
@@ -51,5 +50,4 @@ fill = as.factor(cyl))) +
  sm_common_legend(x = .5, y = 0.5 , direction='horizontal',
                   border=FALSE)
 
-}
 }

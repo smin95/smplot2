@@ -34,7 +34,6 @@
 #' @export
 #'
 #' @examples
-#' \donttest{
 #' library(ggplot2)
 #' library(smplot2)
 #' set.seed(1) # generate random data
@@ -55,7 +54,7 @@
 #' ggplot(data = df, mapping = aes(x = Day, y = Value, color = Day)) +
 #' sm_boxplot(boxplot.params = list()) +
 #' scale_color_manual(values = sm_color('blue','orange'))
-#' }
+
 sm_boxplot <- function(...,
                        boxplot.params = list(notch = FALSE, fill = 'gray95', color ='black',
                                              size = 0.5, width=0.5, outlier.shape = NA),

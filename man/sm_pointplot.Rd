@@ -60,11 +60,9 @@ This is a common plot with mean point, standard error (se, sd or 95% CI) and
 uniquely shadow, which is a faint display of individual points behind the mean.
 }
 \examples{
-\donttest{
 library(smplot2)
 library(ggplot2)
 ggplot(data = mtcars, mapping = aes(x = cyl, y = mpg)) +
 sm_pointplot()
-}
 
 }

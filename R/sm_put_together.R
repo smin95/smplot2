@@ -53,7 +53,6 @@
 #' @importFrom cowplot plot_grid
 #'
 #' @examples
-#' \donttest{
 #' library(smplot2)
 #' library(ggplot2)
 #'
@@ -71,7 +70,7 @@
 #'
 #' sm_put_together(list(p1,p2), title=title, xlabel=xlabel,
 #'                 ylabel=ylabel, ncol=2,nrow=1)
-#' }
+#'
 
 sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
                             ncol, nrow, tickRatio = 1.4, panel_scale = 0.9, wRatio=1.1,
