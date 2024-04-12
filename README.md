@@ -1,9 +1,7 @@
 <p align="center">
   <img src="man/figures/logo.png" height="150px" width="150px" align="right">
-  <h1><strong>NGLVieweR</strong> - Create and annotate composite plots in R and ggplot2</h1>
+  <h1><strong>smplot2</strong> - Create and annotate composite plots in R and ggplot2</h1>
 </p>
-
-# smplot2
 
 Author: Seung Hyun (Sam) Min
 
