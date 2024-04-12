@@ -16,7 +16,7 @@ Key functionalities include shortcuts for plotting elegant figures that are appr
 You can install the released version of *smplot2* from CRAN.
 
 ```r
-insall.packages('smplot2')
+install.packages('smplot2')
 ```
 
 The development version can be directly downloaded here:
