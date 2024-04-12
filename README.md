@@ -3,9 +3,9 @@
   <h1><strong>smplot2</strong> - Create and annotate composite plots in R and ggplot2</h1>
 </p>
 
-[![CRAN status](https://www.r-pkg.org/badges/version/NGLVieweR)](https://CRAN.R-project.org/package=smplot2)
+[![CRAN status](https://www.r-pkg.org/badges/version/smplot2)](https://CRAN.R-project.org/package=smplot2)
 
-[![Metacran downloads](https://cranlogs.r-pkg.org/badges/grand-total/NGLVieweR)](https://cran.r-project.org/package=smplot2)
+[![Metacran downloads](https://cranlogs.r-pkg.org/badges/grand-total/smplot2)](https://cran.r-project.org/package=smplot2)
 
 Author: Seung Hyun (Sam) Min
 
