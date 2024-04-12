@@ -1,6 +1,11 @@
+<p align="center">
+  <img src="man/figures/logo.png" height="150px" width="150px" align="right">
+  <h1><strong>NGLVieweR</strong> - Create and annotate composite plots in R and ggplot2</h1>
+</p>
+
 # smplot2
 
-Author: Seung Hyun Min
+Author: Seung Hyun (Sam) Min
 
 **smplot2** (SM: **S**eung Hyun **M**in) is an R package for statistical data visualization that complements ggplot2. This package represents what I wish I had back when I was beginning to learn R. It aims to make every step of data visualization easy.
 
@@ -9,6 +14,14 @@ Author: Seung Hyun Min
 Key functionalities include shortcuts for plotting elegant figures that are appropriate for scientific journals and functions that facilitate generating and annotating composite figures.
 
 ### Installation using RStudio
+
+You can install the released version of *smplot2* from CRAN.
+
+```r
+insall.packages('smplot2')
+```
+
+The development version can be directly downloaded here:
 
 ``` r
 install.packages("devtools")
