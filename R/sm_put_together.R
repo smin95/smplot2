@@ -122,11 +122,12 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
 
   tgd1 <- plot_grid(plotlist = all_plots2, ncol=ncol, nrow=nrow,
                     rel_widths = rel_widths, rel_heights = rel_heights, axis='tblr', align='hv')
-  tgd2 <- plot_grid(title, tgd1, ncol=1, rel_heights=c(0.1,1))
-  tgd3 <- plot_grid(tgd2, xlabel, ncol=1, rel_heights = c(1,0.1))
-  tgd4 <- plot_grid(ylabel, tgd3, ncol=2, rel_widths = c(0.1,1))
 
-  return(tgd4)
+  if (!is.null(title)) tgd1 <- plot_grid(title, tgd1, ncol=1, rel_heights=c(0.1,1))
+  if (!is.null(xlabel)) tgd1 <- plot_grid(tgd1, xlabel, ncol=1, rel_heights = c(1,0.1))
+  if (!is.null(ylabel)) tgd1 <- plot_grid(ylabel, tgd1, ncol=2, rel_widths = c(0.1,1))
+
+  return(tgd1)
 }
 
 flatten_ggplot <- function(lst) {
