@@ -1,7 +1,7 @@
 Package: smplot2
 Type: Package
 Title: Creating and Annotating a Composite Plot in 'ggplot2'
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: 
     person(
       given = "Seung Hyun (Sam)",
