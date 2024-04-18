@@ -79,6 +79,6 @@ sm_add_legend <- function(combined_plot, x,y, sampleplot, legend, direction='ver
   if (y > 0.9) y <- 0.9
 
 
-  output <- combined_plot + inset_element(legend, x, y, x, y)
+  output <- ggdraw(combined_plot + inset_element(legend, x, y, x, y))
   return(output)
 }
