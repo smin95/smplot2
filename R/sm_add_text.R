@@ -1,7 +1,5 @@
 #' Add a text annotation onto the combined plot
 #'
-#' @param combined_plot
-#' Combined figure, an output from sm_put_together().
 #' @param label
 #' Text label in strings.
 #' @param x
@@ -37,10 +35,10 @@
 #'  sm_hvgrid() -> p2
 #'
 #' combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
-#' sm_add_text(combined_fig, label='My label', x = .5, y= .5)
+#' combined_fig + sm_add_text(label='My label', x = .5, y= .5)
 #'
 #'
-sm_add_text <- function(combined_plot, label, x, y, angle=0, color = 'black',
+sm_add_text <- function(label, x, y, angle=0, color = 'black',
                         fontface='plain', size=10, ...) {
 
 
@@ -58,7 +56,7 @@ sm_add_text <- function(combined_plot, label, x, y, angle=0, color = 'black',
   x <- x - 0.5
   y <- y - 0.5
 
-  output <- ggdraw(combined_plot) + draw_plot(annot, x, y)
+  output <- draw_plot(annot, x, y)
   return(output)
 }
 

@@ -5,7 +5,6 @@
 \title{Add a text annotation onto the combined plot}
 \usage{
 sm_add_text(
-  combined_plot,
   label,
   x,
   y,
@@ -17,8 +16,6 @@ sm_add_text(
 )
 }
 \arguments{
-\item{combined_plot}{Combined figure, an output from sm_put_together().}
-
 \item{label}{Text label in strings.}
 
 \item{x}{Location of the text annotation along the x-axis of the combined figure. Default is the middle origin (0.5). Values from 0 to 1.}
@@ -55,7 +52,7 @@ ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
  sm_hvgrid() -> p2
 
 combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
-sm_add_text(combined_fig, label='My label', x = .5, y= .5)
+combined_fig + sm_add_text(label='My label', x = .5, y= .5)
 
 
 }

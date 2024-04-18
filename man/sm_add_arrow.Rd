@@ -5,7 +5,6 @@
 \title{Adding an arrow annotation in the combined plot}
 \usage{
 sm_add_arrow(
-  combined_plot,
   x,
   y,
   xend,
@@ -18,8 +17,6 @@ sm_add_arrow(
 )
 }
 \arguments{
-\item{combined_plot}{Combined figure, an output from sm_put_together().}
-
 \item{x}{Starting location of the arrow along the x-axis of the combined figure. The middle origin is at 0.5.}
 
 \item{y}{Starting location of the arrow along the y-axis of the combined figure. The middle origin is at 0.5.}
@@ -56,5 +53,5 @@ ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
  sm_hvgrid() -> p2
 
 combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
-sm_add_arrow(combined_fig, x = 0.4, y = 0.4, xend = 0.6, yend = 0.6)
+combined_fig + sm_add_arrow(x = 0.4, y = 0.4, xend = 0.6, yend = 0.6)
 }

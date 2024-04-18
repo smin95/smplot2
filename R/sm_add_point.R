@@ -1,7 +1,5 @@
 #' Add a point annotation onto the combined plot
 #'
-#' @param combined_plot
-#' Combined figure, an output from sm_put_together().
 #' @param x
 #' Location of the point annotation along the x-axis of the combined figure. Default is the middle origin (0.5). Values from 0 to 1.
 #' @param y
@@ -18,7 +16,7 @@
 #' @return
 #' Prints a point in the combined plot.
 #' @export
-#' @importFrom cowplot ggdraw draw_plot theme_nothing
+#' @importFrom cowplot draw_plot theme_nothing
 #'
 #' @examples
 #' library(ggplot2)
@@ -33,8 +31,8 @@
 #'  sm_hvgrid() -> p2
 #'
 #' combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
-#' sm_add_point(combined_fig, color='red', size = 10, x = .5, y= .5)
-sm_add_point <- function(combined_plot, x, y, size=10, shape=16, color = 'black', ...) {
+#' combined_fig + sm_add_point(color='red', size = 10, x = .5, y= .5)
+sm_add_point <- function(x, y, size=10, shape=16, color = 'black', ...) {
 
   ggplot(NULL) +
     theme_nothing() +
@@ -46,6 +44,6 @@ sm_add_point <- function(combined_plot, x, y, size=10, shape=16, color = 'black'
   x <- x - 0.5
   y <- y - 0.5
 
-  output <- ggdraw(combined_plot) + draw_plot(annot, x, y)
+  output <- draw_plot(annot, x, y)
   return(output)
 }

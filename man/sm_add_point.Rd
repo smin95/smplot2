@@ -4,11 +4,9 @@
 \alias{sm_add_point}
 \title{Add a point annotation onto the combined plot}
 \usage{
-sm_add_point(combined_plot, x, y, size = 10, shape = 16, color = "black", ...)
+sm_add_point(x, y, size = 10, shape = 16, color = "black", ...)
 }
 \arguments{
-\item{combined_plot}{Combined figure, an output from sm_put_together().}
-
 \item{x}{Location of the point annotation along the x-axis of the combined figure. Default is the middle origin (0.5). Values from 0 to 1.}
 
 \item{y}{Location of the point annotation along the y-axis of the combined figure. Default is the middle origin (0.5). Values from 0 to 1.}
@@ -40,5 +38,5 @@ ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
  sm_hvgrid() -> p2
 
 combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
-sm_add_point(combined_fig, color='red', size = 10, x = .5, y= .5)
+combined_fig + sm_add_point(color='red', size = 10, x = .5, y= .5)
 }

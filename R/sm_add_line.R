@@ -1,7 +1,5 @@
 #' Adding a line annotation in the combined plot
 #'
-#' @param combined_plot
-#' Combined figure, an output from sm_put_together().
 #' @param x
 #' Starting location of the line along the x-axis of the combined figure. The middle origin is at 0.5. Values from 0 to 1.
 #' @param y
@@ -20,7 +18,7 @@
 #' @return
 #' Prints a line to the combined plot.
 #' @export
-#' @importFrom cowplot ggdraw draw_plot theme_nothing
+#' @importFrom cowplot draw_plot theme_nothing
 #'
 #' @examples
 #' library(ggplot2)
@@ -35,9 +33,9 @@
 #'  sm_hvgrid() -> p2
 #'
 #' combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
-#' sm_add_line(combined_fig, x = 0.4, y = 0.4, xend = 0.6, yend = 0.6)
+#' combined_fig + sm_add_line(x = 0.4, y = 0.4, xend = 0.6, yend = 0.6)
 #'
-sm_add_line <- function(combined_plot, x, y, xend, yend, color = 'black',
+sm_add_line <- function(x, y, xend, yend, color = 'black',
                         linewidth = 0.5, ...) {
 
   ggplot(NULL) +
@@ -54,6 +52,6 @@ sm_add_line <- function(combined_plot, x, y, xend, yend, color = 'black',
   x <- min(x,xend) - linewidth/200
   y <- min(y,yend) - linewidth/200
 
-  output <- ggdraw(combined_plot) + draw_plot(annot, x, y, width, height)
+  output <- draw_plot(annot, x, y, width, height)
   return(output)
 }

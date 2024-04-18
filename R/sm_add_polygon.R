@@ -3,8 +3,6 @@
 #' Areas captured by the coorinates of x and y will be filled.
 #' The lengths of x and y have no limitations as long as their
 #' lengths are matched.
-#' @param combined_plot
-#' Combined figure, an output from sm_put_together().
 #' @param x
 #' A vector containing x coordinates from each point of the polygon.
 #' The first element of x is matched to the firt element of y. Values from 0 to 1,
@@ -25,7 +23,7 @@
 #' @return
 #' Prints a patch of rectangle onto a combined plot.
 #' @export
-#' @importFrom cowplot ggdraw draw_plot theme_nothing
+#' @importFrom cowplot draw_plot theme_nothing
 #'
 #' @examples
 #' library(smplot2)
@@ -39,11 +37,11 @@
 #'  sm_hvgrid() -> p2
 #'
 #' combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
-#' sm_add_polygon(combined_fig, x = c(.2,.8,.8), y = c(.2,.8,.2))
+#' combined_fig + sm_add_polygon(x = c(.2,.8,.8), y = c(.2,.8,.2))
 #'
 
-sm_add_polygon <- function(combined_plot, x, y, fill = 'gray80',
-                           color = 'black', linewidth = 0.5, ...) {
+sm_add_polygon <- function(x, y, fill = 'gray80', color = 'black',
+                           linewidth = 0.5, ...) {
 
   xmin <- min(x); xmax <- max(x)
   ymin <- min(y); ymax <- max(y)
@@ -62,6 +60,6 @@ sm_add_polygon <- function(combined_plot, x, y, fill = 'gray80',
   x <- min(xmin,xmax)
   y <- min(ymin,ymax)
 
-  output <- ggdraw(combined_plot) + draw_plot(annot, x, y, width, height)
+  output <- draw_plot(annot, x, y, width, height)
   return(output)
 }

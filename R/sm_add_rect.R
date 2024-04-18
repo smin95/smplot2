@@ -3,8 +3,6 @@
 #' Areas captured by xmin, ymin, xmax and ymax will become a patch
 #' once the function gets called.
 #'
-#' @param combined_plot
-#' Combined figure, an output from sm_put_together().
 #' @param xmin
 #' Starting x value of the rectangle patch. Values from 0 to 1.
 #' @param ymin
@@ -25,7 +23,7 @@
 #' @return
 #' Prints a patch of rectangle onto a combined plot.
 #' @export
-#' @importFrom cowplot ggdraw draw_plot theme_nothing
+#' @importFrom cowplot draw_plot theme_nothing
 #'
 #'
 #' @examples
@@ -40,9 +38,9 @@
 #'  sm_hvgrid() -> p2
 #'
 #' combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
-#' sm_add_rect(combined_fig, xmin = .5, ymin = .5, xmax =.6, ymax =.6)
+#' combined_fig + sm_add_rect(xmin = .5, ymin = .5, xmax =.6, ymax =.6)
 #'
-sm_add_rect <- function(combined_plot, xmin, ymin, xmax, ymax, fill = 'gray80',
+sm_add_rect <- function(xmin, ymin, xmax, ymax, fill = 'gray80',
                         color = 'black', linewidth = 0.5, ...) {
 
   ggplot(NULL) +
@@ -59,7 +57,7 @@ sm_add_rect <- function(combined_plot, xmin, ymin, xmax, ymax, fill = 'gray80',
   x <- min(xmin,xmax)
   y <- min(ymin,ymax)
 
-  output <- ggdraw(combined_plot) + draw_plot(annot, x, y, width, height)
+  output <- draw_plot(annot, x, y, width, height)
   return(output)
 }
 

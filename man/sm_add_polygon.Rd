@@ -4,19 +4,9 @@
 \alias{sm_add_polygon}
 \title{Adding a polygon patch on the combined figure}
 \usage{
-sm_add_polygon(
-  combined_plot,
-  x,
-  y,
-  fill = "gray80",
-  color = "black",
-  linewidth = 0.5,
-  ...
-)
+sm_add_polygon(x, y, fill = "gray80", color = "black", linewidth = 0.5, ...)
 }
 \arguments{
-\item{combined_plot}{Combined figure, an output from sm_put_together().}
-
 \item{x}{A vector containing x coordinates from each point of the polygon.
 The first element of x is matched to the firt element of y. Values from 0 to 1,
 where 0.5 is the origin.}
@@ -53,6 +43,6 @@ ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
  sm_hvgrid() -> p2
 
 combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
-sm_add_polygon(combined_fig, x = c(.2,.8,.8), y = c(.2,.8,.2))
+combined_fig + sm_add_polygon(x = c(.2,.8,.8), y = c(.2,.8,.2))
 
 }

@@ -5,7 +5,6 @@
 \title{Adding a rectangle patch on the combined figure}
 \usage{
 sm_add_rect(
-  combined_plot,
   xmin,
   ymin,
   xmax,
@@ -17,8 +16,6 @@ sm_add_rect(
 )
 }
 \arguments{
-\item{combined_plot}{Combined figure, an output from sm_put_together().}
-
 \item{xmin}{Starting x value of the rectangle patch. Values from 0 to 1.}
 
 \item{ymin}{Starting y value of the rectangle patch. Values from 0 to 1.}
@@ -54,6 +51,6 @@ ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
  sm_hvgrid() -> p2
 
 combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
-sm_add_rect(combined_fig, xmin = .5, ymin = .5, xmax =.6, ymax =.6)
+combined_fig + sm_add_rect(xmin = .5, ymin = .5, xmax =.6, ymax =.6)
 
 }

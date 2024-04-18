@@ -4,20 +4,9 @@
 \alias{sm_add_line}
 \title{Adding a line annotation in the combined plot}
 \usage{
-sm_add_line(
-  combined_plot,
-  x,
-  y,
-  xend,
-  yend,
-  color = "black",
-  linewidth = 0.5,
-  ...
-)
+sm_add_line(x, y, xend, yend, color = "black", linewidth = 0.5, ...)
 }
 \arguments{
-\item{combined_plot}{Combined figure, an output from sm_put_together().}
-
 \item{x}{Starting location of the line along the x-axis of the combined figure. The middle origin is at 0.5. Values from 0 to 1.}
 
 \item{y}{Starting location of the line along the y-axis of the combined figure. The middle origin is at 0.5. Values from 0 to 1.}
@@ -52,6 +41,6 @@ ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
  sm_hvgrid() -> p2
 
 combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
-sm_add_line(combined_fig, x = 0.4, y = 0.4, xend = 0.6, yend = 0.6)
+combined_fig + sm_add_line(x = 0.4, y = 0.4, xend = 0.6, yend = 0.6)
 
 }

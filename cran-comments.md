@@ -1,13 +1,8 @@
-## R CMD check results
+## version 0.2.0
+Dear CRAN team,
 
-0 errors | 0 warnings | 1 note
+The reason for the quick update is that I have found some key bug in the primary function `sm_put_together()`, and I am working in a country where my students have trouble downloading repositories from Github due to firewall. I have read the CRAN policies, and I am certain that I won't need to update the package in the new few months. 
+Thank you for your service.
 
-* This is a new release.
-
-## Resubmission (Round 3)
-This is the 3rd resubmission. In this version:
-
-* All examples have been unwrapped.
-* The two print() instances have been replaced with message().
-
-Thank you for your service. 
+Best regards,
+Sam
