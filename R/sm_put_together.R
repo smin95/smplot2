@@ -47,6 +47,22 @@
 #' If set to 'some', x-axis ticks and y-axis ticks will be removed in inner plots.
 #' If set to 'all', then all panels' ticks will be removed.
 #' If set to 'none', then all panels' ticks will be kept.
+#' @param xlabel2
+#' 2nd xlabel layer that will determine the label of the combined plot's secondary x-axis.
+#' This is created using sm_common_xlabel(). Optional argument.
+#' @param ylabel2
+#' 2nd ylabel layer that will determine the label of the combined plot's y-axis.
+#' This is created using sm_common_ylabel(). Optional argument.
+#' @param wRatio2
+#' This adjusts the ratio of the width of the last column to those of other columns.
+#' By default, if ylabel2 is provided, it is set to be 1.1x wider than that of other columns. If the value
+#' is larger than 1, then it will be wider than that of other columns. Users are encouraged
+#' to adjust this value because different computers can show different looking outputs.
+#' @param hRatio2
+#' This adjusts the ratio of the height of the first row to those of other rows
+#' By default, if xlabel2 is provided, it is set to be 1.1x taller than that of other columns. If the value
+#' is larger than 1, then it will be taller than that of other columns. Users are encouraged
+#' to adjust this value because different computers can show different looking outputs.
 #' @return
 #' Returns a combined figure.
 #' @export
@@ -73,8 +89,9 @@
 #'
 
 sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
-                            ncol, nrow, tickRatio = 1.4, panel_scale = 0.9, wRatio=1.1,
-                            hRatio = 1.1, hmargin = 0, wmargin = 0, remove_ticks = 'some') {
+                            ncol, nrow, xlabel2, ylabel2, tickRatio = 1.4, panel_scale = 0.9, wRatio=1.1,
+                            hRatio = 1.1, hmargin = 0, wmargin = 0, remove_ticks = 'some',
+                            wRatio2= 1.1, hRatio2 = 1.1) {
 
   all_plots <- flatten_ggplot(all_plots)
 
@@ -82,6 +99,8 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
   if (missing(title)) title <- NULL
   if (missing(xlabel)) xlabel <- NULL
   if (missing(ylabel)) ylabel <- NULL
+  if (missing(xlabel2)) xlabel2 <- NULL
+  if (missing(ylabel2)) ylabel2 <- NULL
 
 
   all_plots <- lapply(1:length(all_plots), function(iPlot) {
@@ -92,17 +111,27 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
 
   if (remove_ticks == 'none') {
     all_plots1 <- lapply(1:length(all_plots), function(iPlot) {
-      all_plots[[iPlot]] + sm_common_axis('bottomleft', hmargin=hmargin, wmargin=wmargin)
+      all_plots[[iPlot]] + sm_common_axis('single', hmargin=hmargin, wmargin=wmargin)
     })
     rel_widths <- rep(1,ncol)
     rel_heights <- rep(1,ncol)
+
   } else if (remove_ticks == 'some') {
     all_plots1 <- sm_plot_clean(all_plots, ncol=ncol,nrow=nrow, hmargin=hmargin, wmargin=wmargin)
-    rel_widths <- c(wRatio, rep(1,ncol-1))
-    rel_heights <- c(rep(1,nrow-1), hRatio)
+    if (is.null(ylabel2)) {
+      rel_widths <- c(wRatio, rep(1,ncol-1))
+    } else {
+      rel_widths <- c(wRatio, rep(1,ncol-2), wRatio2)
+    }
+    if (is.null(xlabel2)) {
+      rel_heights <- c(rep(1,nrow-1), hRatio)
+    } else {
+      rel_heights <- c(hRatio, rep(1,nrow-2), hRatio2)
+    }
+
   } else if (remove_ticks == 'all') {
     all_plots1 <- lapply(1:length(all_plots), function(iPlot) {
-      all_plots[[iPlot]] + sm_common_axis('topright', hmargin=hmargin, wmargin=wmargin)
+      all_plots[[iPlot]] + sm_common_axis('center', hmargin=hmargin, wmargin=wmargin)
     })
     rel_widths <- rep(1,ncol)
     rel_heights <- rep(1,ncol)
@@ -123,9 +152,11 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
   tgd1 <- plot_grid(plotlist = all_plots2, ncol=ncol, nrow=nrow,
                     rel_widths = rel_widths, rel_heights = rel_heights, axis='tblr', align='hv')
 
-  if (!is.null(title)) tgd1 <- plot_grid(title, tgd1, ncol=1, rel_heights=c(0.1,1))
   if (!is.null(xlabel)) tgd1 <- plot_grid(tgd1, xlabel, ncol=1, rel_heights = c(1,0.1))
   if (!is.null(ylabel)) tgd1 <- plot_grid(ylabel, tgd1, ncol=2, rel_widths = c(0.1,1))
+  if (!is.null(xlabel2)) tgd1 <- plot_grid(xlabel2, tgd1, ncol=1, rel_heights = c(0.1,1))
+  if (!is.null(ylabel2)) tgd1 <- plot_grid(tgd1, ylabel2, ncol=2, rel_widths = c(1,0.1))
+  if (!is.null(title)) tgd1 <- plot_grid(title, tgd1, ncol=1, rel_heights=c(0.1,1))
 
   return(tgd1)
 }

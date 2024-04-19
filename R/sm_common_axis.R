@@ -1,8 +1,6 @@
 #' A function to plot panels with common x- and y- axes
 #'
-#' This function should be used when plotting individual data.
-#' Please read Chapter 5 of the online guide for more
-#' details: smin95.github.io/dataviz
+#' This function is used to create a composite figure.
 #'
 #' @param location
 #' Location of the panel.
@@ -12,6 +10,10 @@
 #' `'bottomright'`: removes x-axis title, y-axis title, y-axis ticklabel.
 #' `'topcenter'`: removes x-axis title, x-axis ticklabel, y-axis title, y-axis ticklabel.
 #' `'bottomcenter'`: removes x-axis title, y-axis title, y-axis ticklabel.
+#' `'single'`: keeps all ticks but removes title
+#' `'centerleft'` : removes some ticks and titles
+#' `'centerright'` : removes some ticks and titles
+#' `'center'`: removes everything
 #'
 #' @param hmargin
 #' The amount of height of blank space between subplots. It sets the size of the empty space (i.e., margin) between panels. T
@@ -45,39 +47,68 @@
 #' sm_common_axis('bottomleft')
 #'
 #'
-sm_common_axis <- function(location, hmargin = 1, wmargin =1) {
+
+sm_common_axis <- function(location, hmargin = 1, wmargin = 1) {
+  # 9+1 locations
   if (location == 'topleft') {
     ggplot2::theme(axis.title.x = element_blank()) +
-      ggplot2::theme(axis.text.x= element_blank()) +
+      ggplot2::theme(axis.text.x.bottom = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
-      theme(plot.margin = margin(r=wmargin, t = hmargin, l = wmargin, b = hmargin))
+      ggplot2::theme(axis.text.y.right = element_blank()) +
+      theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
   } else if (location == 'topright') {
     ggplot2::theme(axis.title.x = element_blank()) +
-      ggplot2::theme(axis.text.x = element_blank()) +
-      ggplot2::theme(axis.text.y = element_blank()) +
+      ggplot2::theme(axis.text.x.bottom = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
-      ggplot2::theme(plot.margin = margin(r=wmargin, t = hmargin, l = wmargin, b = hmargin))
+      ggplot2::theme(axis.text.y.left = element_blank()) +
+      ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
   } else if (location == 'bottomleft') {
     ggplot2::theme(axis.title.x = element_blank()) +
+      ggplot2::theme(axis.text.x.top = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
-      ggplot2::theme(plot.margin = margin(r=wmargin, t = hmargin, l = wmargin, b = hmargin))
+      ggplot2::theme(axis.text.y.right = element_blank()) +
+      ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
   } else if (location == 'bottomright') {
     ggplot2::theme(axis.title.x = element_blank()) +
+      ggplot2::theme(axis.text.x.top = element_blank()) +
+      ggplot2::theme(axis.text.y.left = element_blank()) +
+      ggplot2::theme(axis.title.y = element_blank()) +
+      ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
+  } else if (location == 'topcenter') {
+    ggplot2::theme(axis.title.x = element_blank()) +
+      ggplot2::theme(axis.text.x.bottom = element_blank()) +
       ggplot2::theme(axis.text.y = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
-      ggplot2::theme(plot.margin = margin(r=wmargin, t = hmargin, l = wmargin, b = hmargin))
-  } else if (location == 'topcenter') {
+      ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
+  } else if (location == 'bottomcenter') {
+    ggplot2::theme(axis.title.x = element_blank()) +
+      ggplot2::theme(axis.text.x.top = element_blank()) +
+      ggplot2::theme(axis.text.y = element_blank()) +
+      ggplot2::theme(axis.title.y = element_blank()) +
+      ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
+  } else if (location == 'center') {
     ggplot2::theme(axis.title.x = element_blank()) +
       ggplot2::theme(axis.text.x = element_blank()) +
       ggplot2::theme(axis.text.y = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
-      ggplot2::theme(plot.margin = margin(r=wmargin, t = hmargin, l = wmargin, b = hmargin))
-  } else if (location == 'bottomcenter') {
+      ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
+  } else if (location == 'centerleft') {
     ggplot2::theme(axis.title.x = element_blank()) +
-      ggplot2::theme(axis.text.y = element_blank()) +
+      ggplot2::theme(axis.text.x = element_blank()) +
+      ggplot2::theme(axis.text.y.right = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
-      ggplot2::theme(plot.margin = margin(r=wmargin, t = hmargin, l = wmargin, b = hmargin))
+      ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
+  } else if (location == 'centerright') {
+    ggplot2::theme(axis.title.x = element_blank()) +
+      ggplot2::theme(axis.text.x = element_blank()) +
+      ggplot2::theme(axis.text.y.left = element_blank()) +
+      ggplot2::theme(axis.title.y = element_blank()) +
+      ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
+  } else if (location == 'single') {
+    ggplot2::theme(axis.title.x = element_blank()) +
+      ggplot2::theme(axis.title.y = element_blank()) +
+      ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
   } else {
-    stop('The location has to be set to either:\n"topleft",\n"topright",\n"bottomleft"\n,"bottomright"\n,"topcenter"\n,"bottomcenter"')
+    stop('Wrong input. Please check again.')
   }
 }

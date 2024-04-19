@@ -12,13 +12,17 @@ sm_put_together(
   legend,
   ncol,
   nrow,
+  xlabel2,
+  ylabel2,
   tickRatio = 1.4,
   panel_scale = 0.9,
   wRatio = 1.1,
   hRatio = 1.1,
   hmargin = 0,
   wmargin = 0,
-  remove_ticks = "some"
+  remove_ticks = "some",
+  wRatio2 = 1.1,
+  hRatio2 = 1.1
 )
 }
 \arguments{
@@ -39,6 +43,12 @@ This is created using sm_common_ylabel(). Optional argument.}
 \item{ncol}{Number of columns in the combined plot}
 
 \item{nrow}{Number of rows in the combined plot}
+
+\item{xlabel2}{2nd xlabel layer that will determine the label of the combined plot's secondary x-axis.
+This is created using sm_common_xlabel(). Optional argument.}
+
+\item{ylabel2}{2nd ylabel layer that will determine the label of the combined plot's y-axis.
+This is created using sm_common_ylabel(). Optional argument.}
 
 \item{tickRatio}{Relative size of the ticks to the default aesthetics of the thematic functions (ex. sm_hgrid()).
 If there are more rows or columns, please increase the tickRatio (1.4 - 1.8).}
@@ -68,6 +78,16 @@ between panels.}
 \item{remove_ticks}{If set to 'some', x-axis ticks and y-axis ticks will be removed in inner plots.
 If set to 'all', then all panels' ticks will be removed.
 If set to 'none', then all panels' ticks will be kept.}
+
+\item{wRatio2}{This adjusts the ratio of the width of the last column to those of other columns.
+By default, if ylabel2 is provided, it is set to be 1.1x wider than that of other columns. If the value
+is larger than 1, then it will be wider than that of other columns. Users are encouraged
+to adjust this value because different computers can show different looking outputs.}
+
+\item{hRatio2}{This adjusts the ratio of the height of the first row to those of other rows
+By default, if xlabel2 is provided, it is set to be 1.1x taller than that of other columns. If the value
+is larger than 1, then it will be taller than that of other columns. Users are encouraged
+to adjust this value because different computers can show different looking outputs.}
 }
 \value{
 Returns a combined figure.

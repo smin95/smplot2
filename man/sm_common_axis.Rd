@@ -13,7 +13,11 @@ sm_common_axis(location, hmargin = 1, wmargin = 1)
 `'bottomleft'`: removes x-axis title, y-axis title.
 `'bottomright'`: removes x-axis title, y-axis title, y-axis ticklabel.
 `'topcenter'`: removes x-axis title, x-axis ticklabel, y-axis title, y-axis ticklabel.
-`'bottomcenter'`: removes x-axis title, y-axis title, y-axis ticklabel.}
+`'bottomcenter'`: removes x-axis title, y-axis title, y-axis ticklabel.
+`'single'`: keeps all ticks but removes title
+`'centerleft'` : removes some ticks and titles
+`'centerright'` : removes some ticks and titles
+`'center'`: removes everything}
 
 \item{hmargin}{The amount of height of blank space between subplots. It sets the size of the empty space (i.e., margin) between panels. T
 he default is set to 1, which should reduce the empty space (right and left side of each panel)
@@ -27,9 +31,7 @@ between the panels.}
 Returns a ggplot2 output with ticks removed.
 }
 \description{
-This function should be used when plotting individual data.
-Please read Chapter 5 of the online guide for more
-details: smin95.github.io/dataviz
+This function is used to create a composite figure.
 }
 \examples{
 library(ggplot2)
