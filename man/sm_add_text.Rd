@@ -6,8 +6,8 @@
 \usage{
 sm_add_text(
   label,
-  x,
-  y,
+  x = 0.5,
+  y = 0.5,
   angle = 0,
   color = "black",
   fontface = "plain",

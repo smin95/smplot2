@@ -38,7 +38,7 @@
 #' combined_fig + sm_add_text(label='My label', x = .5, y= .5)
 #'
 #'
-sm_add_text <- function(label, x, y, angle=0, color = 'black',
+sm_add_text <- function(label, x=0.5, y=0.5, angle=0, color = 'black',
                         fontface='plain', size=10, ...) {
 
 
