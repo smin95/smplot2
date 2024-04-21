@@ -1,3 +1,7 @@
+# smplot2 1.1.0
+
+# smplot2 1.0.0
+
 # smplot2 0.2.0
 
 * `sm_put_together()` has been debugged.
