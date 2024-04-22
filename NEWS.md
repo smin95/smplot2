@@ -1,6 +1,6 @@
-# smplot2 1.1.0
+# smplot2 0.2.1
 
-# smplot2 1.0.0
+* Outputs have been modularized. 
 
 # smplot2 0.2.0
 
