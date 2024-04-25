@@ -37,28 +37,41 @@
 
 sm_plot_clean <- function(all_plots, ncol, nrow, wmargin=wmargin, hmargin=hmargin) { # returns list
   output <- lapply(1:length(all_plots), function(iPlot) {
+
     aX = (iPlot-1) %% ncol + 1 # column
     aY = (iPlot-1) %/% ncol + 1 # row
 
-    if (aX == 1 & aY == 1) {
-      all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('topleft', wmargin=wmargin, hmargin=hmargin)
-    } else if (aX > 1 & aX < ncol & aY == 1) {
-      all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('topcenter', wmargin=wmargin, hmargin=hmargin)
-    } else if (aX == ncol & aY == 1) {
-      all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('topright', wmargin=wmargin, hmargin=hmargin)
-    } else if (aX == 1 & aY > 1 & aY < nrow) {
-      all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('centerleft', wmargin=wmargin, hmargin=hmargin)
-    } else if (aX > 1 & aX < ncol & aY > 1 & aY < nrow) {
-      all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('center', wmargin=wmargin, hmargin=hmargin)
-    } else if (aX == ncol & aY > 1 & aY < nrow) {
-      all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('centerright', wmargin=wmargin, hmargin=hmargin)
-    } else if (aX == 1 & aY == nrow) {
-      all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('bottomleft', wmargin=wmargin, hmargin=hmargin)
-    } else if (aX > 1 & aX < ncol & aY == nrow) {
-      all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('bottomcenter', wmargin=wmargin, hmargin=hmargin)
-    } else if (aX == ncol & aY == nrow) {
-      all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('bottomright', wmargin=wmargin, hmargin=hmargin)
+    if (nrow > 1) {
+
+      if (aX == 1 & aY == 1) {
+        all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('topleft', wmargin=wmargin, hmargin=hmargin)
+      } else if (aX > 1 & aX < ncol & aY == 1) {
+        all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('topcenter', wmargin=wmargin, hmargin=hmargin)
+      } else if (aX == ncol & aY == 1) {
+        all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('topright', wmargin=wmargin, hmargin=hmargin)
+      } else if (aX == 1 & aY > 1 & aY < nrow) {
+        all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('centerleft', wmargin=wmargin, hmargin=hmargin)
+      } else if (aX > 1 & aX < ncol & aY > 1 & aY < nrow) {
+        all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('center', wmargin=wmargin, hmargin=hmargin)
+      } else if (aX == ncol & aY > 1 & aY < nrow) {
+        all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('centerright', wmargin=wmargin, hmargin=hmargin)
+      } else if (aX == 1 & aY == nrow) {
+        all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('bottomleft', wmargin=wmargin, hmargin=hmargin)
+      } else if (aX > 1 & aX < ncol & aY == nrow) {
+        all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('bottomcenter', wmargin=wmargin, hmargin=hmargin)
+      } else if (aX == ncol & aY == nrow) {
+        all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('bottomright', wmargin=wmargin, hmargin=hmargin)
+      }
+    } else if (nrow == 1) {
+      if (aX == 1 & aY == 1) {
+        all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('bottomleft', wmargin=wmargin, hmargin=hmargin)
+      } else if (aX > 1 & aX < ncol & aY == 1) {
+        all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('bottomcenter', wmargin=wmargin, hmargin=hmargin)
+      } else if (aX == ncol & aY == 1) {
+        all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('bottomright', wmargin=wmargin, hmargin=hmargin)
+      }
     }
+
   })
   return(output)
 }
