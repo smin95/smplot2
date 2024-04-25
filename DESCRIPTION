@@ -12,7 +12,7 @@ Authors@R:
 Maintainer: Seung Hyun (Sam) Min <seung.min@mail.mcgill.ca>
 Description: Provides functions for creating and annotating a composite plot in 'ggplot2'. Offers background themes and shortcut plotting functions that produce figures that are appropriate for the format of scientific journals. Some methods are described in Min and Zhou (2021) <doi:10.3389/fgene.2021.802894>.
 Encoding: UTF-8
-RoxygenNote: 7.2.2
+RoxygenNote: 7.3.1
 License: GPL-2
 Imports:
   ggplot2,
@@ -21,13 +21,11 @@ Imports:
   tibble,
   dplyr,
   gghalves,
-  magrittr,
   utils,
   pwr,
   sdamr,
   stats,
   Hmisc,
-  ggstance,
   zoo,
   patchwork
 URL: https://smin95.github.io/dataviz/
