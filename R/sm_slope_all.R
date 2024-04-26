@@ -39,6 +39,7 @@
 #' @importFrom stats na.omit
 #' @export
 #' @importFrom stats coef lm
+#' @importFrom tibble as_tibble
 #' @examples
 #'
 #' library(smplot2)
@@ -156,6 +157,7 @@ sm_slope_all <- function(data, subjects, groups, conditions, x, values) {
 
   }
   slope_list <- na.omit(slope_list)
+  slope_list <- as_tibble(slope_list)
   message(paste('Slope = ', values, ' ~ ', x))
   return(slope_list)
 }

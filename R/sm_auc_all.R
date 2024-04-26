@@ -38,6 +38,7 @@
 #' and experimental condition and/or group.
 #'
 #' @importFrom stats na.omit
+#' @importFrom tibble as_tibble
 #'
 #' @export
 #' @examples
@@ -145,6 +146,7 @@ sm_auc_all <- function(data, subjects, groups, conditions, x, values) {
 
   }
   auc_list <- na.omit(auc_list)
+  auc_list <- as_tibble(auc_list)
   message(paste('AUC =', values, '*', x))
   return(auc_list)
 }
