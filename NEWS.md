@@ -1,6 +1,7 @@
 # smplot2 0.2.1
 
-* Outputs have been modularized. 
+* Plotting outputs have been modularized. 
+* Outputs from AUC and slope all have been tibblelized.
 
 # smplot2 0.2.0
 
