@@ -67,6 +67,8 @@
 #' Returns a combined figure.
 #' @export
 #' @importFrom cowplot plot_grid
+#' @importFrom ggplot2 ggplot_build
+#' @importFrom utils head
 #'
 #' @examples
 #' library(smplot2)
@@ -89,9 +91,9 @@
 #'
 
 sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
-                            ncol, nrow, xlabel2, ylabel2, tickRatio, panel_scale = 0.9, wRatio=1.1,
+                            ncol, nrow, xlabel2, ylabel2, tickRatio, panel_scale = 0.9, wRatio,
                             hRatio = 1.1, hmargin = 0, wmargin = 0, remove_ticks = 'some',
-                            wRatio2= 1.1, hRatio2 = 1.1) {
+                            wRatio2, hRatio2 = 1.1) {
 
   all_plots <- flatten_ggplot(all_plots)
 
@@ -112,6 +114,44 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
     tickRatio = tickRatio
   }
 
+  y_axis1_label <-  ggplot_build(all_plots[[1]])$layout$panel_params[[1]]$y$get_labels()
+  y_axis1_label <- y_axis1_label[!is.na(y_axis1_label)]
+
+  y_axis2_label <-  ggplot_build(all_plots[[1]])$layout$panel_params[[1]]$y.sec$get_labels()
+  y_axis2_label <- y_axis2_label[!is.na(y_axis2_label)]
+
+  min_y_len <- min(length(y_axis1_label), length(y_axis2_label))
+
+  if (all(head(y_axis1_label,min_y_len) == head(y_axis2_label,min_y_len))){
+    double_yaxis = FALSE
+  } else {
+    double_yaxis = TRUE
+  }
+
+  x_axis1_label <- ggplot_build(all_plots[[1]])$layout$panel_params[[1]]$x$get_labels()
+  x_axis1_label <- x_axis1_label[!is.na(x_axis1_label)]
+
+  x_axis2_label <- ggplot_build(all_plots[[1]])$layout$panel_params[[1]]$x.sec$get_labels()
+  x_axis2_label <- x_axis2_label[!is.na(x_axis2_label)]
+
+  min_x_len <- min(length(x_axis1_label), length(x_axis2_label))
+
+  if (all(head(x_axis1_label,min_x_len) == head(x_axis2_label,min_x_len))){
+    double_xaxis = FALSE
+  } else {
+    double_xaxis = TRUE
+  }
+
+
+
+  if (missing(wRatio)) {
+    wRatio = 1 + (0.04 + 0.005*ncol + (0.9-ifelse(panel_scale > 0.9, 0.9, panel_scale))/10)*max(nchar(ggplot_build(all_plots[[1]])$layout$panel_params[[1]]$y$get_labels()))
+  }
+
+  if (missing(wRatio2)) {
+    wRatio2 = 1 + (0.04 + 0.005*ncol + (0.9-ifelse(panel_scale > 0.9, 0.9, panel_scale))/10)*max(nchar(ggplot_build(all_plots[[1]])$layout$panel_params[[1]]$y.sec$get_labels()))
+  }
+
 
   all_plots <- lapply(1:length(all_plots), function(iPlot) {
     all_plots[[iPlot]] + theme(axis.text.x = element_text(size = rel(tickRatio)),
@@ -128,15 +168,24 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
 
   } else if (remove_ticks == 'some') {
     all_plots1 <- sm_plot_clean(all_plots, ncol=ncol,nrow=nrow, hmargin=hmargin, wmargin=wmargin)
-    if (is.null(ylabel2)) {
+    if (double_yaxis == FALSE) {
       rel_widths <- c(wRatio, rep(1,ncol-1))
     } else {
-      rel_widths <- c(wRatio, rep(1,ncol-2), wRatio2)
+      if (ncol == 2) {
+        rel_widths <- rep(1,ncol)
+      } else {
+        rel_widths <- c(wRatio, rep(1,ncol-2), wRatio2)
+      }
     }
-    if (is.null(xlabel2)) {
+    if (double_xaxis == FALSE) {
       rel_heights <- c(rep(1,nrow-1), hRatio)
     } else {
-      rel_heights <- c(hRatio, rep(1,nrow-2), hRatio2)
+      if (nrow == 2) {
+        rel_heights <- rep(1,ncol)
+      } else {
+        rel_heights <- c(hRatio2, rep(1,nrow-2), hRatio)
+      }
+
     }
 
   } else if (remove_ticks == 'all') {

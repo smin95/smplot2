@@ -16,12 +16,12 @@ sm_put_together(
   ylabel2,
   tickRatio,
   panel_scale = 0.9,
-  wRatio = 1.1,
+  wRatio,
   hRatio = 1.1,
   hmargin = 0,
   wmargin = 0,
   remove_ticks = "some",
-  wRatio2 = 1.1,
+  wRatio2,
   hRatio2 = 1.1
 )
 }
