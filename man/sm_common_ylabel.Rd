@@ -8,7 +8,7 @@ sm_common_ylabel(
   label = "",
   size = 17,
   x = 0.5,
-  y = 0.5,
+  y = 0.52,
   fontface = "plain",
   angle = 90
 )

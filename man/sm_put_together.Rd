@@ -14,7 +14,7 @@ sm_put_together(
   nrow,
   xlabel2,
   ylabel2,
-  tickRatio = 1.4,
+  tickRatio,
   panel_scale = 0.9,
   wRatio = 1.1,
   hRatio = 1.1,

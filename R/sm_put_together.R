@@ -89,18 +89,28 @@
 #'
 
 sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
-                            ncol, nrow, xlabel2, ylabel2, tickRatio = 1.4, panel_scale = 0.9, wRatio=1.1,
+                            ncol, nrow, xlabel2, ylabel2, tickRatio, panel_scale = 0.9, wRatio=1.1,
                             hRatio = 1.1, hmargin = 0, wmargin = 0, remove_ticks = 'some',
                             wRatio2= 1.1, hRatio2 = 1.1) {
 
   all_plots <- flatten_ggplot(all_plots)
-
 
   if (missing(title)) title <- NULL
   if (missing(xlabel)) xlabel <- NULL
   if (missing(ylabel)) ylabel <- NULL
   if (missing(xlabel2)) xlabel2 <- NULL
   if (missing(ylabel2)) ylabel2 <- NULL
+
+  ncr <- max(ncol,nrow)
+  if (missing(tickRatio)) {
+    if (ncr > 1) {
+      tickRatio = 1+ncr/12
+    } else {
+      tickRatio = 1
+    }
+  } else {
+    tickRatio = tickRatio
+  }
 
 
   all_plots <- lapply(1:length(all_plots), function(iPlot) {
@@ -152,11 +162,14 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
   tgd1 <- plot_grid(plotlist = all_plots2, ncol=ncol, nrow=nrow,
                     rel_widths = rel_widths, rel_heights = rel_heights, axis='tblr', align='hv')
 
+  ## x-axis
   if (!is.null(xlabel)) tgd1 <- plot_grid(tgd1, xlabel, ncol=1, rel_heights = c(1,0.1))
-  if (!is.null(ylabel)) tgd1 <- plot_grid(ylabel, tgd1, ncol=2, rel_widths = c(0.1,1))
   if (!is.null(xlabel2)) tgd1 <- plot_grid(xlabel2, tgd1, ncol=1, rel_heights = c(0.1,1))
-  if (!is.null(ylabel2)) tgd1 <- plot_grid(tgd1, ylabel2, ncol=2, rel_widths = c(1,0.1))
+  ## title
   if (!is.null(title)) tgd1 <- plot_grid(title, tgd1, ncol=1, rel_heights=c(0.1,1))
+  ## y-axis
+  if (!is.null(ylabel)) tgd1 <- plot_grid(ylabel, tgd1, ncol=2, rel_widths = c(0.1,1))
+  if (!is.null(ylabel2)) tgd1 <- plot_grid(tgd1, ylabel2, ncol=2, rel_widths = c(1,0.1))
 
   return(tgd1)
 }

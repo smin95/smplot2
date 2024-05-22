@@ -2,6 +2,7 @@
 
 * Plotting outputs have been modularized. 
 * Outputs from AUC and slope all have been tibblelized.
+* Reduced external dependencies.
 
 # smplot2 0.2.0
 

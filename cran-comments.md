@@ -1,7 +1,7 @@
-## version 0.2.1
+## version 0.2.2
 Dear CRAN team,
 
-I have debugged some functions (ex. `sm_plot_clean()`, `sm_auc_all()` and `sm_slope_all()` of the package. 
+I have updated the `sm_put_together()` function for debugging purposes.
 
 Best regards,
 Sam

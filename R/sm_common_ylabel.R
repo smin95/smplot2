@@ -23,7 +23,7 @@
 #' library(smplot2)
 #' sm_common_ylabel('My y-axis')
 
-sm_common_ylabel <- function(label = '', size=17, x = 0.5, y = 0.5,
+sm_common_ylabel <- function(label = '', size=17, x = 0.5, y = 0.52,
                              fontface='plain', angle=90) {
   layer <- ggdraw()
   label <- draw_label(label, size = size, x = x, y = y,
