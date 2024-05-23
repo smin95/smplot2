@@ -108,6 +108,21 @@ sm_common_axis <- function(location, hmargin = 1, wmargin = 1) {
     ggplot2::theme(axis.title.x = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
       ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
+  } else if (location == 'bottomleft2x') {
+    ggplot2::theme(axis.title.x = element_blank()) +
+      ggplot2::theme(axis.title.y = element_blank()) +
+      ggplot2::theme(axis.text.y.right = element_blank()) +
+      ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
+  } else if (location == 'bottomcenter2x') {
+    ggplot2::theme(axis.title.x = element_blank()) +
+      ggplot2::theme(axis.text.y = element_blank()) +
+      ggplot2::theme(axis.title.y = element_blank()) +
+      ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
+  } else if (location == 'bottomright2x') {
+    ggplot2::theme(axis.title.x = element_blank()) +
+      ggplot2::theme(axis.text.y.left = element_blank()) +
+      ggplot2::theme(axis.title.y = element_blank()) +
+      ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
   } else {
     stop('Wrong input. Please check again.')
   }

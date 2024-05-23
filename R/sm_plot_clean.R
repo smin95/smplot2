@@ -64,11 +64,11 @@ sm_plot_clean <- function(all_plots, ncol, nrow, wmargin=wmargin, hmargin=hmargi
       }
     } else if (nrow == 1) {
       if (aX == 1 & aY == 1) {
-        all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('bottomleft', wmargin=wmargin, hmargin=hmargin)
+        all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('bottomleft2x', wmargin=wmargin, hmargin=hmargin)
       } else if (aX > 1 & aX < ncol & aY == 1) {
-        all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('bottomcenter', wmargin=wmargin, hmargin=hmargin)
+        all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('bottomcenter2x', wmargin=wmargin, hmargin=hmargin)
       } else if (aX == ncol & aY == 1) {
-        all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('bottomright', wmargin=wmargin, hmargin=hmargin)
+        all_plots[[iPlot]] <- all_plots[[iPlot]] + sm_common_axis('bottomright2x', wmargin=wmargin, hmargin=hmargin)
       }
     }
 

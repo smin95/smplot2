@@ -237,8 +237,10 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
     } else if (double_yaxis == TRUE) { # when all plots contain double yaxis
       if (ncol == 2) {
         rel_widths <- rep(1,ncol)
-      } else {
+      } else if (ncol > 2) {
         rel_widths <- c(wRatio, rep(1,ncol-2), wRatio2)
+      } else if (ncol == 1) {
+        rel_widths <- 1
       }
     }
     if (double_xaxis == FALSE) {
@@ -246,8 +248,10 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
     } else {
       if (nrow == 2) {
         rel_heights <- rep(1,ncol)
-      } else {
+      } else if (nrow > 2) {
         rel_heights <- c(hRatio2, rep(1,nrow-2), hRatio)
+      } else if (nrow == 1) {
+        rel_heights <- 1
       }
 
     }
