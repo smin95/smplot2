@@ -152,11 +152,11 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
   nPunc_y2 <- nChar_y2 - nChar_y2a
 
   if (missing(wRatio)) {
-    wRatio = 1 + (0.04 + 0.005*ncol + (0.9-ifelse(panel_scale > 0.9, 0.9, panel_scale))/10)*(nChar_y1a + 0.75*nPunc_y1)
+    wRatio = 1 + (0.04 + 0.005*ncol + (0.9-ifelse(panel_scale > 0.9, 0.9, panel_scale))/10)*(nChar_y1a + 0.85*nPunc_y1)
   }
 
   if (missing(wRatio2)) {
-    wRatio2 = 1 + (0.04 + 0.005*ncol + (0.9-ifelse(panel_scale > 0.9, 0.9, panel_scale))/10)*(nChar_y2a + 0.75*nPunc_y2)
+    wRatio2 = 1 + (0.04 + 0.005*ncol + (0.9-ifelse(panel_scale > 0.9, 0.9, panel_scale))/10)*(nChar_y2a + 0.85*nPunc_y2)
   }
 
   all_plots <- lapply(1:length(all_plots), function(iPlot) {
