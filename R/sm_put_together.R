@@ -116,40 +116,83 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
     tickRatio = tickRatio
   }
 
-  y_axis1_label <-  ggplot_build(all_plots[[1]])$layout$panel_params[[1]]$y$get_labels()
-  y_axis1_label <- y_axis1_label[!is.na(y_axis1_label)]
+  double_yaxis_output <- vector('logical', length(all_plots))
+  double_xaxis_output <- vector('logical', length(all_plots))
+  y_axis_right <- vector('logical', length(all_plots))
+  y_axis_left <- vector('logical', length(all_plots))
 
-  y_axis2_label <-  ggplot_build(all_plots[[1]])$layout$panel_params[[1]]$y.sec$get_labels()
-  y_axis2_label <- y_axis2_label[!is.na(y_axis2_label)]
-
-  min_y_len <- min(length(y_axis1_label), length(y_axis2_label))
-
-  if (all(head(y_axis1_label,min_y_len) == head(y_axis2_label,min_y_len))){
-    double_yaxis = FALSE
-  } else {
-    double_yaxis = TRUE
+  for (iPlot in seq_along(all_plots)) {
+    y_axis1_label <- ggplot_build(all_plots[[iPlot]])$layout$panel_params[[1]]$y$get_labels()
+    y_axis2_label <- ggplot_build(all_plots[[iPlot]])$layout$panel_params[[1]]$y.sec$get_labels()
+    if (!is.null(y_axis1_label)) y_axis_left[[iPlot]] <- TRUE
+    if (!is.null(y_axis2_label)) y_axis_right[[iPlot]] <- TRUE
   }
 
-  x_axis1_label <- ggplot_build(all_plots[[1]])$layout$panel_params[[1]]$x$get_labels()
-  x_axis1_label <- x_axis1_label[!is.na(x_axis1_label)]
+  y_left <- any(y_axis_left)
+  y_right <- any(y_axis_right)
 
-  x_axis2_label <- ggplot_build(all_plots[[1]])$layout$panel_params[[1]]$x.sec$get_labels()
-  x_axis2_label <- x_axis2_label[!is.na(x_axis2_label)]
+  if (y_left) left_yaxis_which <- which(y_axis_left)[[1]]
+  if (y_right) right_yaxis_which <- which(y_axis_right)[[1]]
 
-  min_x_len <- min(length(x_axis1_label), length(x_axis2_label))
 
-  if (all(head(x_axis1_label,min_x_len) == head(x_axis2_label,min_x_len))){
-    double_xaxis = FALSE
-  } else {
-    double_xaxis = TRUE
+  for (iPlot in seq_along(all_plots)) {
+    y_axis1_label <-  ggplot_build(all_plots[[iPlot]])$layout$panel_params[[1]]$y$get_labels()
+    y_axis1_label <- y_axis1_label[!is.na(y_axis1_label)]
+
+    y_axis2_label <-  ggplot_build(all_plots[[iPlot]])$layout$panel_params[[1]]$y.sec$get_labels()
+    y_axis2_label <- y_axis2_label[!is.na(y_axis2_label)]
+
+    min_y_len <- min(length(y_axis1_label), length(y_axis2_label))
+
+    if (all(head(y_axis1_label,min_y_len) == head(y_axis2_label,min_y_len))){
+      double_yaxis_output[[iPlot]] = FALSE
+    } else {
+      double_yaxis_output[[iPlot]] = TRUE
+    }
+
+    x_axis1_label <- ggplot_build(all_plots[[1]])$layout$panel_params[[1]]$x$get_labels()
+    x_axis1_label <- x_axis1_label[!is.na(x_axis1_label)]
+
+    x_axis2_label <- ggplot_build(all_plots[[1]])$layout$panel_params[[1]]$x.sec$get_labels()
+    x_axis2_label <- x_axis2_label[!is.na(x_axis2_label)]
+
+    min_x_len <- min(length(x_axis1_label), length(x_axis2_label))
+
+    if (all(head(x_axis1_label,min_x_len) == head(x_axis2_label,min_x_len))){
+      double_xaxis_output[[iPlot]] = FALSE
+    } else {
+      double_xaxis_output[[iPlot]] = TRUE
+    }
   }
 
-  nChar_y1 <- max(nchar(ggplot_build(all_plots[[1]])$layout$panel_params[[1]]$y$get_labels()))
-  nChar_y1a <- max(nchar(gsub('[[:punct:]]','',ggplot_build(all_plots[[1]])$layout$panel_params[[1]]$y$get_labels()))) # pure number length
-  nPunc_y1 <- nChar_y1 - nChar_y1a
-  nChar_y2 <- max(nchar(ggplot_build(all_plots[[1]])$layout$panel_params[[1]]$y.sec$get_labels()))
-  nChar_y2a <- max(nchar(gsub('[[:punct:]]','',ggplot_build(all_plots[[1]])$layout$panel_params[[1]]$y.sec$get_labels()))) # pure number length
-  nPunc_y2 <- nChar_y2 - nChar_y2a
+
+  double_yaxis = any(double_yaxis_output)
+  if (double_yaxis) double_yaxis_which = which(double_yaxis_output)[[1]]
+
+  double_xaxis = any(double_xaxis_output)
+  if (double_xaxis) double_xaxis_which = which(double_xaxis_output)[[1]]
+
+  if (y_left) {
+    nChar_y1 <- max(nchar(ggplot_build(all_plots[[left_yaxis_which]])$layout$panel_params[[1]]$y$get_labels()))
+    nChar_y1a <- max(nchar(gsub('[[:punct:]]','',ggplot_build(all_plots[[left_yaxis_which]])$layout$panel_params[[1]]$y$get_labels()))) # pure number length
+    nPunc_y1 <- nChar_y1 - nChar_y1a
+  } else {
+    nChar_y1 <- 0
+    nChar_y1a <- 0
+    nPunc_y1 <- 0
+  }
+
+
+  if (y_right) {
+    nChar_y2 <- max(nchar(ggplot_build(all_plots[[right_yaxis_which]])$layout$panel_params[[1]]$y.sec$get_labels()))
+    nChar_y2a <- max(nchar(gsub('[[:punct:]]','',ggplot_build(all_plots[[right_yaxis_which]])$layout$panel_params[[1]]$y.sec$get_labels()))) # pure number length
+    nPunc_y2 <- nChar_y2 - nChar_y2a
+  } else {
+    nChar_y2 <- 0
+    nChar_y2a <- 0
+    nPunc_y2 <- 0
+  }
+
 
   if (missing(wRatio)) {
     wRatio = 1 + (0.04 + 0.005*ncol + (0.9-ifelse(panel_scale > 0.9, 0.9, panel_scale))/10)*(nChar_y1a + 0.85*nPunc_y1)
@@ -175,8 +218,23 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
   } else if (remove_ticks == 'some') {
     all_plots1 <- sm_plot_clean(all_plots, ncol=ncol,nrow=nrow, hmargin=hmargin, wmargin=wmargin)
     if (double_yaxis == FALSE) {
-      rel_widths <- c(wRatio, rep(1,ncol-1))
-    } else {
+      if (y_left) {
+        if (y_right) { # still double_yaxis
+          if (ncol == 2) {
+            rel_widths <- rep(1,ncol)
+          } else {
+            rel_widths <- c(wRatio, rep(1,ncol-2), wRatio2)
+          }
+        } else if (!y_right){
+          rel_widths <- c(wRatio, rep(1,ncol-1))
+        }
+      } else if (!y_left){
+        if (y_right) {
+          rel_widths <- c(rep(1,ncol-1), wRatio2)
+        }
+      }
+
+    } else if (double_yaxis == TRUE) { # when all plots contain double yaxis
       if (ncol == 2) {
         rel_widths <- rep(1,ncol)
       } else {
