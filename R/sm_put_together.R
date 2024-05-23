@@ -20,15 +20,17 @@
 #' Number of rows in the combined plot
 #' @param tickRatio
 #' Relative size of the ticks to the default aesthetics of the thematic functions (ex. sm_hgrid()).
-#' If there are more rows or columns, please increase the tickRatio (1.4 - 1.8).
+#' By default, it chooses the optimal tickRatio based on the given plot. But this
+#' can be overwritten if the input is supplied (ex. try 1.4 to begin with). FOr example, 1.4x means that
+#' it is 1.4x larger than the tick size of a single given plot.
 #' @param panel_scale
 #' Scale of the panel. Default is set to 0.9 to reduce empty space
 #' within and around each panel. The user can set to a value from 0 to 1 to
 #' see what happens to the spacing within each panel and between panels.
 #' @param wRatio
 #' This adjusts the ratio of the width of the first column to those of other columns.
-#' By default, it is set to be 1.1x wider than that of other columns. If the value
-#' is larger than 1, then it will be wider than that of other columns. Users are encouraged
+#' By default, it chooses an optimal wRatio based on the given plot. However, this can be overwritten if the input is supplied.
+#' If the value is larger than 1, then it will be wider than that of other columns. Users are encouraged
 #' to adjust this value because different computers can show different looking outputs.
 #' @param hRatio
 #' This adjusts the ratio of the height of the last row to those of other rows
@@ -55,8 +57,8 @@
 #' This is created using sm_common_ylabel(). Optional argument.
 #' @param wRatio2
 #' This adjusts the ratio of the width of the last column to those of other columns.
-#' By default, if ylabel2 is provided, it is set to be 1.1x wider than that of other columns. If the value
-#' is larger than 1, then it will be wider than that of other columns. Users are encouraged
+#' By default, it chooses an optimal wRatio2 based on the given plot. However, this can be overwritten if the input is supplied.
+#' If the value is larger than 1, then it will be wider than that of other columns. Users are encouraged
 #' to adjust this value because different computers can show different looking outputs.
 #' @param hRatio2
 #' This adjusts the ratio of the height of the first row to those of other rows
@@ -142,16 +144,20 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
     double_xaxis = TRUE
   }
 
-
+  nChar_y1 <- max(nchar(ggplot_build(all_plots[[1]])$layout$panel_params[[1]]$y$get_labels()))
+  nChar_y1a <- max(nchar(gsub('[[:punct:]]','',ggplot_build(all_plots[[1]])$layout$panel_params[[1]]$y$get_labels()))) # pure number length
+  nPunc_y1 <- nChar_y1 - nChar_y1a
+  nChar_y2 <- max(nchar(ggplot_build(all_plots[[1]])$layout$panel_params[[1]]$y.sec$get_labels()))
+  nChar_y2a <- max(nchar(gsub('[[:punct:]]','',ggplot_build(all_plots[[1]])$layout$panel_params[[1]]$y.sec$get_labels()))) # pure number length
+  nPunc_y2 <- nChar_y2 - nChar_y2a
 
   if (missing(wRatio)) {
-    wRatio = 1 + (0.04 + 0.005*ncol + (0.9-ifelse(panel_scale > 0.9, 0.9, panel_scale))/10)*max(nchar(ggplot_build(all_plots[[1]])$layout$panel_params[[1]]$y$get_labels()))
+    wRatio = 1 + (0.04 + 0.005*ncol + (0.9-ifelse(panel_scale > 0.9, 0.9, panel_scale))/10)*(nChar_y1a + 0.85*nPunc_y1)
   }
 
   if (missing(wRatio2)) {
-    wRatio2 = 1 + (0.04 + 0.005*ncol + (0.9-ifelse(panel_scale > 0.9, 0.9, panel_scale))/10)*max(nchar(ggplot_build(all_plots[[1]])$layout$panel_params[[1]]$y.sec$get_labels()))
+    wRatio2 = 1 + (0.04 + 0.005*ncol + (0.9-ifelse(panel_scale > 0.9, 0.9, panel_scale))/10)*(nChar_y2a + 0.85*nPunc_y2)
   }
-
 
   all_plots <- lapply(1:length(all_plots), function(iPlot) {
     all_plots[[iPlot]] + theme(axis.text.x = element_text(size = rel(tickRatio)),

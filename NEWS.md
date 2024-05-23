@@ -1,3 +1,11 @@
+# smplot2 0.2.1.1
+
+* wRatio and wRatio2 are now automatically optimized in sm_put_together() unless the user supplies their separate inputs.
+
+# smplot2 0.2.1
+
+* tickRatio is now automatically optimized in sm_put_together() unless the user supplies a separate input.
+
 # smplot2 0.2.1
 
 * Plotting outputs have been modularized. 

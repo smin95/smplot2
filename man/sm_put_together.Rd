@@ -51,15 +51,17 @@ This is created using sm_common_xlabel(). Optional argument.}
 This is created using sm_common_ylabel(). Optional argument.}
 
 \item{tickRatio}{Relative size of the ticks to the default aesthetics of the thematic functions (ex. sm_hgrid()).
-If there are more rows or columns, please increase the tickRatio (1.4 - 1.8).}
+By default, it chooses the optimal tickRatio based on the given plot. But this
+can be overwritten if the input is supplied (ex. try 1.4 to begin with). FOr example, 1.4x means that
+it is 1.4x larger than the tick size of a single given plot.}
 
 \item{panel_scale}{Scale of the panel. Default is set to 0.9 to reduce empty space
 within and around each panel. The user can set to a value from 0 to 1 to
 see what happens to the spacing within each panel and between panels.}
 
 \item{wRatio}{This adjusts the ratio of the width of the first column to those of other columns.
-By default, it is set to be 1.1x wider than that of other columns. If the value
-is larger than 1, then it will be wider than that of other columns. Users are encouraged
+By default, it chooses an optimal wRatio based on the given plot. However, this can be overwritten if the input is supplied.
+If the value is larger than 1, then it will be wider than that of other columns. Users are encouraged
 to adjust this value because different computers can show different looking outputs.}
 
 \item{hRatio}{This adjusts the ratio of the height of the last row to those of other rows
@@ -80,8 +82,8 @@ If set to 'all', then all panels' ticks will be removed.
 If set to 'none', then all panels' ticks will be kept.}
 
 \item{wRatio2}{This adjusts the ratio of the width of the last column to those of other columns.
-By default, if ylabel2 is provided, it is set to be 1.1x wider than that of other columns. If the value
-is larger than 1, then it will be wider than that of other columns. Users are encouraged
+By default, it chooses an optimal wRatio2 based on the given plot. However, this can be overwritten if the input is supplied.
+If the value is larger than 1, then it will be wider than that of other columns. Users are encouraged
 to adjust this value because different computers can show different looking outputs.}
 
 \item{hRatio2}{This adjusts the ratio of the height of the first row to those of other rows
