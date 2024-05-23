@@ -150,10 +150,10 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
       double_yaxis_output[[iPlot]] = TRUE
     }
 
-    x_axis1_label <- ggplot_build(all_plots[[1]])$layout$panel_params[[1]]$x$get_labels()
+    x_axis1_label <- ggplot_build(all_plots[[iPlot]])$layout$panel_params[[1]]$x$get_labels()
     x_axis1_label <- x_axis1_label[!is.na(x_axis1_label)]
 
-    x_axis2_label <- ggplot_build(all_plots[[1]])$layout$panel_params[[1]]$x.sec$get_labels()
+    x_axis2_label <- ggplot_build(all_plots[[iPlot]])$layout$panel_params[[1]]$x.sec$get_labels()
     x_axis2_label <- x_axis2_label[!is.na(x_axis2_label)]
 
     min_x_len <- min(length(x_axis1_label), length(x_axis2_label))
