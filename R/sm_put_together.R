@@ -153,16 +153,27 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
 
 
   if (double_yaxis) {
-    nChar_y1 <- max(nchar(ggplot_build(all_plots[[double_yaxis_which]])$layout$panel_params[[1]]$y$get_labels()))
-    nChar_y1a <- max(nchar(gsub('[[:punct:]]','',ggplot_build(all_plots[[double_yaxis_which]])$layout$panel_params[[1]]$y$get_labels()))) # pure number length
+
+    y1_label <-  ggplot_build(all_plots[[double_yaxis_which]])$layout$panel_params[[1]]$y$get_labels()
+    y1_label <- y1_label[!is.na(y1_label)]
+
+    nChar_y1 <- max(nchar(y1_label))
+    nChar_y1a <- max(nchar(gsub('[[:punct:]]','', y1_label))) # pure number length
     nPunc_y1 <- nChar_y1 - nChar_y1a
 
-    nChar_y2 <- max(nchar(ggplot_build(all_plots[[double_yaxis_which]])$layout$panel_params[[1]]$y.sec$get_labels()))
-    nChar_y2a <- max(nchar(gsub('[[:punct:]]','',ggplot_build(all_plots[[double_yaxis_which]])$layout$panel_params[[1]]$y.sec$get_labels()))) # pure number length
+    y2_label <-  ggplot_build(all_plots[[double_yaxis_which]])$layout$panel_params[[1]]$y.sec$get_labels()
+    y2_label <- y2_label[!is.na(y2_label)]
+
+    nChar_y2 <- max(nchar(y2_label))
+    nChar_y2a <- max(nchar(gsub('[[:punct:]]','', y2_label))) # pure number length
     nPunc_y2 <- nChar_y2 - nChar_y2a
   } else if (y_left_only) {
-    nChar_y1 <- max(nchar(ggplot_build(all_plots[[left_yaxis_which]])$layout$panel_params[[1]]$y$get_labels()))
-    nChar_y1a <- max(nchar(gsub('[[:punct:]]','',ggplot_build(all_plots[[left_yaxis_which]])$layout$panel_params[[1]]$y$get_labels()))) # pure number length
+
+    y1_label <-  ggplot_build(all_plots[[left_yaxis_which]])$layout$panel_params[[1]]$y$get_labels()
+    y1_label <- y1_label[!is.na(y1_label)]
+
+    nChar_y1 <- max(nchar(y1_label))
+    nChar_y1a <- max(nchar(gsub('[[:punct:]]','', y1_label))) # pure number length
     nPunc_y1 <- nChar_y1 - nChar_y1a
 
     nChar_y2 <- 0
@@ -171,14 +182,19 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
   }
 
   if (double_xaxis) {
-    numLines_x1 <- ggplot_build(all_plots[[double_xaxis_which]])$layout$panel_params[[1]]$x$get_labels()
-    maxLines_x1 <- max(unlist(lapply(numLines_x1, count_lines)))
 
-    numLines_x2 <- ggplot_build(all_plots[[double_xaxis_which]])$layout$panel_params[[1]]$x.sec$get_labels()
-    maxLines_x2 <- max(unlist(lapply(numLines_x2, count_lines)))
+    x1_label <- ggplot_build(all_plots[[double_xaxis_which]])$layout$panel_params[[1]]$x$get_labels()
+    x1_label <- x1_label[!is.na(x1_label)]
+    maxLines_x1 <- max(unlist(lapply(x1_label, count_lines)))
+
+    x2_label <- ggplot_build(all_plots[[double_xaxis_which]])$layout$panel_params[[1]]$x.sec$get_labels()
+    x2_label <- x2_label[!is.na(x2_label)]
+    maxLines_x2 <- max(unlist(lapply(x2_label, count_lines)))
   } else if (x_bottom_only) {
-    numLines_x1 <- ggplot_build(all_plots[[bottom_xaxis_which]])$layout$panel_params[[1]]$x$get_labels()
-    maxLines_x1 <- max(unlist(lapply(numLines_x1, count_lines)))
+
+    x1_label <- ggplot_build(all_plots[[bottom_xaxis_which]])$layout$panel_params[[1]]$x$get_labels()
+    x1_label <- x1_label[!is.na(x1_label)]
+    maxLines_x1 <- max(unlist(lapply(x1_label, count_lines)))
 
     numLines_x2 <- 0
     maxLines_x2 <- 0
