@@ -143,8 +143,8 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
 
   double_yaxis = any(double_yaxis_output)
   double_xaxis = any(double_xaxis_output)
-  y_left_only <- any(!double_yaxis_output)
-  x_bottom_only <- any(!double_xaxis_output)
+  y_left_only <- all(!double_yaxis_output)
+  x_bottom_only <- all(!double_xaxis_output)
 
   if (double_yaxis) double_yaxis_which = which(double_yaxis_output)[[1]]
   if (double_xaxis) double_xaxis_which = which(double_xaxis_output)[[1]]
