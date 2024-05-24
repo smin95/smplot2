@@ -17,12 +17,12 @@ sm_put_together(
   tickRatio,
   panel_scale = 0.9,
   wRatio,
-  hRatio = 1.1,
+  hRatio,
   hmargin = 0,
   wmargin = 0,
   remove_ticks = "some",
   wRatio2,
-  hRatio2 = 1.1
+  hRatio2
 )
 }
 \arguments{
@@ -65,7 +65,7 @@ If the value is larger than 1, then it will be wider than that of other columns.
 to adjust this value because different computers can show different looking outputs.}
 
 \item{hRatio}{This adjusts the ratio of the height of the last row to those of other rows
-By default, it is set to be 1.1x taller than that of other columns. If the value
+By default, it chooses an optimal hRatio based on the given plot. However, this can be overwritten if the input is supplied. If the value
 is larger than 1, then it will be taller than that of other columns. Users are encouraged
 to adjust this value because different computers can show different looking outputs.}
 
@@ -87,7 +87,7 @@ If the value is larger than 1, then it will be wider than that of other columns.
 to adjust this value because different computers can show different looking outputs.}
 
 \item{hRatio2}{This adjusts the ratio of the height of the first row to those of other rows
-By default, if xlabel2 is provided, it is set to be 1.1x taller than that of other columns. If the value
+By default, it chooses an optimal hRatio2 based on the given plot. However, this can be overwritten if the input is supplied.  If the value
 is larger than 1, then it will be taller than that of other columns. Users are encouraged
 to adjust this value because different computers can show different looking outputs.}
 }

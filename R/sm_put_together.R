@@ -34,7 +34,7 @@
 #' to adjust this value because different computers can show different looking outputs.
 #' @param hRatio
 #' This adjusts the ratio of the height of the last row to those of other rows
-#' By default, it is set to be 1.1x taller than that of other columns. If the value
+#' By default, it chooses an optimal hRatio based on the given plot. However, this can be overwritten if the input is supplied. If the value
 #' is larger than 1, then it will be taller than that of other columns. Users are encouraged
 #' to adjust this value because different computers can show different looking outputs.
 #' @param hmargin
@@ -62,7 +62,7 @@
 #' to adjust this value because different computers can show different looking outputs.
 #' @param hRatio2
 #' This adjusts the ratio of the height of the first row to those of other rows
-#' By default, if xlabel2 is provided, it is set to be 1.1x taller than that of other columns. If the value
+#' By default, it chooses an optimal hRatio2 based on the given plot. However, this can be overwritten if the input is supplied.  If the value
 #' is larger than 1, then it will be taller than that of other columns. Users are encouraged
 #' to adjust this value because different computers can show different looking outputs.
 #' @return
@@ -94,8 +94,8 @@
 
 sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
                             ncol, nrow, xlabel2, ylabel2, tickRatio, panel_scale = 0.9, wRatio,
-                            hRatio = 1.1, hmargin = 0, wmargin = 0, remove_ticks = 'some',
-                            wRatio2, hRatio2 = 1.1) {
+                            hRatio, hmargin = 0, wmargin = 0, remove_ticks = 'some',
+                            wRatio2, hRatio2) {
 
   all_plots <- flatten_ggplot(all_plots)
 
@@ -143,8 +143,8 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
 
   double_yaxis = any(double_yaxis_output)
   double_xaxis = any(double_xaxis_output)
-  y_left_only <- !all(double_yaxis_output)
-  x_bottom_only <- !all(double_xaxis_output)
+  y_left_only <- any(!double_yaxis_output)
+  x_bottom_only <- any(!double_xaxis_output)
 
   if (double_yaxis) double_yaxis_which = which(double_yaxis_output)[[1]]
   if (double_xaxis) double_xaxis_which = which(double_xaxis_output)[[1]]
@@ -161,7 +161,6 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
     nChar_y2a <- max(nchar(gsub('[[:punct:]]','',ggplot_build(all_plots[[double_yaxis_which]])$layout$panel_params[[1]]$y.sec$get_labels()))) # pure number length
     nPunc_y2 <- nChar_y2 - nChar_y2a
   } else if (y_left_only) {
-
     nChar_y1 <- max(nchar(ggplot_build(all_plots[[left_yaxis_which]])$layout$panel_params[[1]]$y$get_labels()))
     nChar_y1a <- max(nchar(gsub('[[:punct:]]','',ggplot_build(all_plots[[left_yaxis_which]])$layout$panel_params[[1]]$y$get_labels()))) # pure number length
     nPunc_y1 <- nChar_y1 - nChar_y1a
@@ -171,13 +170,26 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
     nPunc_y2 <- 0
   }
 
-  if (missing(wRatio)) {
-    wRatio = 1 + (0.04 + 0.005*ncol + (0.9-ifelse(panel_scale > 0.9, 0.9, panel_scale))/10)*(nChar_y1a + 0.85*nPunc_y1)
+  if (double_xaxis) {
+    numLines_x1 <- ggplot_build(all_plots[[double_xaxis_which]])$layout$panel_params[[1]]$x$get_labels()
+    maxLines_x1 <- max(unlist(lapply(numLines_x1, count_lines)))
+
+    numLines_x2 <- ggplot_build(all_plots[[double_xaxis_which]])$layout$panel_params[[1]]$x.sec$get_labels()
+    maxLines_x2 <- max(unlist(lapply(numLines_x2, count_lines)))
+  } else if (x_bottom_only) {
+    numLines_x1 <- ggplot_build(all_plots[[bottom_xaxis_which]])$layout$panel_params[[1]]$x$get_labels()
+    maxLines_x1 <- max(unlist(lapply(numLines_x1, count_lines)))
+
+    numLines_x2 <- 0
+    maxLines_x2 <- 0
   }
 
-  if (missing(wRatio2)) {
-    wRatio2 = 1 + (0.04 + 0.005*ncol + (0.9-ifelse(panel_scale > 0.9, 0.9, panel_scale))/10)*(nChar_y2a + 0.85*nPunc_y2)
-  }
+  if (missing(wRatio)) wRatio = 1 + (0.04 + 0.005*ncol + (0.9-ifelse(panel_scale > 0.9, 0.9, panel_scale))/10)*(nChar_y1a + 0.85*nPunc_y1)
+  if (missing(wRatio2)) wRatio2 = 1 + (0.04 + 0.005*ncol + (0.9-ifelse(panel_scale > 0.9, 0.9, panel_scale))/10)*(nChar_y2a + 0.85*nPunc_y2)
+
+  if (missing(hRatio))  hRatio = 1 + 0.1*maxLines_x1 + 0.04*ifelse(maxLines_x1 > 2, 1,0)
+  if (missing(hRatio2))  hRatio2 = 1 + 0.1*maxLines_x2 + 0.04*ifelse(maxLines_x2 > 2, 1,0)
+
 
   all_plots <- lapply(1:length(all_plots), function(iPlot) {
     all_plots[[iPlot]] + theme(axis.text.x = element_text(size = rel(tickRatio)),
@@ -197,7 +209,7 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
     if (double_yaxis == FALSE) {
       rel_widths <- c(wRatio, rep(1,ncol-1))
     } else {
-      if (ncol == 2) {
+      if (ncol < 2.1) {
         rel_widths <- rep(1,ncol)
       } else {
         rel_widths <- c(wRatio, rep(1,ncol-2), wRatio2)
@@ -206,7 +218,7 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
     if (double_xaxis == FALSE) {
       rel_heights <- c(rep(1,nrow-1), hRatio)
     } else {
-      if (nrow == 2) {
+      if (nrow < 2.1) {
         rel_heights <- rep(1,ncol)
       } else {
         rel_heights <- c(hRatio2, rep(1,nrow-2), hRatio)
@@ -259,4 +271,8 @@ flatten_ggplot <- function(lst) {
     }
   }
   return(plots)
+}
+
+count_lines <- function(text) {
+  length(strsplit(text, "\n")[[1]])
 }

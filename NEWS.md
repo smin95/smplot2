@@ -1,3 +1,7 @@
+# smplot2 0.2.1.2
+
+* hRatio and hRatio2 are now automatically optimized in sm_put_together() unless the user supplies their separate inputs.
+
 # smplot2 0.2.1.1
 
 * wRatio and wRatio2 are now automatically optimized in sm_put_together() unless the user supplies their separate inputs.
