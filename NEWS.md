@@ -1,3 +1,7 @@
+# smplot2 0.2.3
+* sm_statCorr() also computes R2, not just R.
+* sm_slope_mean is a shortcut of sm_slope for plotting a mean slope chart.
+
 # smplot2 0.2.2.2
 
 * hRatio and hRatio2 are now automatically optimized in sm_put_together() unless users supply their separate inputs.

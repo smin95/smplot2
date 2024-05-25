@@ -2,8 +2,8 @@
 % Please edit documentation in R/sm_statCorr.R
 \name{sm_statCorr}
 \alias{sm_statCorr}
-\title{Linear regression slope and statistical values
-from a paired correlation test}
+\title{Linear regression slope and statistical values (R or R2 and p values)
+from a paired correlation test.}
 \usage{
 sm_statCorr(
   ...,
@@ -16,7 +16,9 @@ sm_statCorr(
   text_size = 4,
   show_text = TRUE,
   borders = TRUE,
-  legends = FALSE
+  legends = FALSE,
+  r2 = FALSE,
+  R2
 )
 }
 \arguments{
@@ -51,6 +53,10 @@ If the border is not needed, the input should be FALSE.}
 
 \item{legends}{If the legend needs to be displayed, the input should be TRUE.
 If the legend is not needed, the input should be FALSE.}
+
+\item{r2}{FALSE or TRUE. TRUE if user wants to compute R2.}
+
+\item{R2}{Same as r2.}
 }
 \value{
 Plots a best-fitted linear regression on a correlation plot
@@ -70,6 +76,10 @@ library(smplot2)
 library(ggplot2)
 ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
 geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
- sm_statCorr()
+ sm_statCorr() # computes R
+
+ ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
+ sm_statCorr(R2 = TRUE) # computes R2
 
 }
