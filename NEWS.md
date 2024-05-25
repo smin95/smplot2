@@ -1,4 +1,4 @@
-# smplot2 0.2.3
+# smplot2 0.2.2.3
 * sm_statCorr() also computes R2, not just R.
 * sm_slope_mean is a shortcut of sm_slope for plotting a mean slope chart.
 
