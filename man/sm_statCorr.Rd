@@ -54,7 +54,7 @@ If the border is not needed, the input should be FALSE.}
 \item{legends}{If the legend needs to be displayed, the input should be TRUE.
 If the legend is not needed, the input should be FALSE.}
 
-\item{r2}{FALSE or TRUE. TRUE if user wants to compute R2.}
+\item{r2}{FALSE or TRUE. TRUE if user wants to compute R2. FALSE if R needs to be computed.}
 
 \item{R2}{Same as r2.}
 }

@@ -54,7 +54,7 @@
 #' If the legend is not needed, the input should be FALSE.
 #'
 #' @param r2
-#' FALSE or TRUE. TRUE if user wants to compute R2.
+#' FALSE or TRUE. TRUE if user wants to compute R2. FALSE if R needs to be computed.
 #' @param R2
 #' Same as r2.
 #'
