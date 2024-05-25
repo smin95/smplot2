@@ -95,7 +95,9 @@ to adjust this value because different computers can show different looking outp
 Returns a combined figure.
 }
 \description{
-Combining figures together
+This function works best if all_plots argument (the list input) contains plots
+that have tick labels on both x and y axes; this information will be used to
+optimize the layout of the composite figure.
 }
 \examples{
 library(smplot2)

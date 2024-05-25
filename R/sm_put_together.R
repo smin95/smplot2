@@ -1,5 +1,9 @@
 #' Combining figures together
 #'
+#' This function works best if all_plots argument (the list input) contains plots
+#' that have tick labels on both x and y axes; this information will be used to
+#' optimize the layout of the composite figure.
+#'
 #' @param all_plots
 #' all_plots should be list, which should contain all panels
 #' that are to be combined into one figure.
