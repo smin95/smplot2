@@ -3,7 +3,7 @@
   <h1><strong>smplot2</strong> - An R package for plotting standalone and composite figures</h1>
 </p>
 
-[![](http://cranlogs.r-pkg.org/badges/grand-total/smplot2?color=green)](https://cran.r-project.org/package=smplot2)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/smplot2?color=purple)](https://cran.r-project.org/package=smplot2)
 [![](https://cranlogs.r-pkg.org/badges/smplot2?color=green)](https://cran.r-project.org/package=smplot2) [![](https://img.shields.io/badge/devel%20version-0.2.2.3-black.svg)](https://github.com/smin95/smplot2) [![CRAN_Release_Badge](http://www.r-pkg.org/badges/version-ago/smplot2?color=green)](https://CRAN.R-project.org/package=smplot2) 
 
 Author: Seung Hyun (Sam) Min
