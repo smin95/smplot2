@@ -3,6 +3,8 @@
   <h1><strong>smplot2</strong> - Create and annotate composite plots in R and ggplot2</h1>
 </p>
 
+[![](https://cranlogs.r-pkg.org/badges/smplot2)](https://cran.r-project.org/package=smplot2) [![](https://img.shields.io/badge/devel%20version-0.2.2.3-black.svg)](https://github.com/smin95/smplot2) [![CRAN_Release_Badge](http://www.r-pkg.org/badges/version-ago/smplot2)](https://CRAN.R-project.org/package=smplot2) 
+
 Author: Seung Hyun (Sam) Min
 
 **smplot2** (SM: **S**eung Hyun **M**in) is an R package for statistical data visualization that complements ggplot2. This package represents what I wish I had back when I was beginning to learn R. It aims to make every step of data visualization easy.
