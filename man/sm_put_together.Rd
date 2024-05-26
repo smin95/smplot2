@@ -30,13 +30,16 @@ sm_put_together(
 that are to be combined into one figure.}
 
 \item{title}{Title layer that will determine the main title of the combined plot.
-This is created using sm_common_title(). Optional argument.}
+This is created using sm_common_title(). Optional argument.
+Users can also supply character string here instead.}
 
 \item{xlabel}{xlabel layer that will determine the label of the combined plot's x-axis.
-This is created using sm_common_xlabel(). Optional argument.}
+This is created using sm_common_xlabel(). Optional argument.
+Users can also supply character string here instead.}
 
 \item{ylabel}{ylabel layer that will determine the label of the combined plot's y-axis.
-This is created using sm_common_ylabel(). Optional argument.}
+This is created using sm_common_ylabel(). Optional argument.
+Users can also supply character string here instead.}
 
 \item{legend}{ggplot() layer that has legend. Optional argument.}
 
@@ -45,10 +48,12 @@ This is created using sm_common_ylabel(). Optional argument.}
 \item{nrow}{Number of rows in the combined plot}
 
 \item{xlabel2}{2nd xlabel layer that will determine the label of the combined plot's secondary x-axis.
-This is created using sm_common_xlabel(). Optional argument.}
+This is created using sm_common_xlabel(). Optional argument.
+Users can also supply character string here instead.}
 
 \item{ylabel2}{2nd ylabel layer that will determine the label of the combined plot's y-axis.
-This is created using sm_common_ylabel(). Optional argument.}
+This is created using sm_common_ylabel(). Optional argument.
+Users can also supply character string here instead.}
 
 \item{tickRatio}{Relative size of the ticks to the default aesthetics of the thematic functions (ex. sm_hgrid()).
 By default, it chooses the optimal tickRatio based on the given plot. But this
@@ -99,6 +104,12 @@ This function works best if all_plots argument (the list input) contains plots
 that have tick labels on both x and y axes; this information will be used to
 optimize the layout of the composite figure.
 }
+\details{
+The inputs for the axis labels can be created with sm_common_xlabel(), sm_common_ylabel()
+and sm_common_title(). Alternatively, users can supply character strings directly
+to sm_put_together() instead. However, this option is not flexible but the function
+tries its best to find the optimal size and location given the plot information.
+}
 \examples{
 library(smplot2)
 library(ggplot2)
@@ -117,5 +128,8 @@ ylabel <- sm_common_ylabel('My y-axis')
 
 sm_put_together(list(p1,p2), title=title, xlabel=xlabel,
                 ylabel=ylabel, ncol=2,nrow=1)
+
+sm_put_together(list(p1,p2), title='My title', xlabel='My x-axis',
+                ylabel='My y-axis', ncol=2,nrow=1)
 
 }

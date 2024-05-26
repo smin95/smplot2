@@ -4,18 +4,26 @@
 #' that have tick labels on both x and y axes; this information will be used to
 #' optimize the layout of the composite figure.
 #'
+#' The inputs for the axis labels can be created with sm_common_xlabel(), sm_common_ylabel()
+#' and sm_common_title(). Alternatively, users can supply character strings directly
+#' to sm_put_together() instead. However, this option is not flexible but the function
+#' tries its best to find the optimal size and location given the plot information.
+#'
 #' @param all_plots
 #' all_plots should be list, which should contain all panels
 #' that are to be combined into one figure.
 #' @param title
 #' Title layer that will determine the main title of the combined plot.
 #' This is created using sm_common_title(). Optional argument.
+#' Users can also supply character string here instead.
 #' @param xlabel
 #' xlabel layer that will determine the label of the combined plot's x-axis.
 #' This is created using sm_common_xlabel(). Optional argument.
+#' Users can also supply character string here instead.
 #' @param ylabel
 #' ylabel layer that will determine the label of the combined plot's y-axis.
 #' This is created using sm_common_ylabel(). Optional argument.
+#' Users can also supply character string here instead.
 #' @param legend
 #' ggplot() layer that has legend. Optional argument.
 #' @param ncol
@@ -56,9 +64,11 @@
 #' @param xlabel2
 #' 2nd xlabel layer that will determine the label of the combined plot's secondary x-axis.
 #' This is created using sm_common_xlabel(). Optional argument.
+#' Users can also supply character string here instead.
 #' @param ylabel2
 #' 2nd ylabel layer that will determine the label of the combined plot's y-axis.
 #' This is created using sm_common_ylabel(). Optional argument.
+#' Users can also supply character string here instead.
 #' @param wRatio2
 #' This adjusts the ratio of the width of the last column to those of other columns.
 #' By default, it chooses an optimal wRatio2 based on the given plot. However, this can be overwritten if the input is supplied.
@@ -94,6 +104,9 @@
 #'
 #' sm_put_together(list(p1,p2), title=title, xlabel=xlabel,
 #'                 ylabel=ylabel, ncol=2,nrow=1)
+#'
+#' sm_put_together(list(p1,p2), title='My title', xlabel='My x-axis',
+#'                 ylabel='My y-axis', ncol=2,nrow=1)
 #'
 
 sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
@@ -155,9 +168,7 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
   if (y_left_only) left_yaxis_which = which(!double_yaxis_output)[[1]]
   if (x_bottom_only) bottom_xaxis_which = which(!double_xaxis_output[[1]])
 
-
   if (double_yaxis) {
-
     y1_label <-  as.character(ggplot_build(all_plots[[double_yaxis_which]])$layout$panel_params[[1]]$y$get_labels())
     y1_label <- y1_label[!is.na(y1_label)]
 
@@ -208,7 +219,6 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
 
   if (missing(hRatio))  hRatio = 1 + 0.1*maxLines_x1 + 0.04*ifelse(maxLines_x1 > 2, 1,0)
   if (missing(hRatio2))  hRatio2 = 1 + 0.1*maxLines_x2 + 0.04*ifelse(maxLines_x2 > 2, 1,0)
-
 
   all_plots <- lapply(1:length(all_plots), function(iPlot) {
     all_plots[[iPlot]] + theme(axis.text.x = element_text(size = rel(tickRatio)),
@@ -268,14 +278,73 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
   tgd1 <- plot_grid(plotlist = all_plots2, ncol=ncol, nrow=nrow,
                     rel_widths = rel_widths, rel_heights = rel_heights, axis='tblr', align='hv')
 
+  # add labels
+
+  if (inherits(ylabel, 'character'))  {
+    ylabelStr <- ylabel
+    ylabel <- sm_common_ylabel('')
+  } else ylabelStr <- NULL
+  if (inherits(xlabel, 'character'))  {
+    xlabelStr <- xlabel
+    xlabel <- sm_common_xlabel('')
+  } else xlabelStr <- NULL
+  if (inherits(ylabel2, 'character')) {
+    ylabel2Str <- ylabel2
+    ylabel2 <- sm_common_ylabel('')
+  } else ylabel2Str <- NULL
+  if (inherits(xlabel2, 'character')) {
+    xlabel2Str <- xlabel2
+    xlabel2 <- sm_common_xlabel('')
+  } else xlabel2Str <- NULL
+  if (inherits(title, 'character'))  {
+    titleStr <- title
+    title <- sm_common_title('')
+  } else titleStr <- NULL
+
+  ylabelLines <- count_lines(ylabelStr)
+  xlabelLines <- count_lines(ylabelStr)
+  ylabel2Lines <- count_lines(ylabelStr)
+  xlabel2Lines <- count_lines(ylabelStr)
+  titleLines <- count_lines(titleStr)
+
+  xDelta <- 1/ncol * 0.05 #+ ifelse(is.null(ylabel2),1/(20*ncol),0)
+  yDelta <- 1/nrow * 0.05 #+ ifelse(is.null(xlabel2),1/(20*nrow),0)
+
+  xloc <- 0.5 + ifelse(!is.null(ylabel),xDelta,0) - ifelse(!is.null(ylabel2),xDelta,0) +
+    xDelta * (ylabelLines-1) - xDelta * (ylabel2Lines-1)
+
+  yloc <- 0.5 + ifelse(!is.null(xlabel),yDelta,0) - ifelse(!is.null(xlabel2),yDelta,0) +
+    yDelta * (xlabelLines-1) - yDelta * (xlabel2Lines-1)
+
   ## x-axis
-  if (!is.null(xlabel)) tgd1 <- plot_grid(tgd1, xlabel, ncol=1, rel_heights = c(1,0.1))
-  if (!is.null(xlabel2)) tgd1 <- plot_grid(xlabel2, tgd1, ncol=1, rel_heights = c(0.1,1))
+  if (!is.null(xlabel)) {
+    tgd1 <- plot_grid(tgd1, xlabel, ncol=1, rel_heights = c(1,0.1))
+    tgd1 <- tgd1 + sm_add_text(xlabelStr,
+                               x = xloc, y = 0.05, size = (10+ncr)*tickRatio)
+  }
+  if (!is.null(xlabel2)) {
+    tgd1 <- plot_grid(xlabel2, tgd1, ncol=1, rel_heights = c(0.1,1))
+    tgd1 <- tgd1 + sm_add_text(xlabel2Str,
+                               x = xloc, y = 0.95, size = (10+ncr)*tickRatio)
+  }
   ## title
-  if (!is.null(title)) tgd1 <- plot_grid(title, tgd1, ncol=1, rel_heights=c(0.1,1))
+  if (!is.null(title)) {
+    tgd1 <- plot_grid(title, tgd1, ncol=1, rel_heights=c(0.1,1))
+    tgd1 <- tgd1 + sm_add_text(titleStr,
+                               x = xloc, y = 0.95, size = (10+ncr)*tickRatio,
+                               fontface='bold')
+  }
   ## y-axis
-  if (!is.null(ylabel)) tgd1 <- plot_grid(ylabel, tgd1, ncol=2, rel_widths = c(0.1,1))
-  if (!is.null(ylabel2)) tgd1 <- plot_grid(tgd1, ylabel2, ncol=2, rel_widths = c(1,0.1))
+  if (!is.null(ylabel)) {
+    tgd1 <- plot_grid(ylabel, tgd1, ncol=2, rel_widths = c(0.1,1))
+    tgd1 <- tgd1 + sm_add_text(ylabelStr, x = 0.05,
+                               y = yloc, angle = 90, size = (10+ncr)*tickRatio)
+  }
+  if (!is.null(ylabel2)) {
+    tgd1 <- plot_grid(tgd1, ylabel2, ncol=2, rel_widths = c(1,0.1))
+    tgd1 <- tgd1 + sm_add_text(ylabel2Str, x = 0.95,
+                               y = yloc, angle = 270, size = (10+ncr)*tickRatio)
+  }
 
   return(tgd1)
 }
@@ -293,5 +362,11 @@ flatten_ggplot <- function(lst) {
 }
 
 count_lines <- function(text) {
-  length(strsplit(text, "\n")[[1]])
+  if (!is.null(text)){
+    res <- length(strsplit(text, "\n")[[1]])
+  } else {
+    res <- 0
+  }
+  return(res)
+
 }
