@@ -118,7 +118,7 @@ sm_slope_mean <- function(...,
   point.params$size <- point_size; avgPoint.params$size <- avgpoint_size
 
   #alpha
-  line.params$alpha <- back_alpha; point.params$alpha <- back_alpha
+  line.params$alpha <- back_alpha; point.params$alpha <- (back_alpha * 0.65)
 
   #linewidth
   line.params$linewidth <- line_width; avgLine.params$linewidth <- avgline_width
