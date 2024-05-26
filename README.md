@@ -1,6 +1,6 @@
 <p align="center">
   <img src="man/figures/logo.png" height="150px" width="135px" align="right">
-  <h1><strong>smplot2</strong> - Create and annotate composite plots in R and ggplot2</h1>
+  <h1><strong>smplot2</strong> - An R package for plotting standalone and composite figures</h1>
 </p>
 
 [![](https://cranlogs.r-pkg.org/badges/smplot2)](https://cran.r-project.org/package=smplot2) [![](https://img.shields.io/badge/devel%20version-0.2.2.3-black.svg)](https://github.com/smin95/smplot2) [![CRAN_Release_Badge](http://www.r-pkg.org/badges/version-ago/smplot2)](https://CRAN.R-project.org/package=smplot2) 
