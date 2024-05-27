@@ -79,6 +79,11 @@
 #' By default, it chooses an optimal hRatio2 based on the given plot. However, this can be overwritten if the input is supplied.  If the value
 #' is larger than 1, then it will be taller than that of other columns. Users are encouraged
 #' to adjust this value because different computers can show different looking outputs.
+#' @param labelRatio
+#' Relative text size of the labels, such as title, xlabel, ylabel, xlabel2 and ylabel2. This input
+#' only changes the size if the inputs are provided as character strings. The default value is 1. If
+#' this input is larger than 1.1, then the text size will be larger 1.1x than the default size, which itself
+#' is optimized based on the plot's given layout and other information.
 #' @return
 #' Returns a combined figure.
 #' @export
@@ -106,13 +111,13 @@
 #'                 ylabel=ylabel, ncol=2,nrow=1)
 #'
 #' sm_put_together(list(p1,p2), title='My title', xlabel='My x-axis',
-#'                 ylabel='My y-axis', ncol=2,nrow=1)
+#'                 ylabel='My y-axis', labelRatio = 1.1, ncol=2,nrow=1)
 #'
 
 sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
                             ncol, nrow, xlabel2, ylabel2, tickRatio, panel_scale = 0.9, wRatio,
                             hRatio, hmargin = 0, wmargin = 0, remove_ticks = 'some',
-                            wRatio2, hRatio2) {
+                            wRatio2, hRatio2, labelRatio = 1) {
 
   all_plots <- flatten_ggplot(all_plots)
 
@@ -320,30 +325,30 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
   if (!is.null(xlabel)) {
     tgd1 <- plot_grid(tgd1, xlabel, ncol=1, rel_heights = c(1,0.1))
     tgd1 <- tgd1 + sm_add_text(xlabelStr,
-                               x = xloc, y = 0.05, size = (10+ncr)*tickRatio)
+                               x = xloc, y = 0.05, size = ((10+ncr)*tickRatio)*labelRatio)
   }
   if (!is.null(xlabel2)) {
     tgd1 <- plot_grid(xlabel2, tgd1, ncol=1, rel_heights = c(0.1,1))
     tgd1 <- tgd1 + sm_add_text(xlabel2Str,
-                               x = xloc, y = 0.95, size = (10+ncr)*tickRatio)
+                               x = xloc, y = 0.95, size = ((10+ncr)*tickRatio)*labelRatio)
   }
   ## title
   if (!is.null(title)) {
     tgd1 <- plot_grid(title, tgd1, ncol=1, rel_heights=c(0.1,1))
     tgd1 <- tgd1 + sm_add_text(titleStr,
-                               x = xloc, y = 0.95, size = (10+ncr)*tickRatio,
+                               x = xloc, y = 0.95, size = ((10+ncr)*tickRatio)*labelRatio,
                                fontface='bold')
   }
   ## y-axis
   if (!is.null(ylabel)) {
     tgd1 <- plot_grid(ylabel, tgd1, ncol=2, rel_widths = c(0.1,1))
     tgd1 <- tgd1 + sm_add_text(ylabelStr, x = 0.05,
-                               y = yloc, angle = 90, size = (10+ncr)*tickRatio)
+                               y = yloc, angle = 90, size = ((10+ncr)*tickRatio)*labelRatio)
   }
   if (!is.null(ylabel2)) {
     tgd1 <- plot_grid(tgd1, ylabel2, ncol=2, rel_widths = c(1,0.1))
     tgd1 <- tgd1 + sm_add_text(ylabel2Str, x = 0.95,
-                               y = yloc, angle = 270, size = (10+ncr)*tickRatio)
+                               y = yloc, angle = 270, size = ((10+ncr)*tickRatio)*labelRatio)
   }
 
   return(tgd1)

@@ -1,7 +1,8 @@
 # smplot2 0.2.2.3
 * sm_statCorr() also computes R2, not just R.
 * sm_slope_mean() is a shortcut of sm_slope for plotting a mean slope chart.
-* sm_put_together() accepts character strings as inputs for arguments ylabel, ylabel2, xlabel, xlabel2 and title. 
+* sm_put_together() accepts character strings as inputs for arguments ylabel, ylabel2, xlabel, xlabel2 and title. These relative text sizes can be adjusted using the labelRatio argument, whose default size is optimized automatically.
+
 
 # smplot2 0.2.2.2
 

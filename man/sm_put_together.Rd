@@ -22,7 +22,8 @@ sm_put_together(
   wmargin = 0,
   remove_ticks = "some",
   wRatio2,
-  hRatio2
+  hRatio2,
+  labelRatio = 1
 )
 }
 \arguments{
@@ -95,6 +96,11 @@ to adjust this value because different computers can show different looking outp
 By default, it chooses an optimal hRatio2 based on the given plot. However, this can be overwritten if the input is supplied.  If the value
 is larger than 1, then it will be taller than that of other columns. Users are encouraged
 to adjust this value because different computers can show different looking outputs.}
+
+\item{labelRatio}{Relative text size of the labels, such as title, xlabel, ylabel, xlabel2 and ylabel2. This input
+only changes the size if the inputs are provided as character strings. The default value is 1. If
+this input is larger than 1.1, then the text size will be larger 1.1x than the default size, which itself
+is optimized based on the plot's given layout and other information.}
 }
 \value{
 Returns a combined figure.
@@ -130,6 +136,6 @@ sm_put_together(list(p1,p2), title=title, xlabel=xlabel,
                 ylabel=ylabel, ncol=2,nrow=1)
 
 sm_put_together(list(p1,p2), title='My title', xlabel='My x-axis',
-                ylabel='My y-axis', ncol=2,nrow=1)
+                ylabel='My y-axis', labelRatio = 1.1, ncol=2,nrow=1)
 
 }
