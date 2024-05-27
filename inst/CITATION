@@ -1,6 +1,6 @@
 bibentry(
   bibtype  = "Article",
-  textVersion  = "Min, S. H., & Zhou, J. (2021). smplot: an R package for easy and     elegant data visualization. Frontiers in Genetics, 12, 802894.",
+  textVersion  = "Min, S. H., & Zhou, J. (2021). smplot: an R package for easy and  elegant data visualization. Frontiers in Genetics, 12, 802894.",
   header = "To cite smplot2 in publications, please use",
   title    = "smplot: an R package for easy and elegant data visualization",
   author   = c("Seung Hyun Min", "Jiawei Zhou"),
