@@ -62,11 +62,11 @@
 #'
 sm_pointplot <- function(...,
                          avgPoint.params = list(size = 2.5),
-                         avgLine.params = list(),
+                         avgLine.params = list(linewidth = 1),
                          point.params = list(alpha = 0.35, color = 'gray',
                                              fill = 'gray'),
                          line.params = list(alpha = 0.35, color = 'gray'),
-                         err.params = list(size = 1),
+                         err.params = list(linewidth = 1),
                          errorbar_type = 'se',
                          show_shadow = FALSE,
                          group = NULL,
@@ -78,13 +78,25 @@ sm_pointplot <- function(...,
       stop('When show_shadow = TRUE, group (of the shadow) must be specified')
     }
   }
-  params <- list(...)
-  avgPoint.params <- modifyList(params, avgPoint.params)
-  avgLine.params <- modifyList(params, avgLine.params)
-  line.params <- modifyList(params, line.params)
-  point.params <- modifyList(params, point.params)
 
-  err.params <- modifyList(params, err.params)
+  params <- list(...)
+
+  avgPoint.params0 = list(size = 3)
+  avgPoint.params0 = modifyList(avgPoint.params0, params)
+  avgLine.params0 = list(linewidth = 1)
+  avgLine.params0 = modifyList(avgLine.params0, params)
+  point.params0 = list(alpha = 0.35, color = 'gray', fill = 'gray')
+  point.params0  = modifyList(point.params0 , params)
+  line.params0 = list(alpha = 0.35, color = 'gray')
+  line.params0  = modifyList(line.params0 , params)
+  err.params0 = list(linewidth = 1)
+  err.params0  = modifyList(err.params0 , params)
+
+  avgPoint.params <- modifyList(avgPoint.params0, avgPoint.params)
+  avgLine.params <- modifyList(avgLine.params0, avgLine.params)
+  line.params <- modifyList(line.params0, line.params)
+  point.params <- modifyList(point.params0, point.params)
+  err.params <- modifyList(err.params0, err.params)
 
   if (errorbar_type == 'se') {
     errPlot <- do.call('stat_summary',

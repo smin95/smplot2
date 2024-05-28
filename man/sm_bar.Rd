@@ -7,14 +7,15 @@
 sm_bar(
   ...,
   bar.params = list(width = 0.7, alpha = 1, color = "transparent", fill = "gray80"),
-  err.params = list(size = 1, color = "black"),
+  err.params = list(linewidth = 1, color = "black"),
   point.params = list(size = 2.5, alpha = 0.65, shape = 16),
   errorbar_type = "se",
   point_jitter_width = 0.12,
   points = TRUE,
   borders = TRUE,
   legends = FALSE,
-  seed = NULL
+  seed = NULL,
+  forget = FALSE
 )
 }
 \arguments{
@@ -43,7 +44,11 @@ If the border is not needed, the input should be FALSE.}
 \item{legends}{If the legend needs to be displayed, the input should be TRUE.
 If the legend is not needed, the input should be FALSE.}
 
-\item{seed}{Random seed}
+\item{seed}{Random seed. Requires a number.}
+
+\item{forget}{Forget the defaults when list() is called for a specific parameter (ex. point.params).
+Set to TRUE when when users want to map aesthetics to different groups more flexibly..
+Set to FALSE by default.}
 }
 \value{
 A bar graph generated using ggplot2

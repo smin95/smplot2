@@ -32,6 +32,11 @@
 #' If the legend needs to be displayed, the input should be TRUE.
 #' If the legend is not needed, the input should be FALSE.
 #'
+#' @param forget
+#' Forget the defaults when list() is called for a specific parameter.
+#' Set to TRUE when when users want to map aesthetics to different groups more flexibly..
+#' Set to FALSE by default.
+#'
 #'
 #' @return Returns a histogram generated using ggplot2.
 #' @export
@@ -70,12 +75,32 @@ sm_hist <- function(...,
                     density = TRUE,
                     rug = TRUE,
                     borders = FALSE,
-                    legends = FALSE) {
+                    legends = FALSE,
+                    forget = FALSE) {
 
   params <- list(...)
-  hist.params <- modifyList(params, hist.params)
-  density.params <- modifyList(params, density.params)
-  rug.params <- modifyList(params, rug.params)
+
+  if (forget == FALSE) {
+    hist.params0 = list(binwidth = 1/2, fill = sm_color('blue'),
+                        color = 'white',
+                        alpha = 0.4)
+    hist.params0 = modifyList(hist.params0, params)
+    density.params0 = list(color=sm_color('blue'), size =0.8,
+                           fill = 'transparent')
+    density.params0 = modifyList(density.params0, params)
+    rug.params0 = list(color = sm_color('blue'), alpha = 0.8,
+                       size = 0.4)
+    rug.params0 = modifyList(rug.params0, params)
+
+    hist.params <- modifyList(hist.params0, hist.params)
+    density.params <- modifyList(density.params0, density.params)
+    rug.params <- modifyList(rug.params0, rug.params)
+  } else if (forget == TRUE) {
+    hist.params <- modifyList(params, hist.params)
+    density.params <- modifyList(params, density.params)
+    rug.params <- modifyList(params, rug.params)
+  }
+
 
   histPlot <- do.call('geom_histogram',
                       modifyList(list(), hist.params))

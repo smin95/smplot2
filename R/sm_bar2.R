@@ -33,8 +33,18 @@
 #' @param legends
 #' If the legend needs to be displayed, the input should be TRUE.
 #' If the legend is not needed, the input should be FALSE.
+#'
 #' @param seed
-#' Random seed
+#' Random seed. Requires a number.
+#'
+#' @param legends
+#' If the legend needs to be displayed, the input should be TRUE.
+#' If the legend is not needed, the input should be FALSE.
+#'
+#' @param forget
+#' Forget the defaults when list() is called for a specific parameter (ex. point.params).
+#' Set to TRUE when when users want to map aesthetics to different groups more flexibly..
+#' Set to FALSE by default.
 #'
 #' @import ggplot2 cowplot Hmisc
 #' @importFrom stats sd
@@ -58,23 +68,43 @@
 #' sm_bar() +
 #' scale_color_manual(values = sm_color('blue','orange'))
 #'
+
 sm_bar <- function(...,
                    bar.params = list(width = 0.7, alpha = 1, color = 'transparent',
                                      fill = 'gray80'),
-                   err.params = list(size = 1, color = 'black'),
+                   err.params = list(linewidth = 1, color = 'black'),
                    point.params = list(size = 2.5, alpha = 0.65, shape = 16),
                    errorbar_type = 'se',
                    point_jitter_width = 0.12,
                    points = TRUE,
                    borders = TRUE,
-                   legends = FALSE, seed = NULL) {
+                   legends = FALSE, seed = NULL, forget = FALSE) {
 
 
   if (length(seed)) set.seed(seed)
   params <- list(...)
-  bar.params <- modifyList(params, bar.params)
-  err.params <- modifyList(params, err.params)
-  point.params <- modifyList(params, point.params)
+
+  if (forget == FALSE) {
+    bar.params0 <- list(width = 0.7, alpha = 1, color = 'transparent',
+                        fill = 'gray80') # default for bar
+    bar.params0 <- modifyList(bar.params0, params)
+
+    err.params0 <- list(size = 1, color = 'black')
+    err.params0 <- modifyList(err.params0, params)
+
+    point.params0 <- list(size = 2.5, alpha = 0.65)
+    point.params0 <- modifyList(point.params0, params)
+
+    bar.params <- modifyList(bar.params0, bar.params)
+    err.params <- modifyList(err.params0, err.params)
+    point.params <- modifyList(point.params0, point.params)
+
+  } else if (forget == TRUE){
+    bar.params <- modifyList(params, bar.params)
+    err.params <- modifyList(params, err.params)
+    point.params <- modifyList(params, point.params)
+  }
+
 
   barPlot <- do.call('stat_summary',
                      modifyList(list(fun = 'mean',

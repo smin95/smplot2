@@ -37,6 +37,11 @@
 #' @param seed
 #' Random seed
 #'
+#' @param forget
+#' Forget the defaults when list() is called for a specific parameter (ex. point.params).
+#' Set to TRUE when when users want to map aesthetics to different groups more flexibly..
+#' Set to FALSE by default.
+#'
 #' @import ggplot2 cowplot Hmisc
 #' @importFrom stats sd
 #' @importFrom utils modifyList
@@ -68,20 +73,34 @@
 sm_violin <- function(...,
                       violin.params = list(fill = 'gray90',
                                            color = 'transparent'),
-                      err.params = list(size = 1.2),
-                      point.params = list(alpha = 0.2),
+                      err.params = list(size = 1.2, linewidth=1.2),
+                      point.params = list(alpha = 0.25, size = 2),
                       errorbar_type = 'sd',
                       point_jitter_width = 0.17,
                       points = TRUE,
                       borders = TRUE,
-                      legends =  FALSE, seed = NULL) {
+                      legends =  FALSE, seed = NULL, forget = FALSE) {
 
   if (length(seed)) set.seed(seed)
-
   params <- list(...)
-  violin.params <- modifyList(params, violin.params)
-  err.params <- modifyList(params, err.params)
-  point.params <- modifyList(params, point.params)
+
+  if (forget == FALSE) {
+    violin.params0 = list(fill = 'gray90', color = 'transparent')
+    violin.params0 <- modifyList(violin.params0, params)
+    err.params0 = list(size = 1.2, linewidth=1.2)
+    err.params0 <- modifyList(err.params0, params)
+    point.params0 = list(alpha = 0.25, size = 2)
+    point.params0 <- modifyList(point.params0, params)
+
+    violin.params <- modifyList(violin.params0, violin.params)
+    err.params <- modifyList(err.params0, err.params)
+    point.params <- modifyList(point.params0, point.params)
+  } else if (forget == TRUE) {
+    violin.params <- modifyList(params, violin.params)
+    err.params <- modifyList(params, err.params)
+    point.params <- modifyList(params, point.params)
+  }
+
 
   violinPlot <- do.call('geom_violin',
                         modifyList(list(), violin.params))

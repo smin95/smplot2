@@ -14,7 +14,8 @@ sm_hist(
   density = TRUE,
   rug = TRUE,
   borders = FALSE,
-  legends = FALSE
+  legends = FALSE,
+  forget = FALSE
 )
 }
 \arguments{
@@ -40,6 +41,10 @@ If the border is not needed, the input should be FALSE.}
 
 \item{legends}{If the legend needs to be displayed, the input should be TRUE.
 If the legend is not needed, the input should be FALSE.}
+
+\item{forget}{Forget the defaults when list() is called for a specific parameter.
+Set to TRUE when when users want to map aesthetics to different groups more flexibly..
+Set to FALSE by default.}
 }
 \value{
 Returns a histogram generated using ggplot2.

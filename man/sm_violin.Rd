@@ -7,14 +7,15 @@
 sm_violin(
   ...,
   violin.params = list(fill = "gray90", color = "transparent"),
-  err.params = list(size = 1.2),
-  point.params = list(alpha = 0.2),
+  err.params = list(size = 1.2, linewidth = 1.2),
+  point.params = list(alpha = 0.25, size = 2),
   errorbar_type = "sd",
   point_jitter_width = 0.17,
   points = TRUE,
   borders = TRUE,
   legends = FALSE,
-  seed = NULL
+  seed = NULL,
+  forget = FALSE
 )
 }
 \arguments{
@@ -44,6 +45,10 @@ If the border is not needed, the input should be FALSE.}
 If the legend is not needed, the input should be FALSE.}
 
 \item{seed}{Random seed}
+
+\item{forget}{Forget the defaults when list() is called for a specific parameter (ex. point.params).
+Set to TRUE when when users want to map aesthetics to different groups more flexibly..
+Set to FALSE by default.}
 }
 \value{
 Violin plot generated using ggplot2

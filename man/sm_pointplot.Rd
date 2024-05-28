@@ -7,10 +7,10 @@
 sm_pointplot(
   ...,
   avgPoint.params = list(size = 2.5),
-  avgLine.params = list(),
+  avgLine.params = list(linewidth = 1),
   point.params = list(alpha = 0.35, color = "gray", fill = "gray"),
   line.params = list(alpha = 0.35, color = "gray"),
-  err.params = list(size = 1),
+  err.params = list(linewidth = 1),
   errorbar_type = "se",
   show_shadow = FALSE,
   group = NULL,

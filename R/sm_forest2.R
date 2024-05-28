@@ -56,6 +56,11 @@
 #' @param seed
 #' Random seed
 #'
+#' @param forget
+#' Forget the defaults when list() is called for a specific parameter (ex. point.params).
+#' Set to TRUE when when users want to map aesthetics to different groups more flexibly..
+#' Set to FALSE by default.
+#'
 #'
 #' @return A forest plot generated using ggplot2
 #' @import ggplot2 cowplot Hmisc
@@ -80,7 +85,7 @@
 #' ggplot(data = df2, aes(x = Value, y = Day, color = Day, fill = Day)) +
 #'  sm_forest(sep_level = 2, point_jitter_width = .12,
 #'            errorbar_type = 'ci',
-#'            point.params = list(alpha=0.2, size=  2.5)) +
+#'            point.params = list(alpha=0.2)) +
 #'   scale_color_manual(values = sm_palette(4))
 
 sm_forest <- function(...,
@@ -98,7 +103,8 @@ sm_forest <- function(...,
                       refLine = TRUE,
                       borders = TRUE,
                       legends = FALSE,
-                      seed = NULL
+                      seed = NULL,
+                      forget = FALSE
 ) {
 
   if (length(seed)) set.seed(seed)
@@ -108,10 +114,29 @@ sm_forest <- function(...,
   }
 
   params <- list(...)
-  point.params <- modifyList(params, point.params)
-  avgPoint.params <- modifyList(params, avgPoint.params)
-  err.params <- modifyList(params, err.params)
-  #ref.params <- modifyList(params, ref.params)
+
+  if (forget == FALSE) {
+    point.params0 = list(size=  2.5, alpha = 0.3)
+    point.params0  = modifyList(point.params0 , params)
+    avgPoint.params0 = list(size = 5.5, shape = 18)
+    avgPoint.params0 = modifyList(avgPoint.params0, params)
+    err.params0 = list(color = 'black')
+    err.params0 = modifyList(err.params0, params)
+    ref.params0 = list(size = 0.4, color = 'gray80', linetype='dashed')
+
+    point.params <- modifyList(point.params0, point.params)
+    avgPoint.params <- modifyList(avgPoint.params0, avgPoint.params)
+    err.params <- modifyList(err.params0, err.params)
+    ref.params <- modifyList(ref.params0, ref.params)
+
+  } else if (forget == TRUE){
+    point.params <- modifyList(params, point.params)
+    avgPoint.params <- modifyList(params, avgPoint.params)
+    err.params <- modifyList(params, err.params)
+    #ref.params <- modifyList(params, ref.params)
+  }
+
+
 
   if (errorbar_type == 'se') {
     errPlot <- do.call('stat_summary',

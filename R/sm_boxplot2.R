@@ -28,6 +28,11 @@
 #' @param seed
 #' Random seed
 #'
+#' @param forget
+#' Forget the defaults when list() is called for a specific parameter (ex. point.params).
+#' Set to TRUE when when users want to map aesthetics to different groups more flexibly..
+#' Set to FALSE by default.
+#'
 #' @import ggplot2 cowplot
 #' @importFrom utils modifyList
 #' @return A boxplot generated using ggplot2
@@ -58,15 +63,30 @@
 sm_boxplot <- function(...,
                        boxplot.params = list(notch = FALSE, fill = 'gray95', color ='black',
                                              size = 0.5, width=0.5, outlier.shape = NA),
-                       point.params = list(alpha = 0.65),
+                       point.params = list(alpha = 0.65, size = 2),
                        point_jitter_width = 0.12, points = TRUE,
-                       borders = TRUE, legends = FALSE, seed = NULL) {
+                       borders = TRUE, legends = FALSE, seed = NULL,
+                       forget = FALSE) {
 
   if (length(seed)) set.seed(seed)
 
   params <- list(...)
-  boxplot.params <- modifyList(params, boxplot.params)
-  point.params <- modifyList(params, point.params)
+
+  if (forget == FALSE) {
+    boxplot.params0 <- list(notch = FALSE, fill = 'gray95', color ='black',
+                            size = 0.5, width=0.5, outlier.shape = NA)
+    boxplot.params0 <- modifyList(boxplot.params0, params)
+
+    point.params0 <- list(alpha = 0.65, size = 2)
+    point.params0  <- modifyList(point.params0 , params)
+
+    boxplot.params <- modifyList(boxplot.params0, boxplot.params)
+    point.params <- modifyList(point.params0, point.params)
+  } else if (forget == TRUE) {
+    boxplot.params <- modifyList(params, boxplot.params)
+    point.params <- modifyList(params, point.params)
+  }
+
 
 
   boxPlot <- do.call('geom_boxplot',

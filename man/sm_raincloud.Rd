@@ -16,7 +16,8 @@ sm_raincloud(
   points = TRUE,
   borders = TRUE,
   legends = FALSE,
-  seed = NULL
+  seed = NULL,
+  forget = FALSE
 )
 }
 \arguments{
@@ -55,6 +56,10 @@ If the border is not needed, the input should be FALSE.}
 If the legend is not needed, the input should be FALSE.}
 
 \item{seed}{Random seed}
+
+\item{forget}{Forget the defaults when list() is called for a specific parameter (ex. point.params).
+Set to TRUE when when users want to map aesthetics to different groups more flexibly..
+Set to FALSE by default.}
 }
 \value{
 Returns a raincloud plot generated using ggplot2.

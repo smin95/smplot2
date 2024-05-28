@@ -10,15 +10,16 @@ sm_slope(
   group,
   line.params = list(color = "gray53", linewidth = 0.4, alpha = 0.4),
   point.params = list(size = 2.5, shape = 21, color = "white"),
-  avgLine.params = list(),
-  avgPoint.params = list(),
-  err.params = list(),
+  avgLine.params = list(linewidth = 1),
+  avgPoint.params = list(size = 4),
+  err.params = list(linewidth = 1),
   xTick.params = list(position = "top", expand = c(0.17, 0.1), drop = FALSE),
   errorbar_type = "sd",
   many_groups = FALSE,
   show_err = FALSE,
   show_mean = FALSE,
-  legends = FALSE
+  legends = FALSE,
+  forget = FALSE
 )
 }
 \arguments{
@@ -62,6 +63,10 @@ If the average plot is not needed, the input should be FALSE.}
 
 \item{legends}{If the legend needs to be displayed, the input should be TRUE.
 If the legend is not needed, the input should be FALSE.}
+
+\item{forget}{Forget the defaults when list() is called for a specific parameter (ex. point.params).
+Set to TRUE when when users want to map aesthetics to different groups more flexibly..
+Set to FALSE by default.}
 }
 \value{
 Returns a slope chart which is a ggplot2 object.

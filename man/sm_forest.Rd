@@ -18,7 +18,8 @@ sm_forest(
   refLine = TRUE,
   borders = TRUE,
   legends = FALSE,
-  seed = NULL
+  seed = NULL,
+  forget = FALSE
 )
 }
 \arguments{
@@ -63,6 +64,10 @@ If the border is not needed, the input should be FALSE.}
 If the legend is not needed, the input should be FALSE.}
 
 \item{seed}{Random seed}
+
+\item{forget}{Forget the defaults when list() is called for a specific parameter (ex. point.params).
+Set to TRUE when when users want to map aesthetics to different groups more flexibly..
+Set to FALSE by default.}
 }
 \value{
 A forest plot generated using ggplot2
@@ -86,6 +91,6 @@ df2 <- cbind(Subject, Data, Day)
 ggplot(data = df2, aes(x = Value, y = Day, color = Day, fill = Day)) +
  sm_forest(sep_level = 2, point_jitter_width = .12,
            errorbar_type = 'ci',
-           point.params = list(alpha=0.2, size=  2.5)) +
+           point.params = list(alpha=0.2)) +
   scale_color_manual(values = sm_palette(4))
 }
