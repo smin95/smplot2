@@ -162,6 +162,7 @@ GeomHalfViolin <- ggproto(
 #' @param nudge Add space between the boxplot and the middle of the space allotted to a given factor on the x-axis.
 #' @importFrom ggplot2 layer position_dodge2 aes GeomSegment GeomCrossbar
 #' @importFrom grid grobTree grobName
+#' @import graphics
 #' @noRd
 #' @keywords internal
 geom_half_boxplot <- function(

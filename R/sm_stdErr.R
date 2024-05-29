@@ -2,7 +2,7 @@
 #'
 #' @param data
 #' Numerical vector of data.
-#' @importFrom stats sd
+#' @import stats
 #' @export
 #' @return
 #' A double vector is returned with a standard error of the input (given sample).

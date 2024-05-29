@@ -18,6 +18,7 @@ Depends:
 	R (>= 3.4.0)
 Imports:
   ggplot2,
+  graphics,
   ggpubr,
   cowplot,
   rlang,
