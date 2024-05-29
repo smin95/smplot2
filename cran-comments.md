@@ -1,7 +1,7 @@
-## version 0.2.2.1
+## version 0.2.3
 Dear CRAN team,
 
-I have updated the `sm_put_together()` function to modify the defaults of arguments.
+The DOI in the citation file is correct and works properly despite the note.
 
 Best regards,
 Sam

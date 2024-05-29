@@ -57,7 +57,7 @@ This is created using sm_common_ylabel(). Optional argument.
 Users can also supply character string here instead.}
 
 \item{tickRatio}{Relative size of the ticks to the default aesthetics of the thematic functions (ex. sm_hgrid()).
-By default, it chooses the optimal tickRatio based on the given plot. But this
+By default, it adjusts tickRatio based on the given plot. But this
 can be overwritten if the input is supplied (ex. try 1.4 to begin with). FOr example, 1.4x means that
 it is 1.4x larger than the tick size of a single given plot.}
 
@@ -66,12 +66,12 @@ within and around each panel. The user can set to a value from 0 to 1 to
 see what happens to the spacing within each panel and between panels.}
 
 \item{wRatio}{This adjusts the ratio of the width of the first column to those of other columns.
-By default, it chooses an optimal wRatio based on the given plot. However, this can be overwritten if the input is supplied.
+By default, it adjusts wRatio based on the given plot. However, this can be overwritten if the input is supplied.
 If the value is larger than 1, then it will be wider than that of other columns. Users are encouraged
 to adjust this value because different computers can show different looking outputs.}
 
 \item{hRatio}{This adjusts the ratio of the height of the last row to those of other rows
-By default, it chooses an optimal hRatio based on the given plot. However, this can be overwritten if the input is supplied. If the value
+By default, it adjusts hRatio based on the given plot. However, this can be overwritten if the input is supplied. If the value
 is larger than 1, then it will be taller than that of other columns. Users are encouraged
 to adjust this value because different computers can show different looking outputs.}
 
@@ -88,17 +88,17 @@ If set to 'all', then all panels' ticks will be removed.
 If set to 'none', then all panels' ticks will be kept.}
 
 \item{wRatio2}{This adjusts the ratio of the width of the last column to those of other columns.
-By default, it chooses an optimal wRatio2 based on the given plot. However, this can be overwritten if the input is supplied.
+By default, it adjusts wRatio2 based on the given plot. However, this can be overwritten if the input is supplied.
 If the value is larger than 1, then it will be wider than that of other columns. Users are encouraged
 to adjust this value because different computers can show different looking outputs.}
 
 \item{hRatio2}{This adjusts the ratio of the height of the first row to those of other rows
-By default, it chooses an optimal hRatio2 based on the given plot. However, this can be overwritten if the input is supplied.  If the value
+By default, it adjusts hRatio2 based on the given plot. However, this can be overwritten if the input is supplied.  If the value
 is larger than 1, then it will be taller than that of other columns. Users are encouraged
 to adjust this value because different computers can show different looking outputs.}
 
-\item{labelRatio}{Relative text size of the labels, such as title, xlabel, ylabel, xlabel2 and ylabel2. This input
-only changes the size if the inputs are provided as character strings. The default value is 1. If
+\item{labelRatio}{Relative text size of the labels, such as title, xlabel, ylabel, xlabel2 and ylabel2 to its default font size (optimized).
+This input only changes the size if the inputs are provided as character strings. The default value is 1. If
 this input is larger than 1.1, then the text size will be larger 1.1x than the default size, which itself
 is optimized based on the plot's given layout and other information.}
 }
