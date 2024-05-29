@@ -14,16 +14,18 @@ Description: Provides functions for creating and annotating a composite plot in 
 Encoding: UTF-8
 RoxygenNote: 7.3.1
 License: GPL-2
+Depends:
+	R (>= 3.4.0)
 Imports:
   ggplot2,
   ggpubr,
   cowplot,
+  rlang,
   tibble,
   dplyr,
-  gghalves,
+  grid,
   utils,
   pwr,
-  sdamr,
   stats,
   Hmisc,
   zoo,

@@ -67,8 +67,6 @@
 #' @import ggplot2 cowplot Hmisc
 #' @importFrom stats sd
 #' @importFrom utils modifyList
-#' @importFrom gghalves geom_half_boxplot geom_half_violin
-#' @importFrom sdamr position_jitternudge
 #' @export
 #'
 #' @examples
@@ -167,7 +165,7 @@ sm_raincloud <- function(...,
   }
 
   pointPlot <- do.call('geom_point',
-                       modifyList(list(position = sdamr::position_jitternudge(jitter.width=point_jitter_width,
+                       modifyList(list(position = position_jitternudge(jitter.width=point_jitter_width,
                                                                               jitter.height=0,
                                                                               nudge.x = position_nudge_vector[1])),
                                   point.params))

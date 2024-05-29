@@ -66,7 +66,6 @@
 #' @import ggplot2 cowplot Hmisc
 #' @importFrom stats sd
 #' @importFrom utils modifyList
-#' @importFrom sdamr position_jitternudge
 #' @export
 #'
 #' @examples
