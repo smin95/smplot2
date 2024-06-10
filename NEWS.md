@@ -1,3 +1,6 @@
+# smplot2 0.2.3.1
+* Reduced some redundant codes in sm_put_together(), but the function works as the same as before.
+
 # smplot2 0.2.3
 * Defaults of visualization functions are now kept even when users call upon list() for each argument unless users directly replace them with another input value.
 

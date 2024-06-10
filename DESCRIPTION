@@ -1,7 +1,7 @@
 Package: smplot2
 Type: Package
 Title: Creating Standalone and Composite Plots in 'ggplot2' for Publications
-Version: 0.2.3
+Version: 0.2.3.1
 Authors@R: 
     person(
       given = "Seung Hyun (Sam)",

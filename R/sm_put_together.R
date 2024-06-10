@@ -306,20 +306,12 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
     title <- sm_common_title('')
   } else titleStr <- NULL
 
-  ylabelLines <- count_lines(ylabelStr)
-  xlabelLines <- count_lines(ylabelStr)
-  ylabel2Lines <- count_lines(ylabelStr)
-  xlabel2Lines <- count_lines(ylabelStr)
-  titleLines <- count_lines(titleStr)
+  xDelta <- 1/ncol * 0.05
+  yDelta <- 1/nrow * 0.05
 
-  xDelta <- 1/ncol * 0.05 #+ ifelse(is.null(ylabel2),1/(20*ncol),0)
-  yDelta <- 1/nrow * 0.05 #+ ifelse(is.null(xlabel2),1/(20*nrow),0)
+  xloc <- 0.5 + ifelse(!is.null(ylabel),xDelta,0) - ifelse(!is.null(ylabel2),xDelta,0)
 
-  xloc <- 0.5 + ifelse(!is.null(ylabel),xDelta,0) - ifelse(!is.null(ylabel2),xDelta,0) +
-    xDelta * (ylabelLines-1) - xDelta * (ylabel2Lines-1)
-
-  yloc <- 0.5 + ifelse(!is.null(xlabel),yDelta,0) - ifelse(!is.null(xlabel2),yDelta,0) +
-    yDelta * (xlabelLines-1) - yDelta * (xlabel2Lines-1)
+  yloc <- 0.5 + ifelse(!is.null(xlabel),yDelta,0) - ifelse(!is.null(xlabel2),yDelta,0)
 
   ## x-axis
   if (!is.null(xlabel)) {
