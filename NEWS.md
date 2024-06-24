@@ -1,3 +1,6 @@
+# smplot2 0.2.3.2
+* Debugged sm_pointplot(); now it contains the forget argument. 
+
 # smplot2 0.2.3.1
 * Reduced some redundant codes in sm_put_together(), but the function works as the same as before.
 

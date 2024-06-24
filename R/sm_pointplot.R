@@ -48,6 +48,11 @@
 #' If the legend needs to be displayed, the input should be TRUE.
 #' If the legend is not needed, the input should be FALSE.
 #'
+#' @param forget
+#' Forget the defaults when list() is called for a specific parameter (ex. point.params).
+#' Set to TRUE when when users want to map aesthetics to different groups more flexibly..
+#' Set to FALSE by default.
+#'
 #' @import ggplot2 cowplot Hmisc
 #' @importFrom stats sd
 #' @importFrom utils modifyList
@@ -71,7 +76,8 @@ sm_pointplot <- function(...,
                          show_shadow = FALSE,
                          group = NULL,
                          borders = TRUE,
-                         legends = FALSE) {
+                         legends = FALSE,
+                         forget = FALSE) {
 
   if (show_shadow == TRUE) {
     if(missing(group)) {
@@ -81,22 +87,24 @@ sm_pointplot <- function(...,
 
   params <- list(...)
 
-  avgPoint.params0 = list(size = 3)
-  avgPoint.params0 = modifyList(avgPoint.params0, params)
-  avgLine.params0 = list(linewidth = 1)
-  avgLine.params0 = modifyList(avgLine.params0, params)
-  point.params0 = list(alpha = 0.35, color = 'gray', fill = 'gray')
-  point.params0  = modifyList(point.params0 , params)
-  line.params0 = list(alpha = 0.35, color = 'gray')
-  line.params0  = modifyList(line.params0 , params)
-  err.params0 = list(linewidth = 1)
-  err.params0  = modifyList(err.params0 , params)
-
-  avgPoint.params <- modifyList(avgPoint.params0, avgPoint.params)
-  avgLine.params <- modifyList(avgLine.params0, avgLine.params)
-  line.params <- modifyList(line.params0, line.params)
-  point.params <- modifyList(point.params0, point.params)
-  err.params <- modifyList(err.params0, err.params)
+  if (forget == FALSE) {
+    avgPoint.params0 = list(size = 3)
+    avgPoint.params0 = modifyList(avgPoint.params0, params)
+    avgLine.params0 = list(linewidth = 1)
+    avgLine.params0 = modifyList(avgLine.params0, params)
+    point.params0 = list(alpha = 0.35, color = 'gray', fill = 'gray')
+    point.params0  = modifyList(point.params0 , params)
+    line.params0 = list(alpha = 0.35, color = 'gray')
+    line.params0  = modifyList(line.params0 , params)
+    err.params0 = list(linewidth = 1)
+    err.params0  = modifyList(err.params0 , params)
+  } else if (forget == TRUE) {
+    avgPoint.params <- modifyList(avgPoint.params0, avgPoint.params)
+    avgLine.params <- modifyList(avgLine.params0, avgLine.params)
+    line.params <- modifyList(line.params0, line.params)
+    point.params <- modifyList(point.params0, point.params)
+    err.params <- modifyList(err.params0, err.params)
+  }
 
   if (errorbar_type == 'se') {
     errPlot <- do.call('stat_summary',
