@@ -98,12 +98,18 @@ sm_pointplot <- function(...,
     line.params0  = modifyList(line.params0 , params)
     err.params0 = list(linewidth = 1)
     err.params0  = modifyList(err.params0 , params)
-  } else if (forget == TRUE) {
+
     avgPoint.params <- modifyList(avgPoint.params0, avgPoint.params)
     avgLine.params <- modifyList(avgLine.params0, avgLine.params)
     line.params <- modifyList(line.params0, line.params)
     point.params <- modifyList(point.params0, point.params)
     err.params <- modifyList(err.params0, err.params)
+  } else if (forget == TRUE) {
+    avgPoint.params <- modifyList(params, avgPoint.params)
+    avgLine.params <- modifyList(params, avgLine.params)
+    line.params <- modifyList(params, line.params)
+    point.params <- modifyList(params, point.params)
+    err.params <- modifyList(params, err.params)
   }
 
   if (errorbar_type == 'se') {
