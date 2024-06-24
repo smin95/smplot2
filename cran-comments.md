@@ -1,7 +1,7 @@
 ## version 0.2.3
 Dear CRAN team,
 
-I have changed the DESCRIPTION file, and it should work now.
+The functions `sm_pointplot()` and `sm_put_together()` have been debugged. Thanks for your service.
 
 Best regards,
 Sam
