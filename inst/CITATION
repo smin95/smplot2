@@ -1,12 +1,27 @@
-bibentry(
-  bibtype  = "Article",
-  textVersion  = "Min, S. H., & Zhou, J. (2021). smplot: an R package for easy and  elegant data visualization. Frontiers in Genetics, 12, 802894.",
-  header = "To cite smplot2 in publications, please use",
-  title    = "smplot: an R package for easy and elegant data visualization",
-  author   = c("Seung Hyun Min", "Jiawei Zhou"),
-  journal  = "Frontiers in Genetics",
-  year     = "2021",
-  volume   = "12",
-  pages    = "802894",
-  doi      = "10.3389/fgene.2021.802894"
-)
+
+  bibentry(
+    bibtype  = "Article",
+    textVersion  = "Min, S. H. (2024). Visualization of Composite Plots in R Using a Programmatic Approach and smplot2. Advances in Methods and Practices in Psychological Science, 7(3), 25152459241267927.",
+    header = "To cite smplot2 in publications, please use",
+    title    = "Visualization of Composite Plots in R Using a Programmatic Approach and smplot2",
+    author   = person("Seung Hyun", "Min"),
+    journal  = "Advances in Methods and Practices in Psychological Science",
+    year     = "2024",
+    volume   = "7",
+    number   = "3",
+    pages    = "25152459241267927",
+    publisher = "Sage Publications Sage CA: Los Angeles, CA"
+  )
+
+  bibentry(
+    bibtype  = "Article",
+    textVersion  = "Min, S. H., & Zhou, J. (2021). smplot: an R package for easy and elegant data visualization. Frontiers in Genetics, 12, 802894.",
+    header = "or this paper",
+    title    = "smplot: an R package for easy and elegant data visualization",
+    author   = c(person("Seung Hyun", "Min"), person("Jiawei", "Zhou")),
+    journal  = "Frontiers in Genetics",
+    year     = "2021",
+    volume   = "12",
+    pages    = "802894",
+    doi      = "10.3389/fgene.2021.802894"
+  )

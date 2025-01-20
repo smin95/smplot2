@@ -2,7 +2,7 @@
 % Please edit documentation in R/sm_palette.R
 \name{sm_palette}
 \alias{sm_palette}
-\title{SM custom palette of colors}
+\title{A custom palette of colors}
 \usage{
 sm_palette(colorNum = 10)
 }
@@ -13,7 +13,7 @@ sm_palette(colorNum = 10)
 Returns a hex code in string vector. The input determines the length of the output.
 }
 \description{
-This is a custom color palette that SM recommends for data visualization.
+This is a custom color palette of smplot2.
 It returns up to 20 different colors with a high contrast.
 }
 \examples{

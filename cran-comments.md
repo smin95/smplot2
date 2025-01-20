@@ -1,7 +1,6 @@
-## version 0.2.3
-Dear CRAN team,
+## version 0.2.5
 
-The functions `sm_pointplot()` and `sm_put_together()` have been debugged. Thanks for your service.
+This is the submission of the smplot2 package (version 0.2.5) to CRAN. Here is a list of changes:
 
-Best regards,
-Sam
+* Codes have been optimized in the `sm_put_together()` function.
+* Improved ROxygen documentations.

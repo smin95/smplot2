@@ -2,7 +2,7 @@
 % Please edit documentation in R/sm_hvgrid.R
 \name{sm_hvgrid}
 \alias{sm_hvgrid}
-\title{Minimalistic theme with major horizontal and vertical grids}
+\title{A minimalistic theme with major horizontal and vertical grids}
 \usage{
 sm_hvgrid(legends = TRUE, borders = TRUE)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/sm_minimal.R
 \name{sm_minimal}
 \alias{sm_minimal}
-\title{SM minimal theme (no grid) with borders.}
+\title{A minimal theme (no grid) with borders.}
 \usage{
 sm_minimal(legends = FALSE)
 }

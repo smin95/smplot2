@@ -2,7 +2,7 @@
 % Please edit documentation in R/sm_violin.R
 \name{sm_violin}
 \alias{sm_violin}
-\title{A violin plot with jittered individual points}
+\title{Violin Plot with Jittered Individual Points}
 \usage{
 sm_violin(
   ...,
@@ -19,42 +19,80 @@ sm_violin(
 )
 }
 \arguments{
-\item{...}{A generic aesthetic parameter across points and the violin plot. This is optional.}
+\item{...}{Additional aesthetic parameters applied across points, the violin plot, and error bars. Optional.}
 
-\item{violin.params}{List of parameters for the violin, such as color, alpha, fill etc}
+\item{violin.params}{A list of parameters for customizing the violin plot. Common parameters include:
+\itemize{
+  \item \code{fill}: Fill color of the violin plot.
+  \item \code{color}: Outline color of the violin plot.
+  \item \code{alpha}: Transparency level of the violin plot.
+}
+Default: \code{list(fill = 'gray90', color = 'transparent')}.}
 
-\item{err.params}{List of parameters for the error bar, such as color, size, alpha etc}
+\item{err.params}{A list of parameters for customizing the error bars. Common parameters include:
+\itemize{
+  \item \code{size}: Size of the error bar endpoints.
+  \item \code{linewidth}: Width of the error bar lines.
+  \item \code{color}: Color of the error bars.
+}
+Default: \code{list(size = 1.2, linewidth = 1.2)}.}
 
-\item{point.params}{List of parameters for individual points, such as color, alpha, fill etc}
+\item{point.params}{A list of parameters for customizing individual points. Common parameters include:
+\itemize{
+  \item \code{alpha}: Transparency level of the points.
+  \item \code{size}: Size of the points.
+  \item \code{shape}: Shape of the points.
+}
+Default: \code{list(alpha = 0.25, size = 2)}.}
 
-\item{errorbar_type}{This argument determines the errorbar type.
-If it is set to 'se', standard error bar will be shown.
-If it is set to 'sd' (default), the error bar will display standard deviation.
-If it is set to 'ci', the error bar will display 95\% confidence interval.}
+\item{errorbar_type}{A string specifying the type of error bars to display:
+\itemize{
+  \item \code{'se'}: Standard error.
+  \item \code{'sd'}: Standard deviation (default).
+  \item \code{'ci'}: 95% confidence interval.
+}}
 
-\item{point_jitter_width}{A numerical value that determines the degree of the jitter for each point. If its 0,
-all the points will have no jitter (aligned along the y-axis).}
+\item{point_jitter_width}{A numeric value specifying the degree of horizontal jitter applied to individual points.
+\itemize{
+  \item If set to \code{0}, points are aligned along the y-axis without jitter.
+  \item Default: \code{0.17}.
+}}
 
-\item{points}{TRUE if points need to be shown.
-FALSE if points need to be hidden.}
+\item{points}{Logical. Determines whether individual points are displayed:
+\itemize{
+  \item \code{TRUE}: Display points (default).
+  \item \code{FALSE}: Hide points.
+}}
 
-\item{borders}{If the border needs to be displayed, the input should be TRUE.
-If the border is not needed, the input should be FALSE.}
+\item{borders}{Logical. Determines whether grid borders are displayed:
+\itemize{
+  \item \code{TRUE}: Display borders (default).
+  \item \code{FALSE}: Remove borders.
+}}
 
-\item{legends}{If the legend needs to be displayed, the input should be TRUE.
-If the legend is not needed, the input should be FALSE.}
+\item{legends}{Logical. Determines whether legends are displayed:
+\itemize{
+  \item \code{TRUE}: Display legends.
+  \item \code{FALSE}: Hide legends (default).
+}}
 
-\item{seed}{Random seed}
+\item{seed}{A numeric value to set a random seed for reproducible jittered points.
+Default: \code{NULL} (no seed).}
 
-\item{forget}{Forget the defaults when list() is called for a specific parameter (ex. point.params).
-Set to TRUE when when users want to map aesthetics to different groups more flexibly..
-Set to FALSE by default.}
+\item{forget}{Logical. Determines whether to apply the default aesthetic parameters:
+\itemize{
+  \item \code{TRUE}: Ignore default aesthetic parameters (\code{violin.params},
+        \code{err.params}, and \code{point.params}) and apply only user-supplied customizations.
+  \item \code{FALSE}: Merge user-supplied customizations with the defaults (default).
+}}
 }
 \value{
-Violin plot generated using ggplot2
+A ggplot2 object containing a violin plot with optional jittered points and error bars.
 }
 \description{
-A violin plot with jittered individual points
+Generates a violin plot with optional jittered individual points and error bars.
+This function allows for flexible customization of the violin, points, and error bars,
+and supports displaying standard deviation, standard error, or confidence intervals as error bars.
 }
 \examples{
 library(ggplot2)

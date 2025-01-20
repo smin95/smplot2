@@ -2,7 +2,7 @@
 % Please edit documentation in R/sm_bar2.R
 \name{sm_bar}
 \alias{sm_bar}
-\title{A bar plot with jittered individual points}
+\title{Bar Plot with Jittered Individual Points}
 \usage{
 sm_bar(
   ...,
@@ -19,42 +19,82 @@ sm_bar(
 )
 }
 \arguments{
-\item{...}{A generic aesthetic parameter across points and the boxplot. This is optional.}
+\item{...}{Additional aesthetic parameters applied across points, bars, and error bars. Optional.}
 
-\item{bar.params}{List of parameters for the bar graph, such as color, alpha, fill etc}
+\item{bar.params}{A list of parameters for customizing the bar graph. Common parameters include:
+\itemize{
+  \item \code{fill}: Fill color of the bars.
+  \item \code{color}: Outline color of the bars.
+  \item \code{alpha}: Transparency level of the bars.
+  \item \code{width}: Width of the bars.
+}
+Default: \code{list(width = 0.7, alpha = 1, color = 'transparent', fill = 'gray80')}.}
 
-\item{err.params}{List of parameters for the error bar, such as color, size, alpha etc}
+\item{err.params}{A list of parameters for customizing the error bars. Common parameters include:
+\itemize{
+  \item \code{color}: Color of the error bars.
+  \item \code{size}: Size of the error bar endpoints.
+  \item \code{linewidth}: Width of the error bar lines.
+}
+Default: \code{list(linewidth = 1, color = 'black')}.}
 
-\item{point.params}{List of parameters for individual points, such as color, alpha, fill etc}
+\item{point.params}{A list of parameters for customizing individual points. Common parameters include:
+\itemize{
+  \item \code{size}: Size of the points.
+  \item \code{alpha}: Transparency level of the points.
+  \item \code{shape}: Shape of the points.
+  \item \code{color}: Color of the points.
+}
+Default: \code{list(size = 2.5, alpha = 0.65, shape = 16)}.}
 
-\item{errorbar_type}{This argument determines the errorbar type.
-If it is set to 'se', standard error bar will be shown.
-If it is set to 'sd' (default), the error bar will display standard deviation.
-If it is set to 'ci', the error bar will display 95\% confidence interval.}
+\item{errorbar_type}{A string specifying the type of error bars to display:
+\itemize{
+  \item \code{'se'}: Standard error.
+  \item \code{'sd'}: Standard deviation (default).
+  \item \code{'ci'}: 95% confidence interval.
+}}
 
-\item{point_jitter_width}{A numerical value that determines the degree of the jitter for each point. If its 0,
-all the points will have no jitter (aligned along the y-axis).}
+\item{point_jitter_width}{A numeric value specifying the degree of horizontal jitter applied to individual points.
+\itemize{
+  \item If set to \code{0}, points are aligned along the y-axis without jitter.
+  \item Default: \code{0.12}.
+}}
 
-\item{points}{TRUE if points need to be shown.
-FALSE if points need to be hidden.}
+\item{points}{Logical. Determines whether individual points are displayed:
+\itemize{
+  \item \code{TRUE}: Display points (default).
+  \item \code{FALSE}: Hide points.
+}}
 
-\item{borders}{If the border needs to be displayed, the input should be TRUE.
-If the border is not needed, the input should be FALSE.}
+\item{borders}{Logical. Determines whether grid borders are displayed:
+\itemize{
+  \item \code{TRUE}: Display borders (default).
+  \item \code{FALSE}: Remove borders.
+}}
 
-\item{legends}{If the legend needs to be displayed, the input should be TRUE.
-If the legend is not needed, the input should be FALSE.}
+\item{legends}{Logical. Determines whether legends are displayed:
+\itemize{
+  \item \code{TRUE}: Display legends.
+  \item \code{FALSE}: Hide legends (default).
+}}
 
-\item{seed}{Random seed. Requires a number.}
+\item{seed}{A numeric value to set a random seed for reproducible jittered points.
+Default: \code{NULL} (no seed).}
 
-\item{forget}{Forget the defaults when list() is called for a specific parameter (ex. point.params).
-Set to TRUE when when users want to map aesthetics to different groups more flexibly..
-Set to FALSE by default.}
+\item{forget}{Logical. Determines whether to apply the default aesthetic parameters:
+\itemize{
+  \item \code{TRUE}: Ignore default aesthetic parameters (\code{bar.params},
+        \code{err.params}, and \code{point.params}) and apply only user-supplied customizations.
+  \item \code{FALSE}: Merge user-supplied customizations with the defaults (default).
+}}
 }
 \value{
-A bar graph generated using ggplot2
+A ggplot2 object representing a bar graph with optional jittered points and error bars.
 }
 \description{
-A bar plot with jittered individual points
+Generates a bar plot with optional jittered individual points and error bars.
+The function supports flexible customization of the bars, points, and error bars,
+and allows for displaying standard deviation, standard error, or confidence intervals.
 }
 \examples{
 library(smplot2)

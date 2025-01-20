@@ -1,4 +1,4 @@
-#' SM minimal theme (no grid) with borders.
+#' A minimal theme (no grid) with borders.
 #'
 #' @description
 #'

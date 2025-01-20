@@ -1,4 +1,4 @@
-#' Minimalistic theme of horizontal major grids
+#' A minimalistic theme of horizontal major grids
 
 #' @description
 #'

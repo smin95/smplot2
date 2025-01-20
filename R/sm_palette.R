@@ -1,7 +1,7 @@
-#' SM custom palette of colors
+#' A custom palette of colors
 #'
 #' @description
-#' This is a custom color palette that SM recommends for data visualization.
+#' This is a custom color palette of smplot2.
 #' It returns up to 20 different colors with a high contrast.
 #'
 #' @param colorNum

@@ -2,119 +2,108 @@
 % Please edit documentation in R/sm_put_together.R
 \name{sm_put_together}
 \alias{sm_put_together}
-\title{Combining figures together}
+\title{Combine Multiple Plots into a Single Composite Figure}
 \usage{
 sm_put_together(
   all_plots,
-  title,
-  xlabel,
-  ylabel,
-  legend,
-  ncol,
-  nrow,
-  xlabel2,
-  ylabel2,
-  tickRatio,
+  title = NULL,
+  xlabel = NULL,
+  ylabel = NULL,
+  legend = NULL,
+  ncol = NULL,
+  nrow = NULL,
+  xlabel2 = NULL,
+  ylabel2 = NULL,
+  tickRatio = NULL,
   panel_scale = 0.9,
-  wRatio,
-  hRatio,
+  wRatio = NULL,
+  hRatio = NULL,
   hmargin = 0,
   wmargin = 0,
   remove_ticks = "some",
-  wRatio2,
-  hRatio2,
+  wRatio2 = NULL,
+  hRatio2 = NULL,
   labelRatio = 1
 )
 }
 \arguments{
-\item{all_plots}{all_plots should be list, which should contain all panels
-that are to be combined into one figure.}
+\item{all_plots}{A list of ggplot objects to be combined. Each plot should
+ideally include tick labels on both x and y axes to allow the function to
+optimize the layout effectively.}
 
-\item{title}{Title layer that will determine the main title of the combined plot.
-This is created using sm_common_title(). Optional argument.
-Users can also supply character string here instead.}
+\item{title}{A ggplot layer or character string specifying the title of the
+combined figure. If supplied as a string, the function dynamically adjusts
+its size and placement. Optional.}
 
-\item{xlabel}{xlabel layer that will determine the label of the combined plot's x-axis.
-This is created using sm_common_xlabel(). Optional argument.
-Users can also supply character string here instead.}
+\item{xlabel}{A ggplot layer or character string specifying the label for the
+x-axis of the combined figure. Optional.}
 
-\item{ylabel}{ylabel layer that will determine the label of the combined plot's y-axis.
-This is created using sm_common_ylabel(). Optional argument.
-Users can also supply character string here instead.}
+\item{ylabel}{A ggplot layer or character string specifying the label for the
+y-axis of the combined figure. Optional.}
 
-\item{legend}{ggplot() layer that has legend. Optional argument.}
+\item{legend}{A ggplot legend layer to be added to the combined figure. Optional.}
 
-\item{ncol}{Number of columns in the combined plot}
+\item{ncol}{Number of columns in the combined figure grid. If not supplied,
+the function determines this based on the number of plots.}
 
-\item{nrow}{Number of rows in the combined plot}
+\item{nrow}{Number of rows in the combined figure grid. If not supplied,
+the function determines this based on the number of plots.}
 
-\item{xlabel2}{2nd xlabel layer that will determine the label of the combined plot's secondary x-axis.
-This is created using sm_common_xlabel(). Optional argument.
-Users can also supply character string here instead.}
+\item{xlabel2}{A secondary x-axis label layer or character string. Optional.}
 
-\item{ylabel2}{2nd ylabel layer that will determine the label of the combined plot's y-axis.
-This is created using sm_common_ylabel(). Optional argument.
-Users can also supply character string here instead.}
+\item{ylabel2}{A secondary y-axis label layer or character string. Optional.}
 
-\item{tickRatio}{Relative size of the ticks to the default aesthetics of the thematic functions (ex. sm_hgrid()).
-By default, it adjusts tickRatio based on the given plot. But this
-can be overwritten if the input is supplied (ex. try 1.4 to begin with). FOr example, 1.4x means that
-it is 1.4x larger than the tick size of a single given plot.}
+\item{tickRatio}{A scaling factor for tick label size. By default, this is
+adjusted dynamically based on the number of rows and columns in the grid.
+Larger values increase tick label size. Optional.}
 
-\item{panel_scale}{Scale of the panel. Default is set to 0.9 to reduce empty space
-within and around each panel. The user can set to a value from 0 to 1 to
-see what happens to the spacing within each panel and between panels.}
+\item{panel_scale}{A numeric value between 0 and 1 that scales the individual
+panels to reduce empty space within and around each panel. Default is `0.9`.}
 
-\item{wRatio}{This adjusts the ratio of the width of the first column to those of other columns.
-By default, it adjusts wRatio based on the given plot. However, this can be overwritten if the input is supplied.
-If the value is larger than 1, then it will be wider than that of other columns. Users are encouraged
-to adjust this value because different computers can show different looking outputs.}
+\item{wRatio}{A scaling factor for the width of the first column relative to
+other columns. By default, this is computed based on the input plots. Users
+can override it with a numeric value. Optional.}
 
-\item{hRatio}{This adjusts the ratio of the height of the last row to those of other rows
-By default, it adjusts hRatio based on the given plot. However, this can be overwritten if the input is supplied. If the value
-is larger than 1, then it will be taller than that of other columns. Users are encouraged
-to adjust this value because different computers can show different looking outputs.}
+\item{hRatio}{A scaling factor for the height of the last row relative to other
+rows. By default, this is computed based on the input plots. Users can override
+it with a numeric value. Optional.}
 
-\item{hmargin}{The amount of height of blank space between subplots. It sets the size of the empty space (i.e., margin) between panels. T
-he default is set to 0. If its positive, the blank spacing will increase. If its negative, it will get reduced
-between panels.}
+\item{hmargin}{Vertical margin between subplots. Positive values increase the
+spacing, while negative values reduce it. Default is `0`.}
 
-\item{wmargin}{The amount of width of blank space between subplots. It sets the size of the empty space (i.e., margin) between panels. T
-he default is set to 0. If its positive, the blank spacing will increase. If its negative, it will get reduced
-between panels.}
+\item{wmargin}{Horizontal margin between subplots. Positive values increase the
+spacing, while negative values reduce it. Default is `0`.}
 
-\item{remove_ticks}{If set to 'some', x-axis ticks and y-axis ticks will be removed in inner plots.
-If set to 'all', then all panels' ticks will be removed.
-If set to 'none', then all panels' ticks will be kept.}
+\item{remove_ticks}{Specifies whether to remove ticks from the inner panels:
+`"some"` (default) removes ticks only from inner plots, `"all"` removes ticks
+from all plots, and `"none"` keeps all ticks.}
 
-\item{wRatio2}{This adjusts the ratio of the width of the last column to those of other columns.
-By default, it adjusts wRatio2 based on the given plot. However, this can be overwritten if the input is supplied.
-If the value is larger than 1, then it will be wider than that of other columns. Users are encouraged
-to adjust this value because different computers can show different looking outputs.}
+\item{wRatio2}{A scaling factor for the width of the last column relative to
+other columns. By default, this is computed based on the input plots. Optional.}
 
-\item{hRatio2}{This adjusts the ratio of the height of the first row to those of other rows
-By default, it adjusts hRatio2 based on the given plot. However, this can be overwritten if the input is supplied.  If the value
-is larger than 1, then it will be taller than that of other columns. Users are encouraged
-to adjust this value because different computers can show different looking outputs.}
+\item{hRatio2}{A scaling factor for the height of the first row relative to
+other rows. By default, this is computed based on the input plots. Optional.}
 
-\item{labelRatio}{Relative text size of the labels, such as title, xlabel, ylabel, xlabel2 and ylabel2 to its default font size (optimized).
-This input only changes the size if the inputs are provided as character strings. The default value is 1. If
-this input is larger than 1.1, then the text size will be larger 1.1x than the default size, which itself
-is optimized based on the plot's given layout and other information.}
+\item{labelRatio}{A scaling factor for the text size of titles, axis labels,
+and secondary labels when provided as character strings. Default is `1`.
+Larger values increase text size proportionally.}
 }
 \value{
-Returns a combined figure.
+A composite ggplot object combining the input plots into a grid layout.
 }
 \description{
-This function works best if all_plots argument (the list input) contains plots
-that have tick labels on both x and y axes; this information will be used to
-optimize the layout of the composite figure.
+`sm_put_together` combines multiple ggplot objects into a single composite figure.
+The function optimizes the layout by considering the presence of tick labels and
+axis labels in the input plots, ensuring a clean and well-aligned output.
 }
 \details{
-The inputs for the axis labels can be created with sm_common_xlabel(), sm_common_ylabel()
-and sm_common_title(). Alternatively, users can supply character strings directly
-to sm_put_together() instead. However, this option is not flexible but the function
-tries its best to find the optimal size and location given the plot information.
+Users can supply custom titles and axis labels either as ggplot layers created
+with `sm_common_xlabel()`, `sm_common_ylabel()`, and `sm_common_title()` or as
+character strings directly. The function attempts to adjust the size and placement
+of titles and labels dynamically based on the input plots.
+
+While the `all_plots` argument is required, all other arguments are optional,
+and defaults are provided for most parameters.
 }
 \examples{
 library(smplot2)

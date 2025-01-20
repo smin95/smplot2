@@ -1,91 +1,60 @@
-#' Combining figures together
+#' Combine Multiple Plots into a Single Composite Figure
 #'
-#' This function works best if all_plots argument (the list input) contains plots
-#' that have tick labels on both x and y axes; this information will be used to
-#' optimize the layout of the composite figure.
+#' `sm_put_together` combines multiple ggplot objects into a single composite figure.
+#' The function optimizes the layout by considering the presence of tick labels and
+#' axis labels in the input plots, ensuring a clean and well-aligned output.
 #'
-#' The inputs for the axis labels can be created with sm_common_xlabel(), sm_common_ylabel()
-#' and sm_common_title(). Alternatively, users can supply character strings directly
-#' to sm_put_together() instead. However, this option is not flexible but the function
-#' tries its best to find the optimal size and location given the plot information.
+#' Users can supply custom titles and axis labels either as ggplot layers created
+#' with `sm_common_xlabel()`, `sm_common_ylabel()`, and `sm_common_title()` or as
+#' character strings directly. The function attempts to adjust the size and placement
+#' of titles and labels dynamically based on the input plots.
 #'
-#' @param all_plots
-#' all_plots should be list, which should contain all panels
-#' that are to be combined into one figure.
-#' @param title
-#' Title layer that will determine the main title of the combined plot.
-#' This is created using sm_common_title(). Optional argument.
-#' Users can also supply character string here instead.
-#' @param xlabel
-#' xlabel layer that will determine the label of the combined plot's x-axis.
-#' This is created using sm_common_xlabel(). Optional argument.
-#' Users can also supply character string here instead.
-#' @param ylabel
-#' ylabel layer that will determine the label of the combined plot's y-axis.
-#' This is created using sm_common_ylabel(). Optional argument.
-#' Users can also supply character string here instead.
-#' @param legend
-#' ggplot() layer that has legend. Optional argument.
-#' @param ncol
-#' Number of columns in the combined plot
-#' @param nrow
-#' Number of rows in the combined plot
-#' @param tickRatio
-#' Relative size of the ticks to the default aesthetics of the thematic functions (ex. sm_hgrid()).
-#' By default, it adjusts tickRatio based on the given plot. But this
-#' can be overwritten if the input is supplied (ex. try 1.4 to begin with). FOr example, 1.4x means that
-#' it is 1.4x larger than the tick size of a single given plot.
-#' @param panel_scale
-#' Scale of the panel. Default is set to 0.9 to reduce empty space
-#' within and around each panel. The user can set to a value from 0 to 1 to
-#' see what happens to the spacing within each panel and between panels.
-#' @param wRatio
-#' This adjusts the ratio of the width of the first column to those of other columns.
-#' By default, it adjusts wRatio based on the given plot. However, this can be overwritten if the input is supplied.
-#' If the value is larger than 1, then it will be wider than that of other columns. Users are encouraged
-#' to adjust this value because different computers can show different looking outputs.
-#' @param hRatio
-#' This adjusts the ratio of the height of the last row to those of other rows
-#' By default, it adjusts hRatio based on the given plot. However, this can be overwritten if the input is supplied. If the value
-#' is larger than 1, then it will be taller than that of other columns. Users are encouraged
-#' to adjust this value because different computers can show different looking outputs.
-#' @param hmargin
-#' The amount of height of blank space between subplots. It sets the size of the empty space (i.e., margin) between panels. T
-#' he default is set to 0. If its positive, the blank spacing will increase. If its negative, it will get reduced
-#' between panels.
-#' @param wmargin
-#' The amount of width of blank space between subplots. It sets the size of the empty space (i.e., margin) between panels. T
-#' he default is set to 0. If its positive, the blank spacing will increase. If its negative, it will get reduced
-#' between panels.
-#' @param remove_ticks
-#' If set to 'some', x-axis ticks and y-axis ticks will be removed in inner plots.
-#' If set to 'all', then all panels' ticks will be removed.
-#' If set to 'none', then all panels' ticks will be kept.
-#' @param xlabel2
-#' 2nd xlabel layer that will determine the label of the combined plot's secondary x-axis.
-#' This is created using sm_common_xlabel(). Optional argument.
-#' Users can also supply character string here instead.
-#' @param ylabel2
-#' 2nd ylabel layer that will determine the label of the combined plot's y-axis.
-#' This is created using sm_common_ylabel(). Optional argument.
-#' Users can also supply character string here instead.
-#' @param wRatio2
-#' This adjusts the ratio of the width of the last column to those of other columns.
-#' By default, it adjusts wRatio2 based on the given plot. However, this can be overwritten if the input is supplied.
-#' If the value is larger than 1, then it will be wider than that of other columns. Users are encouraged
-#' to adjust this value because different computers can show different looking outputs.
-#' @param hRatio2
-#' This adjusts the ratio of the height of the first row to those of other rows
-#' By default, it adjusts hRatio2 based on the given plot. However, this can be overwritten if the input is supplied.  If the value
-#' is larger than 1, then it will be taller than that of other columns. Users are encouraged
-#' to adjust this value because different computers can show different looking outputs.
-#' @param labelRatio
-#' Relative text size of the labels, such as title, xlabel, ylabel, xlabel2 and ylabel2 to its default font size (optimized).
-#' This input only changes the size if the inputs are provided as character strings. The default value is 1. If
-#' this input is larger than 1.1, then the text size will be larger 1.1x than the default size, which itself
-#' is optimized based on the plot's given layout and other information.
-#' @return
-#' Returns a combined figure.
+#' While the `all_plots` argument is required, all other arguments are optional,
+#' and defaults are provided for most parameters.
+#'
+#' @param all_plots A list of ggplot objects to be combined. Each plot should
+#'   ideally include tick labels on both x and y axes to allow the function to
+#'   optimize the layout effectively.
+#' @param title A ggplot layer or character string specifying the title of the
+#'   combined figure. If supplied as a string, the function dynamically adjusts
+#'   its size and placement. Optional.
+#' @param xlabel A ggplot layer or character string specifying the label for the
+#'   x-axis of the combined figure. Optional.
+#' @param ylabel A ggplot layer or character string specifying the label for the
+#'   y-axis of the combined figure. Optional.
+#' @param legend A ggplot legend layer to be added to the combined figure. Optional.
+#' @param ncol Number of columns in the combined figure grid. If not supplied,
+#'   the function determines this based on the number of plots.
+#' @param nrow Number of rows in the combined figure grid. If not supplied,
+#'   the function determines this based on the number of plots.
+#' @param tickRatio A scaling factor for tick label size. By default, this is
+#'   adjusted dynamically based on the number of rows and columns in the grid.
+#'   Larger values increase tick label size. Optional.
+#' @param panel_scale A numeric value between 0 and 1 that scales the individual
+#'   panels to reduce empty space within and around each panel. Default is `0.9`.
+#' @param wRatio A scaling factor for the width of the first column relative to
+#'   other columns. By default, this is computed based on the input plots. Users
+#'   can override it with a numeric value. Optional.
+#' @param hRatio A scaling factor for the height of the last row relative to other
+#'   rows. By default, this is computed based on the input plots. Users can override
+#'   it with a numeric value. Optional.
+#' @param hmargin Vertical margin between subplots. Positive values increase the
+#'   spacing, while negative values reduce it. Default is `0`.
+#' @param wmargin Horizontal margin between subplots. Positive values increase the
+#'   spacing, while negative values reduce it. Default is `0`.
+#' @param remove_ticks Specifies whether to remove ticks from the inner panels:
+#'   `"some"` (default) removes ticks only from inner plots, `"all"` removes ticks
+#'   from all plots, and `"none"` keeps all ticks.
+#' @param xlabel2 A secondary x-axis label layer or character string. Optional.
+#' @param ylabel2 A secondary y-axis label layer or character string. Optional.
+#' @param wRatio2 A scaling factor for the width of the last column relative to
+#'   other columns. By default, this is computed based on the input plots. Optional.
+#' @param hRatio2 A scaling factor for the height of the first row relative to
+#'   other rows. By default, this is computed based on the input plots. Optional.
+#' @param labelRatio A scaling factor for the text size of titles, axis labels,
+#'   and secondary labels when provided as character strings. Default is `1`.
+#'   Larger values increase text size proportionally.
+#' @return A composite ggplot object combining the input plots into a grid layout.
 #' @export
 #' @importFrom cowplot plot_grid
 #' @importFrom ggplot2 ggplot_build
@@ -114,21 +83,45 @@
 #'                 ylabel='My y-axis', labelRatio = 1.1, ncol=2,nrow=1)
 #'
 
-sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
-                            ncol, nrow, xlabel2, ylabel2, tickRatio, panel_scale = 0.9, wRatio,
-                            hRatio, hmargin = 0, wmargin = 0, remove_ticks = 'some',
-                            wRatio2, hRatio2, labelRatio = 1) {
+sm_put_together <- function(all_plots, title = NULL, xlabel = NULL, ylabel = NULL, legend = NULL,
+                            ncol = NULL, nrow = NULL, xlabel2 = NULL, ylabel2 = NULL, tickRatio = NULL, panel_scale = 0.9, wRatio = NULL,
+                            hRatio = NULL, hmargin = 0, wmargin = 0, remove_ticks = 'some',
+                            wRatio2 = NULL, hRatio2 = NULL, labelRatio = 1) {
 
+
+  flatten_ggplot <- function(lst) {
+    plots <- list()
+    for (item in lst) {
+      if (inherits(item, "gg")) {
+        plots <- c(plots, list(item))
+      } else if (is.list(item)) {
+        plots <- c(plots, flatten_ggplot(item))
+      }
+    }
+    return(plots)
+  }
+
+  count_lines <- function(text) {
+    if (!is.null(text)){
+      res <- length(strsplit(text, "\n")[[1]])
+    } else {
+      res <- 0
+    }
+    return(res)
+
+  }
+
+  if (!is.list(all_plots)) stop("`all_plots` must be a list of ggplot objects.")
   all_plots <- flatten_ggplot(all_plots)
 
-  if (missing(title)) title <- NULL
-  if (missing(xlabel)) xlabel <- NULL
-  if (missing(ylabel)) ylabel <- NULL
-  if (missing(xlabel2)) xlabel2 <- NULL
-  if (missing(ylabel2)) ylabel2 <- NULL
+  if (is.null(ncol) || is.null(nrow)) {
+    # Infer grid dimensions if not provided
+    nrow <- floor(sqrt(length(all_plots)))
+    ncol <- ceiling(length(all_plots) / nrow)
+  }
 
   ncr <- max(ncol,nrow)
-  if (missing(tickRatio)) {
+  if (is.null(tickRatio)) {
     if (ncr > 1) {
       tickRatio = 1+ncr/12
     } else {
@@ -219,11 +212,11 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
     maxLines_x2 <- 0
   }
 
-  if (missing(wRatio)) wRatio = 1 + (0.04 + 0.005*ncol + (0.9-ifelse(panel_scale > 0.9, 0.9, panel_scale))/10)*(nChar_y1a + 0.85*nPunc_y1)
-  if (missing(wRatio2)) wRatio2 = 1 + (0.04 + 0.005*ncol + (0.9-ifelse(panel_scale > 0.9, 0.9, panel_scale))/10)*(nChar_y2a + 0.85*nPunc_y2)
+  if (is.null(wRatio)) wRatio = 1 + (0.04 + 0.005*ncol + (0.9-ifelse(panel_scale > 0.9, 0.9, panel_scale))/10)*(nChar_y1a + 0.85*nPunc_y1)
+  if (is.null(wRatio2)) wRatio2 = 1 + (0.04 + 0.005*ncol + (0.9-ifelse(panel_scale > 0.9, 0.9, panel_scale))/10)*(nChar_y2a + 0.85*nPunc_y2)
 
-  if (missing(hRatio))  hRatio = 1 + 0.1*maxLines_x1 + 0.04*ifelse(maxLines_x1 > 2, 1,0)
-  if (missing(hRatio2))  hRatio2 = 1 + 0.1*maxLines_x2 + 0.04*ifelse(maxLines_x2 > 2, 1,0)
+  if (is.null(hRatio))  hRatio = 1 + 0.1*maxLines_x1 + 0.04*ifelse(maxLines_x1 > 2, 1,0)
+  if (is.null(hRatio2))  hRatio2 = 1 + 0.1*maxLines_x2 + 0.04*ifelse(maxLines_x2 > 2, 1,0)
 
   all_plots <- lapply(1:length(all_plots), function(iPlot) {
     all_plots[[iPlot]] + theme(axis.text.x = element_text(size = rel(tickRatio)),
@@ -268,7 +261,7 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
     rel_heights <- rep(1,ncol)
   }
 
-  if (missing(legend)) {
+  if (is.null(legend)) {
     all_plots1 <- all_plots1
   } else {
     all_plots1[[length(all_plots1)+1]] <- legend
@@ -276,12 +269,12 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
 
   # all_plots should be list
   all_plots2 <- lapply(1:length(all_plots1), function(iPlot) {
-    plot_grid(all_plots1[[iPlot]], scale=panel_scale)
+    cowplot::plot_grid(all_plots1[[iPlot]], scale=panel_scale)
   })
 
 
-  tgd1 <- plot_grid(plotlist = all_plots2, ncol=ncol, nrow=nrow,
-                    rel_widths = rel_widths, rel_heights = rel_heights, axis='tblr', align='hv')
+  tgd1 <- cowplot::plot_grid(plotlist = all_plots2, ncol=ncol, nrow=nrow,
+                             rel_widths = rel_widths, rel_heights = rel_heights, axis='tblr', align='hv')
 
   # add labels
 
@@ -315,55 +308,33 @@ sm_put_together <- function(all_plots, title, xlabel, ylabel, legend,
 
   ## x-axis
   if (!is.null(xlabel)) {
-    tgd1 <- plot_grid(tgd1, xlabel, ncol=1, rel_heights = c(1,0.1))
+    tgd1 <- cowplot::plot_grid(tgd1, xlabel, ncol=1, rel_heights = c(1,0.1))
     tgd1 <- tgd1 + sm_add_text(xlabelStr,
                                x = xloc, y = 0.05, size = ((10+ncr)*tickRatio)*labelRatio)
   }
   if (!is.null(xlabel2)) {
-    tgd1 <- plot_grid(xlabel2, tgd1, ncol=1, rel_heights = c(0.1,1))
+    tgd1 <- cowplot::plot_grid(xlabel2, tgd1, ncol=1, rel_heights = c(0.1,1))
     tgd1 <- tgd1 + sm_add_text(xlabel2Str,
                                x = xloc, y = 0.95, size = ((10+ncr)*tickRatio)*labelRatio)
   }
   ## title
   if (!is.null(title)) {
-    tgd1 <- plot_grid(title, tgd1, ncol=1, rel_heights=c(0.1,1))
+    tgd1 <- cowplot::plot_grid(title, tgd1, ncol=1, rel_heights=c(0.1,1))
     tgd1 <- tgd1 + sm_add_text(titleStr,
                                x = xloc, y = 0.95, size = ((10+ncr)*tickRatio)*labelRatio,
                                fontface='bold')
   }
   ## y-axis
   if (!is.null(ylabel)) {
-    tgd1 <- plot_grid(ylabel, tgd1, ncol=2, rel_widths = c(0.1,1))
+    tgd1 <- cowplot::plot_grid(ylabel, tgd1, ncol=2, rel_widths = c(0.1,1))
     tgd1 <- tgd1 + sm_add_text(ylabelStr, x = 0.05,
                                y = yloc, angle = 90, size = ((10+ncr)*tickRatio)*labelRatio)
   }
   if (!is.null(ylabel2)) {
-    tgd1 <- plot_grid(tgd1, ylabel2, ncol=2, rel_widths = c(1,0.1))
+    tgd1 <- cowplot::plot_grid(tgd1, ylabel2, ncol=2, rel_widths = c(1,0.1))
     tgd1 <- tgd1 + sm_add_text(ylabel2Str, x = 0.95,
                                y = yloc, angle = 270, size = ((10+ncr)*tickRatio)*labelRatio)
   }
 
   return(tgd1)
-}
-
-flatten_ggplot <- function(lst) {
-  plots <- list()
-  for (item in lst) {
-    if (inherits(item, "gg")) {
-      plots <- c(plots, list(item))
-    } else if (is.list(item)) {
-      plots <- c(plots, flatten_ggplot(item))
-    }
-  }
-  return(plots)
-}
-
-count_lines <- function(text) {
-  if (!is.null(text)){
-    res <- length(strsplit(text, "\n")[[1]])
-  } else {
-    res <- 0
-  }
-  return(res)
-
 }

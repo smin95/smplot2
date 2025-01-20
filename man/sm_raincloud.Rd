@@ -2,7 +2,7 @@
 % Please edit documentation in R/sm_raincloud.R
 \name{sm_raincloud}
 \alias{sm_raincloud}
-\title{Raincloud plot}
+\title{Raincloud Plot}
 \usage{
 sm_raincloud(
   ...,
@@ -21,58 +21,99 @@ sm_raincloud(
 )
 }
 \arguments{
-\item{...}{A generic aesthetic parameter across points, boxplot and violin. This
-is optional.}
+\item{...}{Additional aesthetic parameters applied across all elements (points, boxplot, and violin plot). Optional.}
 
-\item{boxplot.params}{List of parameters for boxplot, such as color, alpha, fill etc}
+\item{boxplot.params}{A list of parameters for customizing the boxplot. Common options include:
+\itemize{
+  \item \code{fill}: Fill color of the boxplot.
+  \item \code{color}: Outline color of the boxplot.
+  \item \code{alpha}: Transparency level of the boxplot.
+  \item \code{width}: Width of the boxplot.
+}
+Default: \code{list()}.}
 
-\item{violin.params}{List of parameters for violin, such as color, alpha, fill etc}
+\item{violin.params}{A list of parameters for customizing the violin plot. Common options include:
+\itemize{
+  \item \code{alpha}: Transparency level of the violin plot.
+  \item \code{color}: Outline color of the violin plot.
+  \item \code{fill}: Fill color of the violin plot.
+}
+Default: \code{list(alpha = 0.3, color = 'transparent')}.}
 
-\item{point.params}{List of parameters for individual points, such as color, alpha, fill etc}
+\item{point.params}{A list of parameters for customizing individual points. Common options include:
+\itemize{
+  \item \code{alpha}: Transparency level of the points.
+  \item \code{size}: Size of the points.
+  \item \code{shape}: Shape of the points.
+  \item \code{color}: Outline color of the points.
+}
+Default: \code{list(alpha = 1, size = 3, shape = 21, color = 'transparent')}.}
 
-\item{which_side}{String argument to specify the side of the boxplots and violinplots.
-The options are: 'right' and 'left'. 'mixed' has been removed from smplot due
-to its lack of usage.}
+\item{which_side}{Specifies the side of the violin and boxplots. Options:
+\itemize{
+  \item \code{'right'}: Displays elements on the right side (default).
+  \item \code{'left'}: Displays elements on the left side.
+}
+The \code{'mixed'} option has been removed due to limited usage.}
 
-\item{sep_level}{A numerical value that controls the level of the separation among
-the boxplot, violin plot and the points. The value can be 0-4.
-If it's 0, all of these are clustered together. If it's 3, they are all
-separated. 1 and 2 are somewhere in the middle. Default is set to 2.}
+\item{sep_level}{A numeric value (0-4) controlling the separation level among the boxplot, violin plot, and points:
+\itemize{
+  \item \code{0}: All elements are clustered together.
+  \item \code{4}: All elements are maximally separated.
+  \item Intermediate values (\code{1-3}) provide varying levels of separation.
+}
+Default: \code{2}.}
 
-\item{point_jitter_width}{A numerical value that determines the degree of the jitter for each point. If its 0,
-all the points will have no jitter (aligned along the y-axis).}
+\item{point_jitter_width}{A numeric value determining the horizontal jitter for individual points:
+\itemize{
+  \item If set to \code{0}, points are aligned along the y-axis without jitter.
+  \item Default: \code{0.12}.
+}}
 
-\item{vertical}{The orientation of the plots. The default is set to TRUE.
-If you want the horizontal orientation of the plot, set this argument
-as FALSE.}
+\item{vertical}{Logical. Specifies the orientation of the plot:
+\itemize{
+  \item \code{TRUE}: Vertical orientation (default).
+  \item \code{FALSE}: Horizontal orientation.
+}}
 
-\item{points}{If the points need to be displayed, the input should be TRUE.
-If the points are not needed, the input should be FALSE.}
+\item{points}{Logical. Determines whether individual points are displayed:
+\itemize{
+  \item \code{TRUE}: Display points (default).
+  \item \code{FALSE}: Hide points.
+}}
 
-\item{borders}{If the border needs to be displayed, the input should be TRUE.
-If the border is not needed, the input should be FALSE.}
+\item{borders}{Logical. Determines whether grid borders are displayed:
+\itemize{
+  \item \code{TRUE}: Display borders (default).
+  \item \code{FALSE}: Remove borders.
+}}
 
-\item{legends}{If the legend needs to be displayed, the input should be TRUE.
-If the legend is not needed, the input should be FALSE.}
+\item{legends}{Logical. Determines whether legends are displayed:
+\itemize{
+  \item \code{TRUE}: Display legends.
+  \item \code{FALSE}: Hide legends (default).
+}}
 
-\item{seed}{Random seed}
+\item{seed}{A numeric value to set a random seed for reproducible jittered points.
+Default: \code{NULL} (no seed).}
 
-\item{forget}{Forget the defaults when list() is called for a specific parameter (ex. point.params).
-Set to TRUE when when users want to map aesthetics to different groups more flexibly..
-Set to FALSE by default.}
+\item{forget}{Logical. Determines whether to apply the default aesthetic parameters:
+\itemize{
+  \item \code{TRUE}: Ignore default aesthetic parameters (\code{boxplot.params},
+        \code{violin.params}, and \code{point.params}) and apply only user-supplied customizations.
+  \item \code{FALSE}: Merge user-supplied customizations with the defaults (default).
+}}
 }
 \value{
-Returns a raincloud plot generated using ggplot2.
+A list of ggplot2 layers for creating a raincloud plot.
 }
 \description{
-This function visualizes a raincloud plot, which is a combination of jittered points, boxplots
-and violin plots. The creation of this function
-has been inspired by the R package called 'raincloudplots' by Jordy van
-Langen.
+Creates a raincloud plot, a combination of jittered points, boxplots, and violin plots.
+Inspired by the 'raincloudplots' R package by Jordy van Langen, this function offers
+enhanced customization and automatic sorting of data based on the x-axis factor levels.
 
-This function has been created to allow more customisation than the functions
-in the raincloudplots package. Also, this function automatically sorts the data given the
-condition that the x-axis factor levels have been sorted properly.
+This function allows detailed control over the aesthetics of individual components
+(boxplot, violin, and points) and provides options to adjust layout and orientation.
 }
 \examples{
 library(ggplot2)

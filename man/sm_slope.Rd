@@ -2,7 +2,7 @@
 % Please edit documentation in R/sm_slope.R
 \name{sm_slope}
 \alias{sm_slope}
-\title{A slope chart}
+\title{Slope Chart}
 \usage{
 sm_slope(
   ...,
@@ -23,61 +23,105 @@ sm_slope(
 )
 }
 \arguments{
-\item{...}{List of parameters for individual points and lines across different elements
-(except for except for xTick.params), such as color, alpha, fill etc.}
+\item{...}{Additional aesthetic parameters applied across points and lines, such as \code{color}, \code{alpha}, and \code{fill}. Optional.}
 
-\item{labels}{Labels for the ticks of the x-axis. This is a required argument.
-It has to be a single vector containing either one
-or multiple elements. ex: c('Day 1', 'Day 2')}
+\item{labels}{A vector specifying the labels for the x-axis ticks. This is a required argument.
+For example: \code{c('Day 1', 'Day 2')}.}
 
-\item{group}{Name of the variable by which the individual data should be grouped}
+\item{group}{The name of the variable used to group individual data points. This is a required argument.}
 
-\item{line.params}{List of parameters for the individual lines, such as color, alpha etc}
+\item{line.params}{A list of parameters for individual lines. Common parameters include:
+\itemize{
+  \item \code{color}: Color of the lines.
+  \item \code{alpha}: Transparency of the lines.
+  \item \code{linewidth}: Width of the lines.
+}
+Default: \code{list(color = 'gray53', linewidth = 0.4, alpha = 0.4)}.}
 
-\item{point.params}{List of parameters for the individual points, such as color, alpha, fill etc}
+\item{point.params}{A list of parameters for individual points. Common parameters include:
+\itemize{
+  \item \code{size}: Size of the points.
+  \item \code{shape}: Shape of the points.
+  \item \code{color}: Color of the points.
+}
+Default: \code{list(size = 2.5, shape = 21, color = 'white')}.}
 
-\item{avgLine.params}{List of parameters for the average line, such as color, alpha etc}
+\item{avgLine.params}{A list of parameters for the average line. Common parameters include:
+\itemize{
+  \item \code{color}: Color of the average line.
+  \item \code{linewidth}: Width of the average line.
+}
+Default: \code{list(linewidth = 1)}.}
 
-\item{avgPoint.params}{List of parameters for the average point, such as color, alpha, fill etc}
+\item{avgPoint.params}{A list of parameters for the average points. Common parameters include:
+\itemize{
+  \item \code{size}: Size of the average points.
+  \item \code{fill}: Fill color of the average points.
+}
+Default: \code{list(size = 4)}.}
 
-\item{err.params}{List of parameters for the error bar from the average plot, such as color, alpha etc}
+\item{err.params}{A list of parameters for error bars. Common parameters include:
+\itemize{
+  \item \code{color}: Color of the error bars.
+  \item \code{linewidth}: Width of the error bars.
+}
+Default: \code{list(linewidth = 1)}.}
 
-\item{xTick.params}{List of parameters for the x tick from the average plot, such as color, alpha etc}
+\item{xTick.params}{A list of parameters for customizing the x-axis ticks. Common options include:
+\itemize{
+  \item \code{position}: Location of the ticks (default: \code{'top'}).
+  \item \code{expand}: Space around the ticks (default: \code{c(0.17, 0.1)}).
+  \item \code{drop}: Whether to drop unused factor levels (default: \code{FALSE}).
+}}
 
-\item{errorbar_type}{This argument determines the errorbar type.
-If it is set to 'se', standard error bar will be shown.
-If it is set to 'sd' (default), the error bar will display standard deviation.
-If it is set to 'ci', the error bar will display 95\% confidence interval.}
+\item{errorbar_type}{A string specifying the type of error bars to display:
+\itemize{
+  \item \code{'se'}: Standard error.
+  \item \code{'sd'}: Standard deviation (default).
+  \item \code{'ci'}: 95% confidence interval.
+}}
 
-\item{many_groups}{This argument determines whether the average line can be plotted for each group when
-multiple groups are plotted at once.
-If the average line needs to be plotted across all data presented, set this as FALSE.
-If there are many groups that are presented and that each average line has to be plotted,
-then set this as TRUE.}
+\item{many_groups}{Logical. Determines whether the average line is plotted for each group:
+\itemize{
+  \item \code{TRUE}: An average line is plotted for each group.
+  \item \code{FALSE}: A single average line is plotted across all data.
+}
+Default: \code{FALSE}.}
 
-\item{show_err}{If the error bar needs to be displayed, the input should be TRUE.
-If the error bar is not needed, the input should be FALSE.}
+\item{show_err}{Logical. Determines whether to display error bars:
+\itemize{
+  \item \code{TRUE}: Display error bars.
+  \item \code{FALSE}: Hide error bars (default).
+}}
 
-\item{show_mean}{If the average plot needs to be displayed, the input should be TRUE.
-If the average plot is not needed, the input should be FALSE.}
+\item{show_mean}{Logical. Determines whether to display the average line and points:
+\itemize{
+  \item \code{TRUE}: Display the average line and points.
+  \item \code{FALSE}: Hide the average line and points (default).
+}}
 
-\item{legends}{If the legend needs to be displayed, the input should be TRUE.
-If the legend is not needed, the input should be FALSE.}
+\item{legends}{Logical. Determines whether to display legends:
+\itemize{
+  \item \code{TRUE}: Display legends.
+  \item \code{FALSE}: Hide legends (default).
+}}
 
-\item{forget}{Forget the defaults when list() is called for a specific parameter (ex. point.params).
-Set to TRUE when when users want to map aesthetics to different groups more flexibly..
-Set to FALSE by default.}
+\item{forget}{Logical. Determines whether to apply the default aesthetic parameters:
+\itemize{
+  \item \code{TRUE}: Ignore default aesthetic parameters (\code{line.params}, \code{point.params}, etc.)
+        and apply only user-supplied customizations.
+  \item \code{FALSE}: Merge user-supplied customizations with the defaults (default).
+}}
 }
 \value{
-Returns a slope chart which is a ggplot2 object.
+A list of ggplot2 layers for creating a slope chart.
 }
 \description{
-This function generates a slope chart.
-This is very useful for comparing the effect between two time points.
+Generates a slope chart, which is particularly useful for comparing effects between two time points.
+The function supports grouped data and provides various customization options for lines, points, error bars,
+and x-axis ticks. Users can specify the type of error bars and control whether to display mean and error bars.
 
-ggplot()'s mapping has to be quite specific: each observation has to be grouped.
-
-Error bar types can be specified (ci, sd, and se).
+The mapping in `ggplot()` requires grouping each observation to ensure correct pairing of points.
 }
 \examples{
 library(ggplot2)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/sm_classic.R
 \name{sm_classic}
 \alias{sm_classic}
-\title{A SM classical theme.}
+\title{A classical theme.}
 \usage{
 sm_classic(legends = FALSE)
 }

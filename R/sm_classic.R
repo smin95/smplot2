@@ -1,4 +1,4 @@
-#' A SM classical theme.
+#' A classical theme.
 #'
 #' @description
 #' It has x and y axis but no grids.

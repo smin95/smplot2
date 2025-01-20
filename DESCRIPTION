@@ -1,18 +1,18 @@
 Package: smplot2
 Type: Package
-Title: Creating Standalone and Composite Plots in 'ggplot2' for Publications
-Version: 0.2.4
+Title: Create Standalone and Composite Plots in 'ggplot2' for Publications
+Version: 0.2.5
 Authors@R: 
     person(
-      given = "Seung Hyun (Sam)",
+      given = "Seung Hyun",
       family = "Min",
       role = c("aut", "cre"),
       email = "seung.min@mail.mcgill.ca"
     )
-Maintainer: Seung Hyun (Sam) Min <seung.min@mail.mcgill.ca>
+Maintainer: Seung Hyun Min <seung.min@mail.mcgill.ca>
 Description: Provides functions for creating and annotating a composite plot in 'ggplot2'. Offers background themes and shortcut plotting functions that produce figures that are appropriate for the format of scientific journals. Some methods are described in Min and Zhou (2021) <doi:10.3389/fgene.2021.802894>.
 Encoding: UTF-8
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 License: GPL-2
 Depends:
 	R (>= 3.4.0)
