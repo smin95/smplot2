@@ -20,21 +20,20 @@
 #'
 #' @examples
 #' library(smplot2)
-#' group1 <- rnorm(10,0,1)
-#' group2 <- rnorm(10,1,1)
+#' group1 <- rnorm(10, 0, 1)
+#' group2 <- rnorm(10, 1, 1)
 #' sm_effsize(group1, group2)
-
 sm_effsize <- function(group1, group2, absolute = TRUE) {
   n1 <- length(group1) # sample size for group 1
   n2 <- length(group2) # sample size for group 2
   diff <- mean(group2) - mean(group1)
-  sd_pool <- sqrt(((n2-1)*var(group2) + (n1-1)*var(group1))/(n1+n2-2))
+  sd_pool <- sqrt(((n2 - 1) * var(group2) + (n1 - 1) * var(group1)) / (n1 + n2 - 2))
   effect_size <- diff / sd_pool
   if (absolute == TRUE) {
     return(abs(effect_size))
   } else if (absolute == FALSE) {
     return(effect_size)
   } else {
-    stop('absolute has to be a logical value, either TRUE or FALSE.')
+    stop("absolute has to be a logical value, either TRUE or FALSE.")
   }
 }

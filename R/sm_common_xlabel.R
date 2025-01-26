@@ -19,12 +19,13 @@
 #'
 #' @examples
 #' library(smplot2)
-#' sm_common_xlabel('My x-axis')
-
-sm_common_xlabel <- function(label = '', size=17, x = 0.5, y = 0.5, fontface='plain') {
+#' sm_common_xlabel("My x-axis")
+sm_common_xlabel <- function(label = "", size = 17, x = 0.5, y = 0.5, fontface = "plain") {
   layer <- ggdraw()
-  label <- draw_label(label, size = size, x = x, y = y,
-                      fontface = fontface)
+  label <- draw_label(label,
+    size = size, x = x, y = y,
+    fontface = fontface
+  )
 
-  return(list(layer+label)[[1]])
+  return(list(layer + label)[[1]])
 }

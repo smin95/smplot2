@@ -27,31 +27,36 @@
 #' library(smplot2)
 #' library(ggplot2)
 #' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
-#'  geom_point(shape = 21, fill = '#0f993d', color = 'white',
-#'             size = 3) -> p1
+#'   geom_point(
+#'     shape = 21, fill = "#0f993d", color = "white",
+#'     size = 3
+#'   ) -> p1
 #'
 #' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
-#'  geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
-#'  sm_hvgrid() -> p2
+#'   geom_point(shape = 21, fill = "#0f993d", color = "white", size = 3) +
+#'   sm_hvgrid() -> p2
 #'
-#' combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
-#' combined_fig + sm_add_text(label='My label', x = .5, y= .5)
+#' combined_fig <- sm_put_together(list(p1, p2), ncol = 2, nrow = 1)
+#' combined_fig + sm_add_text(label = "My label", x = .5, y = .5)
 #'
-#'
-sm_add_text <- function(label, x=0.5, y=0.5, angle=0, color = 'black',
-                        fontface='plain', size=10, ...) {
-
-
+sm_add_text <- function(label, x = 0.5, y = 0.5, angle = 0, color = "black",
+                        fontface = "plain", size = 10, ...) {
   ggplot(NULL) +
     theme_nothing() +
-    annotate('text', label = label, x=.5, y=.5,
-             angle=angle, color=color,
-             size = size/.pt,
-             fontface=fontface, ...) +
-    scale_x_continuous(limits=c(0,1),
-                       expand = c(0,0)) +
-    scale_y_continuous(limits=c(0,1),
-                       expand = c(0,0))-> annot
+    annotate("text",
+      label = label, x = .5, y = .5,
+      angle = angle, color = color,
+      size = size / .pt,
+      fontface = fontface, ...
+    ) +
+    scale_x_continuous(
+      limits = c(0, 1),
+      expand = c(0, 0)
+    ) +
+    scale_y_continuous(
+      limits = c(0, 1),
+      expand = c(0, 0)
+    ) -> annot
 
   x <- x - 0.5
   y <- y - 0.5
@@ -59,4 +64,3 @@ sm_add_text <- function(label, x=0.5, y=0.5, angle=0, color = 'black',
   output <- draw_plot(annot, x, y)
   return(output)
 }
-

@@ -96,11 +96,11 @@
 #' library(ggplot2)
 #' library(smplot2)
 #' set.seed(1) # generate random data
-#' day1 = rnorm(16,2,1)
-#' day2 = rnorm(16,5,1)
-#' Subject <- rep(paste0('S',seq(1:16)), 2)
-#' Data <- data.frame(Value = matrix(c(day1,day2),ncol=1))
-#' Day <- rep(c('Day 1', 'Day 2'), each = length(day1))
+#' day1 <- rnorm(16, 2, 1)
+#' day2 <- rnorm(16, 5, 1)
+#' Subject <- rep(paste0("S", seq(1:16)), 2)
+#' Data <- data.frame(Value = matrix(c(day1, day2), ncol = 1))
+#' Day <- rep(c("Day 1", "Day 2"), each = length(day1))
 #' df <- cbind(Subject, Data, Day)
 
 #' # with aesthetic defaults of smplot
@@ -115,25 +115,26 @@
 #'
 #'
 sm_violin <- function(...,
-                      violin.params = list(fill = 'gray90',
-                                           color = 'transparent'),
-                      err.params = list(size = 1.2, linewidth=1.2),
+                      violin.params = list(
+                        fill = "gray90",
+                        color = "transparent"
+                      ),
+                      err.params = list(size = 1.2, linewidth = 1.2),
                       point.params = list(alpha = 0.25, size = 2),
-                      errorbar_type = 'sd',
+                      errorbar_type = "sd",
                       point_jitter_width = 0.17,
                       points = TRUE,
                       borders = TRUE,
-                      legends =  FALSE, seed = NULL, forget = FALSE) {
-
+                      legends = FALSE, seed = NULL, forget = FALSE) {
   if (length(seed)) set.seed(seed)
   params <- list(...)
 
   if (forget == FALSE) {
-    violin.params0 = list(fill = 'gray90', color = 'transparent')
+    violin.params0 <- list(fill = "gray90", color = "transparent")
     violin.params0 <- modifyList(violin.params0, params)
-    err.params0 = list(size = 1.2, linewidth=1.2)
+    err.params0 <- list(size = 1.2, linewidth = 1.2)
     err.params0 <- modifyList(err.params0, params)
-    point.params0 = list(alpha = 0.25, size = 2)
+    point.params0 <- list(alpha = 0.25, size = 2)
     point.params0 <- modifyList(point.params0, params)
 
     violin.params <- modifyList(violin.params0, violin.params)
@@ -146,27 +147,45 @@ sm_violin <- function(...,
   }
 
 
-  violinPlot <- do.call('geom_violin',
-                        modifyList(list(), violin.params))
+  violinPlot <- do.call(
+    "geom_violin",
+    modifyList(list(), violin.params)
+  )
 
-  pointPlot <- do.call('geom_point',
-                       modifyList(list(position = position_jitter(height=0,
-                                                                  width=point_jitter_width)), point.params))
+  pointPlot <- do.call(
+    "geom_point",
+    modifyList(list(position = position_jitter(
+      height = 0,
+      width = point_jitter_width
+    )), point.params)
+  )
 
-  if (errorbar_type == 'se') {
-    errPlot <- do.call('stat_summary',
-                       modifyList(list(fun.data = mean_se,
-                                       geom = 'pointrange'), err.params))
-  } else if (errorbar_type == 'sd') {
-    errPlot <- do.call('stat_summary',
-                       modifyList(list(fun.data = mean_sdl,
-                                       fun.args = list(mult = 1),
-                                       geom = 'pointrange',
-                                       fatten = point.params$size*1.3),err.params))
-  } else if (errorbar_type == 'ci') {
-    errPlot <- do.call('stat_summary',
-                       modifyList(list(fun.data = mean_cl_boot,
-                                       geom = 'pointrange'), err.params))
+  if (errorbar_type == "se") {
+    errPlot <- do.call(
+      "stat_summary",
+      modifyList(list(
+        fun.data = mean_se,
+        geom = "pointrange"
+      ), err.params)
+    )
+  } else if (errorbar_type == "sd") {
+    errPlot <- do.call(
+      "stat_summary",
+      modifyList(list(
+        fun.data = mean_sdl,
+        fun.args = list(mult = 1),
+        geom = "pointrange",
+        fatten = point.params$size * 1.3
+      ), err.params)
+    )
+  } else if (errorbar_type == "ci") {
+    errPlot <- do.call(
+      "stat_summary",
+      modifyList(list(
+        fun.data = mean_cl_boot,
+        geom = "pointrange"
+      ), err.params)
+    )
   } else {
     stop('Wrong input argument for errorbar_type. Please write either "se", "sd" or "ci"')
   }
@@ -175,7 +194,8 @@ sm_violin <- function(...,
     pointPlot <- NULL
   }
 
-  list(violinPlot,pointPlot,errPlot,
-       sm_hgrid(borders=borders, legends=legends))
-
+  list(
+    violinPlot, pointPlot, errPlot,
+    sm_hgrid(borders = borders, legends = legends)
+  )
 }

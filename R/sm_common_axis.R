@@ -33,97 +33,95 @@
 #' library(ggplot2)
 #' library(smplot2)
 #' set.seed(1) # generate random data
-#' day1 = rnorm(16,2,1)
-#' day2 = rnorm(16,5,1)
-#' Subject <- rep(paste0('S',seq(1:16)), 2)
-#' Data <- data.frame(Value = matrix(c(day1,day2),ncol=1))
-#' Day <- rep(c('Day 1', 'Day 2'), each = length(day1))
+#' day1 <- rnorm(16, 2, 1)
+#' day2 <- rnorm(16, 5, 1)
+#' Subject <- rep(paste0("S", seq(1:16)), 2)
+#' Data <- data.frame(Value = matrix(c(day1, day2), ncol = 1))
+#' Day <- rep(c("Day 1", "Day 2"), each = length(day1))
 #' df <- cbind(Subject, Data, Day)
 #'
 #' # with aesthetic defaults of smplot
 #' ggplot(data = df, mapping = aes(x = Day, y = Value, color = Day)) +
-#' sm_bar() +
-#' scale_color_manual(values = sm_color('blue','orange')) +
-#' sm_common_axis('bottomleft')
+#'   sm_bar() +
+#'   scale_color_manual(values = sm_color("blue", "orange")) +
+#'   sm_common_axis("bottomleft")
 #'
-#'
-
 sm_common_axis <- function(location, hmargin = 1, wmargin = 1) {
   # 9+1 locations
-  if (location == 'topleft') {
+  if (location == "topleft") {
     ggplot2::theme(axis.title.x = element_blank()) +
       ggplot2::theme(axis.text.x.bottom = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
       ggplot2::theme(axis.text.y.right = element_blank()) +
       theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
-  } else if (location == 'topright') {
+  } else if (location == "topright") {
     ggplot2::theme(axis.title.x = element_blank()) +
       ggplot2::theme(axis.text.x.bottom = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
       ggplot2::theme(axis.text.y.left = element_blank()) +
       ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
-  } else if (location == 'bottomleft') {
+  } else if (location == "bottomleft") {
     ggplot2::theme(axis.title.x = element_blank()) +
       ggplot2::theme(axis.text.x.top = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
       ggplot2::theme(axis.text.y.right = element_blank()) +
       ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
-  } else if (location == 'bottomright') {
+  } else if (location == "bottomright") {
     ggplot2::theme(axis.title.x = element_blank()) +
       ggplot2::theme(axis.text.x.top = element_blank()) +
       ggplot2::theme(axis.text.y.left = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
       ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
-  } else if (location == 'topcenter') {
+  } else if (location == "topcenter") {
     ggplot2::theme(axis.title.x = element_blank()) +
       ggplot2::theme(axis.text.x.bottom = element_blank()) +
       ggplot2::theme(axis.text.y = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
       ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
-  } else if (location == 'bottomcenter') {
+  } else if (location == "bottomcenter") {
     ggplot2::theme(axis.title.x = element_blank()) +
       ggplot2::theme(axis.text.x.top = element_blank()) +
       ggplot2::theme(axis.text.y = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
       ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
-  } else if (location == 'center') {
+  } else if (location == "center") {
     ggplot2::theme(axis.title.x = element_blank()) +
       ggplot2::theme(axis.text.x = element_blank()) +
       ggplot2::theme(axis.text.y = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
       ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
-  } else if (location == 'centerleft') {
+  } else if (location == "centerleft") {
     ggplot2::theme(axis.title.x = element_blank()) +
       ggplot2::theme(axis.text.x = element_blank()) +
       ggplot2::theme(axis.text.y.right = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
       ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
-  } else if (location == 'centerright') {
+  } else if (location == "centerright") {
     ggplot2::theme(axis.title.x = element_blank()) +
       ggplot2::theme(axis.text.x = element_blank()) +
       ggplot2::theme(axis.text.y.left = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
       ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
-  } else if (location == 'single') {
+  } else if (location == "single") {
     ggplot2::theme(axis.title.x = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
       ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
-  } else if (location == 'bottomleft2x') {
+  } else if (location == "bottomleft2x") {
     ggplot2::theme(axis.title.x = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
       ggplot2::theme(axis.text.y.right = element_blank()) +
       ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
-  } else if (location == 'bottomcenter2x') {
+  } else if (location == "bottomcenter2x") {
     ggplot2::theme(axis.title.x = element_blank()) +
       ggplot2::theme(axis.text.y = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
       ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
-  } else if (location == 'bottomright2x') {
+  } else if (location == "bottomright2x") {
     ggplot2::theme(axis.title.x = element_blank()) +
       ggplot2::theme(axis.text.y.left = element_blank()) +
       ggplot2::theme(axis.title.y = element_blank()) +
       ggplot2::theme(plot.margin = margin(r = wmargin, t = hmargin, l = wmargin, b = hmargin))
   } else {
-    stop('Wrong input. Please check again.')
+    stop("Wrong input. Please check again.")
   }
 }

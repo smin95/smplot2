@@ -100,47 +100,53 @@
 #' library(smplot2)
 #'
 #' set.seed(1) # generate random data
-#' day1 = rnorm(16,2,1)
-#' day2 = rnorm(16,5,1)
-#' Subject <- rep(paste0('S',seq(1:16)), 2)
-#' Data <- data.frame(Value = matrix(c(day1,day2),ncol=1))
-#' Day <- rep(c('Day 1', 'Day 2'), each = length(day1))
+#' day1 <- rnorm(16, 2, 1)
+#' day2 <- rnorm(16, 5, 1)
+#' Subject <- rep(paste0("S", seq(1:16)), 2)
+#' Data <- data.frame(Value = matrix(c(day1, day2), ncol = 1))
+#' Day <- rep(c("Day 1", "Day 2"), each = length(day1))
 #' df <- cbind(Subject, Data, Day)
 #'
-#' ggplot(data=df, aes(x = Day, y = Value)) +
-#'  sm_slope_mean(labels = c('Day 1', 'Day 2'), group = Subject, back_alpha = .3,
-#' main_color = sm_color('green'))
+#' ggplot(data = df, aes(x = Day, y = Value)) +
+#'   sm_slope_mean(
+#'     labels = c("Day 1", "Day 2"), group = Subject, back_alpha = .3,
+#'     main_color = sm_color("green")
+#'   )
 sm_slope_mean <- function(...,
                           labels,
                           group,
-                          main_color=sm_color('blue'),
-                          main_shape=21,
+                          main_color = sm_color("blue"),
+                          main_shape = 21,
                           back_alpha = 0.25,
                           line_width = 0.25,
                           avgline_width = 1,
                           point_size = 2.5,
                           avgpoint_size = 4,
                           err_width = 1,
-                          xTick.params = list(position = 'top',
-                                              expand = c(0.17,.1),
-                                              drop=FALSE),
-                          errorbar_type = 'sd',
+                          xTick.params = list(
+                            position = "top",
+                            expand = c(0.17, .1),
+                            drop = FALSE
+                          ),
+                          errorbar_type = "sd",
                           show_err = FALSE,
                           legends = FALSE) {
-
-  if (missing(group)) stop('group (of the shadow) must be specified because each observation has to be paired.')
+  if (missing(group)) stop("group (of the shadow) must be specified because each observation has to be paired.")
   if (missing(labels)) labels <- rev(letters)
 
-  line.params = list(); point.params = list(); avgLine.params = list();
-  avgPoint.params = list(); err.params = list()
+  line.params <- list()
+  point.params <- list()
+  avgLine.params <- list()
+  avgPoint.params <- list()
+  err.params <- list()
 
   # color
   line.params$color <- main_color
   err.params$color <- main_color
   avgLine.params$color <- main_color
   if (main_shape > 20) {
-    point.params$color <- 'white'
-    avgPoint.params$color <- 'white'
+    point.params$color <- "white"
+    avgPoint.params$color <- "white"
     point.params$fill <- main_color
     avgPoint.params$fill <- main_color
   } else {
@@ -148,17 +154,21 @@ sm_slope_mean <- function(...,
     avgPoint.params$color <- main_color
   }
 
-  #shape
-  point.params$shape <- main_shape; avgPoint.params$shape <- main_shape
+  # shape
+  point.params$shape <- main_shape
+  avgPoint.params$shape <- main_shape
 
-  #point size
-  point.params$size <- point_size; avgPoint.params$size <- avgpoint_size
+  # point size
+  point.params$size <- point_size
+  avgPoint.params$size <- avgpoint_size
 
-  #alpha
-  line.params$alpha <- back_alpha; point.params$alpha <- (back_alpha * 0.65)
+  # alpha
+  line.params$alpha <- back_alpha
+  point.params$alpha <- (back_alpha * 0.65)
 
-  #linewidth
-  line.params$linewidth <- line_width; avgLine.params$linewidth <- avgline_width
+  # linewidth
+  line.params$linewidth <- line_width
+  avgLine.params$linewidth <- avgline_width
   err.params$linewidth <- err_width
 
   params <- list(...)
@@ -168,46 +178,76 @@ sm_slope_mean <- function(...,
   avgPoint.params <- modifyList(params, avgPoint.params)
   err.params <- modifyList(params, err.params)
 
-  if (errorbar_type == 'se') {
-    errPlot <- do.call('stat_summary',
-                       modifyList(list(fun.data = mean_se,
-                                       geom = 'linerange'), err.params))
-  } else if (errorbar_type == 'sd') {
-    errPlot <- do.call('stat_summary',
-                       modifyList(list(fun = mean,
-                                       fun.min = function(x) mean(x) - sd(x),
-                                       fun.max = function(x) mean(x) + sd(x),
-                                       geom = 'linerange'),
-                                  err.params))
-  } else if (errorbar_type == 'ci') {
-    errPlot <- do.call('stat_summary',
-                       modifyList(list(fun.data = mean_cl_boot,
-                                       geom = 'linerange'), err.params))
+  if (errorbar_type == "se") {
+    errPlot <- do.call(
+      "stat_summary",
+      modifyList(list(
+        fun.data = mean_se,
+        geom = "linerange"
+      ), err.params)
+    )
+  } else if (errorbar_type == "sd") {
+    errPlot <- do.call(
+      "stat_summary",
+      modifyList(
+        list(
+          fun = mean,
+          fun.min = function(x) mean(x) - sd(x),
+          fun.max = function(x) mean(x) + sd(x),
+          geom = "linerange"
+        ),
+        err.params
+      )
+    )
+  } else if (errorbar_type == "ci") {
+    errPlot <- do.call(
+      "stat_summary",
+      modifyList(list(
+        fun.data = mean_cl_boot,
+        geom = "linerange"
+      ), err.params)
+    )
   } else {
     stop('Wrong input argument for errorbar_type. Please write either "se", "sd" or "ci"')
   }
 
-  linePlot <- do.call('geom_line',
-                      modifyList(list(aes(group = {{group}})), line.params))
+  linePlot <- do.call(
+    "geom_line",
+    modifyList(list(aes(group = {{ group }})), line.params)
+  )
 
-  pointPlot <- do.call('geom_point',
-                       modifyList(list(aes(group={{group}})), point.params))
+  pointPlot <- do.call(
+    "geom_point",
+    modifyList(list(aes(group = {{ group }})), point.params)
+  )
 
-  avgLinePlot <- do.call('stat_summary',
-                         modifyList(list(aes(group=1), fun = mean,
-                                         geom = 'line'), avgLine.params))
-  avgPointPlot <- do.call('stat_summary',
-                          modifyList(list(fun = mean,
-                                          geom = 'point'), avgPoint.params))
+  avgLinePlot <- do.call(
+    "stat_summary",
+    modifyList(list(aes(group = 1),
+      fun = mean,
+      geom = "line"
+    ), avgLine.params)
+  )
+  avgPointPlot <- do.call(
+    "stat_summary",
+    modifyList(list(
+      fun = mean,
+      geom = "point"
+    ), avgPoint.params)
+  )
 
-  scaleX <- do.call('scale_x_discrete',
-                    modifyList(list(labels = labels), xTick.params))
+  scaleX <- do.call(
+    "scale_x_discrete",
+    modifyList(list(labels = labels), xTick.params)
+  )
 
   if (show_err == FALSE) {
     errPlot <- NULL
   }
 
-  list(linePlot,pointPlot,avgLinePlot,
-       avgPointPlot,errPlot, scaleX,
-       sm_slope_theme(legends=legends))
+  list(
+    linePlot, pointPlot, avgLinePlot,
+    avgPointPlot, errPlot, scaleX,
+    sm_slope_theme(legends = legends)
+  )
 }

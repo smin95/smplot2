@@ -36,24 +36,26 @@
 #'
 #' first <- rnorm(20)
 #' second <- rnorm(20)
-#' df <- as_tibble(cbind(first,second)) # requires library(tidyverse)
+#' df <- as_tibble(cbind(first, second)) # requires library(tidyverse)
 #' sm_statBlandAlt(df$first, df$second)
 #'
-
-
 sm_statBlandAlt <- function(first, second) {
-  diff = second - first
-  mean = rowMeans(cbind(first,second),na.rm=TRUE)
-  mean_diff = mean(diff)
-  sd = sd(diff)
-  upper_limit  = mean_diff + 1.96*sd
-  lower_limit = mean_diff - 1.96*sd
+  diff <- second - first
+  mean <- rowMeans(cbind(first, second), na.rm = TRUE)
+  mean_diff <- mean(diff)
+  sd <- sd(diff)
+  upper_limit <- mean_diff + 1.96 * sd
+  lower_limit <- mean_diff - 1.96 * sd
   diff_ci <- t.test(diff)$conf.int
-  data <- as_tibble(cbind(mean,diff))
-  res <- list(diff,mean,sd, mean_diff,upper_limit,lower_limit,
-              data, diff_ci)
-  names(res) <- c('diff', 'mean', 'sd', 'mean_diff',
-                  'upper_limit','lower_limit','data',
-                  'diff_ci')
+  data <- as_tibble(cbind(mean, diff))
+  res <- list(
+    diff, mean, sd, mean_diff, upper_limit, lower_limit,
+    data, diff_ci
+  )
+  names(res) <- c(
+    "diff", "mean", "sd", "mean_diff",
+    "upper_limit", "lower_limit", "data",
+    "diff_ci"
+  )
   return(res)
 }

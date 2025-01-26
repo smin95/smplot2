@@ -18,23 +18,26 @@
 #'
 #' @examples
 #' library(smplot2)
-#' group1 <- rnorm(10,0,1)
-#' group2 <- rnorm(10,1,1)
+#' group1 <- rnorm(10, 0, 1)
+#' group2 <- rnorm(10, 1, 1)
 #' sm_power(group1, group2, paired = TRUE)
 #'
 sm_power <- function(group1, group2, paired,
                      sig.level = 0.05, power = 0.8) {
-
   eff_size <- sm_effsize(group1, group2)
 
   if (paired == TRUE) {
-    res <- pwr::pwr.t.test(d = eff_size, sig.level = sig.level,
-                           power = power, type = 'paired')
-  } else if (paired == FALSE)  {
-    res <- pwr::pwr.t.test(d = eff_size, sig.level = sig.level,
-                           power = power, type = 'two.sample')
+    res <- pwr::pwr.t.test(
+      d = eff_size, sig.level = sig.level,
+      power = power, type = "paired"
+    )
+  } else if (paired == FALSE) {
+    res <- pwr::pwr.t.test(
+      d = eff_size, sig.level = sig.level,
+      power = power, type = "two.sample"
+    )
   } else {
-    stop('paired has to be a logical value: TRUE or FALSE.')
+    stop("paired has to be a logical value: TRUE or FALSE.")
   }
   return(res)
 }

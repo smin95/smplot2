@@ -1,4 +1,3 @@
-
 #' Common title for combined subplots
 #'
 #' @param title
@@ -21,13 +20,14 @@
 #'
 #' @examples
 #' library(smplot2)
-#' sm_common_title('My title')
+#' sm_common_title("My title")
 #'
-sm_common_title <- function(title = '', size=17, x = 0.5, y = 0.5, fontface='bold') {
-
+sm_common_title <- function(title = "", size = 17, x = 0.5, y = 0.5, fontface = "bold") {
   layer <- ggdraw()
-  title <- draw_label(title, size = size, x = x, y = y,
-                      fontface = fontface)
+  title <- draw_label(title,
+    size = size, x = x, y = y,
+    fontface = fontface
+  )
 
-  return(list(layer+title)[[1]])
+  return(list(layer + title)[[1]])
 }

@@ -23,23 +23,26 @@
 #' library(smplot2)
 #'
 #' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
-#' geom_point(shape = 21, fill = '#0f993d', color = 'white',
-#'           size = 3) -> p1
+#'   geom_point(
+#'     shape = 21, fill = "#0f993d", color = "white",
+#'     size = 3
+#'   ) -> p1
 #'
 #' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
-#'  geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
-#'  sm_hvgrid() -> p2
+#'   geom_point(shape = 21, fill = "#0f993d", color = "white", size = 3) +
+#'   sm_hvgrid() -> p2
 #'
-#' combined_fig <- sm_put_together(list(p1,p2), ncol=2,nrow=1)
-#' combined_fig + sm_add_point(color='red', size = 10, x = .5, y= .5)
-sm_add_point <- function(x, y, size=10, shape=16, color = 'black', ...) {
-
+#' combined_fig <- sm_put_together(list(p1, p2), ncol = 2, nrow = 1)
+#' combined_fig + sm_add_point(color = "red", size = 10, x = .5, y = .5)
+sm_add_point <- function(x, y, size = 10, shape = 16, color = "black", ...) {
   ggplot(NULL) +
     theme_nothing() +
-    annotate('point', shape = shape, x=.5, y=.5, color=color,
-             size = size/.pt, ...) +
-    scale_x_continuous(limits=c(0,1), expand=c(0,0)) +
-    scale_y_continuous(limits=c(0,1), expand=c(0,0))-> annot
+    annotate("point",
+      shape = shape, x = .5, y = .5, color = color,
+      size = size / .pt, ...
+    ) +
+    scale_x_continuous(limits = c(0, 1), expand = c(0, 0)) +
+    scale_y_continuous(limits = c(0, 1), expand = c(0, 0)) -> annot
 
   x <- x - 0.5
   y <- y - 0.5

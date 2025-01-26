@@ -17,21 +17,19 @@
 #' A vector that is the value from the trapezoidal integration is returned.
 #' @examples
 #' library(smplot2)
-#' X = c(1,2,3,4,5)
-#' Y1 = c(2,3,4,2,3)
-#' Y2 = c(3,3,3,3,3)
+#' X <- c(1, 2, 3, 4, 5)
+#' Y1 <- c(2, 3, 4, 2, 3)
+#' Y2 <- c(3, 3, 3, 3, 3)
 #'
-#' sm_auc(X,Y2)
-#' sm_auc(X,Y1)
-
-sm_auc <- function(x,y) {
+#' sm_auc(X, Y2)
+#' sm_auc(X, Y1)
+sm_auc <- function(x, y) {
   if (is.null(x)) {
     n <- length(y)
-    res <- 0.5*(y[1]+y[n]+2*sum(y[-c(1,n)]))
-
+    res <- 0.5 * (y[1] + y[n] + 2 * sum(y[-c(1, n)]))
   } else {
     id <- order(x)
-    res <- sum(diff(x[id])* rollmean(y[id],2))
+    res <- sum(diff(x[id]) * rollmean(y[id], 2))
   }
   return(res)
 }

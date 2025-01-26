@@ -29,37 +29,47 @@
 #' @examples
 #' library(ggplot2)
 #' library(smplot2)
-#' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg,
-#' fill = as.factor(cyl))) +
-#'  geom_point(shape = 21, color = 'white', size = 3) +
-#'  sm_common_legend(x = .5, y = 0.5 , direction='horizontal',
-#'                   border=FALSE)
+#' ggplot(data = mtcars, mapping = aes(
+#'   x = drat, y = mpg,
+#'   fill = as.factor(cyl)
+#' )) +
+#'   geom_point(shape = 21, color = "white", size = 3) +
+#'   sm_common_legend(
+#'     x = .5, y = 0.5, direction = "horizontal",
+#'     border = FALSE
+#'   )
 #'
-
-sm_common_legend <- function(x = 0.5, y = 0.5, title=FALSE, direction='vertical',
-                             border=TRUE, legend_spacing = 0.5, border_color='black',
+sm_common_legend <- function(x = 0.5, y = 0.5, title = FALSE, direction = "vertical",
+                             border = TRUE, legend_spacing = 0.5, border_color = "black",
                              textRatio = 1) {
-
-  blank <- do.call('annotate', list(geom = 'rect', ymin=-Inf,ymax=Inf,xmin=-Inf,xmax=Inf,
-                                                       fill = 'white'))
+  blank <- do.call("annotate", list(
+    geom = "rect", ymin = -Inf, ymax = Inf, xmin = -Inf, xmax = Inf,
+    fill = "white"
+  ))
   blank2 <- theme_nothing()
-  box <- do.call('theme', list(legend.spacing.y = unit(legend_spacing, "mm"),
-                                                  legend.spacing.x = unit(legend_spacing, 'mm'),
-                                                  aspect.ratio = 1,
-                                                  legend.background = element_blank(),
-                                                  legend.box.background = element_rect(colour = border_color)))
+  box <- do.call("theme", list(
+    legend.spacing.y = unit(legend_spacing, "mm"),
+    legend.spacing.x = unit(legend_spacing, "mm"),
+    aspect.ratio = 1,
+    legend.background = element_blank(),
+    legend.box.background = element_rect(colour = border_color)
+  ))
 
-  if (title==TRUE) {
-    location <- do.call('theme',  list(legend.position = c(x,y), legend.direction = direction,
-                                       legend.text = element_text(size = rel(textRatio)),
-                                       legend.title = element_text(size = rel(textRatio))))
+  if (title == TRUE) {
+    location <- do.call("theme", list(
+      legend.position = c(x, y), legend.direction = direction,
+      legend.text = element_text(size = rel(textRatio)),
+      legend.title = element_text(size = rel(textRatio))
+    ))
   } else {
-    location <- do.call('theme', list(legend.position = c(x,y),legend.direction = direction,
-                                      legend.text = element_text(size = rel(textRatio)),
-                                                         title = element_blank()))
+    location <- do.call("theme", list(
+      legend.position = c(x, y), legend.direction = direction,
+      legend.text = element_text(size = rel(textRatio)),
+      title = element_blank()
+    ))
   }
 
-  if (border==FALSE) {
+  if (border == FALSE) {
     box <- NULL
   }
 

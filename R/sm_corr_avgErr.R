@@ -37,65 +37,88 @@
 #' library(smplot2)
 #' library(ggplot2)
 #' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
-#' geom_point(shape = 21, size = 3) +
-#'  sm_corr_avgErr(mtcars, drat,mpg, errorbar_type = 'se',
-#'                 color = sm_color('red'))
-
+#'   geom_point(shape = 21, size = 3) +
+#'   sm_corr_avgErr(mtcars, drat, mpg,
+#'     errorbar_type = "se",
+#'     color = sm_color("red")
+#'   )
 sm_corr_avgErr <- function(data, x, y,
                            point.params = list(size = 2.5),
                            errh.params = list(height = 0),
                            errv.params = list(width = 0),
-                           errorbar_type = 'se',
+                           errorbar_type = "se",
                            ...) {
-
   params <- list(...)
   point.params <- modifyList(params, point.params)
   errh.params <- modifyList(params, errh.params)
   errv.params <- modifyList(params, errv.params)
 
 
-  if (errorbar_type == 'se') {
-    data <- dplyr::summarise(.data = data, x_err = sm_stdErr({{x}}),
-                       y_err = sm_stdErr({{y}}),
-                       x_avg = mean({{x}}),
-                       y_avg = mean({{y}})
-      )
-  } else if (errorbar_type == 'sd') {
-
-    data <- dplyr::summarise(.data = data, x_err = sd({{x}}),
-                       y_err = sd({{y}}),
-                       x_avg = mean({{x}}),
-                       y_avg = mean({{y}}))
-
-  } else if (errorbar_type == 'ci') {
-    data <- dplyr::summarise(.data = data, x_err = qt(p=0.05/2, df=length({{x}})-1, lower.tail=F) *
-                         sm_stdErr({{x}}),
-                       y_err = qt(p=0.05/2, df=length({{x}})-1, lower.tail=F) *
-                         sm_stdErr({{y}}),
-                       x_avg = mean({{x}}),
-                       y_avg = mean({{y}}))
+  if (errorbar_type == "se") {
+    data <- dplyr::summarise(
+      .data = data, x_err = sm_stdErr({{ x }}),
+      y_err = sm_stdErr({{ y }}),
+      x_avg = mean({{ x }}),
+      y_avg = mean({{ y }})
+    )
+  } else if (errorbar_type == "sd") {
+    data <- dplyr::summarise(
+      .data = data, x_err = sd({{ x }}),
+      y_err = sd({{ y }}),
+      x_avg = mean({{ x }}),
+      y_avg = mean({{ y }})
+    )
+  } else if (errorbar_type == "ci") {
+    data <- dplyr::summarise(
+      .data = data, x_err = qt(p = 0.05 / 2, df = length({{ x }}) - 1, lower.tail = F) *
+        sm_stdErr({{ x }}),
+      y_err = qt(p = 0.05 / 2, df = length({{ x }}) - 1, lower.tail = F) *
+        sm_stdErr({{ y }}),
+      x_avg = mean({{ x }}),
+      y_avg = mean({{ y }})
+    )
   }
 
 
-  pointPlot <- do.call('geom_point',
-                       modifyList(list(data = data,
-                                       aes(y = y_avg, x = x_avg)), point.params))
+  pointPlot <- do.call(
+    "geom_point",
+    modifyList(list(
+      data = data,
+      aes(y = y_avg, x = x_avg)
+    ), point.params)
+  )
 
-  errhPlot <- do.call('geom_errorbarh',
-                      modifyList(list(data = data,
-                                      aes(y = y_avg,
-                                          xmin = x_avg - x_err,
-                                          xmax = x_avg + x_err), inherit.aes = F),
-                                 errh.params))
+  errhPlot <- do.call(
+    "geom_errorbarh",
+    modifyList(
+      list(
+        data = data,
+        aes(
+          y = y_avg,
+          xmin = x_avg - x_err,
+          xmax = x_avg + x_err
+        ), inherit.aes = F
+      ),
+      errh.params
+    )
+  )
 
-  errvPlot <- do.call('geom_errorbar',
-                      modifyList(list(data = data,
-                                      aes(x = x_avg,
-                                          ymin = y_avg - y_err,
-                                          ymax = y_avg + y_err), inherit.aes = F),
-                                 errv.params))
+  errvPlot <- do.call(
+    "geom_errorbar",
+    modifyList(
+      list(
+        data = data,
+        aes(
+          x = x_avg,
+          ymin = y_avg - y_err,
+          ymax = y_avg + y_err
+        ), inherit.aes = F
+      ),
+      errv.params
+    )
+  )
 
-  list(errhPlot,errvPlot, pointPlot)
+  list(errhPlot, errvPlot, pointPlot)
 }
 
-globalVariables(c('x_err', 'y_err', 'x_avg','y_avg'))
+globalVariables(c("x_err", "y_err", "x_avg", "y_avg"))

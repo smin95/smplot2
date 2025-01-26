@@ -23,17 +23,17 @@
 #' library(smplot2)
 #' set.seed(1)
 #'
-#' a <- rnorm(100,1,1)
+#' a <- rnorm(100, 1, 1)
 #' sm_ci(a)
-#' sm_ci(a, low=FALSE)
+#' sm_ci(a, low = FALSE)
 #'
-sm_ci <- function(data, alpha=0.05, low=TRUE) {
+sm_ci <- function(data, alpha = 0.05, low = TRUE) {
   if (low == TRUE) {
-    res <- mean(data) - qt(p=alpha/2, df=length(data)-1, lower.tail=FALSE) * sm_stdErr(data)
+    res <- mean(data) - qt(p = alpha / 2, df = length(data) - 1, lower.tail = FALSE) * sm_stdErr(data)
   } else if (low == FALSE) { # upper tail of 95% CI
-    res <- mean(data) + qt(p=alpha/2, df=length(data)-1, lower.tail=FALSE) * sm_stdErr(data)
+    res <- mean(data) + qt(p = alpha / 2, df = length(data) - 1, lower.tail = FALSE) * sm_stdErr(data)
   } else {
-    stop('low must be TRUE or FALSE (logical value)')
+    stop("low must be TRUE or FALSE (logical value)")
   }
 
   return(res)

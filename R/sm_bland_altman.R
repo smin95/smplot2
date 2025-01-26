@@ -39,15 +39,14 @@
 #'
 #' first <- rnorm(20)
 #' second <- rnorm(20)
-#' df <- as_tibble(cbind(first,second))
+#' df <- as_tibble(cbind(first, second))
 #' sm_bland_altman(df$first, df$second)
 #' # when all 3 dashed lines are not shown, extend the range of the y-axis.
 #'
 sm_bland_altman <- function(first, second,
-                             point_size = 3.3,
-                             diff_ci = TRUE,
-                             ...) {
-
+                            point_size = 3.3,
+                            diff_ci = TRUE,
+                            ...) {
   statBlandAlt <- sm_statBlandAlt(first, second)
 
   if (diff_ci == FALSE) {
@@ -55,25 +54,26 @@ sm_bland_altman <- function(first, second,
 
       # add geom() objects
 
-      geom_abline(intercept = statBlandAlt$upper_limit, slope = 0,linetype = "dashed", size = .4) +
-      geom_abline(intercept = statBlandAlt$mean_diff, slope = 0,linetype = "dashed", size = .4) +
-      geom_abline(intercept = statBlandAlt$lower_limit, slope = 0,linetype = "dashed", size = .4) +
+      geom_abline(intercept = statBlandAlt$upper_limit, slope = 0, linetype = "dashed", size = .4) +
+      geom_abline(intercept = statBlandAlt$mean_diff, slope = 0, linetype = "dashed", size = .4) +
+      geom_abline(intercept = statBlandAlt$lower_limit, slope = 0, linetype = "dashed", size = .4) +
       geom_point(size = point_size, ...) +
-      ylab('Difference between data') +
-      xlab('Mean across data') +
+      ylab("Difference between data") +
+      xlab("Mean across data") +
       sm_classic(legends = FALSE)
   } else if (diff_ci == TRUE) {
     fig <- ggplot(data = statBlandAlt$data, aes(x = statBlandAlt$mean, y = statBlandAlt$diff)) +
-      annotate("rect", xmin = -Inf, xmax = Inf, ymin= statBlandAlt$diff_ci[[1]],
-                  ymax = statBlandAlt$diff_ci[[2]], fill = "grey", alpha = .25) +
-      geom_abline(intercept = statBlandAlt$upper_limit, slope = 0,linetype = "dashed", size = .4) +
-      geom_abline(intercept = statBlandAlt$mean_diff, slope = 0,linetype = "dashed", size = .4) +
-      geom_abline(intercept = statBlandAlt$lower_limit, slope = 0,linetype = "dashed", size = .4) +
+      annotate("rect",
+        xmin = -Inf, xmax = Inf, ymin = statBlandAlt$diff_ci[[1]],
+        ymax = statBlandAlt$diff_ci[[2]], fill = "grey", alpha = .25
+      ) +
+      geom_abline(intercept = statBlandAlt$upper_limit, slope = 0, linetype = "dashed", size = .4) +
+      geom_abline(intercept = statBlandAlt$mean_diff, slope = 0, linetype = "dashed", size = .4) +
+      geom_abline(intercept = statBlandAlt$lower_limit, slope = 0, linetype = "dashed", size = .4) +
       geom_point(size = point_size, ...) +
-      ylab('Difference between data') +
-      xlab('Mean across data') +
+      ylab("Difference between data") +
+      xlab("Mean across data") +
       sm_classic(legends = FALSE)
-
   }
   return(fig)
 }

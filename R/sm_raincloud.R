@@ -116,27 +116,28 @@
 #' library(smplot2)
 #'
 #' set.seed(2) # generate random data
-#' day1 = rnorm(20,0,1)
-#' day2 = rnorm(20,5,1)
-#' day3 = rnorm(20,6,1.5)
-#' day4 = rnorm(20,7,2)
-#' Subject <- rep(paste0('S',seq(1:20)), 4)
-#' Data <- data.frame(Value = matrix(c(day1,day2,day3,day4),ncol=1))
-#' Day <- rep(c('Day 1', 'Day 2', 'Day 3', 'Day 4'), each = length(day1))
+#' day1 <- rnorm(20, 0, 1)
+#' day2 <- rnorm(20, 5, 1)
+#' day3 <- rnorm(20, 6, 1.5)
+#' day4 <- rnorm(20, 7, 2)
+#' Subject <- rep(paste0("S", seq(1:20)), 4)
+#' Data <- data.frame(Value = matrix(c(day1, day2, day3, day4), ncol = 1))
+#' Day <- rep(c("Day 1", "Day 2", "Day 3", "Day 4"), each = length(day1))
 #' df2 <- cbind(Subject, Data, Day)
 #'
-#' ggplot(data=df2, aes(x = Day, y = Value, color = Day, fill = Day)) +
-#' sm_raincloud() +
-#'  xlab('Day')  +
-#'  scale_fill_manual(values = sm_palette(4))
-#'
+#' ggplot(data = df2, aes(x = Day, y = Value, color = Day, fill = Day)) +
+#'   sm_raincloud() +
+#'   xlab("Day") +
+#'   scale_fill_manual(values = sm_palette(4))
 #'
 sm_raincloud <- function(...,
                          boxplot.params = list(),
-                         violin.params = list(alpha = 0.3, color = 'transparent'),
-                         point.params = list(alpha = 1, size = 3, shape = 21,
-                                             color = 'transparent'),
-                         which_side = 'r',
+                         violin.params = list(alpha = 0.3, color = "transparent"),
+                         point.params = list(
+                           alpha = 1, size = 3, shape = 21,
+                           color = "transparent"
+                         ),
+                         which_side = "r",
                          sep_level = 2,
                          point_jitter_width = 0.12,
                          vertical = TRUE,
@@ -145,12 +146,11 @@ sm_raincloud <- function(...,
                          legends = FALSE,
                          seed = NULL,
                          forget = FALSE) {
-
   if (length(seed)) set.seed(seed)
-  if (which_side == 'right') {
-    which_side <- 'r'
-  } else if (which_side == 'left') {
-    which_side <- 'l'
+  if (which_side == "right") {
+    which_side <- "r"
+  } else if (which_side == "left") {
+    which_side <- "l"
   }
 
   params <- list(...)
@@ -158,73 +158,89 @@ sm_raincloud <- function(...,
 
 
   if (forget == FALSE) {
-    boxplot.params0 = list()
+    boxplot.params0 <- list()
     boxplot.params0 <- modifyList(boxplot.params0, params)
 
-    violin.params0 = list(alpha = 0.3, color = 'transparent')
+    violin.params0 <- list(alpha = 0.3, color = "transparent")
     violin.params0 <- modifyList(violin.params0, params)
 
-    point.params0 = list(alpha = 1, size = 3, shape = 21, color = 'transparent')
+    point.params0 <- list(alpha = 1, size = 3, shape = 21, color = "transparent")
     point.params0 <- modifyList(point.params0, params)
 
     point.params <- modifyList(point.params0, point.params)
     boxplot.params <- modifyList(boxplot.params0, boxplot.params)
     violin.params <- modifyList(violin.params0, violin.params)
-
   } else if (forget == TRUE) {
     point.params <- modifyList(params, point.params)
     boxplot.params <- modifyList(params, boxplot.params)
     violin.params <- modifyList(params, violin.params)
-
   }
 
 
 
-  if (which_side == 'r') {
+  if (which_side == "r") {
     if (sep_level == 4) {
-      position_nudge_vector <- c(-0.2, 0,0.2)
+      position_nudge_vector <- c(-0.2, 0, 0.2)
     } else if (sep_level == 3) {
-      position_nudge_vector <- c(-0.15, 0,0.15)
+      position_nudge_vector <- c(-0.15, 0, 0.15)
     } else if (sep_level == 2) {
-      position_nudge_vector <- c(-0.15,0,0)
+      position_nudge_vector <- c(-0.15, 0, 0)
     } else if (sep_level == 1) {
-      position_nudge_vector <- c(-0.08,0,0)
+      position_nudge_vector <- c(-0.08, 0, 0)
     } else if (sep_level == 0) {
-      position_nudge_vector <- c(0,0,0)
+      position_nudge_vector <- c(0, 0, 0)
     }
-  } else if (which_side == 'l') {
+  } else if (which_side == "l") {
     if (sep_level == 4) {
-      position_nudge_vector <- c(0.2, 0,-0.2)
+      position_nudge_vector <- c(0.2, 0, -0.2)
     } else if (sep_level == 3) {
-      position_nudge_vector <- c(0.15, 0,-0.15)
+      position_nudge_vector <- c(0.15, 0, -0.15)
     } else if (sep_level == 2) {
-      position_nudge_vector <- c(0.15,0,0)
+      position_nudge_vector <- c(0.15, 0, 0)
     } else if (sep_level == 1) {
-      position_nudge_vector <- c(0.08,0,0)
+      position_nudge_vector <- c(0.08, 0, 0)
     } else if (sep_level == 0) {
-      position_nudge_vector <- c(0,0,0)
+      position_nudge_vector <- c(0, 0, 0)
     }
   }
 
-  pointPlot <- do.call('geom_point',
-                       modifyList(list(position = position_jitternudge(jitter.width=point_jitter_width,
-                                                                              jitter.height=0,
-                                                                              nudge.x = position_nudge_vector[1])),
-                                  point.params))
+  pointPlot <- do.call(
+    "geom_point",
+    modifyList(
+      list(position = position_jitternudge(
+        jitter.width = point_jitter_width,
+        jitter.height = 0,
+        nudge.x = position_nudge_vector[1]
+      )),
+      point.params
+    )
+  )
 
 
 
-  boxPlot <- do.call('geom_half_boxplot',
-                     modifyList(list(position = position_nudge(x = position_nudge_vector[2]),
-                                     side = which_side,
-                                     errorbar.draw = FALSE, width = 0.2,
-                                     color = 'black'),
-                                boxplot.params))
+  boxPlot <- do.call(
+    "geom_half_boxplot",
+    modifyList(
+      list(
+        position = position_nudge(x = position_nudge_vector[2]),
+        side = which_side,
+        errorbar.draw = FALSE, width = 0.2,
+        color = "black"
+      ),
+      boxplot.params
+    )
+  )
 
-  violinPlot <- do.call('geom_half_violin',
-                        modifyList(list(position = position_nudge(x = position_nudge_vector[3]),
-                                        side = which_side),
-                                   violin.params))
+  violinPlot <- do.call(
+    "geom_half_violin",
+    modifyList(
+      list(
+        position = position_nudge(x = position_nudge_vector[3]),
+        side = which_side
+      ),
+      violin.params
+    )
+  )
 
 
   if (points == FALSE) {
@@ -234,17 +250,18 @@ sm_raincloud <- function(...,
 
 
   if (vertical == FALSE) {
-    fig <-  list(violinPlot,boxPlot,pointPlot,
-                 sm_hgrid(borders=borders, legends=legends), coord_flip())
+    fig <- list(
+      violinPlot, boxPlot, pointPlot,
+      sm_hgrid(borders = borders, legends = legends), coord_flip()
+    )
   } else if (vertical == TRUE) {
-    fig <- list(violinPlot,boxPlot,pointPlot,
-                sm_hgrid(borders=borders, legends=legends))
-
+    fig <- list(
+      violinPlot, boxPlot, pointPlot,
+      sm_hgrid(borders = borders, legends = legends)
+    )
   } else {
-    stop('vertical argument must be TRUE or FALSE.')
+    stop("vertical argument must be TRUE or FALSE.")
   }
 
   return(fig)
-
-
 }

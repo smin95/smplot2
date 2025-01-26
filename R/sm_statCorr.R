@@ -69,18 +69,18 @@
 #' library(smplot2)
 #' library(ggplot2)
 #' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
-#' geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
-#'  sm_statCorr() # computes R
+#'   geom_point(shape = 21, fill = "#0f993d", color = "white", size = 3) +
+#'   sm_statCorr() # computes R
 #'
-#'  ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
-#' geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
-#'  sm_statCorr(R2 = TRUE) # computes R2
+#' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
+#'   geom_point(shape = 21, fill = "#0f993d", color = "white", size = 3) +
+#'   sm_statCorr(R2 = TRUE) # computes R2
 #'
 sm_statCorr <- function(...,
                         fit.params = list(),
-                        corr_method = 'pearson',
-                        alternative = 'two.sided',
-                        separate_by = ',',
+                        corr_method = "pearson",
+                        alternative = "two.sided",
+                        separate_by = ",",
                         label_x = NULL,
                         label_y = NULL,
                         text_size = 4,
@@ -88,7 +88,6 @@ sm_statCorr <- function(...,
                         borders = TRUE,
                         legends = FALSE,
                         r2 = FALSE, R2) {
-
   if (!missing(R2)) {
     r2 <- R2
   }
@@ -96,33 +95,46 @@ sm_statCorr <- function(...,
   params <- list(...)
   fit.params <- modifyList(params, fit.params)
 
-  fitPlot <- do.call('geom_smooth',
-                     modifyList(list(method = 'lm', se = FALSE,
-                                     alpha = 0.2, weight = 0.8), fit.params))
+  fitPlot <- do.call(
+    "geom_smooth",
+    modifyList(list(
+      method = "lm", se = FALSE,
+      alpha = 0.2, weight = 0.8
+    ), fit.params)
+  )
 
   if (r2 == FALSE) { # R
-    textPlot <- ggpubr::stat_cor(p.accuracy = 0.001, method = corr_method,
-                                 alternative = alternative,
-                                 label.sep = separate_by,
-                                 label.x = label_x,
-                                 label.y = label_y,
-                                 size = text_size)
-  } else { #R2
+    textPlot <- ggpubr::stat_cor(
+      p.accuracy = 0.001, method = corr_method,
+      alternative = alternative,
+      label.sep = separate_by,
+      label.x = label_x,
+      label.y = label_y,
+      size = text_size
+    )
+  } else { # R2
     if (separate_by == "\n") {
-      textPlot <- ggpubr::stat_cor(aes(label = paste(paste0('atop(',after_stat(rr.label),',', after_stat(p.label),')'),
-                                                     sep = "~~")),
-                                   p.accuracy = 0.001, method = corr_method,
-                                   alternative = alternative,
-                                   label.x = label_x,
-                                   label.y = label_y,
-                                   size = text_size)
-    } else { textPlot <- ggpubr::stat_cor(aes(label = paste(after_stat(rr.label), after_stat(p.label),
-                                                            sep = paste0("~`",separate_by,"`~"))),
-                                          p.accuracy = 0.001, method = corr_method,
-                                          alternative = alternative,
-                                          label.x = label_x,
-                                          label.y = label_y,
-                                          size = text_size)
+      textPlot <- ggpubr::stat_cor(
+        aes(label = paste(paste0("atop(", after_stat(rr.label), ",", after_stat(p.label), ")"),
+          sep = "~~"
+        )),
+        p.accuracy = 0.001, method = corr_method,
+        alternative = alternative,
+        label.x = label_x,
+        label.y = label_y,
+        size = text_size
+      )
+    } else {
+      textPlot <- ggpubr::stat_cor(
+        aes(label = paste(after_stat(rr.label), after_stat(p.label),
+          sep = paste0("~`", separate_by, "`~")
+        )),
+        p.accuracy = 0.001, method = corr_method,
+        alternative = alternative,
+        label.x = label_x,
+        label.y = label_y,
+        size = text_size
+      )
     }
   }
 
@@ -131,9 +143,11 @@ sm_statCorr <- function(...,
     textPlot <- NULL
   }
 
-  list(fitPlot,
-       textPlot,
-       sm_hvgrid(borders = borders, legends = legends))
+  list(
+    fitPlot,
+    textPlot,
+    sm_hvgrid(borders = borders, legends = legends)
+  )
 }
 
-globalVariables(c('rr.label', 'p.label'))
+globalVariables(c("rr.label", "p.label"))

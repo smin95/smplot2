@@ -37,37 +37,40 @@
 #' library(smplot2)
 #'
 #' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
-#' geom_point(shape = 21, fill = '#0f993d', color = 'white',
-#'           size = 3) -> p1
+#'   geom_point(
+#'     shape = 21, fill = "#0f993d", color = "white",
+#'     size = 3
+#'   ) -> p1
 #'
 #' ggplot(data = mtcars, mapping = aes(x = drat, y = mpg)) +
-#'  geom_point(shape = 21, fill = '#0f993d', color = 'white', size = 3) +
-#'  sm_hvgrid() -> p2
+#'   geom_point(shape = 21, fill = "#0f993d", color = "white", size = 3) +
+#'   sm_hvgrid() -> p2
 #'
-#' sm_panel_label(list(p1,p2), x = 0.1, y = 0.9,
-#'               panel_tag ='1', panel_pretag = 'S', text_size = 4, text_color = 'black')
+#' sm_panel_label(list(p1, p2),
+#'   x = 0.1, y = 0.9,
+#'   panel_tag = "1", panel_pretag = "S", text_size = 4, text_color = "black"
+#' )
 #'
-sm_panel_label <- function(all_plots, x, y, panel_tag='1', panel_pretag, panel_posttag,
-                           text_size = 5.5, text_color = 'black', fontface = 'plain', ...) {
-
-  if (panel_tag == 'A') {
-    labelStr = LETTERS
-  } else if (panel_tag == 'a') {
-    labelStr = letters
-  } else if (panel_tag == '1') {
-    labelStr = as.character(1:length(all_plots))
-  } else if (panel_tag == 'I') {
-    labelStr = as.character(as.roman(1:length(all_plots)))
-  } else if (panel_tag == 'i') {
-    labelStr = tolower(as.character(as.roman(1:length(all_plots))))
+sm_panel_label <- function(all_plots, x, y, panel_tag = "1", panel_pretag, panel_posttag,
+                           text_size = 5.5, text_color = "black", fontface = "plain", ...) {
+  if (panel_tag == "A") {
+    labelStr <- LETTERS
+  } else if (panel_tag == "a") {
+    labelStr <- letters
+  } else if (panel_tag == "1") {
+    labelStr <- as.character(1:length(all_plots))
+  } else if (panel_tag == "I") {
+    labelStr <- as.character(as.roman(1:length(all_plots)))
+  } else if (panel_tag == "i") {
+    labelStr <- tolower(as.character(as.roman(1:length(all_plots))))
   } else {
-    labelStr = as.character(1:length(all_plots))
+    labelStr <- as.character(1:length(all_plots))
   }
 
   if (missing(panel_pretag)) {
     labelStr <- labelStr
   } else {
-    labelStr <- paste0(panel_pretag,labelStr)
+    labelStr <- paste0(panel_pretag, labelStr)
   }
 
   if (missing(panel_posttag)) {
@@ -80,12 +83,14 @@ sm_panel_label <- function(all_plots, x, y, panel_tag='1', panel_pretag, panel_p
     currXlim <- ggplot_build(all_plots[[iPlot]])$layout$panel_params[[1]]$x.range
     currYlim <- ggplot_build(all_plots[[iPlot]])$layout$panel_params[[1]]$y.range
 
-    x_coord <- (max(currXlim)-min(currXlim))*x + min(currXlim)
-    y_coord <- (max(currYlim)-min(currYlim))*y + min(currYlim)
+    x_coord <- (max(currXlim) - min(currXlim)) * x + min(currXlim)
+    y_coord <- (max(currYlim) - min(currYlim)) * y + min(currYlim)
 
-    all_plots[[iPlot]] + annotate('text',label= labelStr[[iPlot]],
-                                  x=x_coord, y=y_coord, size=text_size,
-                                  color=text_color, fontface=fontface, ...)
+    all_plots[[iPlot]] + annotate("text",
+      label = labelStr[[iPlot]],
+      x = x_coord, y = y_coord, size = text_size,
+      color = text_color, fontface = fontface, ...
+    )
   })
   return(output)
 }
