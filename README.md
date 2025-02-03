@@ -1,6 +1,6 @@
 <p align="center">
   <img src="man/figures/logo.png" height="150px" width="135px" align="right">
-  <h1><strong>smplot2</strong> - An R package for plotting standalone and composite figures</h1>
+  <h1 style="margin-bottom: 20px;"><strong>smplot2</strong> - An R package for plotting standalone and composite figures</h1>
 </p>
 
 [![](http://cranlogs.r-pkg.org/badges/grand-total/smplot2?color=green)](https://cran.r-project.org/package=smplot2)
